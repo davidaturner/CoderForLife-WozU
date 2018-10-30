@@ -1,4 +1,4 @@
-package com.davidaturner.github.FSWO102JV.Lesson1;
+package com.davidaturner.github.FSWO102JV.Lesson2;
 
 public class HandsOn2 {
 
