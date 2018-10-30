@@ -78,7 +78,7 @@ public class HandsOn2 {
 		{
 			System.out.println("You pay 7 dollars.");
 		}
-		else if ( (age >= 0 && age <= 12) || isStudent)
+		else if ( age >= 0 && (age <= 12 || isStudent))
 		{
 			System.out.println("You pay 8 dollars.");
 		}
