@@ -1,13 +1,14 @@
 package com.davidaturner.github.FSWO102JV;
 
 import com.davidaturner.github.FSWO102JV.Lesson1.HandsOn1;
+import com.davidaturner.github.FSWO102JV.Lesson1.HandsOn2;
 
 public class Program {
 
 	
 	public static void main(String[] args) {
 		
-		HandsOn1 lesson = new HandsOn1 ();
+		HandsOn2 lesson = new HandsOn2 ();
 
 		System.out.println("Running HandsOn Exercises");
 		System.out.println();
