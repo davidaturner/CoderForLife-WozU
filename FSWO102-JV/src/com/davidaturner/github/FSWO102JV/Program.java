@@ -4,6 +4,7 @@ import com.davidaturner.github.FSWO102JV.Lesson1.HandsOn1;
 import com.davidaturner.github.FSWO102JV.Lesson2.HandsOn2;
 import com.davidaturner.github.FSWO102JV.Lesson3.HandsOn3;
 import com.davidaturner.github.FSWO102JV.Lesson4.HandsOn4;
+import com.davidaturner.github.FSWO102JV.Lesson5.HandsOn5;
 
 public class Program {
 
@@ -13,7 +14,7 @@ public class Program {
 		System.out.println("Running HandsOn Exercises");
 		System.out.println();
 		
-		HandsOn4 lesson = new HandsOn4 ();
+		HandsOn5 lesson = new HandsOn5 ();
 		
 		lesson.Step1();	
 		lesson.Step2();
