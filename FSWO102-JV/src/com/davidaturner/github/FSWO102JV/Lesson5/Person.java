@@ -6,6 +6,21 @@ public class Person {
 		private String lastName;
 		private int age;
 		
+		// Chaining constructors.
+		public Person()
+		{
+			this("");			
+		}		
+		public Person(String firstName)
+		{
+			this(firstName, "");			
+		}		
+		public Person(String firstName, String lastName)
+		{
+			this(firstName, lastName, 0);
+		}
+		
+		/* Old way! Bad way!
 		public Person()
 		{
 			initialize();
@@ -29,12 +44,14 @@ public class Person {
 			this.firstName = firstName;
 			this.lastName = lastName;
 		}
+		*/
 		public Person(String firstName, String lastName, int age)
 		{
 			this.firstName = firstName;
 			this.lastName = lastName;
 			this.age = checkedAge(age);
 		}
+
 		private int checkedAge(int age)
 		{
 			if (age < 0)
