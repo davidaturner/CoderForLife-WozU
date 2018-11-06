@@ -4,8 +4,12 @@ public class WebDesigner extends Designer {
 
 	public WebDesigner ()
 	{
-		super();
-		JOBTITLE="Web Designer";
+		this("", "", "", -1, -1, "");
+	}
+	public WebDesigner (String firstName, String lastName, String companyTitle, 
+			int yearsAtCompany, int SSN)
+	{
+		this(firstName, lastName, companyTitle, -1, -1, "");
 	}
 	public WebDesigner (String firstName, String lastName, String companyTitle, 
 			int yearsAtCompany, int SSN, String jobTitle)
@@ -17,8 +21,9 @@ public class WebDesigner extends Designer {
 	@Override
 	public String toString()
 	{
-		return "The " + jobTitle + " " + firstName + " " + lastName + " has worked at " +
-				companyTitle + " for " + yearsAtCompany + " year(s).";
+		return "The Designer, " + firstName + " " + lastName + ", has worked at " +
+				companyTitle + " for " + yearsAtCompany + " year(s) as a(n) " +
+				jobTitle + ".";
 	}
 
 

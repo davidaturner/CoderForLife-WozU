@@ -4,8 +4,12 @@ public class QAEngineer extends Engineer {
 
 	public QAEngineer ()
 	{
-		super();
-		JOBTITLE="QA Engineer";
+		this("", "", "", -1, -1, "");
+	}
+	public QAEngineer (String firstName, String lastName, String companyTitle, 
+			int yearsAtCompany, int SSN)
+	{
+		this(firstName, lastName, companyTitle, -1, -1, "");
 	}
 	public QAEngineer (String firstName, String lastName, String companyTitle, 
 			int yearsAtCompany, int SSN, String jobTitle)
@@ -17,8 +21,9 @@ public class QAEngineer extends Engineer {
 	@Override
 	public String toString()
 	{
-		return "The " + jobTitle + " " + firstName + " " + lastName + " has worked at " +
-				companyTitle + " for " + yearsAtCompany + " year(s).";
+		return "The Engineer, " + firstName + " " + lastName + ", has worked at " +
+				companyTitle + " for " + yearsAtCompany + " year(s) as a(n) " +
+				jobTitle + ".";
 	}
 
 

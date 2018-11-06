@@ -4,8 +4,12 @@ public class SoftwareEngineer extends Engineer {
 
 	public SoftwareEngineer ()
 	{
-		super();
-		JOBTITLE="Software Engineer";
+		this("", "", "", -1, -1, "");
+	}
+	public SoftwareEngineer (String firstName, String lastName, String companyTitle, 
+			int yearsAtCompany, int SSN)
+	{
+		this(firstName, lastName, companyTitle, -1, -1, "");
 	}
 	public SoftwareEngineer (String firstName, String lastName, String companyTitle, 
 			int yearsAtCompany, int SSN, String jobTitle)
@@ -17,8 +21,9 @@ public class SoftwareEngineer extends Engineer {
 	@Override
 	public String toString()
 	{
-		return "The " + getJobTitle() + " " + getFirstName() + " " + getLastName() + " has worked at " +
-					getCompanyTitle() + " for " + getYearsAtCompany() + " year(s).";
+		return "The Engineer, " + firstName + " " + lastName + ", has worked at " +
+				companyTitle + " for " + yearsAtCompany + " year(s) as a(n) " +
+				jobTitle + ".";
 	}
 
 

@@ -3,11 +3,10 @@ package com.davidaturner.github.FSWO102JV.Lesson7;
 public class Manager extends Employee {
 	
 	protected String jobTitle;
-		
+	
 	public Manager()
 	{
-		this("", "", "", -1, -1);
-		this.jobTitle = "";
+		this("", "", "", -1, -1, "");
 	}
 	public Manager(String firstName, String lastName, String companyTitle,
 			int yearsAtCompany, int SSN)
@@ -19,9 +18,11 @@ public class Manager extends Employee {
 	{
 		super(firstName, lastName, companyTitle, yearsAtCompany, SSN);
 		this.jobTitle = jobTitle;
+		
 		JOBTITLE = "Manager";
 	}
 	
+	// TODO Move duplicate code to parent - Employee
 	public String getJobTitle()
 	{
 		return jobTitle;
@@ -37,9 +38,9 @@ public class Manager extends Employee {
 	@Override
 	public String toString()
 	{
-		return firstName + " " + lastName + " has worked at " +
-					companyTitle + " for " + yearsAtCompany + " year(s) as a(n) " +
-					jobTitle + ".";
+		return "The Employee, " + firstName + " " + lastName + ", has worked at " +
+				companyTitle + " for " + yearsAtCompany + " year(s) as a(n) " +
+				jobTitle + ".";
 	}
 
 }

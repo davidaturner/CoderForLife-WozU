@@ -6,8 +6,7 @@ public class Designer extends Employee {
 	
 	public Designer()
 	{
-		this("", "", "", -1, -1);
-		this.jobTitle = "";
+		this("", "", "", -1, -1, "");
 	}
 	public Designer(String firstName, String lastName, String companyTitle,
 			int yearsAtCompany, int SSN)
@@ -19,9 +18,11 @@ public class Designer extends Employee {
 	{
 		super(firstName, lastName, companyTitle, yearsAtCompany, SSN);
 		this.jobTitle = jobTitle;
+		
 		JOBTITLE = "Designer";
 	}
-	
+
+	// TODO Move duplicate code to parent - Employee
 	public String getJobTitle()
 	{
 		return jobTitle;
@@ -37,9 +38,9 @@ public class Designer extends Employee {
 	@Override
 	public String toString()
 	{
-		return getFirstName() + " " + getLastName() + " has worked at " +
-					getCompanyTitle() + " for " + getYearsAtCompany() + " year(s) as a(n) " +
-					getJobTitle() + ".";
+		return "The Employee, " + firstName + " " + lastName + ", has worked at " +
+				companyTitle + " for " + yearsAtCompany + " year(s) as a(n) " +
+				jobTitle + ".";
 	}
 
 }

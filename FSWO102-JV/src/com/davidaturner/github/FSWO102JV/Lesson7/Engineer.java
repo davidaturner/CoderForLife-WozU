@@ -2,12 +2,11 @@ package com.davidaturner.github.FSWO102JV.Lesson7;
 
 public class Engineer extends Employee {
 	
-	private String jobTitle;
+	protected String jobTitle;
 	
 	public Engineer()
 	{
-		this("", "", "", -1, -1);
-		this.jobTitle = "";
+		this("", "", "", -1, -1, "");
 	}
 	public Engineer(String firstName, String lastName, String companyTitle,
 			int yearsAtCompany, int SSN)
@@ -19,9 +18,11 @@ public class Engineer extends Employee {
 	{
 		super(firstName, lastName, companyTitle, yearsAtCompany, SSN);
 		this.jobTitle = jobTitle;
+		
 		JOBTITLE = "Engineer";
 	}
 	
+	// TODO Move duplicate code to parent - Employee
 	public String getJobTitle()
 	{
 		return jobTitle;
@@ -37,9 +38,9 @@ public class Engineer extends Employee {
 	@Override
 	public String toString()
 	{
-		return getFirstName() + " " + getLastName() + " has worked at " +
-					getCompanyTitle() + " for " + getYearsAtCompany() + " year(s) as a(n) " +
-					getJobTitle() + ".";
+		return "The Employee, " + firstName + " " + lastName + ", has worked at " +
+				companyTitle + " for " + yearsAtCompany + " year(s) as a(n) " +
+				jobTitle + ".";
 	}
 
 

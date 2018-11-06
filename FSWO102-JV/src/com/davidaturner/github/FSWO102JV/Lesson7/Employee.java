@@ -2,19 +2,17 @@ package com.davidaturner.github.FSWO102JV.Lesson7;
 
 public class Employee {
 
-	private String firstName;
-	private String lastName;
-	private String companyTitle;
-	private int yearsAtCompany;
-	private int SSN;
+	protected String firstName;
+	protected String lastName;
+	protected String companyTitle;
+	protected int yearsAtCompany;
+	protected int SSN;
 	
-	public static String JOBTITLE;
+	public static String JOBTITLE = "Employee"; // Added with HashCode.
 	
 	public Employee()
 	{
-		this("", "", "", -1, -1);
-		JOBTITLE = "Employee";
-		
+		this("", "", "", -1, -1);	
 	}
 	
 	public Employee(String firstName, String lastName, String companyTitle,
@@ -24,8 +22,7 @@ public class Employee {
 		this.lastName = lastName;
 		this.companyTitle = companyTitle;
 		this.yearsAtCompany = yearsAtCompany;
-		this.SSN = SSN;		
-		
+		this.SSN = SSN;			
 	}
 	
 	public String getFirstName()
@@ -93,7 +90,7 @@ public class Employee {
 	@Override
 	public String toString()
 	{
-		return firstName + " " + lastName + " has worked at " +
+		return "The Employee, " + firstName + " " + lastName + ", has worked at " +
 					companyTitle + " for " + yearsAtCompany + " year(s).";
 	}
 	
@@ -102,4 +99,6 @@ public class Employee {
 	    
 	    return Integer.hashCode(SSN);
 	}
+	
+	
 }
