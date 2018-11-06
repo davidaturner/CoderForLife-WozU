@@ -6,7 +6,7 @@ public class Employee {
 	protected String lastName;
 	protected String companyTitle;
 	protected int yearsAtCompany;
-	protected int SSN;
+	private int SSN;
 	
 	public static String JOBTITLE = "Employee"; // Added with HashCode.
 	
