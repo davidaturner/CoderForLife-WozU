@@ -5,6 +5,8 @@ public class Animal {
 	protected String name;
 	protected int age;
 	
+	public static String TYPE = "Animal";
+	
 	public Animal ()
 	{
 		this("");
@@ -19,5 +21,10 @@ public class Animal {
 	public String getName()
 	{
 		return name;
+	}
+	
+	public String getType()
+	{
+		return TYPE;
 	}
 }
