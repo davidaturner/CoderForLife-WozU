@@ -2,6 +2,7 @@ package com.davidaturner.github.FSWO102JV.Lesson9;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class HandsOn9 {
 
@@ -62,12 +63,62 @@ public class HandsOn9 {
         // Reading data using readLine 
         String name;
         String type;
+        boolean inputOver = false;
+        
+        AnimalFactory animalFactory = new AnimalFactory();
+        Animal candidate = null;
+        ArrayList<Animal>animalList = new ArrayList<Animal> ();
+        
         try 
         {
-        	System.out.println("Enter Animal name and type: ");
-            name = reader.readLine();
-            type = reader.readLine();
-            System.out.println("Creating a " + type + " named " + name);
+        	while (!inputOver )
+        	{
+            	System.out.println("Enter Animal type: ");
+                type = reader.readLine();
+                
+                if (type.toLowerCase().equals("exit"))
+                {
+//                	System.out.println("Exiting input mode...");
+                	System.out.println();
+                	inputOver = true;
+                }
+                else
+                {
+                    System.out.println("Adding a " + type + " to the Zoo.");   
+                    candidate = animalFactory.createAnimal(type);
+                    if (candidate != null)
+                    {
+                    	animalList.add(candidate);
+                    }                 
+                }
+        	}
+        	
+        	if (animalList != null && !animalList.isEmpty())
+        	{
+        		int dogcount=0;
+        		int catcount=0;
+        		int cowcount=0;
+            	for(Animal animal : animalList)
+            	{
+            		if (animal.getType().toLowerCase().equals("dog"))
+            		{
+            			dogcount++;
+            		}
+            		else if (animal.getType().toLowerCase().equals("cat"))
+            		{
+            			catcount++;
+            		}
+            		else if (animal.getType().toLowerCase().equals("cow"))
+            		{
+            			cowcount++;
+            		}
+            	} 
+            	
+            	System.out.println("Zoo contains " + ((dogcount>0)?dogcount:"no")
+            			+ " dog(s), " + ((catcount>0)?catcount:"no")
+            			+ " cat(s), and " + ((cowcount>0)?cowcount:"no") 
+            			+ " cow(s).");
+        	}
         } 
         catch (Exception e)
         {
@@ -79,9 +130,36 @@ public class HandsOn9 {
 	
 	public void Step3 ()
 	{
-//		System.out.println("STEP 1: ");
-//		System.out.println();
+		System.out.println("STEP 3: ");
+		System.out.println();
 		
-//		System.out.println();		
+	    // simple Animal object using only mandatory parameters
+		System.out.println("Simple build - mandatory parameters only.");
+	    AnimalBuilder builder = new AnimalBuilder("cow", "Callas", 7, 48.00f, 24.00f, 300, "female", "el cow-o");
+	    Animal myCowCallas = builder.build();	    
+	    System.out.println("My " + myCowCallas.age + " year(s) old " + myCowCallas.gender + 
+	    						" " + myCowCallas.type + " is named " + myCowCallas.name);
+		System.out.println();	
+		
+	    // complex Animal object using additional setters from AnimalBuilder class
+		System.out.println("Complex build - optional parameters added.");
+	    builder = new AnimalBuilder("cow", "Callas", 7, 48.00f, 24.00f, 300, "girl", "el cow-o")
+	    					.setFarmCity("Pittsburgh").setFarmName("Cornpone Farms")
+	    					.setFarmState("Pennsylvania").setGrassFeed(true);
+	    myCowCallas = builder.build();
+	    
+	    System.out.println("My " + (myCowCallas.grassFeed?"grass fed":"not grass fed") + " " + myCowCallas.gender + 
+	    						" " + myCowCallas.scientificName + " is named " + myCowCallas.name + 
+	    					". She lives at my farm " + myCowCallas.farmName + " in " + 
+	    					myCowCallas.farmCity + " " + myCowCallas.farmState + ".");	    
+		System.out.println();	
+		System.out.println();	
+		System.out.println("DONE! But maybe not yet???");
+		System.out.println();
+		System.out.println();
+		
+		System.out.println("STEP 3: ");
+		System.out.println("HOWEVER! A Cleaner way of using the Builder Pattern: Noahs Ark!");
+		System.out.println();
 	}
 }

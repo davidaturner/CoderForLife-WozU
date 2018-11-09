@@ -5,6 +5,6 @@ public class CatPersian extends Cat {
 	public CatPersian (String name)
 	{
 		super(name);
-		TYPE = "Persian Cat";
+		type = "Persian Cat";
 	}
 }

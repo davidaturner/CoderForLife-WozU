@@ -5,6 +5,6 @@ public class CatTabby extends Cat {
 	public CatTabby (String name)
 	{
 		super(name);
-		TYPE = "Tabby Cat";
+		type = "Tabby Cat";
 	}
 }
