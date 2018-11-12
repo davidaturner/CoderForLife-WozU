@@ -4,17 +4,18 @@ public class CatFactory {
 
 	public Cat createCat(String name)
 	{
-		return new Cat(name);
+		return new Cat(name, 
+				0, 0.00f, 0.00f, 0.00f, "", "", "", "", "", false);
 	}
-	public Cat createCat(String name, String type)
+	public Cat createCat(String name, 
+			int age, float length, float height, float weight,
+			String gender, String scientificName,
+			String farmName, String farmCity, String farmState,
+			boolean grassFeed)
 	{
-		if (type.toLowerCase().equals("cat"))
-		{
-			return new Cat(name);
-		}
-
-		System.out.println(type + " not registered in CatFactory.");
-		return null;
+		return new Cat(name, 
+				age, length, height, weight, gender, scientificName, 
+				farmName, farmCity, farmState, grassFeed);
 	}
 
 }

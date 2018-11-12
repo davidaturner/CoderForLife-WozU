@@ -48,7 +48,28 @@ public class Animal {
 		grassFeed = builder.grassFeed;
 		
 	}
-	
+	public Animal(String type, String name, int age, 
+						float length, float height, float weight,
+						String gender, String scientificName,
+						String farmName, String farmCity, String farmState,
+						boolean grassFeed)
+	{
+		this.type = type;
+		
+		this.name = name;
+		this.age = age;
+		this.length = length;
+		this.height = height;
+		this.weight = weight;
+		this.gender = gender;
+		this.scientificName = scientificName;
+		
+		this.farmName = farmName;
+		this.farmCity = farmCity;
+		this.farmState = farmState;
+		this.grassFeed = grassFeed;		
+	}
+
 	
 	public String getType() {
 		return type;

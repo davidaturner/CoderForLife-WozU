@@ -10,48 +10,19 @@ public class AnimalFactory {
 	{
 		if (type.toLowerCase().equals("dog"))
 		{
-			return createDog(name);
+			return (new DogFactory()).createDog(name);
 		}
 		else if (type.toLowerCase().equals("cat"))
 		{
-			return createCat(name);
+			return (new CatFactory()).createCat(name);
 		}
 		else if (type.toLowerCase().equals("cow"))
 		{
-			return createCow(name);
+			return (new CowFactory()).createCow(name);
 		}
 		
 		System.out.println(type + " not registered in AnimalFactory.");
 		return null;
-	}
-	
-	public Dog createDog()
-	{
-		return createDog("");
-	}
-	public Dog createDog(String name)
-	{
-		return new Dog(name);								// Difficult for subclassing.
-	}
-	
-	public Cat createCat()
-	{
-		return createCat("");
-	}
-	public Cat createCat(String name)
-	{
-		// return new CatFactory().createCat(name);			
-		return new CatFactory().createCat(name, "cat");		// Better way. Covers subclassing.
-	}
-	
-	public Cow createCow()
-	{
-		return createCow("");
 	}	
-	public Cow createCow(String name)
-	{
-		return new CowFactory().createCow(name);
-	}
-	
 
 }

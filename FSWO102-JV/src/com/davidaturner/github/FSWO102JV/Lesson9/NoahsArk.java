@@ -1,23 +1,21 @@
 package com.davidaturner.github.FSWO102JV.Lesson9;
 
-import java.util.ArrayList;
-
 public class NoahsArk extends Zoo {
 
 	public NoahsArk( ZooBuilder builder)
 	{
-		super( builder);	
+		super( "Noah's Ark", builder);	
 	}
 	
 	@Override
 	public void buildCompound() {
-		System.out.println("The Staff plans to build an Ark according to Biblical parameters.");
+		System.out.println("An Ark is built according to Biblical requirements.");
 		
 	}
 
 	@Override
 	public void executeMission() {
-		System.out.println("The Ark should endure at least 40 days of unrelenting rain.");
+		System.out.println("This Ark should endure 40 days of unrelenting rain.");
 		
 	}
 
@@ -29,7 +27,7 @@ public class NoahsArk extends Zoo {
 
 	@Override
 	public void exitStrategy() {
-		System.out.println("Once the animals disembark safely, the Ark will be dealt with (TO-DO)");
+		System.out.println("Once the animals disembark safely, this Ark will be dealt with (TO-DO)");
 		
 	}
 

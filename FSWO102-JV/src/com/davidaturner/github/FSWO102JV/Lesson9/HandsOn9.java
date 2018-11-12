@@ -19,32 +19,25 @@ public class HandsOn9 {
 		Animal tonto = af.createAnimal("tonto", "cat");
 		Animal cornell = af.createAnimal("cornell", "cow");
 		
-		Dog alfred = af.createDog("alfred");
-		Cat pompeii = af.createCat("pompeii");
-		Cow husker = af.createCow("husker");
-		
 		DogFactory df = new DogFactory();
 		Dog poulenc = df.createDog("poulenc");		
 		CatFactory cf = new CatFactory();
 		Cat toadie = cf.createCat("toadie");
 		CowFactory wf = new CowFactory();
-		Cow lorraine = wf.createCow("lorraine","cow");
+		Cow lorraine = wf.createCow("lorraine");
 		
-		System.out.println("Dogs created: ");
+		System.out.println("Dog(s) created: ");
 		System.out.println(toby.getName());
-		System.out.println(alfred.getName());
 		System.out.println(poulenc.getName());
 		System.out.println();		
 		
-		System.out.println("Cats created: ");		
+		System.out.println("Cat(s) created: ");		
 		System.out.println(tonto.getName());
-		System.out.println(pompeii.getName());
 		System.out.println(toadie.getName());
 		System.out.println();
 		
-		System.out.println("Cow created: ");
+		System.out.println("Cow(s) created: ");
 		System.out.println(cornell.getName());
-		System.out.println(husker.getName());
 		System.out.println(lorraine.getName());
 		System.out.println();
 		
@@ -158,8 +151,29 @@ public class HandsOn9 {
 		System.out.println();
 		System.out.println();
 		
-		System.out.println("STEP 3: ");
-		System.out.println("HOWEVER! A Cleaner way of using the Builder Pattern: Noahs Ark!");
+		// optional step. uncomment if you want to see another Builder.
+		//Step4();
+	}
+	
+	public void Step4 ()
+	{
+		System.out.println("STEP 4: ");
 		System.out.println();
+		
+		Zoo noahsArk = new NoahsArk( new NoahsArkBuilder() );
+		noahsArk.gatherAnimals();
+		System.out.println();
+		noahsArk.buildCompound();
+		System.out.println();
+		noahsArk.executeMission();;
+		System.out.println();
+		noahsArk.describeStaff();
+		System.out.println();
+		noahsArk.exitStrategy();
+		System.out.println();
+		
+		System.out.println();
+		System.out.println();
+
 	}
 }

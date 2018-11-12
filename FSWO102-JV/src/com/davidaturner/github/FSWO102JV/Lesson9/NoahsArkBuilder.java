@@ -22,8 +22,10 @@ public class NoahsArkBuilder implements ZooBuilder {
 		ArrayList<Cow>twoCows = new ArrayList<Cow>();
 		CowFactory factory = new CowFactory();
 		
-		twoCows.add( factory.createCow(girlName));
-		twoCows.add( factory.createCow(boyName));
+		twoCows.add( factory.createCow(girlName, 0, 0.00f, 0.00f, 0.00f,
+				"female", "", "", "", "", false));
+		twoCows.add( factory.createCow(boyName, 0, 0.00f, 0.00f, 0.00f,
+				"male", "", "", "", "", false));
 		
 		return twoCows;
 	}
@@ -33,8 +35,10 @@ public class NoahsArkBuilder implements ZooBuilder {
 		ArrayList<Cat>twoCats = new ArrayList<Cat>();
 		CatFactory factory = new CatFactory();
 		
-		twoCats.add( factory.createCat(girlName));
-		twoCats.add( factory.createCat(boyName));
+		twoCats.add( factory.createCat(girlName, 0, 0.00f, 0.00f, 0.00f,
+				"female", "", "", "", "", false));
+		twoCats.add( factory.createCat(boyName, 0, 0.00f, 0.00f, 0.00f,
+				"male", "", "", "", "", false));
 		
 		return twoCats;
 	}
@@ -44,8 +48,10 @@ public class NoahsArkBuilder implements ZooBuilder {
 		ArrayList<Dog>twoDogs = new ArrayList<Dog>();
 		DogFactory factory = new DogFactory();
 		
-		twoDogs.add( factory.createDog(girlName));
-		twoDogs.add( factory.createDog(boyName));
+		twoDogs.add( factory.createDog(girlName, 0, 0.00f, 0.00f, 0.00f,
+				"female", "", "", "", "", false));
+		twoDogs.add( factory.createDog(boyName, 0, 0.00f, 0.00f, 0.00f,
+				"male", "", "", "", "", false));
 		
 		return twoDogs;
 	}

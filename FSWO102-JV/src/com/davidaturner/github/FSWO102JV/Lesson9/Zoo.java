@@ -4,28 +4,43 @@ import java.util.ArrayList;
 
 public abstract class Zoo {
 
+	String name = null;
+	
 	ArrayList<Animal> animals = null;
 	ZooBuilder builder = null;
 	
-	public Zoo()
+	public Zoo(String name)
 	{
-		this(null);
+		this("", null);
 	}
-	public Zoo( ZooBuilder builder)
+	public Zoo( String name, ZooBuilder builder)
 	{
+		this.name = name;
 		animals = new ArrayList<Animal>();
-		this.builder = builder;
-		
+		this.builder = builder;		
 	}
 	
-	public void gatherAnimals() {
-		
-		if ( builder != null)
+	public Zoo gatherAnimals()
+	{
+		if (builder != null)
 		{
-			addAnimals( builder.build());
+			animals.addAll( builder.build());
 		}
+		if (animals != null && !animals.isEmpty())
+		{
+			System.out.println("Gathering animals for " + name.toUpperCase() 
+				+"... SUCCESSFUL!");
+			printInventory();
+			
+		}
+		else
+		{
+			System.out.println("Trouble encountered! No animals gathered.");
+		}
+		
+		return this;
 	}
-	
+
 	abstract public void buildCompound();
 	
 	abstract public void executeMission();
@@ -34,22 +49,32 @@ public abstract class Zoo {
 	
 	abstract public void exitStrategy();
 	
-	public void addAnimals(ArrayList<Animal> moreAnimals)
-	{
-		if (animals == null)
-		{
-			animals = new ArrayList<Animal>();
-		}
-		animals.addAll( moreAnimals);
-	}
 	
 	public void setBuilder(ZooBuilder builder)
 	{
 		this.builder = builder;
 	}
 	
+	public String getName()
+	{
+		return name;
+	}
+	
 	void printInventory()
 	{
-		System.out.println("This Zoo has " + (animals.size()>0?animals.size():"no") + " animals in the compound.");
+		System.out.println("Taking inventory...");
+		System.out.println();
+		System.out.println("This Zoo, " + name + ", has " + 
+					(animals.size()>0?animals.size():"no") + 
+					" animals in the compound.");
+		System.out.println();
+		for(Animal animal : animals)
+		{
+			System.out.println(animal.name + ", a " + animal.gender + " " +
+						animal.type + ".");
+		}
+		System.out.println();
+		System.out.println("ALL ANIMALS ARE PRESENT AND ACCOUNTED FOR!");
+		
 	}
 }
