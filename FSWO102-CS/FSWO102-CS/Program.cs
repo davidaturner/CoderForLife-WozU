@@ -57,5 +57,9 @@ namespace FSWO102_CS
             FSWO102_CS.Lesson2.HandsOn3 h = new FSWO102_CS.Lesson2.HandsOn3();
             h.Run();
         }
+        static public void TestLesson2HandsOn4()
+        {
+
+        }
     }
 }

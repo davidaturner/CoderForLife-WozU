@@ -1,0 +1,31 @@
+﻿EXERCISE:
+You have a bag filled with jelly beans of three different colors: pink, green, and yellow 
+and 3 cups that cannot be moved arranged in a line in front of you. The end result should 
+be that all the jelly beans have been removed from the bag and placed into cups. Each cup 
+should only contain 1 color. The jelly beans should be placed into the cups so that the pile 
+that is the smallest is on the left, and the pile that is the largest is on the right. Jelly 
+beans can not be placed anywhere except in the bag or in a cup.
+
+ALGORITHM:
+1. Pull a jelly bean from the bag. 
+1a. If bean is Pink, place into cup A.
+1b. Else if bean is Green, place into cup B.
+1c. Else if bean is Yellow, place into cup C.
+1d. Repeat step 1 while there are jelly beans in the bag until empty.
+2. Count number of beans in cup A.
+3. Count number of beans in cup B.
+4. If count in cup A > count in cup B then put all beans of cup A 
+back into the bag.
+5. Else if count in cup A < count in cup B then put all beans of 
+cup B back into the bag.
+6. Count number of beans in cup C.
+7. If cup A is empty, put all the jelly beans of the cup with the 
+lesser amount into cup A.
+8. Else if cup A is not empty, if the count in cup A > the count in cup C 
+then swap the two cup of jelly beans (pour beans of cup A to cup B,
+pour beans of cup C to cup A, finally, pour beans of cup B to cup C).
+9. Pour the beans in the bag into the open cup.
+10. If count in cup B > count in cup C, put all beans in cup B back into 
+the bag
+10a. Pour beans from cup C into cup B.
+10b. Pour beans in the bag into cup C.
