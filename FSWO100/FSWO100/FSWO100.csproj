@@ -60,5 +60,8 @@
     <Content Include="Lesson3\Webpage.html" />
     <Content Include="Lesson3\Exercises3.html" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Lesson4\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
