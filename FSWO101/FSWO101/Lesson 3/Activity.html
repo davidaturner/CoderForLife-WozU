@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Thunder</title>
+</head>
+<body>
+
+
+    <script>
+        let age = 14;
+        const doubleage = (age) => 2 * age;
+        console.log(doubleage(age));
+
+        let a = 2;
+        let b = 11;
+        let defaultParam = (a, b = 10) => a * b;
+        console.log(defaultParam(a, b));
+
+        let firstName = "David";
+        let lastName = "Turner";
+        const fullName = (firstName, lastName) => firstName + " " + lastName;
+        console.log(fullName(firstName, lastName));
+
+        let phoneNumberPresent = false;
+        let needsNumber;
+        switch (phoneNumberPresent) {
+            case true:
+                needsNumber = false;
+                break;
+            case false:
+                needsNumber = true;
+                break;
+            default:
+                needsNumber = "Try Again";
+                break;
+        }
+        console.log(needsNumber);
+
+        let age2 = 15;
+        let watchMovie = age2 > 14 ? true : false;
+        console.log(watchMovie);
+
+        let hotDog = false;
+        let isHotDog = hotDog == true ? "HotDog" : "Not Hot Dog";
+        console.log(isHotDog);
+    </script>
+</body>
+</html>
