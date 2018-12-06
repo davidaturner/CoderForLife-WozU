@@ -13,7 +13,7 @@ namespace FSWO102_CS
         static void Main(string[] args)
         {
             Console.WriteLine("Run test...\r\n");
-            TestLesson2HandsOn3();
+            TestLesson4HandsOn3();
             Console.WriteLine("\r\nDONE!");
         }
 
@@ -57,9 +57,35 @@ namespace FSWO102_CS
             FSWO102_CS.Lesson2.HandsOn3 h = new FSWO102_CS.Lesson2.HandsOn3();
             h.Run();
         }
-        static public void TestLesson2HandsOn4()
-        {
 
+        static public void TestLesson3HandsOn1()
+        {
+            FSWO102_CS.Lesson3.HandsOn1 h = new FSWO102_CS.Lesson3.HandsOn1();
+            h.Run();
+        }
+
+        static public void TestLesson3HandsOn2()
+        {
+            FSWO102_CS.Lesson3.HandsOn2 h = new FSWO102_CS.Lesson3.HandsOn2();
+            h.Run();
+        }
+
+        static public void TestLesson4HandsOn1()
+        {
+            FSWO102_CS.Lesson4.HandsOn1 h = new FSWO102_CS.Lesson4.HandsOn1();
+            h.Run();
+        }
+
+        static public void TestLesson4HandsOn2()
+        {
+            FSWO102_CS.Lesson4.HandsOn2 h = new FSWO102_CS.Lesson4.HandsOn2();
+            h.Run();
+        }
+
+        static public void TestLesson4HandsOn3()
+        {
+            FSWO102_CS.Lesson4.HandsOn3 h = new FSWO102_CS.Lesson4.HandsOn3();
+            h.Run();
         }
     }
 }
