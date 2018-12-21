@@ -1,0 +1,1 @@
+﻿console.log("Calling consolelog from app");
