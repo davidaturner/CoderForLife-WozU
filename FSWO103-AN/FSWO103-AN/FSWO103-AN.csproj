@@ -52,10 +52,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <TypeScriptCompile Include="Lesson1\Scripts\app.ts" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Lesson1\index.html" />
-    <Content Include="Lesson1\Scripts\app.js" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
