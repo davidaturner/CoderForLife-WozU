@@ -1,8 +1,8 @@
 ﻿interface IPerson {
     firstName: string;
-    lastName: string;
+    lastName?: string;
 
-    birthday: Date;
+    birthday?: Date;
 
     printPerson(): void;
 }
@@ -11,33 +11,29 @@ interface IContact {
     phoneNumber: any;
     formatNumber(number: string): string;
 
-    emailAddress: string;
-    slackAddress: string;
+    emailAddress?: string;
+    slackAddress?: string;
 
     printContact(): void;
 }
 
-class ContactCard implements IPerson, IContact {
+interface IContactCard extends IPerson, IContact {
 
-    constructor(firstName: string, phoneNumber: any, lastName?:string, birthday?:Date,
-        emailAddress?:string, slackAddress?:string) {
+    sendMessage(): void;
+    addToFavorite(): void;
+}
 
-        this.firstName = firstName;
-        this.lastName = lastName;
+/* To promote code reusability it would be better to create
+ * a Concrete class ContactCard than repeating forced code using
+ * interfaces only.. see myapp.ts.
+ */
+const sam: IContactCard = {
 
-        this.birthday = birthday;
+    firstName: "Sam",
+    lastName: "Turner",
 
-        this.phoneNumber = phoneNumber;
+    birthday: new Date(1933, 5, 12),
 
-        this.emailAddress = emailAddress;
-        this.slackAddress = slackAddress;
-
-    }
-
-    firstName: string;
-    lastName: string;
-
-    birthday: Date;
     printPerson(): void {
         console.log("Personal:");
         if (this.lastName != undefined) {
@@ -50,18 +46,19 @@ class ContactCard implements IPerson, IContact {
             console.log("B " + this.birthday);
         }
         console.log("  DONE!");
-    }
+    },
 
-    phoneNumber: any;
-    formatNumber(number:string): string {
+    phoneNumber: 4122348877,
+    formatNumber(number: string): string {
         return (number == null) ? null :
-            "(" + number.substring(0, 3) + 
-            ")" + number.substring(3, 6) + 
+            "(" + number.substring(0, 3) +
+            ")" + number.substring(3, 6) +
             "-" + number.substring(6, 10);
-    }
+    },
 
-    emailAddress: string;
-    slackAddress: string;
+    emailAddress: "turnin21@earthlink.net",
+    slackAddress: "sambturner",
+
     printContact(): void {
         console.log("Contact:");
         console.log("P " + this.formatNumber(this.phoneNumber.toString()));
@@ -73,29 +70,78 @@ class ContactCard implements IPerson, IContact {
             console.log("S " + this.slackAddress);
         }
         console.log("  DONE!");
-    }
+    },
 
     sendMessage(): void {
-        console.log("Sending a message.")
-    }
+        console.log("Send a message")
+    },
 
     addToFavorite(): void {
-        console.log("Add to favorite.")
+        console.log("Add to Favorites")
     }
-
 }
 
-const sam = new ContactCard("Sam", 4122237766, "Turner", new Date(1933, 5, 11),
-     "turnin19@earthlink.net", "sambturner");
 sam.printPerson();
 sam.printContact();
 sam.sendMessage();
-sam.addToFavorite();
+//sam.addToFavorite();
 
-const andave = new ContactCard("Dave", 4122237766, undefined, undefined,
-    "turnin21@earthlink.net");
+const andave: IContactCard = {
+
+    firstName: "David",
+ //   lastName: "Turner",
+
+//    birthday: new Date(1933, 5, 11),
+
+    printPerson(): void {
+        console.log("Personal:");
+        if (this.lastName != undefined) {
+            console.log("N " + this.firstName + " " + this.lastName);
+        }
+        else {
+            console.log("F " + this.firstName);
+        }
+        if (this.birthday != undefined) {
+            console.log("B " + this.birthday);
+        }
+        console.log("  DONE!");
+    },
+
+    phoneNumber: 4122348877,
+    formatNumber(number: string): string {
+        return (number == null) ? null :
+            "(" + number.substring(0, 3) +
+            ")" + number.substring(3, 6) +
+            "-" + number.substring(6, 10);
+    },
+
+    emailAddress: "turnin19@earthlink.net",
+//    slackAddress: "davidaturner",
+
+    printContact(): void {
+        console.log("Contact:");
+        console.log("P " + this.formatNumber(this.phoneNumber.toString()));
+
+        if (this.emailAddress != undefined) {
+            console.log("E " + this.emailAddress);
+        }
+        if (this.slackAddress != undefined) {
+            console.log("S " + this.slackAddress);
+        }
+        console.log("  DONE!");
+    },
+
+    sendMessage(): void {
+        console.log("Send a message")
+    },
+
+    addToFavorite(): void {
+        console.log("Add to Favorites")
+    }
+}
+
 andave.printPerson();
 andave.printContact();
-andave.sendMessage();
+//andave.sendMessage();
 andave.addToFavorite();
 

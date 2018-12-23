@@ -1,13 +1,12 @@
-var ContactCard = /** @class */ (function () {
-    function ContactCard(firstName, phoneNumber, lastName, birthday, emailAddress, slackAddress) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthday = birthday;
-        this.phoneNumber = phoneNumber;
-        this.emailAddress = emailAddress;
-        this.slackAddress = slackAddress;
-    }
-    ContactCard.prototype.printPerson = function () {
+/* To promote code reusability it would be better to create
+ * a Concrete class ContactCard than repeating forced code using
+ * interfaces only.. see myapp.ts.
+ */
+var sam = {
+    firstName: "Sam",
+    lastName: "Turner",
+    birthday: new Date(1933, 5, 12),
+    printPerson: function () {
         console.log("Personal:");
         if (this.lastName != undefined) {
             console.log("N " + this.firstName + " " + this.lastName);
@@ -19,14 +18,17 @@ var ContactCard = /** @class */ (function () {
             console.log("B " + this.birthday);
         }
         console.log("  DONE!");
-    };
-    ContactCard.prototype.formatNumber = function (number) {
+    },
+    phoneNumber: 4122348877,
+    formatNumber: function (number) {
         return (number == null) ? null :
             "(" + number.substring(0, 3) +
                 ")" + number.substring(3, 6) +
                 "-" + number.substring(6, 10);
-    };
-    ContactCard.prototype.printContact = function () {
+    },
+    emailAddress: "turnin21@earthlink.net",
+    slackAddress: "sambturner",
+    printContact: function () {
         console.log("Contact:");
         console.log("P " + this.formatNumber(this.phoneNumber.toString()));
         if (this.emailAddress != undefined) {
@@ -36,22 +38,63 @@ var ContactCard = /** @class */ (function () {
             console.log("S " + this.slackAddress);
         }
         console.log("  DONE!");
-    };
-    ContactCard.prototype.sendMessage = function () {
-        console.log("Sending a message.");
-    };
-    ContactCard.prototype.addToFavorite = function () {
-        console.log("Add to favorite.");
-    };
-    return ContactCard;
-}());
-var sam = new ContactCard("Sam", 4122237766, "Turner", new Date(1933, 5, 11), "turnin19@earthlink.net", "sambturner");
+    },
+    sendMessage: function () {
+        console.log("Send a message");
+    },
+    addToFavorite: function () {
+        console.log("Add to Favorites");
+    }
+};
 sam.printPerson();
 sam.printContact();
 sam.sendMessage();
-sam.addToFavorite();
-var andave = new ContactCard("Dave", 4122237766, undefined, undefined, "turnin21@earthlink.net");
+//sam.addToFavorite();
+var andave = {
+    firstName: "David",
+    //   lastName: "Turner",
+    //    birthday: new Date(1933, 5, 11),
+    printPerson: function () {
+        console.log("Personal:");
+        if (this.lastName != undefined) {
+            console.log("N " + this.firstName + " " + this.lastName);
+        }
+        else {
+            console.log("F " + this.firstName);
+        }
+        if (this.birthday != undefined) {
+            console.log("B " + this.birthday);
+        }
+        console.log("  DONE!");
+    },
+    phoneNumber: 4122348877,
+    formatNumber: function (number) {
+        return (number == null) ? null :
+            "(" + number.substring(0, 3) +
+                ")" + number.substring(3, 6) +
+                "-" + number.substring(6, 10);
+    },
+    emailAddress: "turnin19@earthlink.net",
+    //    slackAddress: "davidaturner",
+    printContact: function () {
+        console.log("Contact:");
+        console.log("P " + this.formatNumber(this.phoneNumber.toString()));
+        if (this.emailAddress != undefined) {
+            console.log("E " + this.emailAddress);
+        }
+        if (this.slackAddress != undefined) {
+            console.log("S " + this.slackAddress);
+        }
+        console.log("  DONE!");
+    },
+    sendMessage: function () {
+        console.log("Send a message");
+    },
+    addToFavorite: function () {
+        console.log("Add to Favorites");
+    }
+};
 andave.printPerson();
 andave.printContact();
-andave.sendMessage();
+//andave.sendMessage();
 andave.addToFavorite();

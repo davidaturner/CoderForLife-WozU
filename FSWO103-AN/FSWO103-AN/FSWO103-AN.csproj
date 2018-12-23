@@ -53,6 +53,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Lesson1\Scripts\myapp.ts" />
     <TypeScriptCompile Include="Lesson1\Scripts\app.ts" />
   </ItemGroup>
   <ItemGroup>
