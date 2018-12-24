@@ -98,4 +98,4 @@ andave.printPerson();
 andave.printContact();
 //andave.sendMessage();
 andave.addToFavorite();
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=HandsOn1.js.map

@@ -51,13 +51,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Lesson2\tsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Lesson1\Scripts\myapp.ts" />
-    <TypeScriptCompile Include="Lesson1\Scripts\app.ts" />
+    <TypeScriptCompile Include="Lesson1\Scripts\HandsOn1.ts" />
+    <TypeScriptCompile Include="Lesson2\Scripts\decorator.ts" />
+    <TypeScriptCompile Include="Lesson2\Scripts\HandsOn2.ts" />
+    <TypeScriptCompile Include="Lesson2\Scripts\myapp.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Lesson1\index.html" />
+    <Content Include="Lesson2\index.html" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
