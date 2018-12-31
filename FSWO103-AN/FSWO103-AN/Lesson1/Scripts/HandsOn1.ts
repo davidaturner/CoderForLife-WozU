@@ -27,7 +27,7 @@ interface IContactCard extends IPerson, IContact {
  * a Concrete class ContactCard than repeating forced code using
  * interfaces only.. see myapp.ts.
  */
-const sam: IContactCard = {
+const samh: IContactCard = {
 
     firstName: "Sam",
     lastName: "Turner",
@@ -86,7 +86,7 @@ sam.printContact();
 sam.sendMessage();
 //sam.addToFavorite();
 
-const andave: IContactCard = {
+const andaveh: IContactCard = {
 
     firstName: "David",
  //   lastName: "Turner",
