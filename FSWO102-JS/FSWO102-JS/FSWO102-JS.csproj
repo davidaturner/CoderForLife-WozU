@@ -52,5 +52,17 @@
   <ItemGroup>
     <TypeScriptCompile Include="Typescript\main.ts" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Lesson1\HandsOn1.html" />
+    <Content Include="Lesson2\HandsOn2.html" />
+    <Content Include="Lesson3\HandsOn3.html" />
+    <Content Include="Lesson4\HandsOn4.html" />
+    <Content Include="Lesson5\HandsOn5.html" />
+    <Content Include="Lesson6\HandsOn6.html" />
+    <Content Include="Lesson7\HandsOn7.html" />
+    <Content Include="Lesson8\HandsOn8.html" />
+    <Content Include="Lesson9\HandsOn9.html" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
