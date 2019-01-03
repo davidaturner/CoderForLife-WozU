@@ -49,14 +49,26 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BonusHTML\Css\styles.css" />
+    <Content Include="BonusHTML\Imgs\favicona.ico" />
+    <Content Include="BonusHTML\Imgs\faviconb.ico" />
+    <Content Include="BonusHTML\Imgs\favicon.ico" />
+    <Content Include="BonusHTML\Imgs\faviconc.ico" />
+    <Content Include="BonusHTML\Imgs\cat-smiling.jpg" />
+    <Content Include="BonusHTML\Imgs\highland-cattle.jpg" />
+    <Content Include="BonusHTML\Imgs\cute-cat.jpg" />
+    <Content Include="BonusHTML\Imgs\snowman-skate.jpg" />
+    <Content Include="BonusHTML\HandsOn.html" />
+    <Content Include="BonusHTML\Scripts\script.js" />
     <Content Include="Lesson2\Activity2.html" />
-    <Content Include="Lesson1\HandsOn.txt" />
+    <Content Include="Lesson1\HandsOn1.txt" />
     <Content Include="Lesson2\Activity3.html" />
     <Content Include="Lesson2\Examples2.html" />
     <Content Include="Lesson2\Activity1.html" />
-    <Content Include="Lesson2\HandsOn.html" />
+    <Content Include="Lesson2\HandsOn2.html" />
     <Content Include="Lesson3\Activity1.html" />
     <Content Include="Lesson3\Activity2.html" />
+    <Content Include="Lesson3\HandsOn3.html" />
     <Content Include="Lesson3\Webpage.html" />
     <Content Include="Lesson3\Exercises3.html" />
   </ItemGroup>
