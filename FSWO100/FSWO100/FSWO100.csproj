@@ -59,6 +59,7 @@
     <Content Include="BonusHTML\Imgs\cute-cat.jpg" />
     <Content Include="BonusHTML\Imgs\snowman-skate.jpg" />
     <Content Include="BonusHTML\HandsOn.html" />
+    <Content Include="BonusHTML\redirect.html" />
     <Content Include="BonusHTML\Scripts\script.js" />
     <Content Include="Lesson2\Activity2.html" />
     <Content Include="Lesson1\HandsOn1.txt" />
