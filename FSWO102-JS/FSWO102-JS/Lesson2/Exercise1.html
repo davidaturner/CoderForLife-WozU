@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Conditionals Exercise</title>
+
+    <script>
+
+        let a = 1
+        const b = 2
+        const c = 2.2
+        const d = "Freddie"
+        const e = false
+        const f = new Date(1933, 5, 11)
+
+        console.log("a is a Typeof '" + typeof a + "'")
+        console.log("b is a Typeof '" + typeof b + "'")
+        console.log("c is a Typeof '" + typeof c + "'")
+        console.log("d is a Typeof '" + typeof d + "'")
+        console.log("moku is a Typeof '" + typeof "moku" + "'")
+        console.log("e is a Typeof '" + typeof e + "'")
+        console.log("f is a Typeof '" + typeof f + "'")
+
+         a = 1.1
+        // a = "Meep"
+        if (typeof a == 'number' && parseInt(a)) {
+            console.log("a is an 'integer'.")
+        }
+        else if (typeof a == 'number') {
+            console.log("a is a 'number'.")
+        }
+        else {
+            console.log("Cannot use a.")
+        }
+
+    </script>
+</head>
+<body onload="alert('Hello, World 2')">
+
+</body>
+</html>

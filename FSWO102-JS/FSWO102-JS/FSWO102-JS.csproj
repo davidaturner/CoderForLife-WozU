@@ -54,7 +54,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Lesson1\Exercise1.html" />
     <Content Include="Lesson1\HandsOn1.html" />
+    <Content Include="Lesson2\Exercise1.html" />
     <Content Include="Lesson2\HandsOn2.html" />
     <Content Include="Lesson3\HandsOn3.html" />
     <Content Include="Lesson4\HandsOn4.html" />
