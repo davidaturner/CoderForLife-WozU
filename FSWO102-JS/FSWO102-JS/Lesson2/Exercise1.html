@@ -22,9 +22,9 @@
         console.log("e is a Typeof '" + typeof e + "'")
         console.log("f is a Typeof '" + typeof f + "'")
 
-         a = 1.1
-        // a = "Meep"
-        if (typeof a == 'number' && parseInt(a)) {
+        // a = 1.1
+        a = "Meep"
+        if (typeof a == 'number' && Number.isInteger(a)) {
             console.log("a is an 'integer'.")
         }
         else if (typeof a == 'number') {
