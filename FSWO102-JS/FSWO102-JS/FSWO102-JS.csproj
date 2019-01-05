@@ -61,6 +61,8 @@
     <Content Include="Lesson3\HandsOn3.html" />
     <Content Include="Lesson4\HandsOn4.html" />
     <Content Include="Lesson5\HandsOn5.html" />
+    <Content Include="Lesson6\script.js" />
+    <Content Include="Lesson6\FindGCD.html" />
     <Content Include="Lesson6\HandsOn6.html" />
     <Content Include="Lesson7\HandsOn7.html" />
     <Content Include="Lesson8\HandsOn8.html" />
