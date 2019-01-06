@@ -8,40 +8,33 @@
 // Improved. Iterative solution.
 function GCDMkII(a, b) {
 
-    let isDone = false;
-    let a1 = 0;
-    while (!isDone) {
+    let atmp = 0;
+    const isMet = true;
 
-        // console.log("MkII: The GCD of " + a + " and " + b + " is: ");
-        if ( assumptionsMet(a, b)) {
+    // console.log("Determining the GCD of " + a + " and " + b + "...");
 
-            // console.log("Parameters checked: Ok!");
+    while ( assumptionsMet(a, b) === isMet) {
 
-            if (imod(a, b) === 0) {
-                // console.log("findGCD: GCD gt 1 found.");
-                return imin(a, b);
-            }
+        // console.log("Parameters Ok!");
 
-            if (a === 1 || b === 1) {
-                isDone = true;
-            }
-            else {
+        if (imod(a, b) === 0) {
 
-                a1 = idiff(a, b);
-                b = imin(a, b);
-                a = a1;
-            }
-
+            // console.log("findGCD: GCD gt 1 found.");
+            return imin(a, b);
         }
-        else {
 
-            console.log("GCD: (" + a + ", " + b + ") Invalid parameters.");
-            return -1;
-        }
+        atmp = idiff(a, b);
+        b = imin(a, b);
+        a = atmp;
+
+        // console.log("Determining the GCD of " + a + " and " + b + "...");
+
     }
 
-    return 1;
+    console.log("GCD: (" + a + ", " + b + ") Invalid parameters.");
+    return -1;
 }
+
 
 console.log("MkII: The GCD of 'malloy' and 32 is: ");
 console.log(GCDMkII('malloy', 32));
@@ -57,6 +50,7 @@ console.log("MkII: The GCD of 8.2 and 172 is: ");
 console.log(GCDMkII(8.2, 172));
 console.log("MkII: The GCD of 36 and 180 is : " + GCDMkII(36, 180));
 console.log("MkII: The GCD of 136 and 18020 is : " + GCDMkII(136, 18020));
+
 
 // Recursive solution.
 function GCDMkI(a, b) {
