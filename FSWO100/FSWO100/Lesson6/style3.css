@@ -1,0 +1,15 @@
+﻿body
+{
+    width: 80%;
+}
+
+p {
+    text-align: justify;
+}
+
+.staticnav {
+    background-color: lightyellow;
+    position: absolute;
+    top: 0;
+    left: 2em;
+}
