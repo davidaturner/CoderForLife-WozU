@@ -61,9 +61,12 @@
     <TypeScriptCompile Include="Lesson2\Scripts\myapp.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="JSProject1\index.html" />
     <Content Include="Lesson1\index.html" />
     <Content Include="Lesson2\index.html" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="JSProject1\Scripts\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
