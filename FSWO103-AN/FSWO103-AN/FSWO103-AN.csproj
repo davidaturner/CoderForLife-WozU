@@ -61,12 +61,15 @@
     <TypeScriptCompile Include="Lesson2\Scripts\myapp.ts" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="JSProject1\Css\bootstrap.min.css" />
     <Content Include="JSProject1\index.html" />
+    <Content Include="JSProject1\scratch.html" />
+    <Content Include="JSProject1\Scripts\app.js" />
+    <Content Include="JSProject1\Scripts\bootstrap.min.js" />
+    <Content Include="JSProject1\Scripts\jquery-3.3.1.js" />
     <Content Include="Lesson1\index.html" />
     <Content Include="Lesson2\index.html" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="JSProject1\Scripts\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,46 +3,68 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>My JSProject</title>
+
+    <link href="Css/bootstrap.min.css" rel="stylesheet" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/app.js"></script>
 </head>
 <!-- ng app ng-init ng-bind ng-show ng-hide ng-true-value ng-false-value 
     ng-model ng-controller ng-view ng-if ng-repeat, ng-click ng-options -->
-<body ng-app ng-init="b=10;">
+<body ng-app="myapp">
 
-    <div>
-        {{5+3}}
-        {{a=10; a+5}}
-        {{b*b}}
+    <div ng-controller="departmentsController">
+        <h2>Various approaches to bind Response Data</h2><br /><br />
+        <input type="button" value="GetData!" ng-click="getDepartments()" /><br /><br />
+
+        <!-- Raw JSON! -->
+        {{myDepartments}}
+        <br /><br />
+
+        <!-- Unordered List! -->
+        <ul ng-repeat="dept in myDepartments">
+            <li>{{dept.Did}} {{dept.DName}} {{dept.HOD}} {{dept.Gender}}</li>
+        </ul>
+        <br /><br />
+
+        <!-- Dropdown List! -->
+        <select ng-model="d" ng-options="dept.Did as dept.DName for dept in myDepartments"></select>
+        {{d}}
+        <br /><br />
+
+        <!-- Striped Table! -->
+        <table class="table-striped" width="100%">
+            <tr>
+                <th>ID</th>
+                <th>Department Name</th>
+                <th>Department Head</th>
+                <th>Gender</th>
+            </tr>
+            <tr ng-repeat="dept in myDepartments">
+                <td>{{dept.Did}}</td>
+                <td>{{dept.DName}}</td>
+                <td>{{dept.HOD}}</td>
+                <td>{{dept.Gender}}</td>
+            </tr>
+        </table>
+
+
     </div>
-    <div>
-        <span ng-bind="b"></span>
-        <input type="text" ng-model="x" />
-        {{x}}
-        <div ng-init="ck=[1,33,567,2099]">
-            <ul ng-repeat="c in ck">
-                <li>{{c}}</li>
-            </ul>
-            <hr />
-            <ul ng-repeat="c in ck">
-                <li ng-if="c>500">{{c}}</li>
-            </ul>
-        </div>
-        <div>
-            <input type="radio" ng-model="myradioselect" value="M" />M
-            <input type="radio" ng-model="myradioselect" value="F" />F
-            You have selected Gender: {{myradioselect}}
-            <hr />
-            <input type="checkbox" ng-model="db" ng-true-value="'Ok'" ng-false-value="'No'" />
-            I agree... Click once for 'Ok'; Twice for 'No' : {{db}}
-            <br /><br />
-        </div>
-        <div>
-            Dropdown list: <br />
-            <select multiple = multiple ng-model="Opt" ng-options="c for c in ck"></select><br />
-            You have selected: {{Opt}}
-        </div>
+        
+    <!--
+    <div ng-controller="myController" ng-init="b=true">
+        {helloWorld}}<br />
+        <input type="text" ng-model="myValue" /><br />
+        <span ng-bind="myValue"></span> <br /><br />
+        <div ng-show="b">
+            {b}}
+            <input type="button" ng-click="myFun3(5)" value="Click" /><br />
+         </div>
     </div>
+        -->
 </body>
 </html>
