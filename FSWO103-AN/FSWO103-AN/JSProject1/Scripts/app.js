@@ -3,7 +3,7 @@
 app.controller('departmentsController', function ($scope) {
 
     $scope.helloWorld = "Hello from Departments Controller";
-    $scope.myResponseData =
+    $scope.mydResponseData =
         [{ "Did": 1003, "DName": "PDG", "HOD": "MarkLong", "Gender": "M" },
             { "Did": 1004, "DName": "Testing", "HOD": "MorrisD", "Gender": "M" },
             { "Did": 1005, "DName": "Admin", "HOD": "Lillian", "Gender": "F" },
@@ -12,11 +12,40 @@ app.controller('departmentsController', function ($scope) {
     $scope.myDepartments = "";
     $scope.getDepartments = function () {
         // Make an ajax call.
-        $scope.myDepartments = $scope.myResponseData;
+        $scope.myDepartments = $scope.mydResponseData;
     };
 
 });
 
+app.controller('employeesController', function ($scope) {
+
+    $scope.helloWorld = "Hello from Departments Controller";
+    $scope.myeResponseData =
+        [{ "Eid": 1, "EName": "Ravi", "Salary": 8000, "Gender": "M", "Did": 1003 },
+        { "Eid": 2, "EName": "Mary", "Salary": 9000, "Gender": "F", "Did": 1003 },
+        { "Eid": 3, "EName": "Adam", "Salary": 5000, "Gender": "M", "Did": 1003 },
+        { "Eid": 4, "EName": "Danel", "Salary": 6000, "Gender": "F", "Did": 1004 },
+            { "Eid": 5, "EName": "Ester", "Salary": 8000, "Gender": "F", "Did": 1005 }];
+    $scope.myeResponseData2 =
+        [{ "Eid": 1, "EName": "Ravi", "Salary": 8000, "Gender": "M", "Did": 1003 },
+        { "Eid": 2, "EName": "Mary", "Salary": 9000, "Gender": "F", "Did": 1003 },
+        { "Eid": 3, "EName": "Adam", "Salary": 5000, "Gender": "M", "Did": 1003 }];
+    $scope.myEmployees = "";
+    $scope.myDid = "";
+    $scope.getEmployees = function () {
+        // Make an ajax call.
+        $scope.myEmployees = $scope.myeResponseData;
+    };
+    $scope.getEmployeesById = function (id) {
+        //Make an ajax call.
+        $scope.myDid = id;
+        $scope.myEmployees = "";
+        if (id === 1003) {
+            $scope.myEmployees = $scope.myeResponseData2;
+        }
+    };
+
+});
 app.controller('myController', function ($scope) {
 
     $scope.helloWorld = "Hello Mr.World from app controller!";

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>My JSProject</title>
+
+    <link href="Css/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/app.js"></script>
+</head>
+<!-- ng app ng-init ng-bind ng-show ng-hide ng-true-value ng-false-value 
+    ng-model ng-controller ng-view ng-if ng-repeat, ng-click ng-options -->
+<body ng-app="myapp">
+
+    <div ng-controller="departmentsController">
+        <h3>Various approaches to bind Response Data</h3><br /><br />
+        <input type="button" value="GetData!" ng-click="getDepartments()" /><br /><br />
+
+        <!-- Raw JSON!
+    {myDepartments}}
+
+        <select ng-model="d" ng-options="dept.Did as dept.DName for dept in myDepartments">
+        </select>
+        <br /><br />
+            -->
+
+        <div ng-controller="employeesController">
+            <select ng-model="d" ng-change="getEmployeesById(d)"
+                ng-options="dept.Did as dept.DName for dept in myDepartments">
+            </select>
+            {{myDid}}
+            <select ng-model="e" ng-options="emp.Eid as emp.EName for emp in myEmployees"></select>
+            <br /><br />
+
+            <table class="table-striped" width="80%">
+                <tr>
+                    <th>ID</th>
+                    <th>EmployeeName</th>
+                    <th>Salary</th>
+                    <th>Gender</th>
+                    <th>Department</th>
+                </tr>
+                <tr ng-repeat="emp in myEmployees">
+                    <td>{{emp.Eid}}</td>
+                    <td>{{emp.EName}}</td>
+                    <td>{{emp.Salary}}</td>
+                    <td>{{emp.Gender}}</td>
+                    <td>{{emp.Did}}</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -62,7 +62,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="JSProject1\Css\bootstrap.min.css" />
-    <Content Include="JSProject1\index.html" />
+    <Content Include="JSProject1\exercise2.html" />
+    <Content Include="JSProject1\exercise1.html" />
     <Content Include="JSProject1\scratch.html" />
     <Content Include="JSProject1\Scripts\app.js" />
     <Content Include="JSProject1\Scripts\bootstrap.min.js" />
