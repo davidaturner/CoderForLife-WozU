@@ -50,14 +50,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Lesson 1\HandsOn.html" />
+    <Content Include="Lesson 1\HandsOn1.html" />
     <Content Include="Lesson 1\script.js" />
     <Content Include="Lesson 2\Activity1.html" />
-    <Content Include="Lesson 2\HandsOn.html" />
+    <Content Include="Lesson 2\HandsOn2.html" />
     <Content Include="Lesson 2\script.js" />
     <Content Include="Lesson 3\Activity.html" />
-    <Content Include="Lesson 3\HandsOn.html" />
+    <Content Include="Lesson 3\HandsOn3.html" />
     <Content Include="Lesson 3\script.js" />
+    <Content Include="Lesson 4\index.html" />
+    <Content Include="Lesson 4\scripts.js" />
+    <Content Include="Lesson 5\Activity.html" />
+    <Content Include="Lesson 5\style.css" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
