@@ -73,19 +73,19 @@
     <Content Include="Lesson3\Webpage.html" />
     <Content Include="Lesson3\Exercises3.html" />
     <Content Include="Lesson4\HandsOn4.html" />
-    <Content Include="Lesson5\Activity.html" />
+    <Content Include="Lesson4\Activity.html" />
+    <Content Include="Lesson4\style.css" />
     <Content Include="Lesson5\HandsOn5.html" />
+    <Content Include="Lesson4\style1.css" />
+    <Content Include="Lesson5\Activity1.html" />
+    <Content Include="Lesson5\Activity2.html" />
+    <Content Include="Lesson5\contact.html" />
+    <Content Include="Lesson5\Example2.html" />
+    <Content Include="Lesson5\Example1.html" />
+    <Content Include="Lesson5\home.html" />
     <Content Include="Lesson5\style1.css" />
     <Content Include="Lesson5\style2.css" />
-    <Content Include="Lesson6\Activity1.html" />
-    <Content Include="Lesson6\Activity2.html" />
-    <Content Include="Lesson6\contact.html" />
-    <Content Include="Lesson6\Example2.html" />
-    <Content Include="Lesson6\Example1.html" />
-    <Content Include="Lesson6\home.html" />
-    <Content Include="Lesson6\style1.css" />
-    <Content Include="Lesson6\style2.css" />
-    <Content Include="Lesson6\style3.css" />
+    <Content Include="Lesson5\style3.css" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
