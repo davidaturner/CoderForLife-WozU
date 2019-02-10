@@ -2,7 +2,7 @@
  * a Concrete class ContactCard than repeating forced code using
  * interfaces only.. see myapp.ts.
  */
-var sam = {
+var samh = {
     firstName: "Sam",
     lastName: "Turner",
     birthday: new Date(1933, 5, 12),
@@ -46,11 +46,11 @@ var sam = {
         console.log("Add to Favorites");
     }
 };
-sam.printPerson();
-sam.printContact();
-sam.sendMessage();
-//sam.addToFavorite();
-var andave = {
+samh.printPerson();
+samh.printContact();
+samh.sendMessage();
+//samh.addToFavorite();
+var andaveh = {
     firstName: "David",
     //   lastName: "Turner",
     //    birthday: new Date(1933, 5, 11),
@@ -94,8 +94,8 @@ var andave = {
         console.log("Add to Favorites");
     }
 };
-andave.printPerson();
-andave.printContact();
-//andave.sendMessage();
-andave.addToFavorite();
+andaveh.printPerson();
+andaveh.printContact();
+//andaveh.sendMessage();
+andaveh.addToFavorite();
 //# sourceMappingURL=HandsOn1.js.map

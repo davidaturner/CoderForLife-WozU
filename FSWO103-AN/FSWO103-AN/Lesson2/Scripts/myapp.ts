@@ -2,7 +2,7 @@
     let oldValue = descriptor.value;
 
     descriptor.value = function () {
-        console.log(`Calling ${propertyKey} with `, arguments.target);
+        console.log(`Calling ${propertyKey} with `, arguments);
         let value = oldValue.apply(null, [arguments[1], arguments[0]]);
 
         console.log(`Function is executed`);
@@ -21,4 +21,4 @@ class MyFunction {
 }
 
 const run = new MyFunction();
-console.log(run.exampleFunction('Hello', 'World'));tr
+console.log(run.exampleFunction('Hello', 'World'));

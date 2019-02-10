@@ -81,10 +81,10 @@ const samh: IContactCard = {
     }
 }
 
-sam.printPerson();
-sam.printContact();
-sam.sendMessage();
-//sam.addToFavorite();
+samh.printPerson();
+samh.printContact();
+samh.sendMessage();
+//samh.addToFavorite();
 
 const andaveh: IContactCard = {
 
@@ -140,8 +140,8 @@ const andaveh: IContactCard = {
     }
 }
 
-andave.printPerson();
-andave.printContact();
-//andave.sendMessage();
-andave.addToFavorite();
+andaveh.printPerson();
+andaveh.printContact();
+//andaveh.sendMessage();
+andaveh.addToFavorite();
 

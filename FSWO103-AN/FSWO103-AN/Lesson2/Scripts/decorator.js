@@ -37,3 +37,4 @@ console.log(myFirstCar.cost);
 var mySecondCar = new HeatedSeatsCarAddOn(new ModelX());
 console.log(mySecondCar.description);
 console.log(mySecondCar.cost);
+//# sourceMappingURL=decorator.js.map

@@ -1,7 +1,7 @@
 function exampleDecorator(target, propertyKey, descriptor) {
     var oldValue = descriptor.value;
     descriptor.value = function () {
-        console.log("Calling " + propertyKey + " with ", arguments.target);
+        console.log("Calling " + propertyKey + " with ", arguments);
         var value = oldValue.apply(null, [arguments[1], arguments[0]]);
         console.log("Function is executed");
         return value + '; Decorators are crazy!';
@@ -20,4 +20,4 @@ var MyFunction = /** @class */ (function () {
 }());
 var run = new MyFunction();
 console.log(run.exampleFunction('Hello', 'World'));
-tr;
+//# sourceMappingURL=myapp.js.map
