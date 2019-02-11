@@ -61,13 +61,13 @@
     <TypeScriptCompile Include="Typescript\Exercise\main.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="JSProject1\Css\bootstrap.min.css" />
-    <Content Include="JSProject1\exercise2.html" />
-    <Content Include="JSProject1\exercise1.html" />
-    <Content Include="JSProject1\scratch.html" />
-    <Content Include="JSProject1\Scripts\app.js" />
-    <Content Include="JSProject1\Scripts\bootstrap.min.js" />
-    <Content Include="JSProject1\Scripts\jquery-3.3.1.js" />
+    <Content Include="JSLessons\JSProject1\Css\bootstrap.min.css" />
+    <Content Include="JSLessons\JSProject1\exercise2.html" />
+    <Content Include="JSLessons\JSProject1\exercise1.html" />
+    <Content Include="JSLessons\JSProject1\scratch.html" />
+    <Content Include="JSLessons\JSProject1\Scripts\app.js" />
+    <Content Include="JSLessons\JSProject1\Scripts\bootstrap.min.js" />
+    <Content Include="JSLessons\JSProject1\Scripts\jquery-3.3.1.js" />
     <Content Include="Lesson1\index.html" />
     <Content Include="Lesson2\index.html" />
     <Content Include="Typescript\Exercise\index.html" />
