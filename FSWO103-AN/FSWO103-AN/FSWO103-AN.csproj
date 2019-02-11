@@ -72,6 +72,8 @@
     <Content Include="Lesson2\index.html" />
     <Content Include="Typescript\Exercise\index.html" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="NgLessons\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
