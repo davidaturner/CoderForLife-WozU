@@ -60,6 +60,14 @@
         let cupC = [];
 
         let i;
+        let bagLength = bag.length;
+        for (i = 0; i < bagLength; i++) {
+
+            let jellybean = pullFromBag();
+            pushToCups(jellybean);
+
+        };
+        displayALLCups();
         /*
          * for(i = 0; i < bag.length; i++) {
          * 
@@ -90,30 +98,79 @@
             }
         };
         */
-        function pullJellybeanFromBag() {
+        function pullFromBag() {
 
-            let jellybean;
-            // Check if bag is empty.
-            // If not pop a jellybean from the bag and return.
+            return (bag !== null && bag.length > 0) ? bag.pop() : null;
         }
-        function placeJellybeanInCup(jellybean) {
-            // Search non empty cups for cup having same color as jellybean.
-            // If found, pop jellybean to cup.
-            // If not found, pop jellybean into first empty cup.
-        }
-        function determineCupLeastAmount() {
+        function pushToCups(jellybean) {
 
-            let cupSelect;
-            // set cupSelect = "A".
-            // if cupA length > cupB length set cupSelect = "B".
-            // if cupB length > cupB length set cupSelect = "C".
+            if (cupA.length > 0 && cupA[0].color === jellybean.color) {
+                cupA.push(jellybean);
+            }
+            else if (cupB.length > 0 && cupB[0].color === jellybean.color) {
+                cupB.push(jellybean);
+            }
+            else if (cupC.length > 0 && cupC[0].color === jellybean.color) {
+                cupC.push(jellybean);
+            }
+            else if (cupA.length === 0) {
+                cupA.push(jellybean);
+            }
+            else if (cupB.length === 0) {
+                cupB.push(jellybean);
+            }
+            else {
+                cupC.push(jellybean);
+            }
         }
-        function determineCupGreatestAmount() {
+        function pushToBag(cup) {
+            // First part of swapping beans between two cups.
+        }
+        function pushToEmptyCup(cup) {
+            // Second part of swapping beans between two cups.
+        }
+        function pushToEmptyCup() {
+            // Final part of swapping beans between two cups.
+        }
 
-            let cupSelect;
-            // set cupSelect = "A"
-            // if cupA length < cupB length set cupSelect = "B".
-            // if cupB length < cupB length set cupSelect = "C".
+        function leastCupAmount() {
+            let cupSelect = "A";
+            if (cupA.length === 0 || cupB.length === 0 ||
+                cupC.length === 0) {
+
+                cupSelect = "E";
+            }
+            else if (cupB.length < cupA.length) {
+
+                if (cupC.length < cupB.length) {
+                    cupSelect = "C";
+                }
+                else {
+                    cupSelect = "B";
+                }
+            }
+
+            return cupSelect;
+        }
+        function greatestCupAmount() {
+
+            let cupSelect = "C";
+            if (cupA.length === 0 || cupB.length === 0 ||
+                cupC.length === 0) {
+
+                cupSelect = "E";
+            }
+            else if (cupC.length < cupB.length) {
+
+                if (cupB.length < cupA.length) {
+                    cupSelect = "A";
+                }
+                else {
+                    cupSelect = "B";
+                }
+            }
+
+            return cupSelect;
         }
         function swapCups(cup1, cup2) {
 
@@ -122,26 +179,26 @@
             // Pour bag into cup2.
         }
         function displayALLCups() {
-            displayACup();
-            displayBCup();
-            displayCCup();
-        }
-        function displayACup() {
             let i;
+            console.log("Jellybeans in bag: " + bag.length);
+            console.log("Cup A : " + cupA.length);
             for (i = 0; i < cupA.length; i++) {
                 console.log(cupA[i].id + " " + cupA[i].color);
             }
-        }
-        function displayBCup() {
-            let i;
+            console.log("Cup B : " + cupB.length);
             for (i = 0; i < cupB.length; i++) {
                 console.log(cupB[i].id + " " + cupB[i].color);
             }
-        }
-        function displayCCup() {
-            let i;
+            console.log("Cup C : " + cupC.length);
             for (i = 0; i < cupC.length; i++) {
                 console.log(cupC[i].id + " " + cupC[i].color);
+            }
+        }
+        function displayBag() {
+            let i;
+            console.log("Remaining in bag: " + bag.length);
+            for (i = 0; i < bag.length; i++) {
+                console.log(bag[i].id + " " + bag[i].color);
             }
         }
 
