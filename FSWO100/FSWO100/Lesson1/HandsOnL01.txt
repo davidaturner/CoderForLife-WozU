@@ -1,0 +1,55 @@
+Problem Statement.
+
+You have a bag filled with jelly beans of three different colors: pink, green, and yellow and 3 cups that cannot 
+be moved arranged in a line in front of you. The end result should be that all the jelly beans have been removed 
+from the bag and placed into cups. Each cup should only contain 1 color. The jelly beans should be placed into 
+the cups so that the pile that is the smallest is on the left, and the pile that is the largest is on the right. 
+Jelly beans cannot be placed anywhere except in the bag or in a cup.
+
+What do I have to work with?
+
+A bag filled with jelly beans of three different colors: pink, green, yellow.
+Three cups that cannot be moved arranged in a line: Cup on the left, Cup on the right, Other cup between them.
+
+What do I need to do?
+
+1. Empty the bag of jelly beans into the three cups where each cup is a collection of jelly beans having the 
+same color. One cup containing only pink jelly beans. One cup containing green. One cup containing yellow.
+2. Move each collection (by color) of jelly beans in and out of the bag until the cup on the left has the jelly 
+bean collection of least amount and the cup on the right has the jelly bean collection of most amount. The center 
+cup having the final collect is of an amount between the that in the leftmost cup and that in the rightmost cup.
+
+Other considerations?
+
+1. We can assume that the bag of jelly beans is open and ready to pull a jellybean.
+2. We can assume there is at least one pink, one green and one yellow jellybean in the bag.
+2. We can assume that the three cups are initially empty.
+3. We cannot assume there aren't at least two collections of jelly beans (having the same color) are of equal 
+amount. If the equal collection represent the least amount, the rightmost cup will still contain the most; and
+vice versa.
+4. We can assume the process is such that no loss occurs when placing jelly beans either in the bag or in one of 
+the three cups.
+
+Procedure:
+1. Pull a jellybean from the bag.
+2. Push the jellybean into a cup.
+   a. If there is a cup that has jellybeans of the same color as the one pulled, put the jellybean into that cup.
+   b. Else if there is no cup that hans jellybeans of the same color as the one pulled, put the jellybean into 
+   an empty cup.
+3. Repeat steps 1 and 2 until there are no more jelly beans to pull from the bag.
+4. Keep a tally of the number of jelly beans in each of the three cups.
+5. Note which of the three cups has the least number of jellybeans in it.
+   a. If the leftmost cup is not the cup with the least number, swap the leftmost cup with the cup of the least 
+   number.
+      1. Push the jellybeans of the leftmost cup back into the bag.
+	  2. Push the jellybeans of the cup having the least number of jellybeans into the newly empty cup.
+	  3. Push the jellybeans from the bag to the now empty cup.
+6. Note which of the three cups has the greatest number of jellybeans in it.
+   a. If the rightmost cup is not the cup with the greatest number, swap the rightmost cup with the cup of the 
+   greatest number.
+      1. Push the jellybeans of the rightmost cup back into the bag.
+	  2. Push the jellybeans of the cup having the greater number of jellybeans into the newly empty cup.
+	  3. Push the jellybeans from the bag to the now empty cup.
+
+
+

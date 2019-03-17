@@ -14,7 +14,7 @@
 
             {
                 "id": "jb1",
-                "color": "pink"
+                "color": "yellow"
             },
             {
                 "id": "jb2",
@@ -30,15 +30,15 @@
             },
             {
                 "id": "jb5",
-                "color": "pink"
+                "color": "green"
             },
             {
                 "id": "jb6",
-                "color": "yellow"
+                "color": "green"
             },
             {
                 "id": "jb7",
-                "color": "green"
+                "color": "pink"
             },
             {
                 "id": "jb8",
@@ -46,11 +46,11 @@
             },
             {
                 "id": "jb9",
-                "color": "pink"
+                "color": "yellow"
             },
             {
                 "id": "jbA",
-                "color": "pink"
+                "color": "green"
             }
 
         ];
@@ -64,30 +64,28 @@
         let cupC = [];
 
         let i;
-        let bagLength = bag.length;
-        for (i = 0; i < bagLength; i++) {
+        for (i = bag.length - 1; i >= 0; i--) {
 
             let jellybean = pullFromBag();
             pushToCups(jellybean);
-
         };
+        
+        let least = findLeastCup();
+        if (!doesLeftmostCupHave(least)) {
 
-        let smallest = findLeastCup();
-        if (doesLeftmostCupHaveLeast() === false) {
-
-            pushCupAToBag();
-            pushToEmpty(smallest);
+            pushLeftmostCupToBag();
+            pushToEmpty(least);
             pushToEmptyCup();
         }
-
+        
         let greatest = findGreatestCup();
-        if (doesRightmostCupHaveMost() === false) {
-            console.log("Lump me some cold sausage gravy flakes!");
-            pushCupCToBag();
-            pushToEmpty(largest);
+        if ( !doesRightmostCupHave(greatest)) {
+
+            pushRightmostCupToBag();
+            pushToEmpty(greatest);
             pushToEmptyCup();
         }
-
+       
         displayALLCups();
 
 
@@ -122,13 +120,13 @@
                 cupC.push(jellybean);
             }
         }
-        function pushCupAToBag() {
+        function pushLeftmostCupToBag() {
             pushToBag("A");
         }
-        function pushCupBToBag() {
+        function pushCenterCupToBag() {
             pushToBag("B");
         }
-        function pushCupCToBag() {
+        function pushRightmostCupToBag() {
             pushToBag("C");
         }
         function pushToBag(cup) {
@@ -230,13 +228,11 @@
                 }
             }
         }
-        function doesLeftmostCupHaveLeast() {
-            let cup = findLeastCup();
-            return cup === "A" ? true : false;
+        function doesLeftmostCupHave(leastCup) {
+            return leastCup === "A" ? true : false;
         }
-        function doesRightmostCupHaveMost() {
-            let cup = findGreatestCup();
-            return cup === "C" ? true : false;
+        function doesRightmostCupHave(greatestCup) {
+            return greatestCup === "C" ? true : false;
         }
         function findLeastCup() {
 
@@ -247,14 +243,13 @@
             }
 
             let cupSelect = "A";
-            if (cupB.length < cupA.length) {
-
-                if (cupC.length < cupB.length) {
-                    cupSelect = "C";
-                }
-                else {
-                    cupSelect = "B";
-                }
+            let least = cupA.length;
+            if (cupB.length < least) {
+                cupSelect = "B";
+                least = cupB.length;
+            }
+            if (cupC.length < least) {
+                cupSelect = "C";
             }
 
             return cupSelect;
@@ -268,14 +263,13 @@
             }
 
             let cupSelect = "C";
-            if (cupC.length < cupB.length) {
-
-                if (cupB.length < cupA.length) {
-                    cupSelect = "A";
-                }
-                else {
-                    cupSelect = "B";
-                }
+            let greatest = cupC.length;
+            if (cupB.length > greatest) {
+                cupSelect = "B";
+                greatest = cupB.length;
+            }
+            if (cupA.length > greatest) {
+                cupSelect = "A";
             }
 
             return cupSelect;
