@@ -1,10 +1,53 @@
-﻿body 
-{
+﻿/* For Activity 1*/
+/*
+p {
+    font-size: 18px;
+    color: blue;
 }
 
+div {
+    font-weight: bold;
+    font-size: 2.0em;
+    color: #a94381;
+}
+*/
+
+/* For Activity 2*/
+/*
+#dfirst {
+    font-weight: bold;
+}
+
+#dsecond {
+    font-size: 1.5em;
+}
+
+.sred {
+    color: red;
+}
+
+.sblue {
+    color: blue;
+}
+
+.sgreen {
+    color: green;
+}
+
+.smagneta {
+    color: magenta;
+}
+    */
+/* Activity 3*/
+/*
+body {
+    background-color: #D5D8DC;
+}
+    */
+/* Hands On L04*/
 p {
     color: blue;
-    font-size: 1.875em;
+    font-size: 30px;
     background-color: lightblue;
 }
 
