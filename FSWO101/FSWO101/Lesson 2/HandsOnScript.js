@@ -9,8 +9,4 @@
             " pounds.");
     }
 };
-console.log("Hello from JS");
-console.log("");
 idealCar.myCar();
-console.log("");
-console.log("DONE!");
