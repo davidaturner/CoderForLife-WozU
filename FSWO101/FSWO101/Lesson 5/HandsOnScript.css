@@ -1,0 +1,17 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    background-color: aquamarine;
+}
+
+#header-container {
+    background-color: orange;
+}
+
+#splash-container {
+    background-color: pink;
+}
+
+#footer-container {
+    background-color: lightgreen;
+}

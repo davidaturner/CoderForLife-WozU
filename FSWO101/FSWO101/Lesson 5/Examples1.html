@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>More Flexbox examples</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .orange {
+            color: orange;
+        }
+        .menu-container {
+            color: white;
+            background-color: blue;
+            border: 5px double lightblue;
+            padding: 20px 0;
+        }
+        .flex-container {
+            color: white;
+            background-color: blue;
+            border: 5px double lightblue;
+            display: flex;
+            padding: 20px 0;
+            justify-content: space-around;
+        }
+        .flex-container2 {
+            color: white;
+            background-color: blue;
+            border: 5px double lightblue;
+            display: flex;
+            padding: 20px 0;
+            justify-content: space-around;
+        }
+        .header-container {
+            color: black;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+        }
+        .header {
+            width: 900px;
+            height: 300px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .links {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .date {
+            color: pink;
+        }
+        .login {
+            margin-left: 20px;
+        }
+       .menu {
+            width: 900px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <p class="orange">Hello World!</p>
+    <div class="menu-container">
+        <p>Today's Date</p>
+        <p>Sign Up</p>
+        <p>Login</p>
+    </div>
+    <br />
+    <div class="flex-container">
+        <p>Today's Date</p>
+        <p>Sign Up</p>
+        <p>Login</p>
+    </div>
+    <br />
+    <div class="flex-container">
+        <div class="menu">
+            <div class="date">Today's Date</div>
+            <div class="links">
+                <div class="signup">Sign Up</div>
+                <div class="login">Login</div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="flex-container">
+        <div class="menu">
+            <div class="date">Today's Date</div>
+            <div class="links">
+                <div class="signup">Sign Up</div>
+                <div class="login">Login</div>
+            </div>
+        </div>
+    </div>
+    <div class="flex-container2">
+        <div class="header">
+            <div class="subscribe">Subscribe</div>
+            <div class="logo">
+                <img src="images/logo.png" />
+            </div>
+            <div class="icons">
+                <img src="images/icons.svg" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
