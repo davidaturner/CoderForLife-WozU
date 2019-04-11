@@ -4,14 +4,59 @@
     background-color: aquamarine;
 }
 
-#header-container {
-    background-color: orange;
+img {
+    border: 1px solid black;
 }
 
+#lager {
+    background-color: goldenrod;
+    border: 5px double white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+}
+#header-container {
+    font-family: 'Work Sans', sans-serif;
+    font-family: 'Hind', sans-serif;
+    font-family: 'Inconsolata', monospace;
+    background-color: orange;
+    display: flex;
+}
 #splash-container {
+    font-family: 'Dokdo', cursive;
     background-color: pink;
 }
-
+#gallery-containerA {
+    font-family: 'Dokdo', cursive;
+    background-color: pink;
+    display: flex;
+}
+#gallery-containerB {
+    font-family: 'Dokdo', cursive;
+    background-color: pink;
+    display: flex;
+}
+#gallery-containerC {
+    font-family: 'Dokdo', cursive;
+    background-color: pink;
+    display: flex;
+}
+#gallery-containerD {
+    font-family: 'Dokdo', cursive;
+    background-color: pink;
+    display: flex;
+}
+.gallery-caption {
+    border: 1px solid black;
+}
 #footer-container {
+    font-family: 'East Sea Dokdo', cursive;
     background-color: lightgreen;
+    display: flex;
+}
+
+.gallery-container {
+    font-family: 'Fascinate Inline', cursive;
+    background-color: coral;
 }
