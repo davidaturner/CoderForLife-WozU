@@ -1,62 +1,75 @@
 ﻿* {
     margin: 0;
     padding: 0;
-    background-color: aquamarine;
+    box-sizing: border-box;
 }
 
 img {
-    border: 1px solid black;
+    border: 1px solid #ccc;
 }
 
-#lager {
+.flex-container div {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+#boilerplate {
     background-color: goldenrod;
-    border: 5px double white;
-    display: flex;
+    border: 1px double white;
+    display:flex;
     justify-content: center;
+    height: 60px;
     align-items: center;
-    height: 250px;
 }
-#header-container {
-    font-family: 'Work Sans', sans-serif;
-    font-family: 'Hind', sans-serif;
-    font-family: 'Inconsolata', monospace;
-    background-color: orange;
+.splash {
     display: flex;
 }
-#splash-container {
-    font-family: 'Dokdo', cursive;
-    background-color: pink;
+.splash-caption {
+
 }
-#gallery-containerA {
-    font-family: 'Dokdo', cursive;
-    background-color: pink;
-    display: flex;
+.galleries {
+
 }
-#gallery-containerB {
-    font-family: 'Dokdo', cursive;
-    background-color: pink;
-    display: flex;
-}
-#gallery-containerC {
-    font-family: 'Dokdo', cursive;
-    background-color: pink;
-    display: flex;
-}
-#gallery-containerD {
-    font-family: 'Dokdo', cursive;
-    background-color: pink;
-    display: flex;
+.gallery {
+    display:flex;
 }
 .gallery-caption {
-    border: 1px solid black;
+
 }
-#footer-container {
-    font-family: 'East Sea Dokdo', cursive;
-    background-color: lightgreen;
+#footer {
+
+}
+#rogue-gallery {
     display: flex;
 }
+#rogue-caption {
 
-.gallery-container {
+}
+#address {
+    display: flex;
+}
+#footer-stamp {
+    background-color: goldenrod;
+    border: 1px double white;
+    display: flex;
+    justify-content: center;
+    height: 250px;
+    align-items: center;
+}
+#ff1 {
+    font-family: 'East Sea Dokdo', cursive;
+}
+#ff2 {
+    font-family: 'Dokdo', cursive;
+}
+#ff3 {
     font-family: 'Fascinate Inline', cursive;
-    background-color: coral;
+}
+#ff4 {
+    font-family: 'Hind', sans-serif;
+}
+#ff5 {
+    font-family: 'Inconsolata', monospace;
+}
+#ff6 {
+    font-family: 'Work Sans', sans-serif;
 }
