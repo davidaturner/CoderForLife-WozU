@@ -10,7 +10,8 @@ img {
 
 .flex-container div {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 5px;
+    display: flex;
 }
 #boilerplate {
     background-color: goldenrod;
@@ -21,31 +22,47 @@ img {
     align-items: center;
 }
 .splash {
-    display: flex;
+
 }
 .splash-caption {
 
 }
 .galleries {
-
+    flex-direction: column;
 }
 .gallery {
-    display:flex;
-}
-.gallery-caption {
 
+}
+.slot-1 {
+    flex: 1;
+}
+.slot-2 {
+    flex: 2;
+}
+.slot-3 {
+    flex: 3;
+}
+
+.gallery-caption {
+    flex-direction: column;
 }
 #footer {
-
+    flex-direction: column;
 }
 #rogue-gallery {
-    display: flex;
+
 }
 #rogue-caption {
 
 }
 #address {
-    display: flex;
+ 
+}
+#address-1 {
+
+}
+#address-2 {
+
 }
 #footer-stamp {
     background-color: goldenrod;
