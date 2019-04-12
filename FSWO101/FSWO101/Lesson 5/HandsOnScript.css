@@ -2,18 +2,33 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #ffffb3;
 }
-
+span {
+    font-family: 'Hind', sans-serif;
+}
 img {
     border: 1px solid #ccc;
 }
 
 .flex-container div {
     border: 1px solid #ccc;
-    padding: 5px;
     display: flex;
 }
-#boilerplate {
+.marquee-font {
+    color: darkgoldenrod;
+    font-family: 'Inconsolata', monospace;
+    font-size: 90px;
+}
+.marquee-span {
+    color: darkgoldenrod;
+    font-family: 'Inconsolata', monospace;
+}
+.dokdo-span {
+    color: orangered;
+    font-family: 'Dokdo', cursive;
+}
+.boilerplate {
     background-color: goldenrod;
     border: 1px double white;
     display:flex;
@@ -22,49 +37,85 @@ img {
     align-items: center;
 }
 .splash {
-
+    padding: 5px;
+}
+.knight-left {
+    flex: 1;
+    justify-content: flex-start;
+}
+.knight-right {
+    flex: 1;
+    justify-content: flex-end;
+}
+.marquee {
+    flex: 3;
+    justify-content: center;
+    align-items: center;
 }
 .splash-caption {
-
+    font-family: 'Work Sans', sans-serif;
+    padding: 40px 0;
+    flex-direction: column;
+    align-items: center;
 }
 .galleries {
-    flex-direction: column;
+    padding: 5px;
+    flex-direction:column;
 }
-.gallery {
 
-}
-.slot-1 {
-    flex: 1;
-}
-.slot-2 {
-    flex: 2;
-}
-.slot-3 {
-    flex: 3;
+.gallery-box-1 {
+    flex-basis: 26%;
 }
 
 .gallery-caption {
     flex-direction: column;
+    padding: 5px 30px 0px;
+    flex-basis: 22%;
 }
-#footer {
+    .gallery-caption p {
+        font-family: 'Work Sans', sans-serif;
+        font-size: 16px;
+        text-align: justify;
+    }
+
+.footer {
+    padding: 5px;
     flex-direction: column;
 }
 #rogue-gallery {
 
 }
 #rogue-caption {
-
+    font-family: 'Work Sans', sans-serif;
+    text-align: justify;
+    font-size: 20px;
+    flex: 3;
+    padding: 10px 40px;
 }
-#address {
- 
+.address {
+    padding: 70px 0;
+    display: flex;
+    flex-direction: column;
 }
 #address-1 {
-
+    font-size: 28px;
+    flex-basis: 35%;
+    justify-content: flex-start;
+    padding: 60px 260px;
 }
 #address-2 {
-
+    font-size: 20px;
+    flex-basis: 33%;
+    justify-content: center;
+    padding: 17px 0px;
 }
-#footer-stamp {
+#address-3 {
+    font-size: 24px;
+    flex-basis: 35%;
+    justify-content: center;
+    padding: 7px 0px;
+}
+.stamp {
     background-color: goldenrod;
     border: 1px double white;
     display: flex;
