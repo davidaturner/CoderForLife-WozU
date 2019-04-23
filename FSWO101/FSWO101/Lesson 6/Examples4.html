@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Examples</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+          integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"
+            integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <!-- HTML-->
+    <!--
+        <p>Hello World!</p>
+        -->
+    <div class="container">
+        <div class="row">
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+        </div>
+    </div>
+    <!-- Responsive! -->
+    <!-- if viewport > 576px then put four on a line (-3) -->
+    <!-- else put only two on a line (-6) -->
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-sm-3">col-6 col-sm-3</div>
+            <div class="col-6 col-sm-3">col-6 col-sm-3</div>
+            <div class="col-6 col-sm-3">col-6 col-sm-3</div>
+            <div class="col-6 col-sm-3">col-6 col-sm-3</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">col</div>
+            <div class="col-lg-3 col-md-6 col-sm-12">col</div>
+            <div class="col-lg-3 col-md-6 col-12">col</div>
+            <div class="col-lg-3 col-md-6 col-12">col</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1 col-1">col-1</div>
+            <div class="col-sm-1 offset-sm-1 col-1">col-1</div>
+            <div class="col-sm-1 col-1">col-1</div>
+            <div class="col-sm-1 offset-sm-1 col-1">col-1</div>
+            <div class="col-sm-1 col-1">col-1</div>
+            <div class="col-sm-1 offset-sm-1 col-1">col-1</div>
+            <div class="col-sm-1 col-1">col-1</div>
+            <div class="col-sm-1 offset-sm-1 col-1">col-1</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1 col-1">col-1</div>
+            <div class="col-sm-1 offset-sm-1 col-1">col-1</div>
+            <div class="col-sm-1 offset-sm-1 col-1">col-1</div>
+            <div class="col-sm-1 offset-sm-1 col-1">col-1</div>
+            <div class="col-sm-1 offset-sm-1">col-1</div>
+            <div class="col-sm-1 offset-sm-1 col-1">col-1</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-4">.col-sm-4</div>
+            <div class="col-sm-4 offset-sm-4 col-4">.col-sm-4 .offset-sm-4</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 offset-sm-3 col-3">.col-sm-3 .offset-sm-3</div>
+            <div class="col-sm-3 offset-sm-3">.col-sm-3 .offset-sm-3</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3 col-3">.col-sm-6 .offset-sm-3</div>
+        </div>
+    </div>
+    <br /><br />
+    <p>Example using form-group.</p>
+    <div class="container">
+        <form>
+            <div class="form-group row">
+                <label for="input1">Sample label</label>
+                <input type="text" class="form-control" id="input1" placeholder="Using form-group row">
+            </div>
+            <div class="form-group">
+                <label for="input2">Another label</label>
+                <input type="text" class="form-control" id="input2" placeholder="Using form-group only">
+            </div>
+        </form>
+    </div>
+    <br />
+    <br />
+    <p>Example using form-row.</p>
+    <div class="container">
+        <form>
+            <div class="form-row">
+                <div class="col-md-6 form-group">
+                    <label for="firstName">First Name</label>
+                    <input id="firstName" type="text" placeholder="No form-control">
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="lastName">Last Name</label>
+                    <input id="lastName" type="text" class="form-control" placeholder="Using form-control">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

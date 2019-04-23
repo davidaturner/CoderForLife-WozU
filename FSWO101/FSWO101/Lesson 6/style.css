@@ -1,0 +1,39 @@
+﻿body
+{
+    background-color: white;
+}
+
+.col, .col-1, .col-2, .col-3, .col-4, .col-6, .col-8, .col-12 {
+    border: 2px solid red;
+}
+/* Using Bootstrap should negate almost all NEED for Media queries.*/
+/* Using Bootstrap should negate almost all NEED for Media queries.*/
+/* Using Bootstrap should negate almost all NEED for Media queries.*/
+
+/*Small devices, use 'sm' breakpoint (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+
+}
+
+/*Medium devices, use 'md' breakpoint (tablets, 768px and up)*/
+@media (min-width: 768px) {
+
+}
+
+/* Large devices, use 'lg' breakpoint (desktops, 992px and up)*/
+@media (min-width: 992px) {
+
+}
+
+/*Extra large devices, use'xl' breakpoint (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+
+}
+
+/*
+@media (max-width: 576px) {
+    body {
+        background-color: lightgreen;
+    }
+}
+*/

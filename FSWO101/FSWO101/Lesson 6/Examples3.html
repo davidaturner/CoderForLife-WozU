@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Examples</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+          integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"
+            integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <!-- HTML-->
+    <!--
+        <p>Hello World!</p>
+        -->
+    <div class="container">
+        <div class="row">
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-start">
+            <div class="col-4">col-4</div>
+            <div class="col-4">col-4</div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4">col-4</div>
+            <div class="col-4">col-4</div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-4">col-4</div>
+            <div class="col-4">col-4</div>
+        </div>
+        <div class="row justify-content-around">
+            <div class="col-4">col-4</div>
+            <div class="col-4">col-4</div>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-4">col-4</div>
+            <div class="col-4">col-4</div>
+        </div>
+        <div class="row justify-content-start">
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+        </div>
+        <div class="row justify-content-around">
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+        </div>
+        <!-- Apparently when you justify in Bootstrap you cannot have div with divs???-->
+        <div class="row justify-content-start">
+            <div>
+                <div class="col-1">col-1</div>
+            </div>
+            <div>
+                <div class="col-1">col-1</div>
+                <div class="col-1">col-1</div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row align-items-start" style="height: 200px; border: 1px dashed orange;">
+            <div class="col">One of three columns</div>
+            <div class="col">One of three columns</div>
+            <div class="col">One of three columns</div>
+        </div>
+        <div class="row align-items-center" style="height: 200px; border: 1px dashed orange;">
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+            <div class="col-1">col-1</div>
+        </div>
+        <div class="row align-items-end" style="height: 200px; border: 1px dashed orange;">
+            <div class="col">One of three columns</div>
+            <div class="col">One of three columns</div>
+            <div class="col">One of three columns</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" style="height: 200px; border: 1px dashed yellow;">
+            <div class="col align-self-start">col</div>
+            <div class="col align-self-center">col</div>
+            <div class="col align-self-end">col</div>
+        </div>
+        <div class="row" style="height: 200px; border: 1px dashed red;">
+            <div class="col-1 align-self-start">col-1</div>
+            <div class="col-1 align-self-center">col-1</div>
+            <div class="col-1 align-self-end">col-1</div>
+        </div>
+    </div>
+</body>
+</html>
