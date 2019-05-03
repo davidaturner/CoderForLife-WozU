@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Regex Examples</title>
+</head>
+<body>
+    <!--
+    <h1>Hello, World from HTML!</h1>
+        -->
+    <!--
+    <label for="phNumber">Number: </label>
+    <input id="phNumber">
+    <p>(xxx) xxx-xxxx</p>
+    <button onclick="checkPhoneNumber()">Submit</button>
+        -->
+    First Name: <input id="firstName">
+    <p>First letter must be a 'Capital'. Followed by letters.</p>
+    <br />
+    Last Name: <input id="lastName">
+    <p>First letter must be a 'Capital'. Followed by letters.</p>
+    <br />
+    Phone Number: <input id="phone">
+    <p>(xxx) xxx-xxxx.</p>
+    <br />
+    Email Address: <input id="email">
+    <p>example@gmail.com</p>
+    <br />
+    <button onclick="checkEmail()">Submit</button>
+
+    <script>
+        // alert('Hello World from Embedded!');
+        function checkName() {
+            let name = document.getElementById('firstName');
+            console.log(name.value);
+
+            let nameRegex = /^[A-Z][a-zA-Z]*/;
+
+            if (name.value.match(nameRegex)) {
+                name.style.backgroundColor = "white";
+                console.log(true);
+                alert(name.value + ': Valid name entered!');
+
+            }
+            else {
+                name.style.backgroundColor = "red";
+                console.log(false);
+                alert(name.value + ': Invalid name entered!');
+            }
+        }
+
+        function checkPhoneNumber() {
+            let phoneNumber = document.getElementById('phone');
+            console.log(phoneNumber.value);
+
+            let phoneRegex = /(\(\d{3}\) ?|\d{3}[ -])\d{3}-\d{4}$/;
+
+            if (phoneNumber.value.match(phoneRegex)) {
+                phoneNumber.style.backgroundColor = "white";
+                console.log(true);
+                alert(phoneNumber.value + ': Valid number entered!');
+
+            }
+            else {
+                phoneNumber.style.backgroundColor = "red";
+                console.log(false);
+                alert(phoneNumber.value + ': Invalid number entered!');
+            }
+        };
+
+        function checkEmail() {
+            let email = document.getElementById('email');
+            console.log(email.value);
+            let emailRegex = /[a-zA-Z0-9_.+-]*@[a-zA-Z0-9_]*\.[a-zA-Z0-9-.]*/;
+            if (email.value.match(emailRegex)) {
+                email.style.backgroundColor = "white";
+                console.log(true);
+                alert(email.value + ': Valid email address entered!');
+
+            }
+            else {
+                email.style.backgroundColor = "red";
+                console.log(false);
+                alert(email.value + ': Invalid email address entered!');
+            }
+        };
+    </script>
+</body>
+</html>
