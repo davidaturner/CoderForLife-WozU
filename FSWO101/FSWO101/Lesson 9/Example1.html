@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>AJAX Example</title>
+</head>
+<body>
+    CORS policy applies if you open in Chrome Browser (without ----allow-file-access-from-files flag)!
+    Use http-server instead.
+
+    <div id="example">
+        <h1>This is your beginner text</h1>
+        <button type="button" onclick="loadDoc()">Change Content</button>
+    </div>
+
+    <script>
+        function helloWorld() {
+            alert('Hello World from Embedded');
+        };
+
+        function loadDoc() {
+            console.log('In loadDoc()');
+
+            const xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("example").innerHTML = this.responseText;
+                }
+            }; /*
+                xhttp.onreadystatechange = () => {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("example").innerHTML = this.responseText;
+                    }
+                };
+                */
+            xhttp.open("GET", "info.txt", true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>

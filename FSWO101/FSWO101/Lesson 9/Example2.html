@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>jQuery and AJAX Example</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <p>Click on the button to load info.html file</p>
+
+    <div id="stage" style="background-color:yellow;">
+        LOAD INFORMATION HERE
+    </div>
+
+    <input type="button" id="driver" value="Load Data" />
+
+    <script>
+        $(document).ready(function () {
+            $("#driver").click(function (event) {
+                $("#stage").load("info.html");
+            });
+        });
+
+    </script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 // alert('Hello World from JS');
-function regexMe() {
+function regexChecker() {
 
     var firstname = document.getElementById("firstname");
     var lastname = document.getElementById("lastname");

@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>JQuery examples</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <!--
+    Hello World from HTML
+        -->
+    <h1>This is the FIRST statement</h1>
+
+    <p> This is the SECOND statement</p>
+
+    <h2>This is the THIRD statement</h2>
+    <!--
+        <form>
+    -->
+    <label for="firstname">First Name:</label>
+    <input type="text" name="firstname" id="target" /><br />
+
+    <label for="lastname">Last Name:</label>
+    <input type="text" name="lastname" class="name" /><br />
+
+    <label for="tester">Test:</label>
+    <input type="text" name="tester" id="tester" /><br />
+
+    <button id="btn1">Trigger keydown event for test field</button><br />
+    <!--
+    </form>
+        -->
+
+    <script>
+        //alert('Hello, World from Embedded');
+
+        // Javascript way.
+        // var p_element = document.getElementsByTagName("p")[0];
+        //p_element.style.display = "none";
+
+        /*
+        // Hide all p.
+        $(document).ready(function () {
+            $("p").hide();
+        });
+        */
+        //Click h1 and hide.
+        $(document).ready(function () {
+            $("h1").click(function () {
+                $(this).hide();
+            });
+        });
+
+        // Click p and change background color.
+        $(document).ready(function () {
+            $("p").click(function () {
+                $(this).addClass("olive");
+            });
+        });
+
+        //Click p and change font color (style).
+        $(document).ready(function () {
+            $("p").hover(function () {
+                $(this).css("color", "orange");
+            });
+        });
+
+
+        // Click input focus and change background color.
+        $(document).ready(function () {
+            /*
+            $("input").focus(function () {
+                alert("Handler for .focus() called.");
+            });
+            */
+            $("input").focus(function () {
+                $(this).css("background-color", "lightyellow");
+            });
+        });
+
+        //This will change the css when a user hovers over an area with a class of
+        // 'p1'.Since you are using hover, you have to invoke both mouseenter and
+        // mouseleave by having two functions inside the hover() method.When the mouse
+        // enters the.p1 area, it will change to Times New Roman, and when it leaves, it
+        // will change back to what it was originally, which is Georgia.
+        $(document).ready(function () {
+            $(".name").hover(function () {
+                $(this).css("font-family", "Times New Roman");
+            }, function () {
+                $(this).css("font-family", "Georgia");
+            });
+        });
+
+        $(document).ready(function () {
+            /*
+            $("#tester").click(function () {
+                $(this).css("background-color", "olive");
+            });
+            */
+            $("#tester").keydown(function () {
+                $(this).css("background-color", "yellow");
+            });
+            $("#btn1").click(function () {
+                $("#tester").keydown();
+            });
+
+        });
+    </script>
+</body>
+</html>

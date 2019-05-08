@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>JSON Examples</title>
+</head>
+<body>
+    <h1>Requesting User information...</h1>
+    <p><span id="example"></span> has been found! What do you want to know?</p>
+
+    <script>
+        let newRequest = new XMLHttpRequest();
+
+        /* Getting information from a JSON file.
+        newRequest.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let myObj = JSON.parse(this.responseText);
+                document.getElementById("example").innerHTML = myObj.name;
+                console.log(myObj);
+            }
+        };
+        newRequest.open("GET", "new.json", true);
+        */
+
+        /* Getting information from GitHub API */
+        newRequest.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let myObj = JSON.parse(this.responseText);
+                document.getElementById("example").innerHTML = myObj.name;
+                console.log(myObj);
+            }
+        };
+        newRequest.open("GET", "https://api.github.com/users/davidaturner", true);
+
+        newRequest.send();
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Hands On Lesson 9</title>
+</head>
+<body>
+
+    <p><span id="albert"></span> loaded successfully. What do you want to know?</p><br />
+
+    <p><span id="albertbio"></span></p>
+
+    <script>
+
+        loadAlbert();
+        function loadAlbert() {
+            let newRequest = new XMLHttpRequest();
+            newRequest.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    let myObj = JSON.parse(this.responseText);
+                    // Load to DOM object.
+                    displayName(myObj);
+
+                    console.log(myObj);
+                }
+            };
+            newRequest.open("GET", "einstein.json", true);
+            newRequest.send();
+        }
+        function displayName(myObj) {
+            document.getElementById("albert").innerHTML =
+                myObj.firstname + " " +
+                myObj.lastname + " (born: " +
+                myObj.birthday + ") ";
+        }
+    </script>
+</body>
+</html>
