@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <!-- Button DOM test -->
+    <button id="Button A">Hit!</button>
+    <br /><br />
+    <button id="Button B">Miss!</button>
+    <br /><br />
+    <button id="Button C">Misfire!</button>
+    <br /><br /><br />
+
+    <!-- Item DOM test -->
+    <ul>
+        <li>apples</li>
+        <li>oranges</li>
+        <li>bananas</li>
+    </ul>
+
+    <!-- Class DOM text -->
+    <p class="paragraph">I am a paragraph</p>
+
+    <!-- Updating DOM information -->
+    <p id="paraffin">I am a paragraph</p>
+
+    <!-- Get input values -->
+    First Name: <input id="firstName" type="text" /><br />
+    Last Name: <input id="lastName" type="text" /><br />
+    Email: <input id="email" type="text" /><br />
+    <button onclick="getValues()">Get Values</button>
+
+    <script>
+        var myButton = document.getElementById('Button B');
+        console.log(myButton);
+        var myItems = document.getElementsByTagName('li');
+        console.log(myItems);
+        var myPara = document.getElementsByClassName('paragraph');
+        console.log(myPara);
+
+        var text = document.getElementById("paraffin").innerHTML;
+        console.log(text);
+        var text2 = document.getElementById("paraffin").innerHTML = text + " and I am awesome!";
+        console.log(text2);
+
+        function getValues() {
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var email = document.getElementById('email').value;
+            console.log("First Name: " + firstName);
+            console.log("Last Name: " + lastName);
+            console.log("Email: " + email);
+        }
+    </script>
+</body>
+</html>

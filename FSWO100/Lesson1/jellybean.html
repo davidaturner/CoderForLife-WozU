@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Jellybean Test</title>
+</head>
+<body>
+    <h1>Hello, World</h1>
+    <script>
+        console.log("Hello, moku World!");
+
+        let bag = [
+
+            {
+                "id": "jb1",
+                "color": "yellow"
+            },
+            {
+                "id": "jb2",
+                "color": "green"
+            },
+            {
+                "id": "jb3",
+                "color": "yellow"
+            },
+            {
+                "id": "jb4",
+                "color": "pink"
+            },
+            {
+                "id": "jb5",
+                "color": "green"
+            },
+            {
+                "id": "jb6",
+                "color": "green"
+            },
+            {
+                "id": "jb7",
+                "color": "pink"
+            },
+            {
+                "id": "jb8",
+                "color": "green"
+            },
+            {
+                "id": "jb9",
+                "color": "yellow"
+            },
+            {
+                "id": "jbA",
+                "color": "green"
+            }
+
+        ];
+
+        /*
+         * Algorithm
+         * 
+         */
+        let cupA = [];
+        let cupB = [];
+        let cupC = [];
+
+        let i;
+        for (i = bag.length - 1; i >= 0; i--) {
+
+            let jellybean = pullFromBag();
+            pushToCups(jellybean);
+        };
+        
+        let least = findLeastCup();
+        if (!doesLeftmostCupHave(least)) {
+
+            pushLeftmostCupToBag();
+            pushToEmpty(least);
+            pushToEmptyCup();
+        }
+        
+        let greatest = findGreatestCup();
+        if ( !doesRightmostCupHave(greatest)) {
+
+            pushRightmostCupToBag();
+            pushToEmpty(greatest);
+            pushToEmptyCup();
+        }
+       
+        displayALLCups();
+
+
+
+
+        /*
+         * Support functions
+         * 
+         */
+        function pullFromBag() {
+
+            return (bag !== null && bag.length > 0) ? bag.pop() : null;
+        }
+        function pushToCups(jellybean) {
+
+            if (cupA.length > 0 && cupA[0].color === jellybean.color) {
+                cupA.push(jellybean);
+            }
+            else if (cupB.length > 0 && cupB[0].color === jellybean.color) {
+                cupB.push(jellybean);
+            }
+            else if (cupC.length > 0 && cupC[0].color === jellybean.color) {
+                cupC.push(jellybean);
+            }
+            else if (cupA.length === 0) {
+                cupA.push(jellybean);
+            }
+            else if (cupB.length === 0) {
+                cupB.push(jellybean);
+            }
+            else {
+                cupC.push(jellybean);
+            }
+        }
+        function pushLeftmostCupToBag() {
+            pushToBag("A");
+        }
+        function pushCenterCupToBag() {
+            pushToBag("B");
+        }
+        function pushRightmostCupToBag() {
+            pushToBag("C");
+        }
+        function pushToBag(cup) {
+            let i;
+            let empty = findEmptyCup();
+
+            if (empty === "E") {
+                if (cup === "A" && cupA.length > 0) {
+                    for (i = cupA.length - 1; i >= 0; i--) {
+                        let jellybean = cupA.pop();
+                        bag.push(jellybean);
+                    }
+                }
+                else if (cup === "B" && cupB.length > 0) {
+                    for (i = cupB.length - 1; i >= 0; i--) {
+                        let jellybean = cupB.pop();
+                        bag.push(jellybean);
+                    }
+                }
+                else if (cup === "C" && cupC.length > 0) {
+                    for (i = cupC.length - 1; i >= 0; i--) {
+                        let jellybean = cupC.pop();
+                        bag.push(jellybean);
+                    }
+                }
+            }
+        }
+        function pushToEmpty(cup) {
+            let i;
+            let empty = findEmptyCup();
+            if (empty !== "E") {
+
+                if (cup === "A" && cupA.length > 0) {
+                    if (empty === "B") {
+                        for (i = cupA.length - 1; i >= 0; i--) {
+                            let jellybean = cupA.pop();
+                            cupB.push(jellybean);
+                        }
+                    }
+                    else if (empty === "C") {
+                        for (i = cupA.length - 1; i >= 0; i--) {
+                            let jellybean = cupA.pop();
+                            cupC.push(jellybean);
+                        }
+                    }
+                }
+                else if (cup === "B" && cupB.length > 0) {
+                    if (empty === "A") {
+                        for (i = cupB.length - 1; i >= 0; i--) {
+                            let jellybean = cupB.pop();
+                            cupA.push(jellybean);
+                        }
+                    }
+                    else if (empty === "C") {
+                        for (i = cupB.length - 1; i >= 0; i--) {
+                            let jellybean = cupB.pop();
+                            cupC.push(jellybean);
+                        }
+                    }
+                }
+                else if (cup === "C" && cupC.length > 0) {
+                    if (empty === "A") {
+                        for (i = cupC.length - 1; i >= 0; i--) {
+                            let jellybean = cupC.pop();
+                            cupA.push(jellybean);
+                        }
+                    }
+                    else if (empty === "B") {
+                        for (i = cupC.length - 1; i >= 0; i--) {
+                            let jellybean = cupC.pop();
+                            cupB.push(jellybean);
+                        }
+                    }
+                }
+            }
+        }
+        function pushToEmptyCup() {
+            let i;
+            let empty = findEmptyCup();
+            if (bag.length > 0 && empty !== "E") {
+
+                if (empty === "A") {
+                    for (i = bag.length - 1; i >= 0; i--) {
+                        let jellybean = bag.pop();
+                        cupA.push(jellybean);
+                    }
+                }
+                if (empty === "B") {
+                    for (i = bag.length - 1; i >= 0; i--) {
+                        let jellybean = bag.pop();
+                        cupB.push(jellybean);
+                    }
+                }
+                if (empty === "C") {
+                    for (i = bag.length - 1; i >= 0; i--) {
+                        let jellybean = bag.pop();
+                        cupC.push(jellybean);
+                    }
+                }
+            }
+        }
+        function doesLeftmostCupHave(leastCup) {
+            return leastCup === "A" ? true : false;
+        }
+        function doesRightmostCupHave(greatestCup) {
+            return greatestCup === "C" ? true : false;
+        }
+        function findLeastCup() {
+
+            if (cupA.length === 0 || cupB.length === 0 ||
+                cupC.length === 0) {
+
+                return "E";
+            }
+
+            let cupSelect = "A";
+            let least = cupA.length;
+            if (cupB.length < least) {
+                cupSelect = "B";
+                least = cupB.length;
+            }
+            if (cupC.length < least) {
+                cupSelect = "C";
+            }
+
+            return cupSelect;
+        }
+        function findGreatestCup() {
+
+            if (cupA.length === 0 || cupB.length === 0 ||
+                cupC.length === 0) {
+
+                return "E";
+            }
+
+            let cupSelect = "C";
+            let greatest = cupC.length;
+            if (cupB.length > greatest) {
+                cupSelect = "B";
+                greatest = cupB.length;
+            }
+            if (cupA.length > greatest) {
+                cupSelect = "A";
+            }
+
+            return cupSelect;
+        }
+        function findEmptyCup() {
+
+            if (cupA.length > 0 && cupB.length > 0 &&
+                cupC.length > 0) {
+
+                return "E";
+            }
+            let cupSelect = "C";
+            if (cupC.length > 0) {
+
+                if (cupB.length > 0) {
+                    cupSelect = "A";
+                }
+                else {
+                    cupSelect = "B";
+                }
+            }
+
+            return cupSelect;
+        }
+
+        function displayALLCups() {
+            let i;
+            console.log("Jellybeans in bag: " + bag.length);
+            console.log("Cup A : " + cupA.length);
+            for (i = 0; i < cupA.length; i++) {
+                console.log(cupA[i].id + " " + cupA[i].color);
+            }
+            console.log("Cup B : " + cupB.length);
+            for (i = 0; i < cupB.length; i++) {
+                console.log(cupB[i].id + " " + cupB[i].color);
+            }
+            console.log("Cup C : " + cupC.length);
+            for (i = 0; i < cupC.length; i++) {
+                console.log(cupC[i].id + " " + cupC[i].color);
+            }
+        }
+        function displayBag() {
+            let i;
+            console.log("Remaining in bag: " + bag.length);
+            for (i = 0; i < bag.length; i++) {
+                console.log(bag[i].id + " " + bag[i].color);
+            }
+        }
+
+    </script>
+</body>
+</html>
