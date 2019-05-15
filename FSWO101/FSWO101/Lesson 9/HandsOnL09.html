@@ -4,36 +4,45 @@
 <head>
     <meta charset="utf-8" />
     <title>Hands On Lesson 9</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-dT8WZNLW+WmnMquYY8GD+px5+PPMy/Rz1pZTBuLQv7EfAZG0xhipTd08JFVCf8bp"
+          crossorigin="anonymous">
+    <link href="HandsOnStyle.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"
+            integrity="sha384-jspctxrQmizRroXAKjoWWOOhkG3aZesspL7dmISSX5+p1LfXftbGQocYmzOsv9wx"
+            crossorigin="anonymous"></script>
+    <script src="HandsOnScript.js"></script>
+
 </head>
 <body>
 
-    <p><span id="albert"></span> loaded successfully. What do you want to know?</p><br />
+    <div class="container">
 
-    <p><span id="albertbio"></span></p>
 
-    <script>
+        <h1 class="text-center" id="albert"></h1>
+        <!--
+    <h4 class="text-center alstatus"><em>(Personality loaded successfully.)</em></h4><br /><br />
+        -->
+        <h4 class="text-center" id="alstatus"><em>(Personality loaded successfully.)</em></h4><br /><br />
+        <p class="text-justify" id="albertbio">This space is reserved for the bio.</p>
 
-        loadAlbert();
-        function loadAlbert() {
-            let newRequest = new XMLHttpRequest();
-            newRequest.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    let myObj = JSON.parse(this.responseText);
-                    // Load to DOM object.
-                    displayName(myObj);
+        <!-- If using jQuery
+    <button type="button" class="btn btn-primary btn-lg btn-block">Display Bio!</button>
+    -->
+        <button type="button" id="biobutton"
+                onclick="displayBio()" class="btn btn-primary btn-lg btn-block">
+            Display Bio!
+        </button>
 
-                    console.log(myObj);
-                }
-            };
-            newRequest.open("GET", "einstein.json", true);
-            newRequest.send();
-        }
-        function displayName(myObj) {
-            document.getElementById("albert").innerHTML =
-                myObj.firstname + " " +
-                myObj.lastname + " (born: " +
-                myObj.birthday + ") ";
-        }
-    </script>
+    </div>
+
+
+
 </body>
 </html>

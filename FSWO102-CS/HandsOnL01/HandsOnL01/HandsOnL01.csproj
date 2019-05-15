@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FE47F222-DFBB-4803-A003-E87FE48FBF7A}</ProjectGuid>
+    <ProjectGuid>{59DEFBFB-55CB-4435-AA34-51A45AEBC6E4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>FSWO102_CS</RootNamespace>
-    <AssemblyName>FSWO102-CS</AssemblyName>
+    <RootNamespace>HandsOnL01</RootNamespace>
+    <AssemblyName>HandsOnL01</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -42,30 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Lesson1\Old\Activity.cs" />
-    <Compile Include="Lesson1\Old\HandsOn1.cs" />
-    <Compile Include="Lesson1\Old\HandsOn2.cs" />
-    <Compile Include="Lesson1\Old\HandsOn3.cs" />
-    <Compile Include="Lesson2\Activity.cs" />
-    <Compile Include="Lesson2\HandsOn3.cs" />
-    <Compile Include="Lesson2\HandsOn1.cs" />
-    <Compile Include="Lesson2\HandsOn2.cs" />
-    <Compile Include="Lesson3\Activity.cs" />
-    <Compile Include="Lesson3\HandsOn1.cs" />
-    <Compile Include="Lesson3\HandsOn2.cs" />
-    <Compile Include="Lesson4\Activity.cs" />
-    <Compile Include="Lesson4\HandsOn1.cs" />
-    <Compile Include="Lesson4\HandsOn2.cs" />
-    <Compile Include="Lesson4\HandsOn3.cs" />
-    <Compile Include="Lesson5\HandsOn1.cs" />
-    <Compile Include="Lesson5\HandsOn2.cs" />
-    <Compile Include="Lesson5\HandsOn3.cs" />
-    <Compile Include="Lesson1\Old\Program.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
