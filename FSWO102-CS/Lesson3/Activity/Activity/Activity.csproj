@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{59DEFBFB-55CB-4435-AA34-51A45AEBC6E4}</ProjectGuid>
+    <ProjectGuid>{54E2ED3D-6F9F-42BC-BA84-FAB0936A0BDE}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>HandsOnL01</RootNamespace>
-    <AssemblyName>HandsOnL01</AssemblyName>
+    <RootNamespace>Activity</RootNamespace>
+    <AssemblyName>Activity</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
