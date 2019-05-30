@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TicTacToeGame.Interfaces
 {
-    interface IConsoleSupport
+    public interface IPosition
     {
-        void ToConsole();
+        int Evaluate();
     }
 }

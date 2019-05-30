@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{58E34556-BEEF-4342-92F9-077084A20290}</ProjectGuid>
+    <ProjectGuid>{B1BCDE82-ED4D-483B-90D4-7BA294F47A3C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Activity</RootNamespace>
-    <AssemblyName>Activity</AssemblyName>
+    <RootNamespace>TicTacToeGame</RootNamespace>
+    <AssemblyName>TicTacToeGame</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,18 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Player.cs" />
-    <Compile Include="Classes\TicTacToePlayer.cs" />
-    <Compile Include="Interfaces\IConsoleSupport.cs" />
-    <Compile Include="Interfaces\IGameposition.cs" />
-    <Compile Include="Interfaces\IGameplay.cs" />
+    <Compile Include="Classes\Move\TTTMovelist.cs" />
+    <Compile Include="Classes\Player\TTTPlayer.cs" />
+    <Compile Include="Classes\ToConsole\TTTConsoleMessages.cs" />
+    <Compile Include="Interfaces\IMove.cs" />
+    <Compile Include="Interfaces\IMovelist.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
+    <Compile Include="Interfaces\IPosition.cs" />
+    <Compile Include="Interfaces\IRanked.cs" />
+    <Compile Include="Interfaces\IRankedPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Classes\Position\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace TicTacToeGame.Interfaces
 {
-    interface IGameplay
+    public interface IMove
     {
-        bool PlayGame();
-        bool PlayOneMove();
-
-        void StartGame();
+        int CurrentMove
+        {
+            get;
+        }
+        IMove Next
+        {
+            get;
+            set;
+        }
     }
 }

@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicTacToeGame.Interfaces
+namespace FinalProject
 {
-    interface IGameposition
+    class Program
     {
-        int Evaluate();
+        static void Main(string[] args)
+        {
+        }
     }
 }

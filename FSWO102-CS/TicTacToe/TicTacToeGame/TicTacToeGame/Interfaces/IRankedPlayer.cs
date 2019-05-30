@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToeGame.Interfaces
 {
-    interface IPlayer
+    public interface IRankedPlayer: IPlayer, IRanked
     {
-        string[] Profile();
-
-        string[] Scores();
-        void UpdateScores();
     }
 }
