@@ -6,16 +6,25 @@ using System.Threading.Tasks;
 
 namespace TicTacToeGame.Interfaces
 {
-    public interface IMove
+    public interface IGameConsolable
     {
-        IMoveValue Value
+        IPlayer PlayerOne
         {
             get;
         }
-        IMove Next
+        IPlayer PlayerTwo
         {
             get;
-            set;
+        }
+
+        IMovesLinkable Moves
+        {
+            get;
+        }
+
+        IPosition position
+        {
+            get;
         }
     }
 }

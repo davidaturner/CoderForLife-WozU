@@ -7,7 +7,7 @@ using TicTacToeGame.Interfaces;
 
 namespace TicTacToeGame.Classes.Player
 {
-    public class TTTPlayer : IPlayer
+    public class TicTacToePlayer : IPlayer
     {
         protected string firstName;
         protected string lastName;
@@ -18,19 +18,17 @@ namespace TicTacToeGame.Classes.Player
 
         protected bool isInGame;
 
-        public TTTPlayer (string firstName, string lastName, string alias)
+        public TicTacToePlayer(string firstName, string lastName, string alias)
             : this(firstName, lastName, alias, 0)                            
         {
         }
-        public TTTPlayer (string  firstName, string lastName, string alias, int gamesPlayed)
+        public TicTacToePlayer(string  firstName, string lastName, string alias, int gamesPlayed)
         {
             this.firstName = firstName;
             this.lastName = lastName;
             this.alias = alias;
             this.gamesPlayed = gamesPlayed;
-
         }
-
 
         public string FullName => firstName + " " + lastName;
 
@@ -52,14 +50,9 @@ namespace TicTacToeGame.Classes.Player
             isInGame = false;
         }
 
-        public bool isInAGame()
-        {
-            return isInGame;
-        }
-
         public bool IsInAGame()
         {
-            throw new NotImplementedException();
+            return isInGame;
         }
     }
 }

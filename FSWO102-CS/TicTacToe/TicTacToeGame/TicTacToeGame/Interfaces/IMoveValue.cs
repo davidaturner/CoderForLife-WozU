@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace TicTacToeGame.Interfaces
 {
-    public interface IMove
+    public interface IMoveValue
     {
-        IMoveValue Value
+        string Alias
         {
             get;
         }
-        IMove Next
+        dynamic Move
         {
             get;
-            set;
         }
     }
 }

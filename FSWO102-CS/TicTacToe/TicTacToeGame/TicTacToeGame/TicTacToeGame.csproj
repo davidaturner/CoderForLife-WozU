@@ -43,11 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Move\TTTMovelist.cs" />
-    <Compile Include="Classes\Player\TTTPlayer.cs" />
-    <Compile Include="Classes\ToConsole\TTTConsoleMessages.cs" />
+    <Compile Include="Classes\Move\TicTacToeMove.cs" />
+    <Compile Include="Classes\Move\TicTacToeMoves.cs" />
+    <Compile Include="Classes\Move\TicTacToeMoveValue.cs" />
+    <Compile Include="Classes\Player\TicTacToePlayer.cs" />
+    <Compile Include="Classes\Position\TicTacToePosition.cs" />
+    <Compile Include="Classes\ToConsole\TicTacToeMessages.cs" />
+    <Compile Include="Interfaces\IGameConsolable.cs" />
     <Compile Include="Interfaces\IMove.cs" />
-    <Compile Include="Interfaces\IMovelist.cs" />
+    <Compile Include="Interfaces\IMovesLinkable.cs" />
+    <Compile Include="Interfaces\IMoveValue.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Interfaces\IPosition.cs" />
     <Compile Include="Interfaces\IRanked.cs" />
@@ -59,7 +64,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\Position\" />
+    <Folder Include="Classes\Gameboy\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

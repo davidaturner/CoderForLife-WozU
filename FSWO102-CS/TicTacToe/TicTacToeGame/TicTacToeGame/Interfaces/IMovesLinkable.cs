@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToeGame.Interfaces
 {
-    interface IMovelist
+    public interface IMovesLinkable
     {
         bool Seal(IMove move);
         IMove Unseal();
@@ -19,7 +19,6 @@ namespace TicTacToeGame.Interfaces
             get;
         }
 
-        bool isEmpty();
-        List<int> Playlist();
+        bool IsEmpty();
     }
 }
