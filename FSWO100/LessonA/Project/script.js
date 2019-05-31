@@ -6,7 +6,10 @@ function idCard() {
     var age = document.getElementById('age').value;
     var phone = document.getElementById('phone').value;
     var address = document.getElementById('address').value;
-    console.log(firstName);
 
-    alert('idCard() works');
+    console.log(firstName);
+    console.log(lastName);
+    console.log(age);
+    console.log(phone);
+    console.log(address);
 }

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Card Form</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <div id="userentry">
+            <h1>Let's Create an ID card!</h1>
+            <div class="row">
+                <label for="firstname">First Name:</label><br />
+                <input type="text" id="firstname" /><br />
+            </div>
+            <div class="row">
+                <label for="lastname">Last Name:</label><br />
+                <input type="text" id="lastname" /><br />
+            </div>
+            <div class="row">
+                <label for="age">Age:</label><br />
+                <input type="text" id="age" /><br />
+            </div>
+            <div class="row">
+                <label for="phone">Phone Number:</label><br />
+                <input type="text" id="phone" /><br />
+            </div>
+            <div class="row">
+                <label for="address">Address:</label><br />
+                <input type="text" id="address" /><br />
+            </div>
+            <div class="submit">
+                <button type="button" onclick="idCard()">Get ID Card!</button><br />
+            </div>
+        </div>
+        <div id="idcard">
+            <div class="pname">
+
+                <span class="left">
+                    <a href="http://chittagongit.com/icon/user-profile-icon-5.html"
+                       title="User Profile Icon #263305">
+                        <img src="http://chittagongit.com/images/user-profile-icon/user-profile-icon-5.jpg"
+                             width="75" />
+                    </a>
+                </span>
+                <span class="right">David Turner</span>
+
+            </div>
+            <div class="pinfo" style="clear:both;">
+                <p>Age: 26</p>
+                <p>Address: 2003 Main St.</p>
+                <p>Phone: 4122832299</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
