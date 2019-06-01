@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TicTacToeGame.Interfaces
 {
-    public interface IPosition
+    public interface IPositionResult
     {
-        IPositionResult Evaluate();
+        dynamic Value { get;  }
     }
 }

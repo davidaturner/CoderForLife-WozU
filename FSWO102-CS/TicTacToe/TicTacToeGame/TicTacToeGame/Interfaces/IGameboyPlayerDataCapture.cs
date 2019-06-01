@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace TicTacToeGame.Interfaces
 {
-    public interface IPosition
+    public interface IGameboyPlayerDataCapture
     {
-        IPositionResult Evaluate();
+        IPlayer CreateNew();
+        IPlayer RetrieveExisting();
     }
 }

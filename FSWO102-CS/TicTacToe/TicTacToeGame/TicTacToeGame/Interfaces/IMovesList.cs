@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToeGame.Interfaces
 {
-    public interface IMovesLinkable
+    public interface IMovesList
     {
         bool Seal(IMove move);
         IMove Unseal();

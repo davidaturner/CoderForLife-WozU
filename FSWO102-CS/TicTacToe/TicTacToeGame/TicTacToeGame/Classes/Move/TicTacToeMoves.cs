@@ -8,7 +8,7 @@ using console = TicTacToeGame.Classes.ToConsole.TicTacToeMessages;
 
 namespace TicTacToeGame.Classes.Move
 {
-    public class TicTacToeMoves : IMovesLinkable
+    public class TicTacToeMoves : IMovesList
     {
         int count;
         IMove moves;

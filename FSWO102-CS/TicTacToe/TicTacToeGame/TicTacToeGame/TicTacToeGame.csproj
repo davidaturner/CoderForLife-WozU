@@ -43,18 +43,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Gameboy\TicTacToeConsoleMessages.cs" />
+    <Compile Include="Classes\Gameboy\TicTacToe.cs" />
+    <Compile Include="Classes\Gameboy\TicTacToeMoveDataCapture.cs" />
+    <Compile Include="Classes\Gameboy\TicTacToeMoveExecutor.cs" />
+    <Compile Include="Classes\Gameboy\TicTacToePlayerDataCapture.cs" />
+    <Compile Include="Classes\Gameboy\TicTacToePlayerDataUpdate.cs" />
     <Compile Include="Classes\Move\TicTacToeMove.cs" />
     <Compile Include="Classes\Move\TicTacToeMoves.cs" />
     <Compile Include="Classes\Move\TicTacToeMoveValue.cs" />
     <Compile Include="Classes\Player\TicTacToePlayer.cs" />
     <Compile Include="Classes\Position\TicTacToePosition.cs" />
+    <Compile Include="Classes\Position\TicTacToePositionResult.cs" />
     <Compile Include="Classes\ToConsole\TicTacToeMessages.cs" />
-    <Compile Include="Interfaces\IGameConsolable.cs" />
+    <Compile Include="Interfaces\IGameboyConsoleMessages.cs" />
+    <Compile Include="Interfaces\IGameboyMoveDataCapture.cs" />
+    <Compile Include="Interfaces\IGameboyMoveExecutor.cs" />
+    <Compile Include="Interfaces\IGameboyPlayerDataCapture.cs" />
+    <Compile Include="Interfaces\IGameboyPlayerDataUpdate.cs" />
     <Compile Include="Interfaces\IMove.cs" />
-    <Compile Include="Interfaces\IMovesLinkable.cs" />
+    <Compile Include="Interfaces\IMovesList.cs" />
     <Compile Include="Interfaces\IMoveValue.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Interfaces\IPosition.cs" />
+    <Compile Include="Interfaces\IPositionResult.cs" />
     <Compile Include="Interfaces\IRanked.cs" />
     <Compile Include="Interfaces\IRankedPlayer.cs" />
     <Compile Include="Program.cs" />
@@ -63,8 +75,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\Gameboy\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

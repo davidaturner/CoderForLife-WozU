@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TicTacToeGame.Classes.Gameboy;
 using TicTacToeGame.Classes.Move;
 using TicTacToeGame.Interfaces;
 
@@ -12,7 +13,9 @@ namespace TicTacToeGame
     {
         static void Main(string[] args)
         {
-            TicTacToeMovesTest.RunTest01();
+            TicTacToe game = new TicTacToe();
+
+            game.Run();
         }
 
     }
