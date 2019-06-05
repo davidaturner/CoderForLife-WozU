@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TicTacToeGame.Interfaces;
 
-namespace TicTacToeGame.Classes.Gameboy
+namespace TicTacToeGame.Classes
 {
     public class TicTacToePlayerDataUpdate : IGameboyPlayerDataUpdate
     {
-        public void Score()
+        public void Score(IPlayer player1, IPlayer player2, IPositionResult result)
         {
             throw new NotImplementedException();
         }

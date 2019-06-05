@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicTacToeGame.Interfaces
+namespace TicTacToeGame.Classes
 {
     public interface IMove
     {

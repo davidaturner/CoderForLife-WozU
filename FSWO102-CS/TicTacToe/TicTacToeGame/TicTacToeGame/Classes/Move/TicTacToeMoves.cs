@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TicTacToeGame.Interfaces;
-using console = TicTacToeGame.Classes.ToConsole.TicTacToeMessages;
+using console = TicTacToeGame.Classes.Debug;
 
-namespace TicTacToeGame.Classes.Move
+namespace TicTacToeGame.Classes
 {
     public class TicTacToeMoves : IMovesList
     {
