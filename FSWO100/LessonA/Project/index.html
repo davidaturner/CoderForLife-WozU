@@ -34,26 +34,33 @@
                 <input type="text" id="address" /><br />
             </div>
             <div class="submit">
-                <button type="button" onclick="idCard()">Get ID Card!</button><br />
+                <button type="button" id="idcardreset" onclick="idCard()">Get ID Card!</button><br />
+            </div>
+            <div class="submit">
+                <button type="button" id="idcardreset" onclick="reset()">Reset Input!</button><br />
             </div>
         </div>
         <div id="idcard">
             <div class="pname">
-
-                <span class="left">
-                    <a href="http://chittagongit.com/icon/user-profile-icon-5.html"
-                       title="User Profile Icon #263305">
-                        <img src="http://chittagongit.com/images/user-profile-icon/user-profile-icon-5.jpg"
-                             width="75" />
-                    </a>
-                </span>
-                <span class="right">David Turner</span>
+                <img src="http://www.iconninja.com/files/373/611/612/person-user-profile-male-man-avatar-account-icon.svg"
+                     width="90">
+                
+                <!--
+    <span class="left">
+        <a href="ttp://chittagongit.com/icon/user-profile-icon-5.html"
+           title="User Profile Icon #263305">
+            <img src="ttp://chittagongit.com/images/user-profile-icon/user-profile-icon-5.jpg"
+                 width="75" />
+        </a>
+    </span>
+        -->
+                <span id="postFullName" class="right">Id Name</span>
 
             </div>
             <div class="pinfo" style="clear:both;">
-                <p>Age: 26</p>
-                <p>Address: 2003 Main St.</p>
-                <p>Phone: 4122832299</p>
+                Age: <span id="postAge"></span><br />
+                Phone Number: <span id="postPhone"></span><br />
+                <span id="postAddress"></span><br />
             </div>
         </div>
     </div>
