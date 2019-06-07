@@ -1,0 +1,34 @@
+﻿body
+{
+    background-color: azure;
+}
+
+header {
+    color: blueviolet;
+    background-color: #e6e6ff;
+    height: 70px;
+    width: 200px;
+    padding-left: 7px;
+    padding-top: 5px;
+    column-count: 2;
+}
+button {
+    height: 65px;
+}
+article {
+    background-color: #99ccff;
+    padding: 5px;
+    height: 350px;
+    width: 700px;
+    border: 5px double #66b3ff;
+}
+.example {
+    border: 2px solid black;
+    padding: 5px;
+}
+#translate {
+    background-color: aqua;
+    height: 200px;
+    width: 200px;
+    border: 1px solid blue;
+}

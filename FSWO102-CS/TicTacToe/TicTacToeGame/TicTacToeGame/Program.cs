@@ -13,7 +13,7 @@ namespace TicTacToeGame
         {
             TicTacToe game = new TicTacToe();
 
-            game.Run();
+            game.StartGame();
         }
 
     }
