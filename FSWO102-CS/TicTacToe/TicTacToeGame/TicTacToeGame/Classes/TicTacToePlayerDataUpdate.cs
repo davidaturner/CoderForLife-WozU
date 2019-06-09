@@ -8,7 +8,7 @@ namespace TicTacToeGame.Classes
 {
     public class TicTacToePlayerDataUpdate : IGameboyPlayerDataUpdate
     {
-        public void Score(IRankedPlayer player1, IRankedPlayer player2, IPosition pos)
+        public void Score(IRanked player1, IRanked player2, IPosition pos)
         {
             throw new NotImplementedException();
         }

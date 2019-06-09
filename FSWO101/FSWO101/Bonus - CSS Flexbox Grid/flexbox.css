@@ -1,0 +1,53 @@
+﻿body
+{
+    background-color: azure;
+}
+
+div, img, h1, h2, blockquote, ul, li {
+    border: 1px solid grey;
+    padding: 3px;
+}
+h1 {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.container-1 {
+    background-color: red;
+    display: flex;
+    align-items: flex-end;
+    order: 3;
+    flex-basis: 37%;
+    flex-direction: column;
+}
+.container-2 {
+    background-color: yellow;
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 98%;
+    order: 4;
+}
+.container-3 {
+    background-color: greenyellow;
+    display: flex;
+    order: 2;
+    flex-basis: 60%;
+    flex-direction: column;
+}
+.container-4 {
+    background-color: cornflowerblue;
+    display: flex;
+    order: 1;
+    flex-basis: 98%;
+    justify-content: center;
+}
+
+.photo {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToeGame.Classes
 {
-    public abstract class RankedPlayer : CasualPlayer, IRanked
+    public class RankedPlayer : CasualPlayer, IRanked
     {
         protected int ranking;
         protected int score;
@@ -44,6 +44,8 @@ namespace TicTacToeGame.Classes
 
         public int GamesPlayed => gamesPlayed;
 
+        public int rankIt { get; private set; }
+
         public virtual void Wins()
         {
             gamesWon++;
@@ -59,9 +61,15 @@ namespace TicTacToeGame.Classes
             gamesPlayed++;
         }
 
-        public abstract void RankIt();
+        public virtual void RankIt()
+        {
+            rankIt = 0;
+        }
 
-        public abstract void ScoreIt();
+        public virtual void ScoreIt()
+        {
+            score = 0;
+        }
 
 
     }

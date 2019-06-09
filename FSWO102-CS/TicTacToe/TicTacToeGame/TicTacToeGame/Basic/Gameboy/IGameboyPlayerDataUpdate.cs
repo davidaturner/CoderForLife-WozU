@@ -8,6 +8,6 @@ namespace TicTacToeGame.Classes
 {
     public interface IGameboyPlayerDataUpdate
     {
-        void Score(IRankedPlayer player1, IRankedPlayer player2, IPosition position);
+        void Score(IRanked player1, IRanked player2, IPosition position);
     }
 }

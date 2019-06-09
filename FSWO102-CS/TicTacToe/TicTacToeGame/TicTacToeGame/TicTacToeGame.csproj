@@ -52,7 +52,6 @@
     <Compile Include="Basic\Gameboy\Position\BasicPosition.cs" />
     <Compile Include="Basic\Gameboy\Position\BasicRankedPosition.cs" />
     <Compile Include="Basic\Player\CasualPlayer.cs" />
-    <Compile Include="Basic\Player\IRankedPlayer.cs" />
     <Compile Include="Basic\Player\RankedPlayer.cs" />
     <Compile Include="Classes\TicTacToeConsoleMessages.cs" />
     <Compile Include="Classes\TicTacToe.cs" />

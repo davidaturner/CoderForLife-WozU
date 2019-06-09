@@ -13,7 +13,7 @@ namespace TicTacToeGame.Classes
             throw new NotImplementedException();
         }
 
-        public IRankedPlayer CreateNewRanked()
+        public IRanked CreateNewRanked()
         {
             throw new NotImplementedException();
         }
@@ -23,7 +23,7 @@ namespace TicTacToeGame.Classes
             throw new NotImplementedException();
         }
 
-        public IRankedPlayer RetrieveRanked()
+        public IRanked RetrieveRanked()
         {
             throw new NotImplementedException();
         }

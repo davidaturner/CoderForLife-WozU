@@ -9,9 +9,9 @@ namespace TicTacToeGame.Classes
     public interface IGameboyPlayerDataCapture
     {
         IPlayer CreateNew();
-        IRankedPlayer CreateNewRanked();
+        IRanked CreateNewRanked();
 
         IPlayer RetrieveExisting();
-        IRankedPlayer RetrieveRanked();
+        IRanked RetrieveRanked();
     }
 }
