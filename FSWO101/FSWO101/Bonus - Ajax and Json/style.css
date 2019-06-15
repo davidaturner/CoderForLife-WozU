@@ -1,0 +1,20 @@
+﻿body
+{
+}
+
+h1 {
+    display: inline-block;
+}
+button {
+    color: snow;
+    background-color: blue;
+}
+
+p {
+    width: 40%;
+    border-bottom: 1px solid lightgray;
+}
+
+.hide {
+    display: none;
+}
