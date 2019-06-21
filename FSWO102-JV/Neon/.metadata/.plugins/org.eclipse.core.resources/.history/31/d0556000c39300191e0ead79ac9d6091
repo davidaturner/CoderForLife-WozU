@@ -1,0 +1,69 @@
+
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import src.turner.classes.Adder;
+
+/**
+ * Servlet implementation class AddServlet
+ */
+@WebServlet("/AddServlet")
+public class AddServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AddServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		int i = Integer.parseInt(request.getParameter("t1"));
+		int j = Integer.parseInt(request.getParameter("t2"));
+		
+		// Method 1: Direct Add.
+		// int k = i + j;
+		
+		// Method 2: Simple Call to Add.
+		// int k = add(i, j);
+
+		// Method 3: Set to POJO Bean. Add. Get Result.
+		// Adder addBean = new Adder();
+		// addBean.setFirstNumber(i);
+		// addBean.setSecondNumber(i);
+		// addBean.add();
+		//int k = addBean.getResult();
+		
+		// Method 4: Set to POJO Bean. Get Result.
+		int k = new Adder(i,j).doAdd() + 100;
+		
+		
+		// Method 5: Add from Session Bean.
+		
+		response.getWriter().println("<h3>The sum of " + i + " and " + j + 
+				" is <em style='color:red;'>" + k +  "</em>.</h3>");
+	}
+	private int add(int i, int j) {
+		return i + j;
+	}
+
+}

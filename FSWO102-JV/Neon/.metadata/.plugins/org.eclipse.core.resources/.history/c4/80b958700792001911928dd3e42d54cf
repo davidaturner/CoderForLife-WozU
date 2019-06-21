@@ -1,0 +1,86 @@
+package src.agnes.servlets;
+
+import java.io.IOException;
+
+import javax.ejb.EJB;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import src.agnes.ejb.AddBean;
+import src.agnes.ejb.AddEJB;
+
+/**
+ * Servlet implementation class AddServlet
+ */
+@WebServlet("/AddServlet")
+public class AddServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+     
+	@EJB()
+	AddEJB abean;
+	
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AddServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		int i = Integer.parseInt(request.getParameter("t1"));
+		int j = Integer.parseInt(request.getParameter("t2"));
+		
+		// Method 1: Direct calculation
+//		int k = i + j;
+		
+		// Method 2: Call from business method.
+//		int k = add(i, j);
+		
+		// Method 3: Call to local class.
+//		AddBean abean = new AddBean();
+//		abean.setFirstNumber(i);
+//		abean.setSecondNumber(j);
+//		abean.add();
+//		int k = abean.getResult();
+		
+		// Method 4: Alternate call to local.
+//		AddBean abean = new AddBean(i, j);
+//		int k = abean.getResult();
+		
+		// Method 5: Last calls to local class.
+//		int k = new AddBean().add(i, j);
+//		int k = new AddBean(i,j).getResult();
+		
+		// Method 6: Call to EJB. Declared outside of method.
+		System.out.println("EJB = > " + abean);
+//		abean.setFirstNumber(i);
+//		abean.setSecondNumber(j);
+//		abean.add();
+//		int k = abean.getResult();
+		
+//		response.getWriter().println("Calculating... " + i + " + " + j + " = " + k);
+	}
+	
+	// Business logic.
+	// To make reusable, use a EJB (Java) Class AddBean.
+	int add(int firstNumber, int secondNumber) {
+		return firstNumber + secondNumber;
+	}
+
+}

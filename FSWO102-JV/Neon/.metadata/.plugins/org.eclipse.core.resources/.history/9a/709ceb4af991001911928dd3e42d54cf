@@ -1,0 +1,52 @@
+package src.agnes.ejb;
+
+public class AddBean {
+
+	private int i, j, result;
+
+	// Constructors.
+	public AddBean() {
+		this(0, 0);
+	}	
+	public AddBean(int firstNumber, int secondNumber) {
+		add(firstNumber, secondNumber);
+	}
+	
+	// Business logic.
+	public void add() {
+		result = i + j;
+	}
+	public int add(int firstNumber, int secondNumber) {
+		this.i = firstNumber;
+		this.j = secondNumber;
+		result = i + j;
+		return result;
+	}
+	
+	// Accessors, use as needed.
+	public int getFirstNumber() {
+		return i;
+	}
+
+	public void setFirstNumber(int firstNumber) {
+		this.i = firstNumber;
+	}
+
+	public int getSecondNumber() {
+		return j;
+	}
+
+	public void setSecondNumber(int secondNumber) {
+		this.j = secondNumber;
+	}
+
+	public int getResult() {
+		return result;
+	}
+	/*
+	public void setResult(int result) {
+		this.result = result;
+	}
+	*/
+	
+}

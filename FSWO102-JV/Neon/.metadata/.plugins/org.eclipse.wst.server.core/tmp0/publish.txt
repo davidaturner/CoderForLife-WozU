@@ -1,0 +1,3 @@
+#GlassFish 3
+#Thu Jun 20 21:24:04 EDT 2019
+org.eclipse.jst.jee.server\:A=C\:\\glassfish3\\glassfish\\domains\\domain1\\eclipseApps\\A
