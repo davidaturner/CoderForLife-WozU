@@ -1,0 +1,155 @@
+﻿body {
+    background-color: #ffffb3;
+    box-sizing: border-box;
+    margin: 0;
+    height: 1000px;
+}
+
+div {
+    border: 1px solid cornflowerblue;
+}
+
+#sec-11 {
+    background-color: yellow;
+    height: 200px;
+    width: 40%;
+    padding: 20px;
+}
+
+#sec-11-box1 {
+    height: 160px;
+    margin: 5px;
+}
+
+#sec-11-box1-label {
+    background-color: dimgrey;
+    color: gainsboro;
+}
+
+#sec-12 {
+    background-color: yellow;
+    height: 200px;
+    width: 40%;
+    padding: 20px;
+    position: relative;
+    top: 10px;
+    left: 20px;
+}
+
+#sec-12-box1 {
+    background-color: orange;
+    height: 50px;
+    margin: 10px;
+    position: relative;
+}
+
+#sec-12-box2 {
+    background-color: orange;
+    height: 50px;
+    margin: 10px;
+}
+
+#sec-12-box3 {
+    background-color: orange;
+    height: 50px;
+    margin: 10px;
+}
+
+#sec-12-box1-label {
+    background-color: dimgrey;
+    color: gainsboro;
+}
+
+#sec-12-box2-label {
+    background-color: dimgrey;
+    color: gainsboro;
+    position: relative;
+    top: 10px;
+    left: 30px;
+}
+
+#sec-12-box3-label {
+    background-color: dimgrey;
+    color: gainsboro;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#sec-21 {
+    background-color: yellow;
+    height: 200px;
+    width: 40%;
+    padding: 20px;
+
+}
+
+#sec-21-box1 {
+    background-color: yellow;
+    height: 160px;
+    margin: 5px;
+    width: 35%;
+    position: fixed;
+    top: 45px;
+    left: 50px;
+    z-index: 2;
+}
+
+#sec-21-box1-label {
+    background-color: dimgrey;
+    color: gainsboro;
+    width: 40%;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+#sec-22 {
+    background-color: yellow;
+    height: 200px;
+    width: 40%;
+    padding: 20px;
+}
+
+#sec-22-box1 {
+    background-color: orange;
+    height: 50px;
+    margin: 10px;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+#sec-22-box2 {
+    background-color: orange;
+    height: 50px;
+    margin: 10px;
+}
+
+#sec-22-box3 {
+    background-color: orange;
+    height: 50px;
+    margin: 10px;
+}
+
+#sec-22-box1-label {
+    background-color: dimgrey;
+    color: gainsboro;
+}
+
+#sec-22-box2-label {
+    background-color: dimgrey;
+    color: gainsboro;
+    position: relative;
+    top: 10px;
+    left: 30px;
+}
+
+#sec-22-box3-label {
+    background-color: dimgrey;
+    color: gainsboro;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    z-index: 1;
+}
