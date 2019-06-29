@@ -1,4 +1,4 @@
-// JSON examples 1,2,3
+// JSON examples
 var myCat = {
     "name": "mewosalot",
     "species": "cat",
