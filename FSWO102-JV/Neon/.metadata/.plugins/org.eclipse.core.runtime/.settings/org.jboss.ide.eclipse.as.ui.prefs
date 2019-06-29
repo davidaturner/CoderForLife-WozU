@@ -1,8 +1,0 @@
-eclipse.preferences.version=1
-org.jboss.ide.eclipse.as.ui.defaultWebServer=GlassFish 3.1 [domain1]
-org.jboss.ide.eclipse.as.ui.preferences.disabled.automatic.server.view=true
-org.jboss.ide.eclipse.as.ui.preferences.enabledDecorators.1=true
-org.jboss.ide.eclipse.as.ui.wizards.LAST_RUNTIME_CREATED=GlassFish 3.1
-org.jboss.ide.eclipse.as.ui.wizards.LAST_RUNTIME_TYPE_CREATED=glassfish
-org.jboss.ide.eclipse.as.ui.wizards.LAST_SERVER_CREATED=GlassFish 3.1 [domain1]
-org.jboss.ide.eclipse.as.ui.wizards.LAST_SERVER_TYPE_CREATED=glassfish.server
