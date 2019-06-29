@@ -1,4 +1,4 @@
-// console.log("Hello World from JS");
+// console.log("Hello World from JS"); 123
 
 var counter = 1;
 var animal_info = document.getElementById('animalinfo');
