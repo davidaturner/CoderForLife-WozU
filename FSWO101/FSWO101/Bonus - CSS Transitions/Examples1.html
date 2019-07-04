@@ -5,10 +5,34 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Transitions Examples 1</title>
-    <link rel="stylesheet" href="style.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
             crossorigin="anonymous"></script>
+    <style>
+        body {
+            padding: 50px;
+        }
+        .trigger {
+            width: 200px;
+            height: 200px;
+            border: 10px solid red;
+            background-color: orangered;
+        }
+        .box {
+            display: inline-block;
+            background: lightslategrey;
+            width: 200px;
+            height: 200px;
+            /*    transform: translate(200px, 150px)
+        rotate(27deg); */
+            transition: transform 300ms cubic-bezier(0, .47, .32, 1.97);
+            pointer-events: none;
+        }
+        .trigger.clicked .box {
+            transform: translate(200px, 150px) rotate(27deg);
+        }
+    </style>
+
 </head>
 <body>
     <div class="trigger">
