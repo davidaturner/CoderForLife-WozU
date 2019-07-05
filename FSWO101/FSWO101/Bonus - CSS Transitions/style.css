@@ -19,6 +19,44 @@ blockquote {
     padding: 25px 0;
     margin: 0 auto;
 }
+blockquote::before {
+    content: open-quote;
+}
+blockquote::after {
+    content: close-quote;
+}
+
+a[data-tool-tip] {
+    position: relative;
+}
+a[data-tool-tip]::after {
+    content: attr(data-tool-tip);
+    display: block;
+    position: absolute;
+    background-color: #222;
+    padding: 1em 3em;
+    color: white;
+    border-radius: 5px;
+    font-size: 0.8em;
+    bottom: 0;
+    left: 0;
+    white-space: nowrap;
+    transform: scale(0);
+    transition: 
+        transform ease-out 150ms,
+        bottom ease-out 150ms;
+}
+a[data-tool-tip]:hover::after {
+    transform: scale(1);
+    bottom: 100%;
+}
+
+a[href^="http"]::after {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f35d';
+    font-weight: 900;
+    font-size: 0.8em;
+}
 header {
     min-height: 50px;
 }
@@ -35,6 +73,9 @@ footer {
 
     background-color: #fff;
 }
+.container-gray {
+    background-color: lightgray;
+}
 
 .darkblock {
     display: block;
@@ -46,3 +87,33 @@ footer {
 .section {
     padding-bottom: 10px;
 }
+
+.counters {
+    counter-reset: mycounter-name;
+}
+.counters h1, h2, h3 {
+    text-align: left;
+}
+.counters .section {
+    padding-bottom: 10px;
+    position: relative;
+}
+.counters .section h3::before {
+    content: counter(mycounter-name) " ";
+    counter-increment: mycounter-name;
+    position: absolute;
+    left: -2.5em;
+    top: -0.5em;
+    background-color: #fff;
+    box-sizing: border-box;
+    width: 1.8em; /* Dont use padding. */
+    height: 1.8em; /* Width and Height makes it perfectly square.*/
+    border: 3px solid gray;
+    border-radius: 50%;
+    color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
