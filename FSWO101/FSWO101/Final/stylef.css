@@ -1,12 +1,16 @@
 ﻿body
 {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-container {
-    width: 90%;
-    margin: auto;
-}
-header, article, aside, footer, div {
+header, article, aside, footer, section, nav, div {
     border: 1px solid lightgray;
     padding: 3px 10px;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
 }
