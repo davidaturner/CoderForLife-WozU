@@ -9,6 +9,13 @@ li {
     height: 3.6em;
 }
 
+td {
+    padding-right: 20px;
+}
+
+p {
+    text-align: justify;
+}
 header, article, aside, footer, section, nav, div {
     border: 1px solid lightgray;
     padding: 3px 10px;
@@ -24,7 +31,7 @@ header, article, aside, footer, section, nav, div {
 .adventpro {
     font-family: 'Advent Pro', sans-serif;
 }
-.lekton, p {
+.lekton {
     font-family: 'Lekton', sans-serif;
 }
 
@@ -33,6 +40,16 @@ header, article, aside, footer, section, nav, div {
     margin: auto;
 }
 
-.menu {
-    height: 200px;
+#myresume {
+    display: flex;
+}
+
+#mywork {
+    flex-basis : 78%;
+    padding: 0 25px;
+}
+
+#myskills {
+    flex-basis: 22%;
+    padding: 0 10px;
 }
