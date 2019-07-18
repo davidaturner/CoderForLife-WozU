@@ -5,12 +5,34 @@
     box-sizing: border-box;
 }
 
+li {
+    height: 3.6em;
+}
+
 header, article, aside, footer, section, nav, div {
     border: 1px solid lightgray;
     padding: 3px 10px;
 }
 
+.bold {
+    font-weight: bold;
+}
+
+.gamjaflower {
+    font-family: 'Gamja Flower', cursive;
+}
+.adventpro {
+    font-family: 'Advent Pro', sans-serif;
+}
+.lekton, p {
+    font-family: 'Lekton', sans-serif;
+}
+
 .container {
     width: 90%;
     margin: auto;
+}
+
+.menu {
+    height: 200px;
 }
