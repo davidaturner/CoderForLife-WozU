@@ -1,0 +1,60 @@
+﻿/* General stylings */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2, h3, h4, h5 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+li {
+    height: 3.6em;
+}
+
+td {
+    padding-right: 20px;
+}
+
+p {
+    text-align: justify;
+}
+
+header, article, aside, footer, section, nav, div {
+    border: 1px solid lightgray;
+    /*    padding: 3px 10px; */
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+
+.bold {
+    font-weight: 400;
+}
+.boldoff {
+    font-weight: 100;
+}
+
+.gamjaflower {
+    font-family: 'Gamja Flower', cursive;
+}
+.adventpro {
+    font-family: 'Advent Pro', sans-serif;
+}
+.lekton {
+    font-family: 'Lekton', sans-serif;
+}
+
+.f14 {
+    font-size: 14px;
+}
+.f18 {
+    font-size: 18px;
+}
+.f20 {
+    font-size: 20px;
+}

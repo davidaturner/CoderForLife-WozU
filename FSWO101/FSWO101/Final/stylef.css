@@ -1,66 +1,26 @@
-﻿body
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-h2 {
-    font-weight: 100;
-}
-h2, h3, h4, h5 {
-    margin-top: 0;
-    margin-bottom: 5px;
-}
-li {
-    height: 3.6em;
+﻿@import "stylef1.css";
+@import "stylef2.css";
+
+/* Article styling */
+#photorack {
+    max-width: 800px;
+    max-height: 200px;
+    background-color: #fff;
+    margin: 70px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-td {
-    padding-right: 20px;
+.photobox {
+    height: 188px;
+    width: 290px;
+    background-color: yellow;
+    display: inline-block;
 }
+.imgbox {
 
-p {
-    text-align: justify;
 }
-
-header, article, aside, footer, section, nav, div {
-    border: 1px solid lightgray;
-    /*    padding: 3px 10px;*/
-    padding: 0;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.gamjaflower {
-    font-family: 'Gamja Flower', cursive;
-}
-.adventpro {
-    font-family: 'Advent Pro', sans-serif;
-}
-.lekton {
-    font-family: 'Lekton', sans-serif;
-}
-
-.f14 {
-    font-size: 14px;
-}
-.f18 {
-    font-size: 18px;
-}
-.f20 {
-    font-size: 20px;
-}
-
-.boldoff {
-    font-weight: 400;
-}
-.container {
-    width: 90%;
-    margin: auto;
-}
-
 .myworkperiod {
     display: flex;
     flex-direction: column;
@@ -79,20 +39,6 @@ header, article, aside, footer, section, nav, div {
 }
 .workline2 {
     flex-basis: 50%;
-}
-#shoutout {
-    position: relative;
-}
-
-#mycaption {
-    position: absolute;
-    bottom: 0;
-    left: 20px;
-    z-index: 99;
-}
-#myimg {
-    opacity: 0.6;
-    z-index: 10;
 }
 
 #myresume {

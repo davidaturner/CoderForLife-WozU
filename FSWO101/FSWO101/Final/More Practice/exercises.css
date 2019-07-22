@@ -1,0 +1,66 @@
+﻿body
+{
+    margin: 0;
+    box-sizing: 0;
+}
+
+div {
+    border: 1px solid grey;
+    padding: 5px;
+}
+
+.container {
+    width: 85%;
+    margin: auto;
+}
+
+.dashpanel {
+    height: 300px;
+    width: 1137px;
+    overflow: hidden;
+}
+.dashpanel img {
+    max-height: 300px;
+    width: 100%;
+}
+#dashboard {
+    position: relative;
+}
+
+.icon8 {
+    height: 50px;
+    width: 50px;
+}
+.animateit {
+    transition: 2s;
+}
+.scaleit {
+    transition: 2s;
+    transform: scale(1.5);
+}
+
+#socialmedia {
+    position: relative;
+}
+
+.box {
+    height: 296px;
+    width: 296px;
+    overflow: hidden;
+}
+
+.box img {
+    height: 100%;
+    max-width: 100%;
+    transition: 2s;
+    transform: scale(1);
+}
+
+.box img:hover {
+    transition: 2s;
+    transform: scale(1.2);
+}
+#photorack {
+    position: relative;
+    display: flex;
+}
