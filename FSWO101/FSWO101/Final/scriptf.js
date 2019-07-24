@@ -1,10 +1,8 @@
-/*
 $(document).ready(function () {
-    $("p").hover(function () {
-        $(this).css("background-color", "yellow");
+    $(".crcontentimg").hover(function () {
+        $(this).addClass("scaleit");
     }, function () {
-        $(this).css("background-color", "pink");
+        $(this).removeClass("scaleit");
     });
 });
-*/
 

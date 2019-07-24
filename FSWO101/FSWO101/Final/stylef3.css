@@ -1,0 +1,191 @@
+/* Article styling */
+
+/* Section aboutme */
+#aboutme {
+}
+
+#photorack {
+    min-height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.photobox {
+    flex-basis: 24.5%;
+    /* max-height: 11.75em; */
+    overflow: hidden;
+}
+
+.photoboximg {
+    height: 100%;
+    width: 100%;
+    transition: 2s;
+}
+
+.photoboximg:hover {
+    transition: 2s;
+    transform: scale(1.5);
+}
+
+/* Section myresume */
+#myresume {
+    display: flex;
+}
+
+#mywork {
+    flex-basis: 77%;
+}
+
+.mywperiod {
+    position: relative;
+    padding-top: 1.25em;
+}
+.mywpheader {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.mywpline1 {
+    flex-basis: 50%;
+    display: flex;
+}
+
+.mywpemp {
+    flex-basis: 72%;
+    padding: 0;
+}
+
+.mywpdates {
+    flex-basis: 28%;
+    display: flex;
+    justify-content: center;
+}
+
+.mywpline2 {
+    flex-basis: 50%;
+}
+
+#myskills {
+    flex-basis: 23%;
+    padding: 0 20px;
+}
+
+#otherjobs {
+    /* height: 270px; */
+    margin-bottom: 1.88em;
+    padding: 0 2.5em;
+}
+
+/* Article myrepo */
+.repo {
+    flex-basis: 38%;
+    display: flex;
+    justify-content: center;
+}
+.repocontent {
+    flex-basis: 62%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.repolink {
+    flex-basis: 15%;
+    display: flex;
+}
+
+#repolist {
+    height: 300px;
+    padding: 40px 30px;
+    display: flex;
+}
+
+/*Article mycontact */
+#mycontact {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+#myctitle {
+    flex-basis: 50%;
+}
+
+#myccontent {
+    flex-basis: 50%;
+    display: flex;
+}
+#mycphotobox {
+    flex-basis: 30%;
+}
+
+#mycphotobox img {
+    width: 100%;
+}
+#mycphotoboximg {
+}
+#mycinst1 {
+    flex-basis: 35%;
+    display: flex;
+    flex-direction: column;
+}
+#myciphone {
+    flex-basis: 23%;
+    display: flex;
+    justify-content: center;
+}
+#myccicontent {
+    flex-basis: 77%;
+}
+#myccicontent div {
+    display: flex;
+    justify-content: center;
+    height: 30px;
+}
+#mycinst2 {
+    flex-basis: 35%;
+    display: flex;
+    flex-direction: column;
+}
+#mycemail {
+    flex-basis: 26%;
+    display: flex;
+    justify-content: center;
+}
+#mycecontent {
+    flex-basis: 28%;
+    display: flex;
+    justify-content: center;
+}
+#mycrepo {
+    flex-basis: 26%;
+    display: flex;
+    justify-content: center;
+}
+#mycreporack {
+    flex-basis: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.mycrrrcontent {
+    flex-basis: 21%;
+    display: flex;
+    justify-content: center;
+}
+.mycrrrcontent img {
+    height: 45px;
+    width: 45px;
+}
+
+.crcontentimg {
+    height: 2.63em;
+    width: 2.63em;
+    transition: 2s;
+}
+
+.scaleit {
+    transition: 2s;
+    transform: scale(1.5);
+}

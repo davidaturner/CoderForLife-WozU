@@ -1,27 +1,26 @@
 /* Header */
-#myname {
-}
-
-#myoccupation {
+#mynameandoccupation {
 }
 
 #shoutout {
     position: relative;
-    height: 400px;
 }
 
 #mycaption {
     position: absolute;
     bottom: 0;
-    left: 20px;
+    left: 0.31em;
     z-index: 99;
 }
+
+#mycaptionphoto {
+    max-height: 25em;
+}
 #mycaptionphotoimg {
-    max-height: 400px;
+    max-height: 25em;
     width: 100%;
     opacity: 0.6;
     z-index: 10;
 }
 
-#mymenu {
-}
+

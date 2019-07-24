@@ -1,141 +1,24 @@
-﻿@import "stylef1.css";
+@import "stylef1.css";
 @import "stylef2.css";
+@import "stylef3.css";
 
-/* Article styling */
-#photorack {
-    max-width: 800px;
-    max-height: 200px;
-    background-color: #fff;
-    margin: 70px 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+/*Extra small devices (portrait phones, less than 576px)*/
+@media (max-width: 575px) {
 }
 
-.photobox {
-    height: 188px;
-    width: 290px;
-    background-color: yellow;
-    display: inline-block;
-}
-.imgbox {
-
-}
-.myworkperiod {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-.workline1 {
-    flex-basis: 50%;
-    display: flex;
-}
-.myemployer {
-    flex-basis: 72%;
-    padding: 0;
-}
-.myworkdate {
-    flex-basis: 28%;
-}
-.workline2 {
-    flex-basis: 50%;
+/*Small devices (landscape phones, 576px and up)*/
+@media (max-width: 767px) {
 }
 
-#myresume {
-    display: flex;
-    padding: 40px 0;
+/*Medium devices (tablets, 768px and up)*/
+@media (max-width: 991px) {
 }
 
-#mywork {
-    flex-basis : 78%;
-    padding: 0 25px;
+/*Large devices (desktops, 992px and up)*/
+@media (max-width: 1199px) {
 }
 
-#myskills {
-    flex-basis: 22%;
-    padding: 0 10px;
-}
+/*Extra large devices (large desktops, 1200px and up)*/
+/* Default */
 
-#myrepo {
-    padding: 0;
-    padding-bottom: 40px;
-}
-
-
-#myccontent {
-    display: flex;
-}
-
-#mycphoto {
-    flex-basis: 25%;
-}
-
-#mycinst1 {
-    flex-basis: 28%;
-    display: flex;
-}
-
-#myciphone {
-    flex-basis: 30%;
-}
-
-#myccicontent {
-    flex-basis: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 15px 20px;
-}
-
-#myccica {
-}
-
-#myccicb {
-}
-
-#myccicc {
-}
-
-#mycinst2 {
-    flex-basis: 28%;
-    display: flex;
-}
-
-#mycemail {
-    flex-basis: 25%;
-}
-
-#mycecontent {
-    flex-basis: 75%;
-    padding-top: 77px;
-    padding-left: 18px;
-}
-
-#mycinst3 {
-    flex-basis: 20%;
-    display: flex;
-    flex-direction: column;
-}
-
-#mycrepo {
-    flex-basis: 55%;
-}
-
-#mycrcontent {
-    flex-basis: 45%;
-    display: flex;
-    justify-content: space-around;
-}
-
-#mycgithub {
-}
-
-#myclinked {
-}
-
-#mycfaceb {
-}
-
-#myctwitt {
-}
 
