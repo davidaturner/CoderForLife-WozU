@@ -1,22 +1,15 @@
-@import "stylef1.css";
-@import "stylef2.css";
-@import "stylef3.css";
+@import "stylef1.css";  /* Topology */
+@import "stylef2.css";  /* Header and Footer styling */
+@import "stylef3a.css"; /* Article styling */
+@import "stylef3b.css"; /* Article styling */
 
-/*Extra small devices (portrait phones, less than 576px)*/
-@media (max-width: 575px) {
-}
+/* Desktop first design. */
+/* Use max-width, starting from greatest to least.*/
 
-/*Small devices (landscape phones, 576px and up)*/
-@media (max-width: 767px) {
-}
-
-/*Medium devices (tablets, 768px and up)*/
-@media (max-width: 991px) {
-}
-
-/*Large devices (desktops, 992px and up)*/
-@media (max-width: 1199px) {
-}
+@import "styleq1199.css";
+@import "styleq0991.css";
+@import "styleq0767.css";
+@import "styleq0575.css";
 
 /*Extra large devices (large desktops, 1200px and up)*/
 /* Default */

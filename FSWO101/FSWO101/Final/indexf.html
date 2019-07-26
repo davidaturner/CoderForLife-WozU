@@ -18,10 +18,10 @@
     <div class="container">
         <header>
             <div id="mynameandoccupation" class="lekton">
-                <div>
+                <div id="myname">
                     <h1><a id="idtop">David A. Turner</a></h1>
                 </div>
-                <div>
+                <div id="myoccupation">
                     <h3>Full Stack Developer/Web Developer</h3>
                 </div>
             </div>
@@ -29,13 +29,13 @@
                 <h2 id="mycaption">LET'S SOLVE THE PROBLEM TOGETHER!!!</h2>
                 <img id="mycaptionphotoimg" src=".\Assets\images (1).jpg" alt="My shoutout photo">
             </div>
+            <p class="lekton">
+                Quisque faucibus orci vel neque pellentesque, eget euismod velit
+                luctus. Ut egestas eros urna, eu lacinia nisl pellentesque aliquam. Praesent
+                pellentesque diam sit amet purus commodo, nec posuere arcu congue. Nunc dictum
+                dignissim risus, sed malesuada mauris interdum non.
+            </p>
             <nav>
-                <p class="lekton">
-                    Quisque faucibus orci vel neque pellentesque, eget euismod velit
-                    luctus. Ut egestas eros urna, eu lacinia nisl pellentesque aliquam. Praesent
-                    pellentesque diam sit amet purus commodo, nec posuere arcu congue. Nunc dictum
-                    dignissim risus, sed malesuada mauris interdum non.
-                </p>
                 <ul class="lekton">
                     <li><a href="#idaboutme">About Me</a></li>
                     <li><a href="#idmyresume">Resume</a></li>
@@ -47,7 +47,9 @@
         </header>
         <article>
             <section id="aboutme">
-                <a id="idaboutme" class="adventpro"><h2>About Me</h2></a>
+                <div id="myaboutme">
+                    <a id="idaboutme" class="adventpro"><h2>About Me</h2></a>
+                </div>
                 <p class="lekton">
                     Donec placerat, ante et finibus dapibus, nulla eros ornare orci, vitae cursus nibh
                     mi eget lacus. Ut dapibus fermentum felis et elementum. Donec euismod sodales
@@ -73,7 +75,9 @@
             </section>
             <section id="myresume">
                 <div id="mywork">
-                    <a id="idmyresume" class="adventpro"><h2>My Resume</h2></a>
+                    <div id="mymyresume">
+                        <a id="idmyresume" class="adventpro"><h2>My Resume</h2></a>
+                    </div>
                     <p class="lekton">
                         Donec placerat, ante et finibus dapibus, nulla eros ornare orci, vitae cursus nibh
                         mi eget lacus. Ut dapibus fermentum felis et elementum. Donec euismod sodales
@@ -90,10 +94,10 @@
                                 </div>
                             </div>
                             <div class="mywpline2">
-                                <p style="font-weight:600;">Full Time Student / Caregiver</p>
+                                <h4 style="font-weight:600;">Full Time Student / Caregiver</h4>
                             </div>
                         </div>
-                        <p>
+                        <p class="mywpcontent">
                             Mauris convallis porta orci mattis rhoncus. Praesent eget ligula sed nisi rhoncus
                             euismod. Sed pulvinar mattis ex ac faucibus. Suspendisse in ipsum sem. Nullam eu iaculis
                             leo. Quisque nec imperdiet ligula. Vestibulum at ornare tellus. Nam eget varius turpis.
@@ -115,10 +119,10 @@
                                 </div>
                             </div>
                             <div class="mywpline2">
-                                <p style="font-weight:600;">Software Engineer</p>
+                                <h4 style="font-weight:600;">Software Engineer</h4>
                             </div>
                         </div>
-                        <p>
+                        <p class="mywpcontent">
                             Mauris convallis porta orci mattis rhoncus. Praesent eget ligula sed nisi rhoncus
                             euismod. Sed pulvinar mattis ex ac faucibus. Suspendisse in ipsum sem. Nullam eu iaculis
                             leo. Quisque nec imperdiet ligula. Vestibulum at ornare tellus. Nam eget varius turpis.
@@ -147,7 +151,7 @@
                                 <h4 style="font-weight:600;">Programmer Analyst</h4>
                             </div>
                         </div>
-                        <p>
+                        <p class="mywpcontent">
                             Mauris convallis porta orci mattis rhoncus. Praesent eget ligula sed nisi rhoncus
                             euismod. Sed pulvinar mattis ex ac faucibus. Suspendisse in ipsum sem. Nullam eu iaculis
                             leo. Quisque nec imperdiet ligula. Vestibulum at ornare tellus. Nam eget varius turpis.
@@ -162,38 +166,40 @@
                             Rational Tools, Eclipse IDE.
                         </p>
                     </div>
-                            <div id="otherjobs">
-                                <p class="justify">
-                                    <h3 class="adventpro">Other jobs include:</h3>
-                                <p>
-                                    <b>2015 <span class="adventpro">Mauris convallis</span></b> - porta orci mattis rhoncus.
-                                </p>
-                                <p>
-                                    <b>1991 - 2001 <span class="adventpro">Praesent eget</span></b> - ligula sed nisi rhoncus
-                                    euismod.
-                                </p>
-                                <p>
-                                    <b>1988 - 1991 <span class="adventpro">Sed pulvinar</span></b> - mattis ex
-                                    ac faucibus.
-                                </p>
-                                <p>
-                                    <b>1986 -  1988 <span class="adventpro">Suspendisse</span></b> - sem.
-                                </p>
-                                <p>
-                                    <b>1984 -  1985 <span class="adventpro">Nullam</span></b> - eu iaculisleo.
-                                </p>
-                                <p>
-                                    <b>1983 - 1984 <span class="adventpro">Quisque</span></b> - nec imperdiet ligula.
-                                </p>
-                            </div>
+                    <div id="otherjobs">
+                        <div id="myotherjobs">
+                            <h3 class="adventpro">Other jobs include:</h3>
                         </div>
+                        <b>2015 <span class="adventpro">Mauris convallis</span></b> - porta orci mattis rhoncus.
+                        </p>
+                        <p>
+                            <b>1991 - 2001 <span class="adventpro">Praesent eget</span></b> - ligula sed nisi rhoncus
+                            euismod.
+                        </p>
+                        <p>
+                            <b>1988 - 1991 <span class="adventpro">Sed pulvinar</span></b> - mattis ex
+                            ac faucibus.
+                        </p>
+                        <p>
+                            <b>1986 -  1988 <span class="adventpro">Suspendisse</span></b> - sem.
+                        </p>
+                        <p>
+                            <b>1984 -  1985 <span class="adventpro">Nullam</span></b> - eu iaculisleo.
+                        </p>
+                        <p>
+                            <b>1983 - 1984 <span class="adventpro">Quisque</span></b> - nec imperdiet ligula.
+                        </p>
+                    </div>
+                </div>
                 <div id="myskills">
-                    <a id="idmyskills" class="adventpro"><h2>Skills</h2></a>
+                    <div id="mymyskills">
+                        <a id="idmyskills" class="adventpro"><h2>Skills</h2></a>
+                    </div>
                     <p class="lekton">
                         Donec placerat, ante et finibus dapibus, nulla eros ornare orci, vitae cursus nibh
                         mi eget lacus.
                     </p>
-                    <table class="gamjaflower">
+                    <table id="myskillstable" class="gamjaflower">
                         <tr>
                             <td>Java</td>
                             <td>EJB 2.0/3.1</td>
@@ -270,7 +276,9 @@
                 </div>
             </section>
             <section id="myrepo">
-                <a id="idmyrepo" class="adventpro"><h2>Repositories</h2></a>
+                <div id="mymyrepo">
+                    <a id="idmyrepo" class="adventpro"><h2>Repositories</h2></a>
+                </div>
                 <p class="lekton">
                     Quisque faucibus orci vel neque pellentesque, eget euismod velit
                     luctus. Ut egestas eros urna, eu lacinia nisl pellentesque aliquam. Praesent
@@ -278,31 +286,35 @@
                     dignissim risus, sed malesuada mauris interdum non.
                 </p>
                 <div id="repolist">
-                    <div class="repo adventpro f18">
+                    <div class="repo adventpro f26">
                         Github repositories:
                     </div>
                     <div class="repocontent">
                         <div class="repolink">
                             <i class="fas fa-bacon"> </i>
-                            <a href="https://github.com/davidaturner/CoderForLife-WozU" class="gamjaflower f20">
+                            <a href="https://github.com/davidaturner/CoderForLife-WozU" target="_blank"
+                               class="gamjaflower f24">
                                 davidaturner/CoderForLife-Wozu
                             </a>
                         </div>
                         <div class="repolink">
                             <i class="fas fa-bacon"> </i>
-                            <a href="https://github.com/davidaturner/NewJavaSwing" class="gamjaflower f20">
+                            <a href="https://github.com/davidaturner/NewJavaSwing" target="_blank"
+                               class="gamjaflower f24">
                                 davidaturner/NewJavaSwing
                             </a>
                         </div>
                         <div class="repolink">
                             <i class="fas fa-bacon"> </i>
-                            <a href="https://github.com/davidaturner/EtudesInCSharp" class="gamjaflower f20">
+                            <a href="https://github.com/davidaturner/EtudesInCSharp" target="_blank"
+                               class="gamjaflower f24">
                                 davidaturner/EtudesInCSharp
                             </a>
                         </div>
                         <div class="repolink">
                             <i class="fas fa-bacon"> </i>
-                            <a href="https://github.com/Coder-For-Life-Turners-Team/GOClarabart" class="gamjaflower f20">
+                            <a href="https://github.com/Coder-For-Life-Turners-Team/GOClarabart" target="_blank"
+                               class="gamjaflower f24">
                                 Coder-For-Life-Turners-Team/GOClarabart
                             </a>
                         </div>
@@ -320,36 +332,40 @@
                     <div id="mycinst1">
                         <div id="myciphone" class="adventpro"><h3>Phone:</h3></div>
                         <div id="myccicontent">
-                            <div class="adventpro f14">You can reach me</div>
-                            <div class="gamjaflower f18">(412) 897-4924 </div>
-                            <div class="adventpro f14">(10am to 4pm) Tuesday through Friday</div>                            
+                            <div class="adventpro f22">You can reach me</div>
+                            <div class="gamjaflower f26">(412) 897-4924 </div>
+                            <div class="adventpro f22">(10am to 4pm) Tuesday through Friday</div>                            
                         </div>
                     </div>
                     <div id="mycinst2">
                         <div id="mycemail" class="adventpro"><h3>Email:</h3></div>
-                        <div id="mycecontent" class="gamjaflower f18">
+                        <div id="mycecontent" class="gamjaflower f26">
                             turnin19@earthlink.net
                         </div>
                         <div id="mycrepo" class="adventpro"><h3>Follow me:</h3></div>
                         <div id="mycreporack">
                             <div class="mycrrrcontent">
                                 <a href="https://github.com/davidaturner" target="_blank">
-                                    <img src=".\Assets\icons8-github-filled-60.png" alt="My Github" class="crcontentimg">
+                                    <img src=".\Assets\icons8-github-filled-60.png" alt="My Github" 
+                                         class="crcontentimg">
                                 </a>
                             </div>
                             <div class="mycrrrcontent">
                                 <a href="https://www.linkedin.com/in/davidaturner19/" target="_blank">
-                                    <img src=".\Assets\icons8-linkedin-50.png" alt="My LinkedIn" class="crcontentimg">
+                                    <img src=".\Assets\icons8-linkedin-50.png" alt="My LinkedIn" 
+                                         class="crcontentimg">
                                 </a>
                             </div>
                             <div class="mycrrrcontent">
                                 <a href="https://www.facebook.com/profile.php?id=100004606000131" target="_blank">
-                                    <img src=".\Assets\icons8-facebook-48.png" alt="My Facebook" class="crcontentimg">
+                                    <img src=".\Assets\icons8-facebook-48.png" alt="My Facebook" 
+                                         class="crcontentimg">
                                 </a>
                             </div>
                             <div class="mycrrrcontent">
                                 <a href="https://twitter.com/theagnessilient" target="_blank">
-                                    <img src=".\Assets\icons8-twitter-64.png" alt="My Twitter" class="crcontentimg">
+                                    <img src=".\Assets\icons8-twitter-64.png" alt="My Twitter" 
+                                         class="crcontentimg">
                                 </a>
                             </div>
                             <div class="mycrrrcontent">
@@ -368,12 +384,19 @@
                     </div>
                 </div>
             </section>
+            <section id="gohidden">
+                <p>Blank space here is intentional</p>
+            </section>
         </article>
-        <footer>
-            <div class="gamjaflower f20">
-                &copy 2019 Website by <em>David A. Turner</em>
+        <footer class="container">
+            <div id="gototop">
+                <div id="gototoplink">
+                    <a href="#idtop"><h4>Back To Top</h4></a>
+                </div>
+                <div id="gototopcopy">
+                    <p>&copy 2019 Website by <em>David A. Turner</em></p>
+                </div>
             </div>
-            <a href="#idtop" id="gototop" class="lekton"><h4>Back To Top</h4></a>
         </footer>
     </div>
 </body>

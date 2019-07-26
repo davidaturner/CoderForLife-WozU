@@ -1,0 +1,68 @@
+﻿/*Large devices (desktops, up to 1199px)*/
+@media only screen and (max-width: 1199px) {
+    /* Font sizes */
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    td {
+        font-size: 16px;
+    }
+
+    li {
+        font-size: 16px;
+        min-height: 55px;
+    }
+
+    .f20 {
+        font-size: 14px;
+    }
+
+    .f22 {
+        font-size: 20px;
+    }
+
+    .f24 {
+        font-size: 20px;
+    }
+
+    .f26 {
+        font-size: 24px;
+    }
+
+    .f28 {
+        font-size: 26px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    #photorack {
+        min-height: 180px;
+    }
+
+    #myskills {
+        padding: 0 15px;
+    }
+
+    #gohidden {
+        min-height: 60px;
+    }
+}
