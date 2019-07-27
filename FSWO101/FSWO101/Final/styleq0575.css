@@ -1,4 +1,4 @@
-﻿/*Extreme small devices (portrait phones, up to 575px)*/
+/*Extreme small devices (portrait phones, up to 575px)*/
 @media only screen and (max-width: 575px) {
     /* Font sizes */
     h1 {
@@ -125,15 +125,16 @@
         padding-bottom: 15px;
     }
 
-    #gohidden {
-        min-height: 120px;
-    }
     #gototop {
         flex-direction: column;
     }
 
     #gototoplink {
         display: flex;
+    }
+
+    #gohidden {
+        height: 120px;
     }
 
 }

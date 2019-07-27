@@ -1,4 +1,4 @@
-﻿/*Small devices (landscape phones, up to 767px)*/
+/*Small devices (landscape phones, up to 767px)*/
 @media only screen and (max-width: 767px) {
     /* Font sizes */
     h1 {
@@ -63,9 +63,6 @@
     .repocontent {
         width: 85%;
         margin: auto;
-    }
-    .repolink {
-        min-height: 50px;
     }
 
     #mycontact {

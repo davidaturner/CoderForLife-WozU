@@ -102,6 +102,6 @@
 }
 
 #gohidden {
-    min-height: 75px;
+    height: 45px;
     visibility: hidden;
 }
