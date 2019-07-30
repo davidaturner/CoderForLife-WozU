@@ -13,6 +13,7 @@ namespace FinalProject
             RunPart2();
             Console.WriteLine("\r\nDONE!");
             Console.WriteLine();
+            Console.ReadLine();
         }
 
         static public void RunPart1() 
