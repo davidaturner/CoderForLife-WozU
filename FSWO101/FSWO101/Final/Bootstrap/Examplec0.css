@@ -1,0 +1,71 @@
+﻿body
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+div, header, article, section, footer {
+    border: 1px solid #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #eee6ff;
+}
+
+article {
+}
+
+section {
+}
+
+#myworkhistory {
+}
+
+#myworkskills {
+}
+
+#myrepos {
+}
+
+#mycontacts {
+}
+
+footer {
+}
+
+h1 {
+}
+h2 {
+}
+h3 {
+}
+h4 {
+}
+p {
+    font-size: 12px;
+    text-align: justify;
+}
+
+.gamjaflower {
+    font-family: 'Gamja Flower', cursive;
+}
+
+.adventpro {
+    font-family: 'Advent Pro', sans-serif;
+}
+
+.lekton {
+    font-family: 'Lekton', sans-serif;
+    font-weight: 600;
+}
+
+.col-3 {
+    padding: 0;
+}
+
+
+
+
