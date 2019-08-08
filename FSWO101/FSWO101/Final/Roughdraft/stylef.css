@@ -1,0 +1,17 @@
+@import "stylef1.css";  /* Topology */
+@import "stylef2.css";  /* Header and Footer styling */
+@import "stylef3a.css"; /* Article styling */
+@import "stylef3b.css"; /* Article styling */
+
+/* Desktop first design. */
+/* Use max-width, starting from greatest to least.*/
+
+@import "styleq1199.css";
+@import "styleq0991.css";
+@import "styleq0767.css";
+@import "styleq0575.css";
+
+/*Extra large devices (large desktops, 1200px and up)*/
+/* Default */
+
+

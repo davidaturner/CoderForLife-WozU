@@ -1,0 +1,41 @@
+.mycontainer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #e6ffff;
+    position: relative;
+}
+
+.mynamerow {
+}
+
+.myoccrow {
+    color: forestgreen;
+}
+
+.mycityrow {
+    max-height: 400px;
+}
+
+.mycityrowimg {
+    width: 100%;
+    height: 400px;
+    opacity: 0.6;
+}
+
+.mycaptionrow {
+}
+
+.myintrorow {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.myphotorack {
+    margin: 0;
+    height: 160px;
+}
+
+.myphotorackimg {
+    width: 100%;
+    height: 100%;
+}

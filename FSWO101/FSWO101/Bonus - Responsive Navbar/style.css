@@ -1,0 +1,57 @@
+﻿body
+{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+nav {
+    width: 100%;
+    background-color: cadetblue;
+}
+
+ul {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    display: inline-block;
+    padding: 20px;
+}
+
+li:hover {
+    background-color: deepskyblue;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.toggle {
+    padding: 10px 20px;
+    background-color: azure;
+    text-align: right;
+    color: cadetblue;
+    font-size: 25px;
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+@media only screen and (max-width:768px) {
+    .toggle {
+        display: block;
+    }
+    ul {
+        display: none;
+    }
+    li {
+        display: block;
+        text-align: center;
+    }
+}

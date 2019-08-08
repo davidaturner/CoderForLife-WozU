@@ -1,0 +1,102 @@
+﻿/*Medium devices (tablets, up to 991px)*/
+@media only screen and (max-width: 991px) {
+    /* Font sizes */
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 14px;
+    }
+
+    td {
+        font-size: 13px;
+    }
+
+    li {
+        font-size: 16px;
+        min-height: 50px;
+    }
+
+    i {
+        font-size: 16px;
+    }
+
+    footer {
+        width: 100%;
+    }
+
+    .f20 {
+        font-size: 14px;
+    }
+
+    .f22 {
+        font-size: 16px;
+    }
+
+    .f24 {
+        font-size: 18px;
+    }
+
+    .f26 {
+        font-size: 22px;
+    }
+
+    .f28 {
+        font-size: 24px;
+    }
+
+    #photorack {
+        min-height: 150px;
+    }
+
+    #myskills {
+       padding: 0 10px;
+    }
+    .mywpemp {
+        flex-basis: 60%;
+    }
+
+    .mywpdates {
+        flex-basis: 40%;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    #gohidden {
+        height:80px;
+    }
+
+    #mylastcontact {
+        flex-basis: 65%;
+        font-size: 14px;
+        display: flex;
+        padding: 0 10px;
+    }
+
+    #gototop {
+        flex-basis: 20%
+    }
+    #mylastcaption {
+        flex-basis: 59%;
+        font-size: 14px;
+    }
+    #mylasticon {
+        flex-basis: 15%;
+    }
+
+    #mycopy {
+        flex-basis: 34%;
+        padding-left: 10px;
+    }
+}

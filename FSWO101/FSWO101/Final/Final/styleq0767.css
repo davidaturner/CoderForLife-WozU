@@ -1,0 +1,116 @@
+/*Small devices (landscape phones, up to 767px)*/
+@media only screen and (max-width: 767px) {
+    /* Font sizes */
+    h1 {
+        font-size: 36px;
+    }
+    h2 {
+        font-size: 26px;
+    }
+    h3 {
+        font-size: 20px;
+    }
+    h4 {
+        font-size: 16px;
+    }
+    p {
+        font-size: 14px;
+    }
+
+    td {
+        font-size: 14px;
+    }
+
+    li {
+        font-size: 18px;
+        min-height: 55px;
+    }
+
+    i {
+        font-size: 10px;
+    }
+    .f20 {
+        font-size: 16px;
+    }
+
+    .f22 {
+        font-size: 18px;
+    }
+
+    .f24 {
+        font-size: 20px;
+     }
+
+    .f26 {
+        font-size: 22px;
+    }
+
+    .f28 {
+        font-size: 24px;
+    }
+
+    #myresume, #mywork, #repolist {
+        display: block;
+    }
+
+    .repo, #myskills {
+        display: none;
+    }
+
+    #repolist {
+        padding: 0;
+    }
+    .repocontent {
+        width: 85%;
+        margin: auto;
+    }
+
+    #mycontact {
+        display: block;
+    }
+    #myccontent {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    #mycphotobox, #mycphotobox img {
+        display: none;
+    }
+    #mycinst1 {
+        flex-basis: 45%;
+    }
+    #mycinst2 {
+        flex-basis: 45%;
+    }
+
+    #photorack {
+        min-height: 150px;
+    }
+
+    #gohidden {
+        height: 60px;
+    }
+
+    #gototop {
+        display: none;
+    }
+
+    #mylastcontact {
+        flex-basis: 60%;
+        font-size: 14px;
+        display: flex;
+        padding: 0 10px;
+    }
+
+    #mylastcaption {
+        flex-basis: 79%;
+    }
+
+    #mylasticon {
+        flex-basis: 15%;
+    }
+
+    #mycopy {
+        flex-basis: 40%;
+    }
+ 
+}
