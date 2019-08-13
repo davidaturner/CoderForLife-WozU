@@ -1,0 +1,100 @@
+/* Article aboutme */
+#aboutme {
+}
+
+#photorack {
+    min-height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 25px;
+}
+
+.photobox {
+    flex-basis: 24.5%;
+    /* max-height: 11.75em; */
+    overflow: hidden;
+}
+
+.photoboximg {
+    height: 100%;
+    width: 100%;
+    transition: 2s;
+}
+
+.photoboximg:hover {
+    transition: 2s;
+    transform: scale(1.5);
+}
+
+/* Article myresume */
+#myresume {
+    display: flex;
+}
+
+#mywork {
+    flex-basis: 77%;
+}
+
+.mywperiod {
+    position: relative;
+    padding-top: 1.25em;
+}
+.mywpheader {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.mywpline1 {
+    flex-basis: 50%;
+    display: flex;
+}
+
+.mywpemp {
+    flex-basis: 72%;
+    padding: 0;
+}
+
+.mywpdates {
+    flex-basis: 28%;
+    display: flex;
+    justify-content: center;
+}
+
+.mywpline2 {
+    flex-basis: 50%;
+}
+
+/* Article myskills */
+#myskills {
+    flex-basis: 23%;
+    padding: 0 20px;
+}
+
+#idmyskills {
+    background-color: #f2e6ff;
+}
+
+#otherjobs {
+    margin-bottom: 1.88em;
+    padding: 0 2.5em;
+}
+
+/* Article myrepo */
+#myrepo {
+    display: flex;
+    flex-direction: column;
+}
+
+#mymyrepo {
+    flex-basis: 10%;
+}
+
+#myrepointro {
+    flex-basis: 20%;
+}
+
+#myrepocontent {
+    flex-basis: 70%;
+}
+
