@@ -15,6 +15,7 @@ public class MyServlet extends HttpServlet {
 	
     // resource management
     // throws ServletException
+	// Update.
     public void init() throws ServletException {
         super.init();
     }
