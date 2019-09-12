@@ -15,6 +15,7 @@ public class IPLocationFinder {
 			GeoIPServiceSoap ipservicesoap = ipservice.getGeoIPServiceSoap();
 			
 			String ipLocation = ipservicesoap.getIpLocation(ipaddress);
+			// Display on console <Country> - <State>
 			System.out.println(ipLocation.substring(16, 18) +" - " + ipLocation.substring(35, 37));
 			
 		}
