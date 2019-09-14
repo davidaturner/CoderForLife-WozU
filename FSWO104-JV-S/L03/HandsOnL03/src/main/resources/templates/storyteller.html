@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spring MVC Demo</title>
+	<meta charset="ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hands On Lesson 03</title>
 
-<link href="https://fonts.googleapis.com/css?
+	<link href="https://fonts.googleapis.com/css?
 	family=Caveat+Brush|Liu+Jian+Mao+Cao|Nothing+You+Could+Do|Tangerine&display=swap" 
 	rel="stylesheet">
-<link href="css/style.css" type="text/css" rel="stylesheet">
+	<link href="css/style.css" type="text/css" rel="stylesheet">
 
 </head>
 <body>
@@ -16,20 +17,21 @@
 	<h2 class="tangerine font50">My Bizarre Story</h2>
 	<h3 class="caveatbrush font28">Care to Help Me Tell It?</h3><br>
 
-	<form class="formstyle" action="/beginning">
+	<form action="#" th:action="@{/storyteller}" th:object="${storyteller}" method="post"
+			class="formstyle" >
 		<p class="caveatbrush lighterbrown font24">Please fill out the form.</p>
 		<table class="tablestyle">
 			<tr>
 				<td class="tlabel">Enter: </td>
-				<td class="tfield"><input type="text" name="name" placeholder=" a Name"></td>
+				<td class="tfield"><input th:field="*{name}" placeholder=" a Name"></td>
 			</tr>
 			<tr>
 				<td class="tlabel">Enter: </td>
-				<td class="tfield"><input type="text" name="animal" placeholder=" an Animal"></td>
+				<td class="tfield"><input th:field="*{animal}" placeholder=" an Animal"></td>
 			</tr>
 			<tr>
 				<td class="tlabel">Enter: </td>
-				<td class="tfield"><input type="text" name="years" placeholder=" a Whole Number"></td>
+				<td class="tfield"><input th:field="*{yearsAgo}" placeholder=" a Whole Number"></td>
 			</tr>
 		</table>
 		<br><br>

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spring MVC Demo</title>
+<title>Hands On Lesson 03</title>
 
 <link href="https://fonts.googleapis.com/css?
 	family=Caveat+Brush|Liu+Jian+Mao+Cao|Nothing+You+Could+Do|Tangerine&display=swap" 
@@ -16,7 +17,9 @@
 	<h2 class="tangerine font50">My Bizarre Story</h2>
 	<h3 class="caveatbrush font28">The Middle</h3><br>
 	
-	<p class="caveatbrush font22">a breaking news alert showed a llama running on the freeway.</p><br><br><br>
+	<p class="caveatbrush font22">a breaking news alert showed a 
+	<span th:text="${animal}">
+	llama</span> running on the freeway.</p><br><br><br>
 	
 	<a href="/end"><span class="caveatbrush font22">Next</span></a>
 </div>
