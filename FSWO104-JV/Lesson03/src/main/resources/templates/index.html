@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/
+				css?family=Patrick+Hand+SC|Rancho|Rock+Salt|Sriracha&display=swap" 
+				rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+
+<title>Home Page</title>
+</head>
+<body>
+	<div class="container">
+		<h1 class="rocksalt darkgold">Hello world!</h1>
+		<p class="sriracha">This page is the root view served when visiting 
+			<a href="/" >localhost:8080/</a></p><br />
+		<div class="form">
+		<p class="sriracha" style="font-size:14px; color: #8080000;">
+		Would you be so kind as to Enter the following information?</p>
+		<form action="#" th:action="@{/person}" th:object="${person}" method="post" >
+			<table>
+				<tr>
+					<td class="label">First Name:</td>
+					<td><input th:field="*{firstName}" placeholder="First Name" /></td>
+				</tr>
+				<tr>
+					<td class="label">Last Name:</td>
+					<td><input th:field="*{lastName}" placeholder="Last Name" /></td>
+				</tr>
+				<tr>
+					<td class="label">Age:</td>
+					<td><input th:field="*{age}" placeholder="Age" /></td>
+				</tr>
+			</table><br /><br />
+			
+			<button class="button">Submit!</button>
+		</form>
+		</div>
+	</div>
+</body>
+</html>
