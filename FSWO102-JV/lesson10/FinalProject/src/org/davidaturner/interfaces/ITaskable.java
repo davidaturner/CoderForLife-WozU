@@ -1,9 +1,8 @@
 package org.davidaturner.interfaces;
 
-public interface ITask {
+public interface ITaskable {
 
-	int getId();
 	String getDescription();
 	
-	void markComplete();
+	void list();
 }
