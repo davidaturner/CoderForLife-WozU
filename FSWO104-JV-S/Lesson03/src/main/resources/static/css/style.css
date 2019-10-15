@@ -1,0 +1,45 @@
+@charset "ISO-8859-1";
+body {
+	background-color: #f2f2f2;
+}
+
+td {
+	padding-right: 1.0em;
+}
+.rancho { font-family: 'Rancho', cursive; }
+.rocksalt { font-family: 'Rock Salt', cursive; }
+.sriracha { font-family: 'Sriracha', cursive; }
+.patrickhand { font-family: 'Patrick Hand SC', cursive; }
+.darkgold { color: #808000; }
+.blackgold { color: #333300; }
+
+.container {
+	width: 85%;
+	margin: auto;
+	padding-top: 3.0em;
+}
+
+.form {
+	color: #8080000;
+	border: 1px solid #808000;
+	padding: 1.2em;
+	width: 32%;
+}
+
+.label {
+	font-family: 'Sriracha', cursive;
+	font-size: 18px;
+	color: #8080000;
+}
+.value {
+	font-family: 'Rock Salt', cursive; 
+	font-size: 28px;
+	color: #333300;
+}
+
+.button {
+	font-family: 'Sriracha', cursive;
+	font-size: 16px;
+	color: #8080000;
+}
+

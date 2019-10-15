@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/
+				css?family=Patrick+Hand+SC|Rancho|Rock+Salt|Sriracha&display=swap" 
+				rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+
+<title>Results Page</title>
+</head>
+<body>
+	<div class="container">
+		<h1 class="rocksalt darkgold">Results!</h1><br>
+    	<p class="label">First Name: 
+    	<span th:text="${person.firstName}"
+    		class="value">Enter First Name</span></p>
+    	
+    	<p class="label">Last Name: 
+    	<span th:text="${person.lastName}"
+    		class="value">Enter Last Name</span></p>
+    	
+    	<p class="label">Age: 
+    	<span th:text="${person.age}"
+    		class="value">Enter Age here</span></p>
+	</div>
+</body>
+</html>
