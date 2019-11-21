@@ -9,8 +9,11 @@ using PartyRSVP.Models;
 
 namespace PartyRSVP.Controllers {
     public class HomeController : Controller {
+        public IActionResult Index () {
+            return View ();
+        }
 
-        public ViewResult Index () {
+        public ViewResult Rsvp () {
             return View ("Rsvp");
         }
 
@@ -19,5 +22,6 @@ namespace PartyRSVP.Controllers {
             // Todo: Store guest response, covered in later lessons
             return View ("Thanks", guestResponse);
         }
+
     }
 }
