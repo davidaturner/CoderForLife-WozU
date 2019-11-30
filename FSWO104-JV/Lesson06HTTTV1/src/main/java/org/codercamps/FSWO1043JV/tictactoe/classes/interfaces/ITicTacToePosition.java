@@ -2,11 +2,10 @@ package org.codercamps.FSWO1043JV.tictactoe.classes.interfaces;
 
 public interface ITicTacToePosition {
 
-	void load(String[]moves);
-	String[] unload();
+	boolean load();
 	
-	ITicTacToeResult evaluate();
+	void display();
 	
-	boolean isGameOver();
-	boolean isGameDrawn();
+	String evaluate();
+	
 }

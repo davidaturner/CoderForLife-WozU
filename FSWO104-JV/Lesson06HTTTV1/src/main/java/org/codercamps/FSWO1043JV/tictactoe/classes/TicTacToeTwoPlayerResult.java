@@ -44,16 +44,9 @@ public class TicTacToeTwoPlayerResult implements ITicTacToeResult {
 	// Interface methods
 	@Override
 	public String getResult() {
-		return (playerWon() != null)
-				? playerWon() + " " + TicTacToeTwoPlayerResult.PLAYER_WINS
-							: playerOrStateResult;
+		return playerOrStateResult;
 	}
-
-	@Override
-	public void setResult(String playerOrStateResult) {
-		this.playerOrStateResult = playerOrStateResult;
-	}
-
+	
 	@Override
 	public boolean isGameOver() {
 		return (playerOrStateResult != null &&
@@ -69,6 +62,30 @@ public class TicTacToeTwoPlayerResult implements ITicTacToeResult {
 	}
 
 	@Override
+	public void setGameDrawn() {
+		if (players != null && players.length>0) {
+			playerOrStateResult = GAME_DRAWN;			
+		}	
+	}
+
+	@Override
+	public void setGameWon(String player) {
+		if (findPlayer(player) != null) {
+			playerOrStateResult = player + " " + PLAYER_WINS;
+		}	
+	}
+	private String findPlayer(String player) {
+		if (players != null && players.length>0) {
+			for(int i=0; i<players.length; i++) {
+				if (players[i].equals(player)) {
+					return player;
+				}
+			}
+		}
+		return null;
+	}
+	
+	@Override
 	public boolean addPlayer(String player) {
 		for(int i=0; i<MAXNUM_PLAYERS; i++) {
 			if (players[i] == null || players[i].isEmpty()) {
@@ -77,16 +94,6 @@ public class TicTacToeTwoPlayerResult implements ITicTacToeResult {
 			}
 		}
 		return false;
-	}
-
-	@Override
-	public String playerWon() {
-		for(int i=0; i<MAXNUM_PLAYERS; i++) {
-			if (players[i].equals(playerOrStateResult)) {
-				return players[i];
-			}
-		}
-		return null;
 	}
 
 	public static void main(String[]args) {
@@ -105,4 +112,5 @@ public class TicTacToeTwoPlayerResult implements ITicTacToeResult {
 		System.out.println();
 		
 	}
+
 }
