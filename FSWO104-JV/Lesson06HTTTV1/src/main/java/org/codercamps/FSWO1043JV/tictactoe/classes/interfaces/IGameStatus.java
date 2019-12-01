@@ -1,8 +1,8 @@
 package org.codercamps.FSWO1043JV.tictactoe.classes.interfaces;
 
-public interface ITicTacToeResult {
+public interface IGameStatus {
 
-	String getResult();
+	String getPlayerOrGameStatus();
 	
 	boolean isGameOver();
 	
@@ -12,5 +12,6 @@ public interface ITicTacToeResult {
 	void setGameWon(String player);
 	
 	boolean addPlayer(String player);
+	String findPlayer(String player);
 	
 }

@@ -1,10 +1,10 @@
 package org.codercamps.FSWO1043JV.tictactoe.classes;
 
-import org.codercamps.FSWO1043JV.tictactoe.classes.interfaces.ITicTacToeResult;
+import org.codercamps.FSWO1043JV.tictactoe.classes.interfaces.IGameStatus;
 
-public class TicTacToeTwoPlayerResult implements ITicTacToeResult {
+public class TicTacToeTwoPlayerResult implements IGameStatus {
 
-	private String playerOrStateResult;
+	private String playerOrStatus;
 	private String[] players;
 	
 	public static String PLAYER_WINS = "Wins!";
@@ -17,20 +17,13 @@ public class TicTacToeTwoPlayerResult implements ITicTacToeResult {
 	public static String PLAYER_X = "X";
 	public static String PLAYER_O = "O";
 	
-	public TicTacToeTwoPlayerResult() {
-		playerOrStateResult = GAME_IN_PROGRESS;
-		players = new String[2];
-		addPlayer(TicTacToeTwoPlayerResult.PLAYER_X);
-		addPlayer(TicTacToeTwoPlayerResult.PLAYER_O);
-	}
-	
-	// Getters and Setters
-	public String getPlayerOrStateResult() {
-		return playerOrStateResult;
+	// Getters and setters.
+	public String getPlayerOrStatus() {
+		return playerOrStatus;
 	}
 
-	public void setPlayerOrStateResult(String playerOrStateResult) {
-		this.playerOrStateResult = playerOrStateResult;
+	public void setPlayerOrStatus(String playerOrStatus) {
+		this.playerOrStatus = playerOrStatus;
 	}
 
 	public String[] getPlayers() {
@@ -41,76 +34,58 @@ public class TicTacToeTwoPlayerResult implements ITicTacToeResult {
 		this.players = players;
 	}
 
-	// Interface methods
+	// Interface methods.
 	@Override
-	public String getResult() {
-		return playerOrStateResult;
+	public String getPlayerOrGameStatus() {
+		return null;
 	}
-	
+
 	@Override
 	public boolean isGameOver() {
-		return (playerOrStateResult != null &&
-				!playerOrStateResult.equals(GAME_IN_PROGRESS))
-					? true : false;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public boolean isGameDrawn() {
-		return (playerOrStateResult != null &&
-				playerOrStateResult.equals(GAME_DRAWN))
-					? true : false;
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
 	public void setGameDrawn() {
-		if (players != null && players.length>0) {
-			playerOrStateResult = GAME_DRAWN;			
-		}	
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void setGameWon(String player) {
-		if (findPlayer(player) != null) {
-			playerOrStateResult = player + " " + PLAYER_WINS;
-		}	
+		// TODO Auto-generated method stub
+		
 	}
-	private String findPlayer(String player) {
-		if (players != null && players.length>0) {
-			for(int i=0; i<players.length; i++) {
-				if (players[i].equals(player)) {
-					return player;
-				}
-			}
-		}
-		return null;
-	}
-	
+
 	@Override
 	public boolean addPlayer(String player) {
-		for(int i=0; i<MAXNUM_PLAYERS; i++) {
-			if (players[i] == null || players[i].isEmpty()) {
-				players[i] = player;
-				return true;
-			}
-		}
+		// TODO Auto-generated method stub
 		return false;
 	}
 
+	@Override
+	public String findPlayer(String player) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	public static void main(String[]args) {
 		RunTest01();
 	}
 	
-	public static void RunTest01 () {
-		
+	public static void RunTest01 () {		
 		TicTacToeTwoPlayerResult result = new TicTacToeTwoPlayerResult();
 		System.out.println("Starting game... initial state:");
-		System.out.println(result.getPlayerOrStateResult());
-		System.out.print("Players: ");
-		for(String player : result.getPlayers()) {
-			System.out.print(player + " ");
-		}
-		System.out.println();
-		
+		System.out.println(result.getPlayerOrGameStatus());
 	}
+
+
 
 }

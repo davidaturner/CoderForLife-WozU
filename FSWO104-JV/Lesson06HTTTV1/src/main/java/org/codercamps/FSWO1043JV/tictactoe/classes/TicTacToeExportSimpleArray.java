@@ -1,61 +1,60 @@
 package org.codercamps.FSWO1043JV.tictactoe.classes;
 
-import org.codercamps.FSWO1043JV.tictactoe.classes.interfaces.ITicTacToeExportTemplate;
+import org.codercamps.FSWO1043JV.tictactoe.classes.interfaces.ITicTacToeImportable;
 
-public class TicTacToeExportSimpleArray implements ITicTacToeExportTemplate {
+public class TicTacToeExportSimpleArray implements ITicTacToeImportable {
 
-	protected int rowsize;	
-	protected String[] moves;
+	private String[] position;
 	
-	public static int ROWSIZEPOS = 0;
+	// Getters and Setters	
+	public String[] getPosition() {
+		return position;
+	}
 
-	public TicTacToeExportSimpleArray() {
+	public void setPosition(String[] position) {
+		this.position = position;
+	}
+
+	// Interface methods.
+	@Override
+	public String[] getPieces() {
+		return determinePiecesInPosition();
+	}
+	private String[] determinePiecesInPosition() {
+		return null;
 	}
 	
-	// Getters and Setters
-	public int getRowsize() {
-		return rowsize;
-	}
-
-	public void setRowsize(int rowsize) {
-		this.rowsize = rowsize;
-	}
-
-	public String[] getMoves() {
-		return moves;
-	}
-
-	public void setMoves(String[] moves) {
-		this.moves = moves;
-	}
-
 	@Override
-	public boolean isValid() {
-		if (moves != null && moves.length>0) {
-			return true;
-		}
-		return false;
+	public String[] getCells() {
+		return determineCellsInPosition();
 	}
-
+	private String[] determineCellsInPosition() {
+		return null;
+	}
+	
 	@Override
-	public int determineRowsize() throws Exception {
-
-		rowsize = Integer.parseInt(moves[ROWSIZEPOS]);
-		return rowsize;
+	public String[] getPlayers() {
+		return determinePlayersInPosition();
 	}
-
+	private String[] determinePlayersInPosition() {
+		return null;
+	}
+	
 	@Override
 	public void display() {
-		if (isValid()) {
-			System.out.print("Move array: ");
-			for(int i = 0; i < moves.length; i++) {
-				System.out.print(moves[i] + " ");
+		if (position != null && position.length>0) {
+			System.out.println("Position Array: ");
+			for(int i=0; i<position.length; i++) {
+				System.out.print(position[i] + " ");
 			}
-			System.out.println();			
+			System.out.println();
 		}
-		else {
-			System.out.println("Move array EMPTY!");
-		}
+	}
+
+	@Override
+	public int getRowsize() {
+		return (position != null && position.length>0)?
+							Integer.parseInt(position[0]) : 0;
 	}
 	
 }
