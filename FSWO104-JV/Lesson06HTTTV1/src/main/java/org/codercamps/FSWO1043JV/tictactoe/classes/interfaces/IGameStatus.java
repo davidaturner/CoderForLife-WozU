@@ -2,7 +2,7 @@ package org.codercamps.FSWO1043JV.tictactoe.classes.interfaces;
 
 public interface IGameStatus {
 
-	String getPlayerOrGameStatus();
+	String getCurrent();
 	
 	boolean isGameOver();
 	
