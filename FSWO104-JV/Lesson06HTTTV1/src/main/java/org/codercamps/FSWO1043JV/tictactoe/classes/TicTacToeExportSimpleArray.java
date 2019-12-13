@@ -1,6 +1,10 @@
 package org.codercamps.FSWO1043JV.tictactoe.classes;
 
+
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.codercamps.FSWO1043JV.tictactoe.classes.interfaces.ITicTacToeImportable;
 
@@ -13,7 +17,7 @@ public class TicTacToeExportSimpleArray implements ITicTacToeImportable {
 	
 	public static String NO_PLAYER = " ";
 	
-	// Getters and Setters	
+	// Getters and setters	
 	public String[] getPosition() {
 		return position;
 	}
@@ -22,64 +26,72 @@ public class TicTacToeExportSimpleArray implements ITicTacToeImportable {
 		this.position = position;
 	}
 
-	// Interface methods.
+	// Interface methods
 	@Override
-	public String[] getPieces() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String[] getCells() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String[] getPlayers() {
-		ArrayList<String> array = new ArrayList<>();
-		for(int i=CELLS_START_POS; i<position.length; i++) {
-			String candidate = position[i];
-			boolean isAlreadyIn = false;
-			for(String player : array) {
-				if (player.equals(candidate) && !player.equals(NO_PLAYER)) {
-					isAlreadyIn = true;
-					break;
+	public List<String> getPieces() {
+		if (position != null && position.length>0) {
+			List<String>list = Arrays.asList(position);
+			ArrayList<String>pieces = new ArrayList<>();
+			for(int i=1; i<list.size(); i++) {
+				String candidate = (String)list.get(i);
+				if ( !candidate.equals(NO_PLAYER) &&
+						!pieces.contains(candidate)) {
+					pieces.add(candidate);
 				}
 			}
-			if (!isAlreadyIn) {
-				array.add(candidate);
-			}
+			return pieces;
 		}
-		String[] players = null;
-		if (array.size()>0) {
-			players = new String[array.size()];
-			for(int i=0; i<array.size(); i++) {
-				players[i] = array.get(i);
-			}
-		}
+		return null;
+	}
 
-		return players;
+	@Override
+	public List<String> getCells() {
+		if (position != null && position.length>0) {
+			List<String>list = Arrays.asList(position);
+			ArrayList<String>cells = new ArrayList<>();
+			for(int i=1; i<list.size(); i++) {
+				String candidate = (String)list.get(i);
+				cells.add(candidate);
+			}
+			return cells;
+		}
+		return null;
+	}
+
+	@Override
+	public List<String> getPlayers() {
+		return getPieces();
 	}
 
 	@Override
 	public void display() {
 		System.out.println("Position: ");
-		for(int i=0; i<position.length; i++) {
-			System.out.print(position[i] + " ");
-		}
-		System.out.println();	
+		if (position != null && position.length>0) {
+			for(int i=0; i<position.length; i++) {
+				System.out.print(position[i] + " ");
+			}
+			System.out.println("(" + position.length + ")");
+		}	
 	}
 
 	@Override
 	public int getRowsize() {
-		return Integer.parseInt(position[0]);
+		return (position != null && position.length>0)?
+				Integer.parseInt(position[0]) : 0;
 	}
-	
+
 	public static void main(String args[]) {
-		String[] position01 = {"3", "X", "X", "X", " ", "O", "O", " ", " ", " ", " "};
+		String[] position01 = {"3", "X", "X", "X", " ", "O", "O", " ", " ", " "};
 		
 		RunTest01(position01);
+	}
+	
+	public static void display(String prompt, List<String> list) {
+		System.out.println(prompt + ": ");
+		for(String lister : list) {
+			System.out.print(lister + " ");
+		}
+		System.out.println("(" + list.size() + ")");
 	}
 	
 	public static void RunTest01(String[] position) {
@@ -87,9 +99,19 @@ public class TicTacToeExportSimpleArray implements ITicTacToeImportable {
 		
 		System.out.println("Building players array:");
 		export.setPosition(position);
-		
 		export.display();
 		
+		List<String> cells = export.getCells();
+		display("Cells", cells);
+		
+		List<String> pieces = export.getPieces();
+		display("Pieces", pieces);
+		
+		List<String> players = export.getPlayers();
+		display("Players", players);
+		
+		int rowsize = export.getRowsize();
+		System.out.println("Rowsize: " + rowsize);
 	}
 
 }

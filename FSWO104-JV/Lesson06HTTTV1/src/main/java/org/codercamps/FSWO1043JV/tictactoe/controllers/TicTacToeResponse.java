@@ -1,9 +1,6 @@
-package org.codercamps.FSWO1043JV.tictactoe;
+package org.codercamps.FSWO1043JV.tictactoe.controllers;
 
 public class TicTacToeResponse {
-
-	private String status;
-	//private ITicTacToePosition finalPosition;
 
 	public String getStatus() {
 		return status;
@@ -12,4 +9,6 @@ public class TicTacToeResponse {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	String status;
 }

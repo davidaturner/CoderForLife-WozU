@@ -1,11 +1,13 @@
 package org.codercamps.FSWO1043JV.tictactoe.classes.interfaces;
 
+import java.util.List;
+
 public interface IGameImportable {
 	
-	String[] getPieces();
-	String[] getCells();
+	List<String> getPieces();
+	List<String> getCells();
 	
-	String[] getPlayers();
+	List<String> getPlayers();
 	
 	void display();
 }
