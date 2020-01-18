@@ -79,4 +79,9 @@ public class MessageController {
     public int getMath(@PathVariable("x") int x,@PathVariable("y") int y ) {
         return x + y;
     }
+    
+    @GetMapping("/chat/test/{id}/{content}")
+    public String getChatTest(@PathVariable("id") String id,@PathVariable("content") String content ) {
+        return id + " " + content;
+    }
 }

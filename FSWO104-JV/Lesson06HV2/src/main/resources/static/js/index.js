@@ -2,6 +2,10 @@
  * 
  */
 $(document).ready(function() {
+	doMath();
+});
+
+function doMath() {
     // when the button is clicked the values entered are gathered and inserted
     // into the string that will be the url route.
     $('button').click(function() {
@@ -16,4 +20,4 @@ $(document).ready(function() {
             $('#result').text(data);
         });
     });
-});
+}
