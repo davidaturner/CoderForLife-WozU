@@ -3,40 +3,59 @@ package taskmanager;
 import java.util.ArrayList;
 import java.util.List;
 
-import taskmanager.classes.SimpleTask;
+import taskmanager.classes.CompleteableTask;
+import taskmanager.classes.ListableTask;
+import taskmanager.interfaces.Taskable;
 
 public class TaskManager {
 
 	public static void main(String[] args) {
+		
+//		System.out.println("\r\n" + SimpleTask.SimpleTaskTest01());
+//		System.out.println("\r\n" + ListableTask.ListableTask01());
+//		System.out.println("\r\n" + ListableTask.ListableTask02());
 
-		List<SimpleTask> tasks = new ArrayList<>();
-
-		int i = 0;
-		SimpleTask candidate = new SimpleTask();
+		List<Taskable>tasks = new ArrayList<>();
 		
-		candidate.setNumber(i++);
-		candidate.setDescription("Add a task");
-		tasks.add(candidate);
+		CompleteableTask task = new CompleteableTask();
+		task.setDescription("Make the Bed");
+		task.setNumber(1);
+		task.setCompleted(true);
+		tasks.add(task);
 		
-		candidate = new SimpleTask();
-		candidate.setNumber(i++);
-		candidate.setDescription("Remove a task");	
-		tasks.add(candidate);
+		task = new CompleteableTask();
+		task.setDescription("Brush my Teeth");
+		task.setNumber(0);
+		task.setCompleted(true);
+		tasks.add(task);
 		
-		candidate = new SimpleTask();
-		candidate.setNumber(i++);
-		candidate.setDescription("Mark a task complete");
-		tasks.add(candidate);
+		task = new CompleteableTask();
+		task.setDescription("Eat breakfast");
+		task.setNumber(2);
+		task.setCompleted(true);
+		tasks.add(task);
 		
-		candidate = new SimpleTask();
-		candidate.setNumber(i++);
-		candidate.setDescription("List the tasks");
-		tasks.add(candidate);
+		task = new CompleteableTask();
+		task.setDescription("Coding for an hour");
+		task.setNumber(3);
+		task.setCompleted(false);
+		tasks.add(task);
 		
-		for(SimpleTask task : tasks) {
-			System.out.println(task.lister());
+		for(Taskable atask : tasks) {
+			ListableTask listTask = (ListableTask)atask;
+			System.out.println(listTask.list());
 		}
+		
+		System.out.println("\r\n");
+		
+		int i=0;
+		for(Taskable atask : tasks) {
+			ListableTask listTask = (ListableTask)atask;
+			System.out.println(listTask.list(i++));
+		}
+		
 
+		
 	}
 
 }

@@ -1,20 +1,25 @@
 package taskmanager.classes;
 
-import taskmanager.interfaces.IsCompleteable;
+public class CompleteableTask extends ListableTask {
 
-public class CompleteableTask extends SimpleTask implements IsCompleteable {
-
-	private boolean completed;
-
+	boolean completed;
+	
 	@Override
-	public void complete() {
-		this.completed = true;
-		
+	public String list() {
+		if (isReady() && isCompleted()) {
+			return super.list() + " (Completed)";
+		}
+		return super.list();
 	}
 
-	@Override
+
 	public boolean isCompleted() {
-		return this.completed;
+		return completed;
 	}
+
+	public void setCompleted(boolean completed) {
+		this.completed = completed;
+	}
+
 
 }
