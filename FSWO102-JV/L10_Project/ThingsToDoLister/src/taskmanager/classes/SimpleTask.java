@@ -11,19 +11,36 @@ public class SimpleTask implements ListableTask {
 	protected String description;
 	
 	@Override
-	public boolean readyToList() {
+	public boolean listReady() {
 		return (listNumber  > 0 && 
 				description != null && !description.isEmpty()) ?
 						true : false;
 	}
 	@Override
 	public String listing() {
-		return (readyToList()) ? listNumber + ". " + description : null;
+		return (listReady()) ? listNumber + ". " + description : null;
 	}
 	@Override
 	public String listing(int listNumber) {
 		this.listNumber = listNumber;
 		return listing();
+	}
+	@Override
+	public void display(List<ListableTask> listing) {
+		if (listing != null) {
+			for(ListableTask toBeDisplayed : listing) {
+				System.out.println(toBeDisplayed.listing());
+			}
+		}	
+	}
+	@Override
+	public void display(int starting, List<ListableTask> listing) {
+		if (listing != null) {
+			int i = starting;
+			for(ListableTask toBeDisplayed : listing) {
+				System.out.println(toBeDisplayed.listing(i));
+			}
+		}	
 	}
 	
 	// Getters and Setters
@@ -41,7 +58,7 @@ public class SimpleTask implements ListableTask {
 	}
 	
 	// Tests
-	public static boolean UnitTest01() {
+	public static boolean RunTest01() {
 		List<ListableTask>listing = new ArrayList<>();
 		
 		SimpleTask taskToBeAdded = new SimpleTask();

@@ -11,10 +11,10 @@ public class CompleteableTask extends SimpleTask {
 	
 	@Override
 	public String listing() {
-		return (readyToList() && completed == true) ?
+		return (listReady() && completed == true) ?
 				super.listing() + " (Completed)!" : super.listing();
 	}
-
+	
 	// Getters and Setters
 	public boolean isCompleted() {
 		return completed;
@@ -25,7 +25,7 @@ public class CompleteableTask extends SimpleTask {
 	}
 	
 	// Tests
-	public static boolean UnitTest01 () {
+	public static boolean RunTest01 () {
 		List<ListableTask>listing = new ArrayList<>();
 		
 		CompleteableTask toBeAdded = new CompleteableTask();
