@@ -26,21 +26,27 @@ public class SimpleTask implements ListableTask {
 		return listing();
 	}
 	@Override
-	public void display(List<ListableTask> listing) {
-		if (listing != null) {
-			for(ListableTask toBeDisplayed : listing) {
-				System.out.println(toBeDisplayed.listing());
+	public List<String> listing(List<ListableTask> list) {
+		if (list != null) {
+			List<String> l = new ArrayList<>();
+			for(ListableTask toBeDisplayed : list) {
+				l.add(toBeDisplayed.listing());
 			}
-		}	
+			return l;
+		}
+		return null;
 	}
 	@Override
-	public void display(int starting, List<ListableTask> listing) {
-		if (listing != null) {
+	public List<String> listing(int starting, List<ListableTask> list) {
+		if (list != null) {
+			List<String>l = new ArrayList<>();
 			int i = starting;
-			for(ListableTask toBeDisplayed : listing) {
-				System.out.println(toBeDisplayed.listing(i));
+			for(ListableTask toBeDisplayed : list) {
+				l.add(toBeDisplayed.listing(i++));
 			}
-		}	
+			return l;
+		}
+		return null;
 	}
 	
 	// Getters and Setters
@@ -59,35 +65,30 @@ public class SimpleTask implements ListableTask {
 	
 	// Tests
 	public static boolean RunTest01() {
-		List<ListableTask>listing = new ArrayList<>();
+		List<ListableTask>toBeListed = new ArrayList<>();
 		
 		SimpleTask taskToBeAdded = new SimpleTask();
 		taskToBeAdded.setDescription("Add a task");
-		listing.add(taskToBeAdded);
+		toBeListed.add(taskToBeAdded);
 		
 		taskToBeAdded = new SimpleTask();
 		taskToBeAdded.setDescription("Remove a task");
-		listing.add(taskToBeAdded);
+		toBeListed.add(taskToBeAdded);
 		
 		taskToBeAdded = new SimpleTask();
 		taskToBeAdded.setDescription("Mark a task complete");
-		listing.add(taskToBeAdded);
+		toBeListed.add(taskToBeAdded);
 		
 		taskToBeAdded = new SimpleTask();
 		taskToBeAdded.setDescription("List the tasks");
-		listing.add(taskToBeAdded);
+		toBeListed.add(taskToBeAdded);
 		
-		if (listing != null && !listing.isEmpty()) {
-			
-			int i=1; // Initial task listing.			
-			for(ListableTask toBeListed : listing) {
-				String theListed = ((SimpleTask)toBeListed).listing(i++);
-				if (theListed == null) {
-					return false;
-				}
-				System.out.println(theListed);
-			}
+		ListableTask viewer = new SimpleTask();
+		List<String>listElements = viewer.listing(1, toBeListed);
+		for(String taskstr : listElements) {
+			System.out.println(taskstr);
 		}
+		
 		
 		return true;
 

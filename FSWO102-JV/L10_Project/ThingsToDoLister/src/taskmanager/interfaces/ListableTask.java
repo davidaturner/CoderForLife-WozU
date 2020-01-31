@@ -8,7 +8,6 @@ public interface ListableTask {
 	
 	String listing();
 	String listing(int listNumber);
-	
-	void display(List<ListableTask> listing);
-	void display(int starting, List<ListableTask> listing);
+	List<String> listing(List<ListableTask> list);
+	List<String> listing(int listNumber, List<ListableTask> list);
 }

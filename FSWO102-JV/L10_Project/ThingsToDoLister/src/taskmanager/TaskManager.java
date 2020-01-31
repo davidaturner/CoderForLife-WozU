@@ -13,50 +13,70 @@ public class TaskManager {
 	
 	public static int ERROR = -1;
 	
+	public static BufferedReader br = null;
+	
 	public static List<ListableTask>mainPage;	
 	public static List<ListableTask>theListing;
 	
 	public static void main(String[] args) {
 
+		System.out.println("\r\n" + TaskManager.RunMain());
+		
 //		System.out.println("\r\n" + SimpleTask.RunTest01());
 //		System.out.println("\r\n" + CompleteableTask.RunTest01());
-		System.out.println("\r\n" + TaskManager.RunMain());
 		
 	}
 	
 	public static boolean RunMain() {
 				
-		System.out.println("Welcome to Your-Things-To-Do!\r\n");	
-		
+		openReader();
 		initializeMainPage();
-				
+
+		printCRLF("Welcome to Your-Things-To-Do!");	
+						
 		boolean done = false;
 		while ( !done) {
 			
-			displayMainPage();
-			
-			print("What would you like to do?", false);
-			int choice = getUserInput();
-			
+			displayMainPage();			
+		
+			int choice = select();
 			switch(choice) {
 			case 1:
-					print("Task added", true);
+					doAddTask();
 					break;
 			case 2:
-					print("Task removed", true);
+					doRemoveTask();
 					break;
 			case 3:
-					print("Task completed", true);
+					doMarkTaskComplete();
 					break;
 			case 4:
-					print("Tasks shown", true);
+					doListTasks();
 					break;
 			default:
+					doQuit();
 					done = true;
 			}		
 		}
 		
+		closeReader();
 		return true;
+	}
+	
+	public static void doAddTask() {
+		printCRLF("Task added");
+	}
+	public static void doRemoveTask() {
+		printCRLF("Task added");
+	}
+	public static void doMarkTaskComplete() {
+		printCRLF("Task marked complete");
+	}
+	public static void doListTasks() {
+		printCRLF("Tasks shown");
+	}
+	public static void doQuit() {
+		printCRLF("DONE!");
 	}
 	
 	public static void initializeMainPage() {
@@ -88,31 +108,61 @@ public class TaskManager {
 	public static void displayMainPage() {
 		
 		SimpleTask viewer = new SimpleTask();
-		viewer.display(mainPage);
+		List<String>listing = viewer.listing(mainPage);
+		for(String taskstr : listing) {
+			print(taskstr);
+		}
+		prompt("What would you like to do?");
 	}
 	
-	public static int getUserInput() {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int choice = ERROR;
+	public static void openReader() {
+		br = new BufferedReader(new InputStreamReader(System.in));		
+	}
+	public static boolean checkReader() {
+		return (br != null) ? true : false;
+	}
+	public static void closeReader() {
 		try {
-			choice = Integer.parseInt(br.readLine());
-			
-		} catch(Exception e) {
-			e.getStackTrace();			
+			br.close();
+		} catch (Exception e) {
+			e.getStackTrace();
 		}
-		
-		return choice;
 	}
 	
-	public static void print(String message, boolean endCRLF) {
+	public static int select() {
+
+		if (checkReader()) {
+			int choice = ERROR;
+			try {
+				choice = Integer.parseInt(br.readLine());		
+			} catch (Exception e) {
+				e.getStackTrace();
+			}
+			return choice;		
+		}
 		
+		return ERROR;
+	}
+	public static String getInput() {
+		return null;
+	}
+	
+	public static void print(String message) {
 		if (message != null && !message.isEmpty()) {
-			System.out.println("\r\n" + 
-								message +
-								((endCRLF)? "\r\n" : ""));
+			System.out.println(message);			
 		} else {
-			System.out.println("\r\n");
+			System.out.println("Nothing to print.");
 		}
 	}
+	public static void print() {
+		print("\r\n");
+	}
+	public static void printCRLF(String message) {
+		print(message + "\r\n");
+	}
+	public static void prompt(String message) {
+		print("\r\n" + message);
+	}
+
 	
 }
