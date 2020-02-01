@@ -1,6 +1,5 @@
 package taskmanager;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import taskmanager.classes.MainTaskFactory;
@@ -11,7 +10,6 @@ public class TaskManager {
 	
 	public static int ERROR = -1;
 		
-	public static MainTaskFactory mainTasks;
 	public static List<ListableTask>mainPage = null;
 	public static List<ListableTask>theListing = null;
 	
@@ -23,22 +21,22 @@ public class TaskManager {
 		
 //		System.out.println("\r\n" + SimpleTask.RunTest01());
 //		System.out.println("\r\n" + CompleteableTask.RunTest01());
-//		System.out.println("\r\n" + TaskManagerHelper.RunTest01());
+//		TaskManagerHelper.prompt(TaskManagerHelper.RunTest01());
 		
 	}
 	
 	public static boolean RunMain() {
 				
-		TaskManagerHelper.openReader();
+		openReader();
 		
-		printCRLF("Welcome to Your-Things-To-Do!");	
+		printlnln("Welcome to Your-Things-To-Do!");	
 						
 		boolean done = false;
 		while ( !done) {
 			
 			doMainPage();			
 		
-			int choice = TaskManagerHelper.readUserSelect();
+			int choice = getSelect();
 			switch(choice) {
 			case 1:
 					doAddTask();
@@ -58,24 +56,24 @@ public class TaskManager {
 			}		
 		}
 		
-		TaskManagerHelper.closeReader();
+		closeReader();
 		return true;
 	}
 	
 	public static void doAddTask() {
-		printCRLF("Task added");
+		printlnln("Task added");
 	}
 	public static void doRemoveTask() {
-		printCRLF("Task removed");
+		printlnln("Task removed");
 	}
 	public static void doMarkTaskComplete() {
-		printCRLF("Task marked complete");
+		printlnln("Task marked complete");
 	}
 	public static void doListTasks() {
-		printCRLF("Tasks shown");
+		printlnln("Tasks shown");
 	}
 	public static void doQuit() {
-		printCRLF("DONE!");
+		printlnln("...DONE!");
 	}
 		
 	public static void doMainPage() {
@@ -86,26 +84,38 @@ public class TaskManager {
 		SimpleTask viewer = new SimpleTask();
 		List<String>listing = viewer.listing(mainPage);
 		for(String taskstr : listing) {
-			print(taskstr);
+			println(taskstr);
 		}
 		prompt("What would you like to do? ");
 	}
-		
+	
+	// TaskManagerHelper simples.
+	public static void openReader() {
+		TaskManagerHelper.openReader();
+	}
+	public static void closeReader() {
+		TaskManagerHelper.closeReader();
+	}
+	public static int getSelect() {
+		return TaskManagerHelper.readUserSelect();
+	}
+	public static String getInput() {
+		return TaskManagerHelper.readUserInput();
+	}
 	public static void print(String message) {
-		if (message != null && !message.isEmpty()) {
-			System.out.println(message);			
-		} else {
-			System.out.println("Nothing to print.");
-		}
+		TaskManagerHelper.print(message);
 	}
-	public static void print() {
-		print("\r\n");
+	public static void println(String message) {
+		TaskManagerHelper.println(message);
 	}
-	public static void printCRLF(String message) {
-		print(message + "\r\n");
+	public static void printlnln(String message) {
+		TaskManagerHelper.printlnln(message);
 	}
 	public static void prompt(String message) {
-		print("\r\n" + message);
+		TaskManagerHelper.prompt(message);
+	}
+	public static void prompt(boolean testResult) {
+		TaskManagerHelper.prompt(testResult);
 	}
 
 	
