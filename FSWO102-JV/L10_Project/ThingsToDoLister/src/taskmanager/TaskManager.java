@@ -12,24 +12,26 @@ import taskmanager.interfaces.ListableTask;
 public class TaskManager {
 	
 	public static int ERROR = -1;
-	
-	public static BufferedReader br = null;
-	
+		
 	public static List<ListableTask>mainPage;	
 	public static List<ListableTask>theListing;
 	
 	public static void main(String[] args) {
 
-		System.out.println("\r\n" + TaskManager.RunMain());
+
+		
+ 		System.out.println("\r\n" + TaskManager.RunMain());
 		
 //		System.out.println("\r\n" + SimpleTask.RunTest01());
 //		System.out.println("\r\n" + CompleteableTask.RunTest01());
+//		System.out.println("\r\n" + TaskManagerHelper.RunTest01());
 		
 	}
 	
 	public static boolean RunMain() {
 				
-		openReader();
+		TaskManagerHelper.openReader();
+		
 		initializeMainPage();
 
 		printCRLF("Welcome to Your-Things-To-Do!");	
@@ -39,7 +41,7 @@ public class TaskManager {
 			
 			displayMainPage();			
 		
-			int choice = select();
+			int choice = TaskManagerHelper.readUserSelect();
 			switch(choice) {
 			case 1:
 					doAddTask();
@@ -59,7 +61,7 @@ public class TaskManager {
 			}		
 		}
 		
-		closeReader();
+		TaskManagerHelper.closeReader();
 		return true;
 	}
 	
@@ -112,41 +114,9 @@ public class TaskManager {
 		for(String taskstr : listing) {
 			print(taskstr);
 		}
-		prompt("What would you like to do?");
+		prompt("What would you like to do? ");
 	}
-	
-	public static void openReader() {
-		br = new BufferedReader(new InputStreamReader(System.in));		
-	}
-	public static boolean checkReader() {
-		return (br != null) ? true : false;
-	}
-	public static void closeReader() {
-		try {
-			br.close();
-		} catch (Exception e) {
-			e.getStackTrace();
-		}
-	}
-	
-	public static int select() {
-
-		if (checkReader()) {
-			int choice = ERROR;
-			try {
-				choice = Integer.parseInt(br.readLine());		
-			} catch (Exception e) {
-				e.getStackTrace();
-			}
-			return choice;		
-		}
 		
-		return ERROR;
-	}
-	public static String getInput() {
-		return null;
-	}
-	
 	public static void print(String message) {
 		if (message != null && !message.isEmpty()) {
 			System.out.println(message);			
