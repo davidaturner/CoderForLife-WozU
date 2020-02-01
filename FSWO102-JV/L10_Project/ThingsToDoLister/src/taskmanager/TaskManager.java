@@ -1,11 +1,9 @@
 package taskmanager;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import taskmanager.classes.CompleteableTask;
+import taskmanager.classes.MainTaskFactory;
 import taskmanager.classes.SimpleTask;
 import taskmanager.interfaces.ListableTask;
 
@@ -13,8 +11,9 @@ public class TaskManager {
 	
 	public static int ERROR = -1;
 		
-	public static List<ListableTask>mainPage;	
-	public static List<ListableTask>theListing;
+	public static MainTaskFactory mainTasks;
+	public static List<ListableTask>mainPage = null;
+	public static List<ListableTask>theListing = null;
 	
 	public static void main(String[] args) {
 
@@ -32,8 +31,6 @@ public class TaskManager {
 				
 		TaskManagerHelper.openReader();
 		
-		initializeMainPage();
-
 		printCRLF("Welcome to Your-Things-To-Do!");	
 						
 		boolean done = false;
@@ -80,35 +77,12 @@ public class TaskManager {
 	public static void doQuit() {
 		printCRLF("DONE!");
 	}
-	
-	public static void initializeMainPage() {
 		
-		mainPage = new ArrayList<>();
-		
-		int i = 1;
-		SimpleTask mainTask  = new SimpleTask();
-		mainTask.setDescription("Add a task");
-		mainTask.setListNumber(i++);
-		mainPage.add(mainTask);
-		
-		mainTask = new SimpleTask();
-		mainTask.setDescription("Remove a task");
-		mainTask.setListNumber(i++);
-		mainPage.add(mainTask);
-		
-		mainTask = new SimpleTask();
-		mainTask.setDescription("Mark a task complete");
-		mainTask.setListNumber(i++);
-		mainPage.add(mainTask);
-		
-		mainTask = new SimpleTask();
-		mainTask.setDescription("List the tasks");
-		mainTask.setListNumber(i);
-		mainPage.add(mainTask);	
-	}
-	
 	public static void displayMainPage() {
 		
+		if (mainPage == null) {
+			mainPage = MainTaskFactory.getTasks();
+		}
 		SimpleTask viewer = new SimpleTask();
 		List<String>listing = viewer.listing(mainPage);
 		for(String taskstr : listing) {
