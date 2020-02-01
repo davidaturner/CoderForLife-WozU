@@ -66,7 +66,7 @@ public class TaskManager {
 		printCRLF("Task added");
 	}
 	public static void doRemoveTask() {
-		printCRLF("Task added");
+		printCRLF("Task removed");
 	}
 	public static void doMarkTaskComplete() {
 		printCRLF("Task marked complete");
