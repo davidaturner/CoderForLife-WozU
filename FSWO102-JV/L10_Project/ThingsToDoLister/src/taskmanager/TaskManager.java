@@ -36,7 +36,7 @@ public class TaskManager {
 		boolean done = false;
 		while ( !done) {
 			
-			displayMainPage();			
+			doMainPage();			
 		
 			int choice = TaskManagerHelper.readUserSelect();
 			switch(choice) {
@@ -78,7 +78,7 @@ public class TaskManager {
 		printCRLF("DONE!");
 	}
 		
-	public static void displayMainPage() {
+	public static void doMainPage() {
 		
 		if (mainPage == null) {
 			mainPage = MainTaskFactory.getTasks();
