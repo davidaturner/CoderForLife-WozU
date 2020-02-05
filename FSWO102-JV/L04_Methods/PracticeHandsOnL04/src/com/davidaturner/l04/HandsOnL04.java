@@ -26,10 +26,15 @@ public class HandsOnL04 {
 		int val = 2;
 		int times = 3;
 		
-//		Step01(val);
-//		Step02(val);
-//		Step03(val, times);
-		Extra(val, times);
+		Step01(val);
+		System.out.println();
+		
+		Step02(val);
+		System.out.println();
+		
+		Step03(val, times);
+		System.out.println();
+//		Extra(val, times);
 
 	}
 	
