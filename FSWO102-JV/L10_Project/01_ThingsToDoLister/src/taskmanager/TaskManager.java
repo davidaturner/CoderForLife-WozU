@@ -38,6 +38,10 @@ public class TaskManager {
 		
 			int choice = getSelect();
 			switch(choice) {
+			case 0:
+					doQuit();
+					done = true;
+					break;
 			case 1:
 					doAddTask();
 					break;
@@ -50,9 +54,15 @@ public class TaskManager {
 			case 4:
 					doListTasks();
 					break;
+			case 5:
+					doLoadTasks();
+					break;
+			case 6: 
+					doClearTasks();
+					break;
 			default:
-					doQuit();
-					done = true;
+					printlnln("Invalid Choice. Try again?");
+					break;
 			}		
 		}
 		
@@ -71,6 +81,12 @@ public class TaskManager {
 	}
 	public static void doListTasks() {
 		printlnln("Tasks shown");
+	}
+	public static void doLoadTasks() {
+		printlnln("Tasks loaded");
+	}
+	public static void doClearTasks() {
+		printlnln("Tasks clear");
 	}
 	public static void doQuit() {
 		printlnln("...DONE!");
