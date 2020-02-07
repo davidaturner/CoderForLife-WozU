@@ -6,25 +6,25 @@ public class NYStyleSausagePizza implements Pizza {
 
 	@Override
 	public void prepare() {
-		// TODO Auto-generated method stub
+		System.out.println("NYStyle Sausage Pizza prepared.");
 
 	}
 
 	@Override
 	public void bake() {
-		// TODO Auto-generated method stub
+		System.out.println("NYStyle Sausage Pizza baked.");
 
 	}
 
 	@Override
 	public void cut() {
-		// TODO Auto-generated method stub
+		System.out.println("NYStyle Sausage Pizza sliced.");
 
 	}
 
 	@Override
 	public void box() {
-		// TODO Auto-generated method stub
+		System.out.println("NYStyle Sausage Pizza boxed.");
 
 	}
 

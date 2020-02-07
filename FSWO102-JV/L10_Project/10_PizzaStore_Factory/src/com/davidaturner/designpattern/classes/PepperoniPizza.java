@@ -6,25 +6,25 @@ public class PepperoniPizza implements Pizza {
 
 	@Override
 	public void prepare() {
-		// TODO Auto-generated method stub
+		System.out.println("Pepperoni Pizza prepared.");
 		
 	}
 
 	@Override
 	public void bake() {
-		// TODO Auto-generated method stub
+		System.out.println("Pepperoni Pizza baked.");
 		
 	}
 
 	@Override
 	public void cut() {
-		// TODO Auto-generated method stub
+		System.out.println("Pepperoni Pizza sliced.");
 		
 	}
 
 	@Override
 	public void box() {
-		// TODO Auto-generated method stub
+		System.out.println("Pepperoni Pizza boxed.");
 		
 	}
 

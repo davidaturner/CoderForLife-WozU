@@ -6,25 +6,25 @@ public class CheesePizza implements Pizza {
 
 	@Override
 	public void prepare() {
-		// TODO Auto-generated method stub
+		System.out.println("Cheese Pizza prepared.");
 
 	}
 
 	@Override
 	public void bake() {
-		// TODO Auto-generated method stub
+		System.out.println("Cheese Pizza baked.");
 
 	}
 
 	@Override
 	public void cut() {
-		// TODO Auto-generated method stub
+		System.out.println("Cheese Pizza sliced.");
 
 	}
 
 	@Override
 	public void box() {
-		// TODO Auto-generated method stub
+		System.out.println("Cheese Pizza boxed and ready to go!");
 
 	}
 
