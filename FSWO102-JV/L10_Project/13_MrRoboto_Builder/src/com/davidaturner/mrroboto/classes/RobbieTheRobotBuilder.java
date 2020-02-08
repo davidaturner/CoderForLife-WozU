@@ -6,7 +6,6 @@ import com.davidaturner.mrroboto.classes.parts.RobbieRobotLeg;
 import com.davidaturner.mrroboto.classes.parts.RobbieRobotTorso;
 import com.davidaturner.mrroboto.interfaces.Robot;
 import com.davidaturner.mrroboto.interfaces.RobotBuilder;
-import com.davidaturner.mrroboto.interfaces.RobotPart;
 
 public class RobbieTheRobotBuilder implements RobotBuilder {
 

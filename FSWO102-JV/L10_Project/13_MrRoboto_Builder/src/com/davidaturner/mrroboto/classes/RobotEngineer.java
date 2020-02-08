@@ -13,16 +13,12 @@ public class RobotEngineer implements RobotPlan {
 	}
 
 	@Override
-	public void makeRobot() {
+	public Robot buildRobot() {
 		
 		builder.build();	
-	}
-
-	@Override
-	public Robot getRobot() {
-
 		return builder.getRobot();
 	}
+
 	
 	
 }
