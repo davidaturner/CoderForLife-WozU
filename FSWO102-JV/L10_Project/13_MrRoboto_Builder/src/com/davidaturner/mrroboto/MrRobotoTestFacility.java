@@ -1,9 +1,9 @@
 package com.davidaturner.mrroboto;
 
-import com.davidaturner.mrroboto.classes.HumanoidRobotEngineer;
 import com.davidaturner.mrroboto.classes.RobbieRobot;
-import com.davidaturner.mrroboto.classes.RobbieVariousModelsRobotEngineer;
+import com.davidaturner.mrroboto.designpatterns.HumanoidRobotEngineer;
 import com.davidaturner.mrroboto.designpatterns.RobbieVariousModelsPlanBuilder;
+import com.davidaturner.mrroboto.designpatterns.RobbieVariousModelsRobotEngineer;
 import com.davidaturner.mrroboto.interfaces.Robot;
 import com.davidaturner.mrroboto.interfaces.RobotEngineer;
 

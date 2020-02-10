@@ -1,4 +1,4 @@
-package com.davidaturner.mrroboto.classes;
+package com.davidaturner.mrroboto.designpatterns;
 
 import com.davidaturner.mrroboto.interfaces.HumanoidRobotPlanBuilder;
 import com.davidaturner.mrroboto.interfaces.Robot;
