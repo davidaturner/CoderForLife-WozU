@@ -1,31 +1,15 @@
 package com.davidaturner.l10;
 
-import java.awt.Robot;
-
 import com.davidaturner.l10.classes.RobbieRobot;
-import com.davidaturner.l10.classes.RobbieRobotMilitaryGrade;
-import com.davidaturner.l10.classes.RobbieRobotSecurityModel;
-import com.davidaturner.l10.designpatterns.CanSpeakFluently;
-import com.davidaturner.l10.interfaces.HumanoidRobot;
+import com.davidaturner.l10.designpatterns.behaviors.CanLift;
 
 public class RobotTestingFacility {
 
 	public static void main(String[] args) {
-		System.out.println("Hello, World!");
-
-		HumanoidRobot robot = new RobbieRobot();
-		println("Testing RobbieRobot Basic Model.");
-		robot.test();
-		println();
 		
-		robot = new RobbieRobotSecurityModel();
-		println("Testing RobbieRobot Security Model.");
+		RobbieRobot robot = new RobbieRobot();
 		robot.test();
-		println();
 		
-		robot = new RobbieRobotMilitaryGrade();
-		println("Testing RobbieRobot Military Grade.");
-		robot.test();
 		println();
 		println("...DONE!");
 				
