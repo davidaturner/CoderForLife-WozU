@@ -2,15 +2,21 @@ package com.davidaturner.l09.classes;
 
 public class Name {
 
-	private String firstName;
-	private String lastName;
+	protected String firstName;
+	protected String lastName;
 	
-	public Name() {
-		this(null, null);
-	}
-	public Name(String firstName, String lastName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
+	public String getFullName() {
+		StringBuilder result = new StringBuilder();
+		if (firstName != null) {
+			result.append(firstName);
+		}
+		if (firstName != null && lastName != null) {
+			result.append(" " + lastName);
+		}
+		else if (lastName != null) {
+			result.append(lastName);
+		}
+		return result.toString();
 	}
 	
 	public String getFirstName() {
@@ -25,6 +31,4 @@ public class Name {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
-	
 }
