@@ -2,7 +2,7 @@ package com.davidaturner.l09;
 
 import com.davidaturner.l09.classes.Account;
 import com.davidaturner.l09.designpatterns.Accountv2;
-import com.davidaturner.l09.designpatterns.AlertAllAlertVisitors;
+import com.davidaturner.l09.designpatterns.AlertToAllAlertVisitors;
 import com.davidaturner.l09.designpatterns.AnimalFactory;
 import com.davidaturner.l09.designpatterns.Radio;
 import com.davidaturner.l09.designpatterns.Smartphone;
@@ -26,12 +26,9 @@ public class Activity {
 		RunFactoryTest01();
 		println();
 		
-		Alertable smartPhone = new Smartphone();
-		smartPhone.alert(new AlertAllAlertVisitors());
-		
-		Alertable tv = new TV();
-		
-		Alertable radio = new Radio();
+		println("Sending new alert to all alertvisitors...");
+		RunVisitorTest01();
+		println();
 		
 		println("\r\n...DONE!");
 
@@ -73,6 +70,16 @@ public class Activity {
 		Animal paddy = factory.createAnimal("cow");
 		System.out.print("Cow says: ");
 		paddy.speak();		
+	}
+	public static void RunVisitorTest01() {
+		Alertable smartPhone = new Smartphone();
+		smartPhone.alert(new AlertToAllAlertVisitors());
+		
+		Alertable tv = new TV();
+		tv.alert(new AlertToAllAlertVisitors());
+		
+		Alertable radio = new Radio();
+		radio.alert(new AlertToAllAlertVisitors());		
 	}
 	//Auxiliary operations.
 	public static void println() {

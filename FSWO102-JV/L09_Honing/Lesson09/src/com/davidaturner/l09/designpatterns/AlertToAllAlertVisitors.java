@@ -3,7 +3,7 @@ package com.davidaturner.l09.designpatterns;
 import com.davidaturner.l09.interfaces.AlertVisitor;
 import com.davidaturner.l09.interfaces.Alertable;
 
-public class AlertAllAlertVisitors implements AlertVisitor {
+public class AlertToAllAlertVisitors implements AlertVisitor {
 
 	@Override
 	public void alert(Smartphone smartPhone) {
