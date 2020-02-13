@@ -2,6 +2,13 @@ package com.davidaturner.l09;
 
 import com.davidaturner.l09.classes.Account;
 import com.davidaturner.l09.designpatterns.Accountv2;
+import com.davidaturner.l09.designpatterns.AlertAllAlertVisitors;
+import com.davidaturner.l09.designpatterns.AnimalFactory;
+import com.davidaturner.l09.designpatterns.Radio;
+import com.davidaturner.l09.designpatterns.Smartphone;
+import com.davidaturner.l09.designpatterns.TV;
+import com.davidaturner.l09.interfaces.Alertable;
+import com.davidaturner.l09.interfaces.Animal;
 
 public class Activity {
 
@@ -13,7 +20,21 @@ public class Activity {
 		
 		println("Creating new accountv2...");		
 		RunAccountTest02();
+		println();
+		
+		println("Creating new cat, dog and cow...");
+		RunFactoryTest01();
+		println();
+		
+		Alertable smartPhone = new Smartphone();
+		smartPhone.alert(new AlertAllAlertVisitors());
+		
+		Alertable tv = new TV();
+		
+		Alertable radio = new Radio();
+		
 		println("\r\n...DONE!");
+
 	}
 	
 	// Tests
@@ -37,7 +58,22 @@ public class Activity {
 		println(accountv2.getFullName());
 		println(accountv2.getCity() + " " + accountv2.getState() + " " + accountv2.getZip());		
 	}
-
+	public static void RunFactoryTest01() {
+		AnimalFactory factory = new AnimalFactory();
+		
+		println();
+		Animal kitty = factory.createAnimal("cat");
+		System.out.print("Cat says: ");
+		kitty.speak();
+		
+		Animal bowser = factory.createAnimal("dog");
+		System.out.print("Dog says: ");
+		bowser.speak();
+		
+		Animal paddy = factory.createAnimal("cow");
+		System.out.print("Cow says: ");
+		paddy.speak();		
+	}
 	//Auxiliary operations.
 	public static void println() {
 		System.out.println();
