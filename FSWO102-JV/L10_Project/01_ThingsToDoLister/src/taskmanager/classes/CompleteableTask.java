@@ -3,65 +3,58 @@ package taskmanager.classes;
 import java.util.ArrayList;
 import java.util.List;
 
-import taskmanager.interfaces.ListableTask;
+import taskmanager.interfaces.OrderListable;
 
 public class CompleteableTask extends SimpleTask {
 
-	protected boolean completed;
+	boolean complete;
 	
+	public boolean isComplete() {
+		return complete;
+	}
+
+	public void setComplete(boolean complete) {
+		this.complete = complete;
+	}
 	@Override
 	public String listing() {
-		return (listReady() && completed == true) ?
-				super.listing() + " (Completed)!" : super.listing();
-	}
-	
-	// Getters and Setters
-	public boolean isCompleted() {
-		return completed;
+		return listNumber + ". " + description +
+				(isComplete()?" (COMPLETE)":"");
 	}
 
-	public void setCompleted(boolean completed) {
-		this.completed = completed;
+	public static void main(String[] args) {
+		RunTest01();
 	}
 	
-	// Tests
-	public static boolean RunTest01 () {
-		List<ListableTask>listing = new ArrayList<>();
+	public static boolean RunTest01() {
+		List<OrderListable>toBeListed = new ArrayList<>();
 		
-		CompleteableTask toBeAdded = new CompleteableTask();
-		toBeAdded.setDescription("Make my bed");
-		listing.add(toBeAdded);
+		CompleteableTask taskToBeAdded = new CompleteableTask();
+		taskToBeAdded.setDescription("Shower");
+		taskToBeAdded.setComplete(true);
+		toBeListed.add(taskToBeAdded);
 		
-		toBeAdded = new CompleteableTask();
-		toBeAdded.setDescription("Brush my teeth");
-		listing.add(toBeAdded);
+		taskToBeAdded = new CompleteableTask();
+		taskToBeAdded.setDescription("Brush my teeth");
+		taskToBeAdded.setComplete(true);
+		toBeListed.add(taskToBeAdded);
 		
-		toBeAdded = new CompleteableTask();
-		toBeAdded.setDescription("Eat breakfast");
-		listing.add(toBeAdded);
+		taskToBeAdded = new CompleteableTask();
+		taskToBeAdded.setDescription("Eat breakfast");
+		taskToBeAdded.setComplete(true);
+		toBeListed.add(taskToBeAdded);
 		
-		toBeAdded = new CompleteableTask();
-		toBeAdded.setDescription("Code - Morning session");
-		listing.add(toBeAdded);
+		taskToBeAdded = new CompleteableTask();
+		taskToBeAdded.setDescription("Coding for 4 hours");
+		toBeListed.add(taskToBeAdded);
 		
-		toBeAdded = new CompleteableTask();
-		toBeAdded.setDescription("Eat lunch");
-		listing.add(toBeAdded);
-		
-		toBeAdded = new CompleteableTask();
-		toBeAdded.setDescription("Break - Afternoon session");
-		listing.add(toBeAdded);
-		
-		int i=1;
-		for(ListableTask toBeListed : listing) {
-			String theListed = ((CompleteableTask)toBeListed).listing(i++);
-			if (theListed == null) {
-				return false;
-			}
-			System.out.println(theListed);
+		OrderListable viewer = new CompleteableTask();
+		List<String>listElements = viewer.listing(10, toBeListed);
+		for(String taskstr : listElements) {
+			System.out.println(taskstr);
 		}
-
-		return true;
+			
+		return true;	
 	}
 
 }

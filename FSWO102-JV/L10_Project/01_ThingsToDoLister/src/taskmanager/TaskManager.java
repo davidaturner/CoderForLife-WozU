@@ -2,16 +2,16 @@ package taskmanager;
 
 import java.util.List;
 
-import taskmanager.classes.MainTaskFactory;
 import taskmanager.classes.SimpleTask;
-import taskmanager.interfaces.ListableTask;
+import taskmanager.designpatterns.AllTasksFactory;
+import taskmanager.interfaces.OrderListable;
 
 public class TaskManager {
 	
 	public static int ERROR = -1;
 		
-	public static List<ListableTask>mainPage = null;
-	public static List<ListableTask>theListing = null;
+	public static List<String>mainPage = null;
+	public static List<OrderListable>theListing = null;
 	
 	public static void main(String[] args) {
 
@@ -95,12 +95,10 @@ public class TaskManager {
 	public static void doMainPage() {
 		
 		if (mainPage == null) {
-			mainPage = MainTaskFactory.getTasks();
+			mainPage = (new AllTasksFactory()).getMainPageViewer();
 		}
-		SimpleTask viewer = new SimpleTask();
-		List<String>listing = viewer.listing(mainPage);
-		for(String taskstr : listing) {
-			println(taskstr);
+		for(String cmdTask : mainPage) {
+			println(cmdTask);
 		}
 		prompt("What would you like to do? ");
 	}

@@ -3,48 +3,55 @@ package taskmanager.classes;
 import java.util.ArrayList;
 import java.util.List;
 
-import taskmanager.interfaces.ListableTask;
+import taskmanager.interfaces.OrderListable;
 
-public class SimpleTask implements ListableTask {
+public class SimpleTask implements OrderListable {
 
 	protected int listNumber;
 	protected String description;
-	
+
 	@Override
-	public boolean listReady() {
-		return (listNumber  > 0 && 
-				description != null && !description.isEmpty()) ?
-						true : false;
+	public int getNextNumber(List<OrderListable> ordered) {
+		if (ordered != null && !ordered.isEmpty()) {
+			OrderListable listing = ordered.get(ordered.size()-1);
+			return listing.getListNumber() + 1;
+		}
+		return ITEM_NOT_FOUND;
 	}
 	@Override
-	public String listing() {
-		return (listReady()) ? listNumber + ". " + description : null;
-	}
-	@Override
-	public String listing(int listNumber) {
-		this.listNumber = listNumber;
-		return listing();
-	}
-	@Override
-	public List<String> listing(List<ListableTask> list) {
-		if (list != null) {
-			List<String> l = new ArrayList<>();
-			for(ListableTask toBeDisplayed : list) {
-				l.add(toBeDisplayed.listing());
+	public String findByListNumber(int selected, List<OrderListable> ordered) {
+		for(OrderListable listing : ordered) {
+			if (listing.getListNumber() == selected) {
+				return listing.getDescription();
 			}
-			return l;
 		}
 		return null;
 	}
 	@Override
-	public List<String> listing(int starting, List<ListableTask> list) {
-		if (list != null) {
-			List<String>l = new ArrayList<>();
-			int i = starting;
-			for(ListableTask toBeDisplayed : list) {
-				l.add(toBeDisplayed.listing(i++));
+	public String listing() {
+		return listNumber + ". " + description;
+	}
+	@Override
+	public List<String> listing(List<OrderListable> ordered) {
+		List<String>toBeDisplayed = new ArrayList<>();
+		if (ordered != null && !ordered.isEmpty()) {
+			for(OrderListable listing : ordered) {
+				SimpleTask task = (SimpleTask)listing;
+				toBeDisplayed.add(task.listing());
 			}
-			return l;
+			return toBeDisplayed;
+		}
+		return null;
+	}
+	@Override
+	public List<String> listing(int starting, List<OrderListable> ordered) {
+		if (ordered != null && !ordered.isEmpty()) {
+			int listNumber = starting;
+			for(OrderListable listing : ordered) {
+				SimpleTask task = (SimpleTask)listing;
+				task.setListNumber(listNumber++);
+			}
+			return listing(ordered);
 		}
 		return null;
 	}
@@ -64,8 +71,11 @@ public class SimpleTask implements ListableTask {
 	}
 	
 	// Tests
+	public static void main(String[]args) {
+		RunTest01();
+	}
 	public static boolean RunTest01() {
-		List<ListableTask>toBeListed = new ArrayList<>();
+		List<OrderListable>toBeListed = new ArrayList<>();
 		
 		SimpleTask taskToBeAdded = new SimpleTask();
 		taskToBeAdded.setDescription("Add a task");
@@ -83,7 +93,7 @@ public class SimpleTask implements ListableTask {
 		taskToBeAdded.setDescription("List the tasks");
 		toBeListed.add(taskToBeAdded);
 		
-		ListableTask viewer = new SimpleTask();
+		OrderListable viewer = new SimpleTask();
 		List<String>listElements = viewer.listing(1, toBeListed);
 		for(String taskstr : listElements) {
 			System.out.println(taskstr);
