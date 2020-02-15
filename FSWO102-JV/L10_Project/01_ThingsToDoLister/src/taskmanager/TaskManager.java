@@ -95,9 +95,9 @@ public class TaskManager {
 //		if (mainPage == null) {
 //			mainPage = (new AllTasksFactory()).getMainPageViewer();
 //		}
-		for(String cmdTask : mainPage) {
-			println(cmdTask);
-		}
+//		for(String cmdTask : mainPage) {
+//			println(cmdTask);
+//		}
 		prompt("What would you like to do? ");
 	}
 	
