@@ -2,6 +2,9 @@ package taskmanager;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.List;
+
+import taskmanager.interfaces.Task;
 
 public class TaskManagerHelper {
 
@@ -62,6 +65,11 @@ public class TaskManagerHelper {
 		println(message + "\r\n");
 	}
 
+	public static void printlnTasks(List<Task> tasks) {
+		for(Task task : tasks) {
+			println(task.listing());
+		}
+	}
 	public static void prompt(String message) {
 		print("\r\n" + message);
 	}

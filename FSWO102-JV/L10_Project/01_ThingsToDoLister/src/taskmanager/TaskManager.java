@@ -2,14 +2,21 @@ package taskmanager;
 
 import java.util.List;
 
+import taskmanager.designpatterns.CompleteableTaskFactory;
 import taskmanager.interfaces.Task;
 
 public class TaskManager {
 	
 	public static int ERROR = -1;
 		
-	public static List<String>mainPage = null;
-	public static List<Task>theListing = null;
+	public static String[] mainPageTasks = {
+			"Add a task",
+			"Remove a task",
+			"Mark task as complete",
+			"Show tasks"	
+	};
+	public static List<Task> mainPage = null;
+	public static CompleteableTaskFactory factory = new CompleteableTaskFactory();
 	
 	public static void main(String[] args) {
 
@@ -80,12 +87,10 @@ public class TaskManager {
 		
 	public static void doMainPage() {
 		
-//		if (mainPage == null) {
-//			mainPage = (new AllTasksFactory()).getMainPageViewer();
-//		}
-//		for(String cmdTask : mainPage) {
-//			println(cmdTask);
-//		}
+		if (mainPage == null) {
+			mainPage = factory.createSimplePage(mainPageTasks);
+		}
+		printlnTasks(mainPage);
 		prompt("What would you like to do? ");
 	}
 	
@@ -107,6 +112,9 @@ public class TaskManager {
 	}
 	public static void println(String message) {
 		TaskManagerHelper.println(message);
+	}
+	public static void printlnTasks(List<Task>tasks) {
+		TaskManagerHelper.printlnTasks(tasks);
 	}
 	public static void printlnln(String message) {
 		TaskManagerHelper.printlnln(message);
