@@ -1,0 +1,9 @@
+{
+  "name": "lesson-two",
+  "version": "1.0.0",
+  "description": "a continuation of typescript instruction.",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node index.js"
+  }
+}

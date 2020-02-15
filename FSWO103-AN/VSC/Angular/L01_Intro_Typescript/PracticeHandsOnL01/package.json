@@ -1,0 +1,9 @@
+{
+  "package": "PracticeHandsOnL01",
+  "version": "1.0.0",
+  "description": "HandsOnL01 Exercise",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node index.js"
+  }
+}
