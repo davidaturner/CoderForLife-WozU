@@ -13,18 +13,6 @@ public class TaskManager {
 	
 	public static void main(String[] args) {
 
-
-		
- 		System.out.println("\r\n" + TaskManager.RunMain());
-		
-//		System.out.println("\r\n" + SimpleTask.RunTest01());
-//		System.out.println("\r\n" + CompleteableTask.RunTest01());
-//		TaskManagerHelper.prompt(TaskManagerHelper.RunTest01());
-		
-	}
-	
-	public static boolean RunMain() {
-				
 		openReader();
 		
 		printlnln("Welcome to Your-Things-To-Do!");	
@@ -65,7 +53,7 @@ public class TaskManager {
 		}
 		
 		closeReader();
-		return true;
+	
 	}
 	
 	public static void doAddTask() {
@@ -129,6 +117,5 @@ public class TaskManager {
 	public static void prompt(boolean testResult) {
 		TaskManagerHelper.prompt(testResult);
 	}
-
 	
 }
