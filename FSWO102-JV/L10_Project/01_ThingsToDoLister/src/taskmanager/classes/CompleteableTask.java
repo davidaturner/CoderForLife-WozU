@@ -3,12 +3,18 @@ package taskmanager.classes;
 import java.util.ArrayList;
 import java.util.List;
 
-import taskmanager.interfaces.OrderListable;
+import taskmanager.interfaces.Task;
 
-public class CompleteableTask extends SimpleTask {
+public class CompleteableTask extends Task {
 
-	boolean complete;
+	protected boolean complete;
 	
+	@Override
+	public String listing() {
+		return number + ". " + description + 
+				((complete)?" (COMPLETE)" : "");
+	}
+
 	public boolean isComplete() {
 		return complete;
 	}
@@ -16,45 +22,50 @@ public class CompleteableTask extends SimpleTask {
 	public void setComplete(boolean complete) {
 		this.complete = complete;
 	}
-	@Override
-	public String listing() {
-		return listNumber + ". " + description +
-				(isComplete()?" (COMPLETE)":"");
-	}
 
 	public static void main(String[] args) {
-		RunTest01();
-	}
-	
-	public static boolean RunTest01() {
-		List<OrderListable>toBeListed = new ArrayList<>();
+		List<Task>tasks = new ArrayList<>();
+		int i = 23;
 		
-		CompleteableTask taskToBeAdded = new CompleteableTask();
-		taskToBeAdded.setDescription("Shower");
-		taskToBeAdded.setComplete(true);
-		toBeListed.add(taskToBeAdded);
+		CompleteableTask task = new CompleteableTask();
+		task.setDescription("Shower");
+		task.setNumber(i++);
+		task.setComplete(true);
+		tasks.add(task);
 		
-		taskToBeAdded = new CompleteableTask();
-		taskToBeAdded.setDescription("Brush my teeth");
-		taskToBeAdded.setComplete(true);
-		toBeListed.add(taskToBeAdded);
+		task = new CompleteableTask();
+		task.setDescription("Shave");
+		task.setNumber(i++);
+		task.setComplete(false);
+		tasks.add(task);
 		
-		taskToBeAdded = new CompleteableTask();
-		taskToBeAdded.setDescription("Eat breakfast");
-		taskToBeAdded.setComplete(true);
-		toBeListed.add(taskToBeAdded);
+		task = new CompleteableTask();
+		task.setDescription("Brush teeth");
+		task.setNumber(i++);
+		task.setComplete(true);
+		tasks.add(task);
 		
-		taskToBeAdded = new CompleteableTask();
-		taskToBeAdded.setDescription("Coding for 4 hours");
-		toBeListed.add(taskToBeAdded);
+		task = new CompleteableTask();
+		task.setDescription("Dress");
+		task.setNumber(i++);
+		task.setComplete(true);
+		tasks.add(task);
 		
-		OrderListable viewer = new CompleteableTask();
-		List<String>listElements = viewer.listing(10, toBeListed);
-		for(String taskstr : listElements) {
-			System.out.println(taskstr);
+		task = new CompleteableTask();
+		task.setDescription("Eat breakfast");
+		task.setNumber(i++);
+		task.setComplete(true);
+		tasks.add(task);
+		
+		task = new CompleteableTask();
+		task.setDescription("Code");
+		task.setNumber(i++);
+		task.setComplete(false);
+		tasks.add(task);
+		
+		for(Task toBePrinted : tasks) {
+			System.out.println(toBePrinted.listing());
 		}
-			
-		return true;	
 	}
 
 }

@@ -2,16 +2,14 @@ package taskmanager;
 
 import java.util.List;
 
-import taskmanager.classes.SimpleTask;
-import taskmanager.designpatterns.AllTasksFactory;
-import taskmanager.interfaces.OrderListable;
+import taskmanager.interfaces.Task;
 
 public class TaskManager {
 	
 	public static int ERROR = -1;
 		
 	public static List<String>mainPage = null;
-	public static List<OrderListable>theListing = null;
+	public static List<Task>theListing = null;
 	
 	public static void main(String[] args) {
 
@@ -94,9 +92,9 @@ public class TaskManager {
 		
 	public static void doMainPage() {
 		
-		if (mainPage == null) {
-			mainPage = (new AllTasksFactory()).getMainPageViewer();
-		}
+//		if (mainPage == null) {
+//			mainPage = (new AllTasksFactory()).getMainPageViewer();
+//		}
 		for(String cmdTask : mainPage) {
 			println(cmdTask);
 		}

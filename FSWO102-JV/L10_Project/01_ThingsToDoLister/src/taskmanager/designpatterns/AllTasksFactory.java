@@ -5,45 +5,13 @@ import java.util.List;
 
 import taskmanager.classes.CompleteableTask;
 import taskmanager.classes.SimpleTask;
-import taskmanager.interfaces.OrderListable;
-import taskmanager.interfaces.OrderListableFactory;
+import taskmanager.interfaces.Task;
+import taskmanager.interfaces.TaskFactory;
 
-public class AllTasksFactory extends OrderListableFactory {
-
-	public static String SIMPLE_TASK = "simple";
-	public static String COMPLETEABLE_TASK = "completeable";
-	
-	public static String ADD_TASK = "Add a task";
-	public static String REMOVE_TASK = "Remove a task";
-	public static String MARK_TASK = "Mark a task complete";
-	public static String SHOW_TASKS = "Show tasks";
-	
-	@Override
-	public List<OrderListable> getMainPage() {
-		List<OrderListable>tasks = new ArrayList<>();
-		
-		SimpleTask taskToBeAdded = new SimpleTask();
-		
-		taskToBeAdded.setDescription(ADD_TASK);
-		tasks.add(taskToBeAdded);
-		
-		taskToBeAdded = new SimpleTask();
-		taskToBeAdded.setDescription(REMOVE_TASK);
-		tasks.add(taskToBeAdded);
-		
-		taskToBeAdded = new SimpleTask();
-		taskToBeAdded.setDescription(MARK_TASK);
-		tasks.add(taskToBeAdded);
-		
-		taskToBeAdded = new SimpleTask();
-		taskToBeAdded.setDescription(SHOW_TASKS);
-		tasks.add(taskToBeAdded);
-				
-		return tasks;
-	}
+public class AllTasksFactory extends TaskFactory {
 
 	@Override
-	public OrderListable getOrderListable(String type) {
+	public Task createTask(String type) {
 		if (type.equals(SIMPLE_TASK)) {
 			return new SimpleTask();
 		} else if (type.equals(COMPLETEABLE_TASK)) {
@@ -54,36 +22,63 @@ public class AllTasksFactory extends OrderListableFactory {
 		return null;
 	}
 
+	@Override
+	public List<Task> createTasks(String type, int listsize) {
+		List<Task>tasks = new ArrayList<>();
+		if (listsize > 0) {
+			for(int i=0; i<listsize; i++) {
+				tasks.add(createTask(type));
+			}
+			return tasks;
+		}
+		return null;
+	}
+
 	public static void main(String[] args) {
 		RunTest01();
 		System.out.println();
 		
 		RunTest02();
+		System.out.println();
+		
+		RunTest03();
+		System.out.println();
+		
+		RunTest04();
+		System.out.println();
+		
+		System.out.println("\r\n..DONE!");
 
 	}
 	public static boolean RunTest01() {
-		List<OrderListable>mainTasks = (new AllTasksFactory()).getMainPage();
-		SimpleTask viewer = new SimpleTask();
-		List<String>mainPage = viewer.listing(1, mainTasks);
-		for(String cmdTask : mainPage) {
-			System.out.println(cmdTask);
-		}
+		AllTasksFactory factory = new AllTasksFactory();
+		
+		SimpleTask simpleTask = (SimpleTask)factory.createTask(TaskFactory.SIMPLE_TASK);
+		simpleTask.setDescription("Add a task");
+		simpleTask.setNumber(1);
+		System.out.println(simpleTask.listing());
+				
 		return true;
 	}
+	
 	public static boolean RunTest02() {
-		
 		AllTasksFactory factory = new AllTasksFactory();
-		SimpleTask simpleTask = (SimpleTask)factory.getOrderListable(AllTasksFactory.SIMPLE_TASK);
-		simpleTask.setDescription(AllTasksFactory.ADD_TASK);
-		simpleTask.setListNumber(1);
-		System.out.println(simpleTask.listing());
 		
 		CompleteableTask completeableTask = (CompleteableTask)factory
-												.getOrderListable(AllTasksFactory.COMPLETEABLE_TASK);
-		completeableTask.setDescription("Eat a peach");
-		completeableTask.setListNumber(22);
+											.createTask(TaskFactory.COMPLETEABLE_TASK);
+		completeableTask.setDescription("Eat breakfast");
+		completeableTask.setNumber(23);
 		completeableTask.setComplete(true);
 		System.out.println(completeableTask.listing());
+		
+		return true;
+	}
+	
+	public static boolean RunTest03() {
+		return true;
+	}
+	
+	public static boolean RunTest04() {
 		return true;
 	}
 
