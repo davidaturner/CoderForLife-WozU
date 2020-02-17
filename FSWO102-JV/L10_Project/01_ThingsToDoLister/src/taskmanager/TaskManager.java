@@ -3,6 +3,7 @@ package taskmanager;
 import java.util.List;
 
 import taskmanager.designpatterns.CompleteableTaskFactory;
+import taskmanager.designpatterns.CompleteableTaskViewBuilder;
 import taskmanager.interfaces.Task;
 
 public class TaskManager {
@@ -17,6 +18,7 @@ public class TaskManager {
 	};
 	public static List<Task> mainPage = null;
 	public static CompleteableTaskFactory factory = new CompleteableTaskFactory();
+	public static CompleteableTaskViewBuilder viewer = new CompleteableTaskViewBuilder();
 	
 	public static void main(String[] args) {
 
@@ -64,7 +66,17 @@ public class TaskManager {
 	}
 	
 	public static void doAddTask() {
-		printlnln("Task added");
+
+		System.out.print("Enter new task: ");
+		String description = getInput();
+		println();
+		
+		Task task = factory.createTask();
+		task.setDescription(description);
+		viewer.setCandidate(task)
+				.addtoModel()
+				.buildView();
+
 	}
 	public static void doRemoveTask() {
 		printlnln("Task removed");
@@ -73,7 +85,9 @@ public class TaskManager {
 		printlnln("Task marked complete");
 	}
 	public static void doListTasks() {
-		printlnln("Tasks shown");
+		printlnTasks(viewer.getView());
+		prompt("Press any key to continue.");
+		getSelect();
 	}
 	public static void doLoadTasks() {
 		printlnln("Tasks loaded");
@@ -109,6 +123,9 @@ public class TaskManager {
 	}
 	public static void print(String message) {
 		TaskManagerHelper.print(message);
+	}
+	public static void println( ) {
+		TaskManagerHelper.println();
 	}
 	public static void println(String message) {
 		TaskManagerHelper.println(message);

@@ -121,8 +121,9 @@ public class CompleteableTaskViewBuilder implements ModelViewBuilder {
 	}
 
 
-	public void setModel(List<Task> model) {
+	public CompleteableTaskViewBuilder setModel(List<Task> model) {
 		this.model = model;
+		return this;
 	}
 
 
@@ -131,8 +132,9 @@ public class CompleteableTaskViewBuilder implements ModelViewBuilder {
 	}
 
 
-	public void setCandidate(Task candidate) {
+	public CompleteableTaskViewBuilder setCandidate(Task candidate) {
 		this.candidate = candidate;
+		return this;
 	}
 
 
@@ -141,9 +143,9 @@ public class CompleteableTaskViewBuilder implements ModelViewBuilder {
 	}
 
 
-	public void setView(List<Task> view) {
-		this.view = view;
-	}
+//	public void setView(List<Task> view) {
+//		this.view = view;
+//	}
 
 
 
