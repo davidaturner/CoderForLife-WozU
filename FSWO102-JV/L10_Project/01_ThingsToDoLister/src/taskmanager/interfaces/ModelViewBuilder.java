@@ -6,10 +6,8 @@ public interface ModelViewBuilder {
 	
 	ModelViewBuilder addtoModel();
 	ModelViewBuilder removefromModel();
-	
-	ModelViewBuilder getFromModel();
-	ModelViewBuilder puttoModel();
-	
+	ModelViewBuilder markasCompleteInModel();	
 	ModelViewBuilder relistModel();
+	
 	ModelViewBuilder clearModel();
 }
