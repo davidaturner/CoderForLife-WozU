@@ -14,10 +14,6 @@ public class CompleteableTaskViewBuilder implements ModelViewBuilder {
 	protected Task candidate;
 	
 	protected List<Task>view;	
-	int viewStarting;
-	int viewMaxRecords;
-	
-	public static int NO_VIEWMAX = -1;
 	
 	@Override
 	public void buildView() {
@@ -97,7 +93,7 @@ public class CompleteableTaskViewBuilder implements ModelViewBuilder {
 	}
 
 	@Override
-	public ModelViewBuilder markasCompleteInModel() {
+	public ModelViewBuilder updateModel() {
 		if (this.model != null) {
 			if (this.candidate != null) {
 				CompleteableTask taskToBeUpdated = 
@@ -150,24 +146,6 @@ public class CompleteableTaskViewBuilder implements ModelViewBuilder {
 	}
 
 
-	public int getViewStarting() {
-		return viewStarting;
-	}
-
-
-	public void setViewStarting(int viewStarting) {
-		this.viewStarting = viewStarting;
-	}
-
-
-	public int getViewMaxRecords() {
-		return viewMaxRecords;
-	}
-
-
-	public void setViewMaxRecords(int viewMaxRecords) {
-		this.viewMaxRecords = viewMaxRecords;
-	}
 
 	// Testing
 	public static void main(String[] args) {
@@ -277,7 +255,7 @@ public class CompleteableTaskViewBuilder implements ModelViewBuilder {
 		Task toBeUpdated = factory.createTask();
 		toBeUpdated.setNumber(taskIndex);
 		viewBuilder.setCandidate(toBeUpdated);
-		viewBuilder.markasCompleteInModel();
+		viewBuilder.updateModel();
 		viewBuilder.buildView();
 		
 		return true;		

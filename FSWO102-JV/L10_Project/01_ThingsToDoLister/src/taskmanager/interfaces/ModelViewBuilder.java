@@ -6,7 +6,7 @@ public interface ModelViewBuilder {
 	
 	ModelViewBuilder addtoModel();
 	ModelViewBuilder removefromModel();
-	ModelViewBuilder markasCompleteInModel();	
+	ModelViewBuilder updateModel();	
 	ModelViewBuilder relistModel();
 	
 	ModelViewBuilder clearModel();
