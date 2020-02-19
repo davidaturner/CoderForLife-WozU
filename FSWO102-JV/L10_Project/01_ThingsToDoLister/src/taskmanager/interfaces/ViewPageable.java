@@ -1,11 +1,12 @@
 package taskmanager.interfaces;
 
-public interface CanViewPaginate {
+public interface ViewPageable {
 
 	void topPage();
 	
 	void nextPage();
 	void prevPage();
 	
+	boolean isTopPage();
 	boolean isLastPage();
 }

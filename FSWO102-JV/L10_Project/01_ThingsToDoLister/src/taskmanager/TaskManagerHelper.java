@@ -39,7 +39,7 @@ public class TaskManagerHelper {
 		String result = null;
 		try {
 			result = br.readLine();
-			println();
+			System.out.println();
 			return Integer.parseInt(result);
 		} catch (Exception e) {
 			e.getStackTrace();
@@ -55,26 +55,16 @@ public class TaskManagerHelper {
 		}
 	}
 	
-	public static void println() {
-		System.out.println();
-	}
-	public static void println(String message) {
-		print(message + "\r\n");
-	}
-	public static void printlnln(String message) {
-		println(message + "\r\n");
-	}
-
-	public static void printlnTasks(List<Task> tasks) {
+	public static void printTasks(List<Task> tasks) {
 		for(Task task : tasks) {
-			println(task.listing());
+			System.out.println(task.listing());
 		}
 	}
-	public static void prompt(String message) {
-		print("\r\n" + message);
+	public static void declare(String message) {
+		System.out.println(message);
 	}
-	public static void prompt(boolean testResult) {
-		print("\r\n" + testResult);
+	public static void prompt(String message) {
+		System.out.print("\r\n" + message);
 	}
 	
 	// Tests
@@ -91,18 +81,18 @@ public class TaskManagerHelper {
 			undoArray[i] = TaskManagerHelper.readUserSelect();
 		}		
 		for(int i=undoArray.length-1; i>=0; i--) {
-			print(undoArray[i] + " ");
+			System.out.print(undoArray[i] + " ");
 		}
-		println();
+		System.out.println();
 		
 		// Print tasks in forward order
-		println("\r\nNow. Enter five new tasks: ");
+		System.out.println("\r\nNow. Enter five new tasks: ");
 		for(int i=0; i<descriptArray.length; i++) {
 			descriptArray[i] = TaskManagerHelper.readUserInput();
 		}
 		int i=1;
 		for(String descript : descriptArray) {
-			println(i++ + ". " + descript);
+			System.out.println(i++ + ". " + descript);
 		}
 
 		// Print task description

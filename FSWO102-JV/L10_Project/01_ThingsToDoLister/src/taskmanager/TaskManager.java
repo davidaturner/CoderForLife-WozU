@@ -16,6 +16,8 @@ public class TaskManager {
 			"Mark task as complete",
 			"Show tasks"	
 	};
+	public static String PRESS_ANY_KEY = "Press Enter to continue";
+	
 	public static List<Task> mainPage = null;
 	public static CompleteableTaskFactory factory = new CompleteableTaskFactory();
 	public static CompleteableTaskViewBuilder viewer = new CompleteableTaskViewBuilder();
@@ -24,7 +26,7 @@ public class TaskManager {
 
 		openReader();
 		
-		printlnln("Welcome to Your-Things-To-Do!");	
+		declare("Welcome to Your-Things-To-Do!\r\n");	
 						
 		boolean done = false;
 		while ( !done) {
@@ -47,16 +49,10 @@ public class TaskManager {
 					doMarkTaskComplete();
 					break;
 			case 4:
-					doListTasks();
-					break;
-			case 5:
-					doLoadTasks();
-					break;
-			case 6: 
-					doClearTasks();
+					doSelectTaskFromList(PRESS_ANY_KEY);
 					break;
 			default:
-					printlnln("Invalid Choice. Try again?");
+					declare("Invalid Choice. Try again?");
 					break;
 			}		
 		}
@@ -66,37 +62,49 @@ public class TaskManager {
 	}
 	
 	public static void doAddTask() {
-
-		System.out.print("Enter new task: ");
+		prompt("Enter new task: ");
 		String description = getInput();
-		println();
-		
 		Task task = factory.createTask();
 		task.setDescription(description);
 		viewer.setCandidate(task)
 				.addtoModel()
 				.buildView();
-
+		doSelectTaskFromList(PRESS_ANY_KEY);
 	}
 	public static void doRemoveTask() {
-		printlnln("Task removed");
+		int number = doSelectTaskFromList("Enter task number to remove: ");
+		Task task = factory.createTask();
+		task.setNumber(number);
+		viewer.setCandidate(task)
+				.removefromModel()
+				.buildView();
+		doSelectTaskFromList(PRESS_ANY_KEY);
 	}
 	public static void doMarkTaskComplete() {
-		printlnln("Task marked complete");
+		int number = doSelectTaskFromList("Enter task number to mark complete: ");
+		Task task = factory.createTask();
+		task.setNumber(number);
+		viewer.setCandidate(task)
+				.updateModel()
+				.buildView();
+		doSelectTaskFromList(PRESS_ANY_KEY);
 	}
-	public static void doListTasks() {
-		printlnTasks(viewer.getView());
-		prompt("Press any key to continue.");
-		getSelect();
-	}
-	public static void doLoadTasks() {
-		printlnln("Tasks loaded");
-	}
-	public static void doClearTasks() {
-		printlnln("Tasks clear");
+	public static int doSelectTaskFromList(String prompt) {
+		declare();
+		printTasks(viewer.getView());
+		if (prompt != null) {
+			
+			prompt(prompt);			
+			if ( !prompt.equals(PRESS_ANY_KEY)) {
+				return getSelect();
+			} else {
+				getInput();
+			}
+		}	
+		return 0;
 	}
 	public static void doQuit() {
-		printlnln("...DONE!");
+		declare("...DONE!\r\n");
 	}
 		
 	public static void doMainPage() {
@@ -104,8 +112,8 @@ public class TaskManager {
 		if (mainPage == null) {
 			mainPage = factory.createSimplePage(mainPageTasks);
 		}
-		printlnTasks(mainPage);
-		prompt("What would you like to do? ");
+		printTasks(mainPage);
+		prompt("What would you like to do? (0 to Quit) ");
 	}
 	
 	// TaskManagerHelper simples.
@@ -121,26 +129,18 @@ public class TaskManager {
 	public static String getInput() {
 		return TaskManagerHelper.readUserInput();
 	}
-	public static void print(String message) {
-		TaskManagerHelper.print(message);
+	
+	public static void declare() {
+		TaskManagerHelper.declare("");
 	}
-	public static void println( ) {
-		TaskManagerHelper.println();
-	}
-	public static void println(String message) {
-		TaskManagerHelper.println(message);
-	}
-	public static void printlnTasks(List<Task>tasks) {
-		TaskManagerHelper.printlnTasks(tasks);
-	}
-	public static void printlnln(String message) {
-		TaskManagerHelper.printlnln(message);
+	public static void declare(String message) {
+		TaskManagerHelper.declare(message);
 	}
 	public static void prompt(String message) {
 		TaskManagerHelper.prompt(message);
 	}
-	public static void prompt(boolean testResult) {
-		TaskManagerHelper.prompt(testResult);
+	public static void printTasks(List<Task>tasks) {
+		TaskManagerHelper.printTasks(tasks);
 	}
 	
 }
