@@ -20,52 +20,57 @@ public class AdvancedCompleteableTaskViewer extends CompleteableTaskViewBuilder 
 		} else {
 			this.numberataTime = 1;
 		}
-		
-		this.pageNumber = 1;	
+		this.pageNumber = 1;
 	}
 	
 	@Override
-	public void topPage() {		
+	public ModelViewBuilder topPage() {		
 		this.pageNumber = 1;
+		return this;
 	}
 
 	@Override
-	public void nextPage() {
+	public ModelViewBuilder nextPage() {
 		if (!isLastPage()) {
 			this.pageNumber++;			
 		}
+		return this;
 	}
 
 	@Override
-	public void prevPage() {
+	public ModelViewBuilder prevPage() {
 		if (!isTopPage()) {
 			this.pageNumber--;
 		}
+		return this;
 	}
 
 	@Override
 	public boolean isTopPage() {
-		return 	(calculatePageNumber() == 1)?true : false;
+		return 	(this.pageNumber == 1)?true : false;
 	}
 
 	@Override
 	public boolean isLastPage() {
 		return (((this.pageNumber + 1) * this.numberataTime) > this.model.size())?true : false;
 	}
-
+	
 	@Override
-	public int getStarting() {
+	public int getPageNumber() {
+		return this.pageNumber;
+	}
+	private int calculatePageNumber() {
+		return (int)this.model.size() / this.numberataTime;
+	}
+	
+	@Override
+	public int getViewStarting() {
 		return 1 + (this.pageNumber-1) * this.numberataTime;
 	}
 
 	@Override
-	public int getEnding() {
-		return getStarting() + this.numberataTime - 1;
-	}
-
-	@Override
-	public int getPageNumber() {
-		return this.pageNumber;
+	public int getViewEnding() {
+		return getViewStarting() + this.numberataTime - 1;
 	}
 
 	@Override
@@ -73,8 +78,8 @@ public class AdvancedCompleteableTaskViewer extends CompleteableTaskViewBuilder 
 		if (this.model != null && this.model.size()>0) {
 			this.view = new ArrayList<>();
 			for(Task task : this.model) {
-				if (task.getNumber()>=getStarting() && 
-						task.getNumber()<=getEnding()) {
+				if (task.getNumber()>=getViewStarting() && 
+						task.getNumber()<=getViewEnding()) {
 					this.view.add(task);					
 				}
 			}
@@ -87,19 +92,65 @@ public class AdvancedCompleteableTaskViewer extends CompleteableTaskViewBuilder 
 		this.pageNumber = calculatePageNumber();
 		return this;		
 	}
-	private int calculatePageNumber() {
-		return (int)this.model.size() / this.numberataTime;
-	}
 	
 	@Override
 	public ModelViewBuilder removefromModel() {
 		super.removefromModel();
+		this.pageNumber = calculatePageNumber();
 		return this;		
 	}
 	
 	// Testing
 	public static void main(String[] args) {
 		// RunTest01();
+		// RunTest02();
+		// RunTest03();
+		int modelsize = 11;
+		int numberataTime = 5;
+		AdvancedCompleteableTaskViewer viewBuilder = 
+				new AdvancedCompleteableTaskViewer(numberataTime);
+		List<Task>tasks = buildTaskListing("My Daily Task No.", modelsize);
+		for( Task task : tasks) {
+			viewBuilder.setCandidate(task)
+						.addtoModel();						
+		}
+		viewBuilder.relistModel().buildView();
+		checkView(viewBuilder);
+		System.out.println("\r\n");
+		displayView(viewBuilder);
+		System.out.println("\r\n");
+		viewBuilder.topPage().buildView();
+		viewBuilder.buildView();
+		checkView(viewBuilder);
+		System.out.println("\r\n");
+		displayView(viewBuilder);
+	}
+	public static boolean RunTest01() {
+		int numberataTime = 5;
+		AdvancedCompleteableTaskViewer viewBuilder = 
+				new AdvancedCompleteableTaskViewer(numberataTime);
+		viewBuilder.buildView();
+		checkView(viewBuilder);
+		
+		return true;	
+	}
+	public static boolean RunTest02() {
+		int numberataTime = 5;
+		AdvancedCompleteableTaskViewer viewBuilder = 
+				new AdvancedCompleteableTaskViewer(numberataTime);
+		TaskFactory factory = new CompleteableTaskFactory();
+		Task task = factory.createTask();
+		task.setDescription("Shower");
+		viewBuilder.setCandidate(task)
+					.addtoModel()
+					.buildView();
+		checkView(viewBuilder);
+		System.out.println("\r\n");
+		displayView(viewBuilder);
+		
+		return true;
+	}
+	public static boolean RunTest03() {
 		int numberataTime = 5;
 		AdvancedCompleteableTaskViewer viewBuilder = 
 				new AdvancedCompleteableTaskViewer(numberataTime);
@@ -135,29 +186,6 @@ public class AdvancedCompleteableTaskViewer extends CompleteableTaskViewBuilder 
 		checkView(viewBuilder);
 		System.out.println("\r\n");
 		displayView(viewBuilder);
-	}
-	public static boolean RunTest01() {
-		int numberataTime = 5;
-		AdvancedCompleteableTaskViewer viewBuilder = 
-				new AdvancedCompleteableTaskViewer(numberataTime);
-		viewBuilder.buildView();
-		checkView(viewBuilder);
-		
-		return true;	
-	}
-	public static boolean RunTest02() {
-		int numberataTime = 5;
-		AdvancedCompleteableTaskViewer viewBuilder = 
-				new AdvancedCompleteableTaskViewer(numberataTime);
-		TaskFactory factory = new CompleteableTaskFactory();
-		Task task = factory.createTask();
-		task.setDescription("Shower");
-		viewBuilder.setCandidate(task)
-					.addtoModel()
-					.buildView();
-		checkView(viewBuilder);
-		System.out.println("\r\n");
-		displayView(viewBuilder);
 		
 		return true;
 	}
@@ -170,8 +198,8 @@ public class AdvancedCompleteableTaskViewer extends CompleteableTaskViewBuilder 
 		System.out.println("Model: Size: " + advanced.model.size());
 		
 		System.out.println("View: Page: " + advanced.pageNumber);
-		System.out.println("View: Starting: " + advanced.getStarting());
-		System.out.println("View: Ending: " + advanced.getEnding());
+		System.out.println("View: Starting: " + advanced.getViewStarting());
+		System.out.println("View: Ending: " + advanced.getViewEnding());
 	}
 	private static void displayView(ModelViewBuilder viewBuilder) {
 		if (viewBuilder == null) {
@@ -181,6 +209,18 @@ public class AdvancedCompleteableTaskViewer extends CompleteableTaskViewBuilder 
 		for(Task task : tasks) {
 			System.out.println(task.listing());
 		}
+	}
+	private static List<Task> buildTaskListing(String description, int listsize) {
+		
+		TaskFactory factory = new CompleteableTaskFactory();
+		List<Task>tasks = new ArrayList<>();
+		for(int i=0; i<listsize; i++) {
+			Task task = factory.createTask();
+			task.setDescription(description + " " + (i+1));
+			tasks.add(task);
+		}
+
+		return (tasks != null && !tasks.isEmpty())?tasks: null;
 	}
 
 }

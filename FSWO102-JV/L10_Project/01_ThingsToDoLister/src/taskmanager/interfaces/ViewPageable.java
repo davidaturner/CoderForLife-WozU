@@ -2,15 +2,15 @@ package taskmanager.interfaces;
 
 public interface ViewPageable {
 
-	void topPage();
+	ModelViewBuilder topPage();
 	
-	void nextPage();
-	void prevPage();
-	
-	int getStarting();
-	int getEnding();
+	ModelViewBuilder nextPage();
+	ModelViewBuilder prevPage();
 	
 	int getPageNumber();
+	
+	int getViewStarting();
+	int getViewEnding();
 	
 	boolean isTopPage();
 	boolean isLastPage();
