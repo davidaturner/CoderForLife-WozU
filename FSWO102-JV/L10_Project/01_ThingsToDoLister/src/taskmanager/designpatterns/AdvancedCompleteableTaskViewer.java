@@ -10,40 +10,62 @@ import taskmanager.interfaces.ViewPageable;
 
 public class AdvancedCompleteableTaskViewer extends CompleteableTaskViewBuilder implements ViewPageable {
 
-	private int size;
-	
-	private int pageNumber;
-	private int starting;
 	private int numberataTime;
+	private int pageNumber;
 
 	public AdvancedCompleteableTaskViewer(int numberataTime) {
-		this.size = 0;
 		
-		this.pageNumber = 1;
-		this.starting = 0;
-		this.numberataTime = numberataTime;		
+		if (numberataTime > 0) {
+			this.numberataTime = numberataTime;				
+		} else {
+			this.numberataTime = 1;
+		}
+		
+		this.pageNumber = 1;	
 	}
 	
 	@Override
-	public void topPage() {
+	public void topPage() {		
+		this.pageNumber = 1;
 	}
 
 	@Override
-	public void nextPage() {		
+	public void nextPage() {
+		if (!isLastPage()) {
+			this.pageNumber++;			
+		}
 	}
 
 	@Override
 	public void prevPage() {
+		if (!isTopPage()) {
+			this.pageNumber--;
+		}
 	}
 
 	@Override
 	public boolean isTopPage() {
-		return true;
+		return 	(calculatePageNumber() == 1)?true : false;
 	}
 
 	@Override
 	public boolean isLastPage() {
-		return true;
+		return (((this.pageNumber + 1) * this.numberataTime) > this.model.size())?true : false;
+	}
+
+	@Override
+	public int getStarting() {
+		return 1 + (this.pageNumber-1) * this.numberataTime;
+	}
+
+	@Override
+	public int getEnding() {
+		return getStarting() + this.numberataTime - 1;
+	}
+
+	@Override
+	public int getPageNumber() {
+		return this.pageNumber;
 	}
 
 	@Override
@@ -51,8 +73,8 @@ public class AdvancedCompleteableTaskViewer extends CompleteableTaskViewBuilder 
 		if (this.model != null && this.model.size()>0) {
 			this.view = new ArrayList<>();
 			for(Task task : this.model) {
-				if (task.getNumber()>=starting && 
-						task.getNumber()<this.starting+this.numberataTime) {
+				if (task.getNumber()>=getStarting() && 
+						task.getNumber()<=getEnding()) {
 					this.view.add(task);					
 				}
 			}
@@ -62,9 +84,11 @@ public class AdvancedCompleteableTaskViewer extends CompleteableTaskViewBuilder 
 	@Override
 	public ModelViewBuilder addtoModel() {
 		super.addtoModel();
-		this.size++;
-		this.starting = 1;
+		this.pageNumber = calculatePageNumber();
 		return this;		
+	}
+	private int calculatePageNumber() {
+		return (int)this.model.size() / this.numberataTime;
 	}
 	
 	@Override
@@ -73,23 +97,6 @@ public class AdvancedCompleteableTaskViewer extends CompleteableTaskViewBuilder 
 		return this;		
 	}
 	
-	// Getters
-	public int getSize() {
-		return size;
-	}
-
-	public int getPageNumber() {
-		return pageNumber;
-	}
-
-	public int getStarting() {
-		return starting;
-	}
-
-	public int getNumberataTime() {
-		return numberataTime;
-	}
-
 	// Testing
 	public static void main(String[] args) {
 		// RunTest01();
@@ -160,13 +167,11 @@ public class AdvancedCompleteableTaskViewer extends CompleteableTaskViewBuilder 
 		}
 		AdvancedCompleteableTaskViewer advanced = (AdvancedCompleteableTaskViewer)viewBuilder;
 
-		System.out.println("View: Size: " + advanced.getSize());
-		System.out.println("View: Page: " + advanced.getPageNumber());
+		System.out.println("Model: Size: " + advanced.model.size());
+		
+		System.out.println("View: Page: " + advanced.pageNumber);
 		System.out.println("View: Starting: " + advanced.getStarting());
-		System.out.println("View: AtaTime: " + advanced.getNumberataTime());
-		System.out.println();
-		System.out.println("Next Page: Starting : " + (advanced.getStarting() 
-								+ advanced.getNumberataTime()));
+		System.out.println("View: Ending: " + advanced.getEnding());
 	}
 	private static void displayView(ModelViewBuilder viewBuilder) {
 		if (viewBuilder == null) {

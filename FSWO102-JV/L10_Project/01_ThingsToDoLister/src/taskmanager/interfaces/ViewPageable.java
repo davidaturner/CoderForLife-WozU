@@ -7,6 +7,11 @@ public interface ViewPageable {
 	void nextPage();
 	void prevPage();
 	
+	int getStarting();
+	int getEnding();
+	
+	int getPageNumber();
+	
 	boolean isTopPage();
 	boolean isLastPage();
 }
