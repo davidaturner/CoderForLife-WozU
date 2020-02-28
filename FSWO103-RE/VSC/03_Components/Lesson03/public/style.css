@@ -1,0 +1,12 @@
+body {
+  background-color: pink;
+}
+
+.marker {
+  font-family: "Permanent Marker";
+}
+
+.redb {
+  width: 17%;
+  border: 1px solid red;
+}

@@ -1,0 +1,107 @@
+class Animalv2 {
+  name: string;
+
+  eat: string;
+  speak: string;
+
+  constructor(name: string, eat: string, speak: string) {
+    this.name = name;
+    this.eat = eat;
+    this.speak = speak;
+  }
+}
+
+interface PetNameProperty {
+  petName: string;
+}
+
+class Pet extends Animalv2 implements PetNameProperty {
+  petName: string;
+  constructor(name: string, eat: string, speak: string, petName: string) {
+    super(name, eat, speak);
+    this.petName = petName;
+  }
+}
+
+const freddie = new Pet("frog", "Frogs eat flies", "Croaks", "Freddie");
+console.log(freddie);
+console.log();
+
+function methodDecorator(
+  target: Object,
+  propertyKey: string,
+  descriptor: PropertyDescriptor
+): any {
+  let oldValue = descriptor.value;
+
+  descriptor.value = function() {
+    console.log(`Calling ${propertyKey} with ${target}`);
+
+    let value = oldValue.apply(null, [arguments[1], arguments[0]]);
+
+    console.log("Method Decorator is executed");
+    return `${value}; Decorator is crazy`;
+  };
+
+  return descriptor;
+}
+
+class NewDress {
+  @methodDecorator
+  exampleFunction(arg1: string, arg2: string) {
+    console.log(`Arguments Received: ${arg1} and ${arg2}`);
+    return `${arg1} ${arg2}`;
+  }
+}
+
+console.log("Example: Method declaration");
+const run = new NewDress();
+console.log(run.exampleFunction("Hello", "World!"));
+console.log();
+
+function inspectClass(target: any) {
+  console.log(`This class is ${target.name}`);
+}
+
+function inspectProperty(target: any, propertyKey: string): void {
+  let val = target[propertyKey];
+
+  let getter = function() {
+    console.log(`Get: ${propertyKey} => ${val}`);
+    return val;
+  };
+  let setter = function(newval: any) {
+    console.log(`Set: ${propertyKey} => ${newval}`);
+    val = newval;
+  };
+  console.log(`old value: ${val}`);
+  if (delete target[propertyKey]) {
+    Object.defineProperty(target, propertyKey, {
+      get: getter,
+      set: setter
+    });
+  }
+}
+
+@inspectClass
+class Automobile {
+  @inspectProperty
+  make: string;
+  year: string;
+  model: string;
+
+  constructor(make: string, year: string, model: string) {
+    this.make = make;
+    this.year = year;
+    this.model = model;
+  }
+
+  getInfo(): string {
+    return `Make: ${this.make} Year: ${this.year} and Model: ${this.model}`;
+  }
+}
+
+console.log(`Example: Class and Property declaration`);
+const mycar = new Automobile("Subaru", "2019", "Forester");
+console.log(mycar.getInfo());
+console.log();

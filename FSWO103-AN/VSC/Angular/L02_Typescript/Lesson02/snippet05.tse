@@ -1,0 +1,81 @@
+function identifyType<T>(argument: T): string {
+  let argType: string = "";
+
+  switch (typeof argument) {
+    case "number":
+      argType = "a number";
+      break;
+    case "string":
+      argType = "a string";
+      break;
+    default:
+      argType = "neither number nor string";
+  }
+
+  return "You passed in '" + argument + "' which is " + argType + ".";
+}
+
+class Named {
+  private name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  getName(): string {
+    return this.name;
+  }
+}
+const theFool = new Named("charlotte");
+
+console.log("Generics test 1:");
+console.log(identifyType(42));
+console.log(identifyType("salacious"));
+console.log(identifyType(0x0023332));
+console.log(identifyType(theFool));
+console.log(identifyType(theFool.getName()));
+console.log();
+
+function identifyCheck<T>(argument: T[]): T[] {
+  console.log(argument.length);
+  return argument;
+}
+const grocerylist: Array<String> = [
+  "Milk",
+  "Cheese",
+  "Salsa",
+  "Hot Dogs",
+  "Bread"
+];
+
+console.log("Generics test 2:");
+console.log(identifyCheck(grocerylist));
+console.log();
+
+interface NameProperty {
+  name: string;
+}
+class Namedv2 implements NameProperty {
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+class Employee extends Namedv2 {
+  title: string;
+
+  constructor(name: string, title: string) {
+    super(name);
+    this.title = title;
+  }
+}
+function identifyProperty<T extends NameProperty>(argument: T): T {
+  console.log(argument.name);
+  return argument;
+}
+console.log("Generics test 3:");
+const garland = new Namedv2("garland");
+const sophie = new Employee("sophie", "software engineer");
+console.log(identifyProperty(garland));
+console.log(identifyProperty(sophie));
