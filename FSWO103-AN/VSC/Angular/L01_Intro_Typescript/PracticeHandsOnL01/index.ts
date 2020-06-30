@@ -1,28 +1,19 @@
 interface Person {
-  getFirstName(): string;
+  firstName: string;
   lastName?: string;
 }
-
 interface Contact {
-  getPhoneNumber(): number;
+  phoneNumber: number;
   email?: string;
 }
 
 class ContactCard implements Person, Contact {
   firstName: string;
-  lastName?: string;
   phoneNumber: number;
-  email?: string;
 
-  constructor(firstName: string, phoneNumber: number) {
-    this.firstName = firstName;
-    this.phoneNumber = phoneNumber;
-  }
-  getFirstName(): string {
-    return this.firstName;
-  }
-  getPhoneNumber(): number {
-    return this.phoneNumber;
+  constructor(firstname: string, phonenumber: number) {
+    this.firstName = firstname;
+    this.phoneNumber = phonenumber;
   }
   sendMessage(): void {
     console.log(
@@ -31,9 +22,5 @@ class ContactCard implements Person, Contact {
   }
 }
 
-const newPerson = new ContactCard("Henry", 1234567890);
-newPerson.lastName = "Fripp";
-console.log(newPerson.getFirstName() + " " + newPerson.lastName);
-console.log(newPerson.getPhoneNumber());
-
-newPerson.sendMessage();
+let card = new ContactCard("Henry", 4125551212);
+card.sendMessage();

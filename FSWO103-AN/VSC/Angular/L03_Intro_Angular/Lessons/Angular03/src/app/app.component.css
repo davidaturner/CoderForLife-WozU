@@ -1,0 +1,22 @@
+h3 {
+  background-color: red;
+  border: 1px dotted green;
+  padding: 4px;
+  margin: 0 2em;
+}
+
+h5 {
+  font-size: 22px;
+  color: yellow;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.header {
+  background-color: aquamarine;
+  text-align: center;
+}
+
+.header img {
+  width: 400px;
+  height: 240px;
+}

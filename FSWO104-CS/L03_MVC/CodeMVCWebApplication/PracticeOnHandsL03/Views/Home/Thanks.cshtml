@@ -1,0 +1,15 @@
+﻿@model PracticeOnHandsL03.Models.GuestResponse
+@{
+    ViewData["Title"] = "Thanks!";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="prompt">
+        <h1>Thanks, @Model.FullName()!</h1>
+    </div>
+    <div class="main_content">
+        <p>If we need you to bring anything we will email you at @Model.Email</p>
+    </div>
+</div>
+

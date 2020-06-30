@@ -1,0 +1,9 @@
+{
+  "name": "lessons-for-l02",
+  "version": "1.0.0",
+  "description": "working out all the examples",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc --target ES5 --experimentalDecorators index.ts && node index.js"
+  }
+}

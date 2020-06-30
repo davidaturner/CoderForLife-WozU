@@ -1,0 +1,49 @@
+﻿body {
+    background-color: #ffffcc;
+    color: #b37700;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    position: absolute;
+    bottom: 15px;
+    left: 100px;
+    border-top: 1px solid #ffdd99;
+    padding-top: 12px;
+}
+
+.prompt {
+    border: 1px solid red;
+}
+
+.main_content {
+    border: 1px solid red;
+    height: 440px;
+    margin-top: 20px;
+}
+
+.showoutline {
+    border: 1px solid red;
+}
+
+.mansalva {
+    font-family: 'Mansalva', cursive;
+}
+
+.navpad {
+    display: block;
+    padding-top: 30px;
+}
+
+.block {
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    background-color: pink;
+}
+
+.guide {
+    display: flex;
+}

@@ -1,32 +1,25 @@
-"use strict";
 var Entry = /** @class */ (function () {
-    function Entry(firstName, lastName, birthdate) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    function Entry(firstname, lastname, birthdate) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.birthdate = birthdate;
     }
     return Entry;
 }());
-var newPerson = new Entry("Albert", "Einstein", new Date("5/14/1879"));
-console.log("First: " + newPerson.firstName + ", Last: " + newPerson.lastName + ", Birth: " + newPerson.birthdate);
-// Step 2
-var numbers = Array("twelve", "one-hundred", "sixteen", "forty-four", "seventy-three", "three-million");
+var newPerson = new Entry("Albert", "Einstein", new Date("05/14/1879"));
+console.log("First Name: " + newPerson.firstname + ", Last Name: " + newPerson.lastname + ", Birthday: " + newPerson.birthdate);
+// Part two
+var numbers = [
+    "twelve",
+    "one-hundred",
+    "sixteen",
+    "forty-four",
+    "seventy-three",
+    "three-million",
+];
 function sortArray(argument) {
     return argument.sort();
 }
-function logArray(prompt, argument) {
-    var i = 0;
-    var stringbuffer = prompt + ": ";
-    while (i < argument.length) {
-        stringbuffer += argument[i];
-        if (i < argument.length - 1) {
-            stringbuffer += ", ";
-        }
-        i++;
-    }
-    console.log(stringbuffer);
-}
-logArray("Array before sorting", numbers);
+console.log("Array before sorting: " + numbers[0] + "," + numbers[1] + "," + numbers[2] + "," + numbers[3] + "," + numbers[4] + "," + numbers[5]);
 var sorted = sortArray(numbers);
-logArray("Array after sorting", sorted);
-console.log();
+console.log("Array after sorting: " + sorted[0] + "," + sorted[1] + "," + sorted[2] + "," + sorted[3] + "," + sorted[4] + "," + sorted[5]);

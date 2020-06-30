@@ -1,53 +1,45 @@
-// Step 1
+// Part 1
 interface Person {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   birthdate: Date;
 }
 
 class Entry implements Person {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   birthdate: Date;
-  constructor(firstName: string, lastName: string, birthdate: Date) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+
+  constructor(firstname: string, lastname: string, birthdate: Date) {
+    this.firstname = firstname;
+    this.lastname = lastname;
     this.birthdate = birthdate;
   }
 }
 
-const newPerson = new Entry("Albert", "Einstein", new Date("5/14/1879"));
+let newPerson = new Entry("Albert", "Einstein", new Date("05/14/1879"));
 console.log(
-  `First: ${newPerson.firstName}, Last: ${newPerson.lastName}, Birth: ${newPerson.birthdate}`
+  `First Name: ${newPerson.firstname}, Last Name: ${newPerson.lastname}, Birthday: ${newPerson.birthdate}`
 );
 
-// Step 2
-const numbers = Array(
+// Part two
+let numbers = [
   "twelve",
   "one-hundred",
   "sixteen",
   "forty-four",
   "seventy-three",
-  "three-million"
-);
+  "three-million",
+];
 
-function sortArray<T>(argument: T[]): T[] {
+function sortArray<S>(argument: S[]): S[] {
   return argument.sort();
 }
-function logArray<T>(prompt: string, argument: T[]): void {
-  let i = 0;
-  let stringbuffer = prompt + ": ";
-  while (i < argument.length) {
-    stringbuffer += argument[i];
-    if (i < argument.length - 1) {
-      stringbuffer += ", ";
-    }
-    i++;
-  }
-  console.log(stringbuffer);
-}
 
-logArray("Array before sorting", numbers);
-const sorted = sortArray(numbers);
-logArray("Array after sorting", sorted);
-console.log();
+console.log(
+  `Array before sorting: ${numbers[0]},${numbers[1]},${numbers[2]},${numbers[3]},${numbers[4]},${numbers[5]}`
+);
+let sorted = sortArray(numbers);
+console.log(
+  `Array after sorting: ${sorted[0]},${sorted[1]},${sorted[2]},${sorted[3]},${sorted[4]},${sorted[5]}`
+);
