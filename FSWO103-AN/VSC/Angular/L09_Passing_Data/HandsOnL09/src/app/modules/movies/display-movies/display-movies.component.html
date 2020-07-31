@@ -1,0 +1,12 @@
+<div class="movies">
+  <h2>
+    Movies:
+  </h2>
+  <app-display-movie
+    *ngFor="let movie of movies"
+    [movie]="movie"
+    (movieDeleted)="onMovieDeleted($event)"
+    (viewPoster)="onViewPoster($event)"
+  >
+  </app-display-movie>
+</div>
