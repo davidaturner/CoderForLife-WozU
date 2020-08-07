@@ -1,0 +1,19 @@
+body {
+  background-color: #ffffcc;
+  font-size: 22px;
+}
+
+ul {
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  list-style-type: none;
+  border: 3px black double;
+  padding: 5px;
+}
+
+li {
+  background-color: #ff8533;
+  margin: 2px;
+  padding: 30px;
+}
