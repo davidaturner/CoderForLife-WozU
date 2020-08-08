@@ -1,0 +1,22 @@
+@model PartyRSVP.Models.GuestResponse
+@{
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"] - Oh! Okay...</title>
+</head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <h1>Sorry to Hear, @Model.FullName()!</h1>
+            </div>
+            <div class="row">
+                <p>If you change your mind before November 3, 2020. Let us know!</p>
+            </div>
+            <div class="row">
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,102 @@
+@model PartyRSVP.Models.GuestResponse
+@{
+    Layout = "_Layout";
+}
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RSVP Page</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+    <body> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                     <div>
+                        <h1>Welcome to the RSVP Page!</h1>
+                        <p>Please enter your information below.</p>
+                    </div>
+                    <form asp-action="RsvpForm" method="post">
+                    <p>
+                        <label asp-for="FirstName">Your First Name:</label>
+                        <input asp-for="FirstName" />
+                    </p>
+                    <p>
+                        <label asp-for="LastName">Your Last Name:</label>
+                        <input asp-for="LastName" />
+                    </p>
+                    <p>
+                        <label asp-for="Email">Your Email:</label>
+                        <input asp-for="Email" />
+                    </p>
+                    <p>
+                        <label asp-for="Phone">Your Phone Number:</label>
+                        <input asp-for="Phone" />
+                    </p>
+                    <p>
+                        <label>Will you Attend?</label>
+                        <select asp-for="WillAttend">
+                        <option value=""></option>
+                        <option value="true">Yes, I will be there</option>
+                        <option value="false">No, I will not</option>
+                        </select>
+                    </p>
+                    <button type="submit">Submit Rsvp</button>
+                    </form> <!-- end form -->
+                </div> <!-- end col-sm-9 -->
+
+                <div class="col-sm-3">
+                    <p>This is the side</p>
+                    <img src="~/images/psb_uk009.jpg" class="img" alt="My image" height=176 width=267/>
+                    <img src="~/images/psb_uk009.jpg" class="img" alt="My image" height=176 width=267/>
+                    <img src="~/images/psb_uk009.jpg" class="img" alt="My image" height=176 width=267/>
+                </div> <!-- end col-sm-3 -->
+
+            </div> <!-- end row -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>Get ready to Party!</p>
+                </div> <!-- end col-sm-12 -->
+            </div><!-- end row -->
+        </div> <!-- container -->
+        @* <div>
+            <h1>Welcome to the RSVP Page!</h1>
+            <p>Please enter your information below.</p>
+        </div>
+        <form asp-action="RsvpForm" method="post">
+            <p>
+                <label asp-for="FirstName">Your First Name:</label>
+                <input asp-for="FirstName" />
+            </p>
+            <p>
+                <label asp-for="LastName">Your Last Name:</label>
+                <input asp-for="LastName" />
+            </p>
+            <p>
+                <label asp-for="Email">Your Email:</label>
+                <input asp-for="Email" />
+            </p>
+            <p>
+                <label asp-for="Phone">Your Phone Number:</label>
+                <input asp-for="Phone" />
+            </p>
+            <p>
+                <label>Will you Attend?</label>
+                <select asp-for="WillAttend">
+                    <option value=""></option>
+                    <option value="true">Yes, I will be there</option>
+                    <option value="false">No, I will not</option>
+                </select>
+            </p>
+            <button type="submit">Submit Rsvp</button>
+        </form> *@
+ <!--
+    </body>
+</html>
+-->
