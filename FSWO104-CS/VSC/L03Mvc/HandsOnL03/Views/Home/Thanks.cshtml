@@ -1,22 +1,25 @@
 @model PartyRSVP.Models.GuestResponse
 @{
+    ViewData["Title"] = "Thank You!";
     Layout = "_Layout";
 }
-<!DOCTYPE html>
-<html>
-<head>
-    <title>@ViewData["Title"] - Thank You</title>
-</head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <h1>Thanks @Model.FullName()!</h1>
-            </div>
-            <div class="row">
-                <p>If we need you to bring anything we will email you at @Model.Email</p>
-            </div>
-            <div class="row">
-            </div>
+
+<div class="jumbotron">
+    <h1 class="display-4">Thanks @Model.FullName()!</h1>
+    <p class="lead">If we need you to bring anything we will email you at @Model.Email</p>
+    <hr class="my-4">
+    <a class="btn btn-primary btn-lg" href="/" role="button">Back to HOME</a>
+</div>
+<div id="psbcarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/psb_uk006.jpg" class="d-block w-100" alt="psbslide">
         </div>
-    </body>
-</html>
+        <div class="carousel-item">
+            <img src="~/images/psb_uk007.jpg" class="d-block w-100" alt="psbslide">
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/psb_uk008.jpg" class="d-block w-100" alt="psbslide">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Callback</title>
+  </head>
+  <body>
+    <!-- Examples of callback-->
+    <!-- Example 1: HTML only-->
+    <div>
+      <button onclick="alert('1: This is an example of callback')">
+        Alert me!
+      </button>
+    </div>
+    <br />
+
+    <!-- Example 2: HTML w JS-->
+    <div>
+      <button onclick="callbackf2()">Alert me!</button>
+    </div>
+    <br />
+
+    <!-- Example 3: HTML w JS and event -->
+    <div>
+      <button id="alertme">Alert me!</button>
+    </div>
+    <br />
+
+    <!--Example 4: HTML w JS and timeout-->
+    <div>
+      <button onclick="timeitout()">Alert me!</button>
+    </div>
+    <br />
+
+    <script>
+      // Callback 2
+      //   function callbackf2() {
+      //     alert("2: This is an example of callback.");
+      //   }
+      const callbackf2 = () => alert("2: This is an example of callback.");
+
+      // Callback 3
+      function callbackf3(evt) {
+        alert("3: This is an example of callback by id: " + evt.srcElement.id);
+      }
+      document.getElementById("alertme").onclick = callbackf3;
+
+      // TimeitOut
+      function timeitout() {
+        const timedout = () => alert("Alert after a Timeout");
+        setTimeout(timedout, 1000);
+      }
+    </script>
+  </body>
+  <!--
+    <body>
+        <div id="root"></div>
+        <script src="bundle.js"></script>
+    </body>
+    -->
+</html>

@@ -1,4 +1,32 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+﻿#rsvp img {
+  padding-bottom: 10px;
+}
+
+#rsvp .row {
+  padding-top: 30px;
+}
+
+#rsvp .row label {
+  padding: 10px 8px 8px;
+}
+
+#rsvp .row form {
+  padding: 20px 30px;
+  border: 2px solid #d9b38c;
+}
+#rsvp .row form button {
+  padding: 2px 5px;
+}
+
+.carousel {
+  height: 360px;
+}
+
+.carousel-inner > .carousel-item > img {
+  height: 360px;
+  object-fit: contains;
+}
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
