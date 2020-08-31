@@ -2,12 +2,14 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 
+@ServletComponentScan
 @SpringBootApplication
-public class ProjectServletApplication {
+public class HandsOnL02Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProjectServletApplication.class, args);
+		SpringApplication.run(HandsOnL02Application.class, args);
 	}
 
 }
