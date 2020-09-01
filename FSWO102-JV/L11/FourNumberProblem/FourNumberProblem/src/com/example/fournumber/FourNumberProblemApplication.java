@@ -1,33 +1,50 @@
 package com.example.fournumber;
 
-import com.example.fournumber.controllers.FourNumberProblemSolver;
-import com.example.fournumber.objects.FourNumberProblemRecursive;
+import com.example.fournumber.controllers.ProblemSolverController;
+import com.example.fournumber.solvable.FourNumberProblemRecursive;
 
 public class FourNumberProblemApplication {
 
-	public static void run() {
+	public static String problemSolved = "Solution Found!";
+	public static String problemNotSolved = "Solution Not Found.";
+	public static String problemInvalid = "Unable to Solve.";
+	
+	public static void main(String[] args) {
 		
-		System.out.println("The Four Number Problem.");
-		System.out.println("Enter a goal and four numbers.");
+		startApplication();
 		
-		int goal = loadGoal();
-		
+		int goal = loadGoal();		
 		int[] corners = loadCorners();
 		
-		FourNumberProblemSolver solver = new FourNumberProblemSolver(goal, corners, new FourNumberProblemRecursive());
-		if (solver.validate()) {			
-			String[]solution = solver.solve();
-			if (solution != null && solution.length>0) {
-				System.out.println("Solution found! " + solution.length + " Steps:");
-				for(int i=0; i<solution.length; i++) {
-					System.out.println(solution[i]);
-				}
-			} else {
-				System.out.println("Sorry. Solution not found.");
+		stateProblem(goal, corners);
+		
+		ProblemSolverController controller = new ProblemSolverController(
+													problemSolved, problemNotSolved, problemInvalid,
+													new FourNumberProblemRecursive(goal, corners));
+		controller.run();
+		
+		endApplication();
+		
+	}
+	
+	private static void startApplication() {
+		System.out.println("The Four Number Problem.");
+		System.out.println("Enter a goal and four numbers.");
+
+	}
+	
+	private static void endApplication() {
+		System.out.println("\r\n...Done!");		
+	}
+	
+	private static void stateProblem(int goal, int[]corners) {
+		System.out.println("\r\nGoal: " + goal);
+		if (corners != null && corners.length>0) {
+			String str = "\r\nCorners:";
+			for(int i=0;i<corners.length;i++) {
+				str += " " + corners[i];
 			}
-		} else {
-			System.out.println("Unable to solve.");
-			System.out.println(solver.describe());
+			System.out.println(str);
 		}
 	}
 	
@@ -40,9 +57,6 @@ public class FourNumberProblemApplication {
 		return corners;
 	}
 	
-	public static void main(String[] args) {
-		
-		run();
-	}
+
 
 }

@@ -1,74 +1,75 @@
 package com.example.fournumber.objects;
 
-import com.example.fournumber.interfaces.INumericProblem;
+import com.example.fournumber.interfaces.IProblem;
 
-public class FourNumberProblem implements INumericProblem {
+public class FourNumberProblem implements IProblem {
 
-	int goal;
-	int[] corners;
-	String prestep;
+	private final int goal;
+	private final int[] corners;
+	private String prestep;
+	private boolean noMoreSteps;
+
+	public static String OPERAND_ADD = "Add";
+	public static String OPERAND_SUBTRACT = "Subtract";
+	public static String OPERAND_MULTIPLY = "Multiply";
+	public static String OPERAND_DIVIDE = "Divide";
 	
 	public FourNumberProblem(int goal, int[] corners) {
-		this(goal, corners, INumericProblem.NOOP);
-	}
-	public FourNumberProblem(int goal, int[] corners, String prestep) {
 		this.goal = goal;
 		this.corners = corners;
-		this.prestep = prestep;
-	}
-	
-	// Interface methods
-	@Override
-	public int getGoal() {
-		return goal;
-	}
-
-	@Override
-	public int[] getChoices() {
-		return corners;
-	}
-	
-	@Override
-	public String getPrestep() {
-		return prestep;
+		prestep = "" + IProblem.NOOP;
+		noMoreSteps = false;
 	}
 	
 	@Override
 	public String toString() {
 		String str = "Goal: " + goal;
-		String corners = cornersToString();
-		if (corners != null && !corners.isEmpty()) {
-			str += " " + corners;
-		};
-		str += " Prestep: " + prestep;
-		return str;
-	}
-	
-	// Additional class methods
-	public int[] getCorners() {
-		return getChoices();
-	}
-	
-	public String cornersToString() {
-		String str = new String();
-		if (corners != null && corners.length>0) {
-			str += "Corners:";
+		if (corners != null) {
+			str += " Corners:";
 			for(int i=0; i<corners.length;i++) {
 				str += " " + corners[i];
 			}
 		}
+		if (prestep != null && !prestep.equals(IProblem.NOOP)) {
+			str += " " + prestep;
+		}
+		str += " noMoreSteps: " + noMoreSteps;
 		return str;
 	}
 	
+	public int getGoal() {
+		return goal;
+	}
+
+	public int[] getCorners() {
+		return corners;
+	}
+
+	@Override
+	public String getPrestep() {
+		return prestep;
+	}
+
+	@Override
+	public void setPrestep(String prestep) {
+		this.prestep = prestep;
+	}
+	
+	@Override
+	public boolean noMoreSteps() {
+		return (corners == null || corners.length <= 1);
+	}
+
 	public static void main(String[] args) {
 		
 		int goal = 41;
 		int[] corners = {4, 9, 3, 5};
 		
 		FourNumberProblem problem = new FourNumberProblem(goal, corners);
-		System.out.println(problem.cornersToString());
 		System.out.println(problem.toString());
-
 	}
+
+
+
 	
 }
