@@ -5,7 +5,8 @@ public interface IProblemSolvable {
 	String describe();
 	boolean validate();
 	
-	String[] solve();
+	String evaluate();
 	
-	boolean noMoreSteps();
+	String[] solve();
+
 }

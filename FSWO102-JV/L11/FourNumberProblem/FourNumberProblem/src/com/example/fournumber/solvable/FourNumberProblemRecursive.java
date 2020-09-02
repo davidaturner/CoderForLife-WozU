@@ -7,16 +7,28 @@ import com.example.fournumber.objects.FourNumberProblem;
 
 public class FourNumberProblemRecursive implements IProblemSolvable {
 
-	private final FourNumberProblem problem;
-	private ArrayList<FourNumberProblem>solution = new ArrayList<>();
+	private FourNumberProblem problem;
 	
-	public FourNumberProblemRecursive(int goals, int[] corners) {
-		this.problem = new FourNumberProblem(goals, corners);
+	private ArrayList<String> solution = new ArrayList<>();
+	private String evaluation = new String();
+	
+	public FourNumberProblemRecursive(int goal, int[]corners) {
+		problem = new FourNumberProblem();
+		problem.setGoal(goal);
+		problem.setCorners(corners);
 	}
 	
 	@Override
 	public String describe() {
-		return problem.toString();
+		String str = "Goal: " + problem.getGoal();
+		int[] corners = problem.getCorners();
+		if (corners != null && corners.length>0) {
+			str += " Corners:";
+			for(int i=0; i<corners.length;i++) {
+				str += " " + corners[i];
+			}			
+		}
+		return str;
 	}
 
 	@Override
@@ -38,22 +50,25 @@ public class FourNumberProblemRecursive implements IProblemSolvable {
 	public String[] solve() {
 		return null;
 	}
-
+	
 	@Override
-	public boolean noMoreSteps() {
-		return problem.noMoreSteps();
+	public String evaluate() {
+		return null;
 	}
 	
 	public static void main(String[] args) {
 		int goal = 41;
 		int[] corners = {4, 9, 3, 5};
 		
-		FourNumberProblemRecursive solvable = new FourNumberProblemRecursive(goal, corners);
-		System.out.println(solvable.describe());
+		FourNumberProblemRecursive solver = new FourNumberProblemRecursive(goal, corners);
+		System.out.println(solver.describe());
 		
-		if (solvable.validate()) {
-			System.out.println("Solution good. Let's Solve it!");
-		}
+		System.out.println(solver.validate());
+		
+		// solver.evaluate();
+		
+		// solver.solve();
+		
 	}
 
 }
