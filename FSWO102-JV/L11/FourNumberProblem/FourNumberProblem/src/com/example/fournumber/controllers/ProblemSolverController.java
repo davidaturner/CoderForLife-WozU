@@ -4,7 +4,7 @@ import com.example.fournumber.interfaces.IProblemSolvable;
 import com.example.fournumber.interfaces.IProblemSolverController;
 import com.example.fournumber.solvable.FourNumberProblemRecursive;
 
-public class FourNumberProblemController implements IProblemSolverController {
+public class ProblemSolverController implements IProblemSolverController {
 
 	private final IProblemSolvable solver;
 	private String problemSolved, problemNotSolved, problemInvalid;
@@ -13,7 +13,7 @@ public class FourNumberProblemController implements IProblemSolverController {
 	public final String failure = "Failure";
 	public final String invalid = "Invalid";
 	
-	public FourNumberProblemController(IProblemSolvable solver) {
+	public ProblemSolverController(IProblemSolvable solver) {
 		this.solver = solver;
 		
 		this.problemSolved = success;
@@ -71,7 +71,7 @@ public class FourNumberProblemController implements IProblemSolverController {
 		int[] corners = {4, 9, 3, 5};
 
 		
-		FourNumberProblemController controller = new FourNumberProblemController(
+		ProblemSolverController controller = new ProblemSolverController(
 											new FourNumberProblemRecursive(goal, corners));		
 		System.out.println(controller.run());
 	}
