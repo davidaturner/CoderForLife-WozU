@@ -5,14 +5,14 @@ public class FourNumberProblem {
 	private int goal;
 	private int[] corners;	
 
-	public static String NOOP = "No Operand";
+	public static final String NOOP = "No Operand";
 	
-	public static String OPERAND_ADD = "Add";
-	public static String OPERAND_SUBTRACT = "Subtract";
-	public static String OPERAND_MULTIPLY= "Multiply";
-	public static String OPERAND_DIVIDE = "Divide";
+	public static final String OPERAND_ADD = "Add";
+	public static final String OPERAND_SUBTRACT = "Subtract";
+	public static final String OPERAND_MULTIPLY= "Multiply";
+	public static final String OPERAND_DIVIDE = "Divide";
 	
-	public static String REMAINDER = "Leaves";
+	public static final String REMAINDER = "Leaves";
 
 	public int getGoal() {
 		return goal;
