@@ -3,24 +3,28 @@ package com.example.fournumber.solvable;
 import java.util.ArrayList;
 
 import com.example.fournumber.interfaces.IProblemSolvable;
+import com.example.fournumber.interfaces.ISolvable;
 import com.example.fournumber.objects.FourNumberProblem;
 
 public class FourNumberProblemRecursive implements IProblemSolvable {
 
 	private FourNumberProblem problem;
+	private boolean nofurther = false;
 	
-	private ArrayList<String> solution = new ArrayList<>();
-	private String evaluation = new String();
+	private static ArrayList<String>solution = new ArrayList<String>();
 	
-	public FourNumberProblemRecursive(int goal, int[]corners) {
-		problem = new FourNumberProblem();
-		problem.setGoal(goal);
-		problem.setCorners(corners);
+	public FourNumberProblemRecursive(ISolvable problem) {
+		this.problem = (FourNumberProblem)problem;
+	}
+	
+	@Override
+	public ISolvable get() {
+		return problem;
 	}
 	
 	@Override
 	public String describe() {
-		return describe(this.problem, null);
+		return problem.toString();
 	}
 
 	@Override
@@ -29,83 +33,27 @@ public class FourNumberProblemRecursive implements IProblemSolvable {
 	}
 
 	@Override
-	public String[] solve() {
+	public String solve() {
+		System.out.println(problem.toString());
+		solution.add(problem.getPrestep());
+		
+		FourNumberProblem step1 = solve(problem, 1, FourNumberProblem.OPERAND_SUBTRACT);
+		System.out.println(step1.toString());
+		solution.add(step1.getPrestep());
+		
+		FourNumberProblem step2 = solve(step1, 0, FourNumberProblem.OPERAND_DIVIDE);
+		System.out.println(step2.toString());
+		solution.add(step2.getPrestep());
+		
+		FourNumberProblem step3 = solve(step2, 0, FourNumberProblem.OPERAND_SUBTRACT);
+		System.out.println(step3.toString());
+		solution.add(step3.getPrestep());
+		
 		return null;
 	}
 	
 	@Override
 	public String evaluate() {
-		return evaluate(this.problem);
-	}
-		
-	// Getters
-	public FourNumberProblem getProblem() {
-		return problem;
-	}
-	
-	public static void main(String[] args) {
-		int goal = 41;
-		int[] corners = {4, 9, 3, 5};
-		
-		FourNumberProblemRecursive solver = new FourNumberProblemRecursive(goal, corners);
-		System.out.println(solver.describe());
-		
-		String operand = FourNumberProblem.NOOP;
-		String prestep = FourNumberProblem.NOOP;
-		
-		operand = FourNumberProblem.OPERAND_SUBTRACT;
-		FourNumberProblem step1 = solver.reduce(solver.getProblem(), 1, operand);
-		prestep = solver.prestep(solver.getProblem(), 1, operand);
-		System.out.println(solver.describe(step1, prestep));
-		
-		operand = FourNumberProblem.OPERAND_DIVIDE;
-		FourNumberProblem step2 = solver.reduce(step1, 0, operand);
-		prestep = solver.prestep(step1, 0, operand);
-		System.out.println(solver.describe(step2, prestep));
-		
-		operand = FourNumberProblem.OPERAND_SUBTRACT;
-		FourNumberProblem step3 = solver.reduce(step2, 0, operand);
-		prestep = solver.prestep(step2, 0, operand);
-		System.out.println(solver.describe(step3, prestep));
-		
-		System.out.println("\r\n" + solver.evaluate(step3));
-		operand = FourNumberProblem.REMAINDER;
-		prestep = solver.prestep(step3,  0, operand);
-		System.out.println(prestep);
-				
-	}
-	
-	// Support
-	private String describe(FourNumberProblem problem, String prestep) {
-		String str = "Goal: " + problem.getGoal();
-		int[] corners = problem.getCorners();
-		if (corners != null && corners.length>0) {
-			str += " Corners:";
-			for(int i=0; i<corners.length;i++) {
-				str += " " + corners[i];
-			}			
-		}
-		if (prestep != null && !prestep.isEmpty()) {
-			str += " Prestep: " + prestep;
-		}
-		return str;
-	}
-
-	private boolean validate(FourNumberProblem problem) {
-		if (problem == null) {
-			return false;
-		}
-		int[] corners = problem.getCorners();
-		if (corners == null || corners.length == 0) {
-			return false;
-		}
-		for(int i=0; i<corners.length; i++) {
-			if (corners[i] == 0) return false;
-		}
-		return true;		
-	}
-	
-	private String evaluate(FourNumberProblem problem) {
 		int[] corners = problem.getCorners();
 		if (corners != null && (corners.length==1)) {
 			if (corners[0] == problem.getGoal()) {
@@ -117,14 +65,35 @@ public class FourNumberProblemRecursive implements IProblemSolvable {
 		}
 		return IProblemSolvable.NOT_SOLVED;
 	}
-	private int getCorner(FourNumberProblem problem, int corner) {
-		return problem.getCorners()[corner];
-	}
-	private String prestep(FourNumberProblem problem, int corner, String operand) {
-		return operand + " " + getCorner(problem, corner);
+	
+	@Override
+	public boolean isResolved() {
+		return nofurther;
 	}
 	
-	private FourNumberProblem reduce(FourNumberProblem problem, int corner, String operand) {
+	// Additional Supportive Operations
+	private boolean validate(FourNumberProblem problem) {
+		if (problem == null) {
+			return false;
+		}
+		int[] corners = problem.getCorners();
+		if (corners == null || corners.length == 0) {
+			return false;
+		}
+		for(int i=0; i<corners.length; i++) {
+			if (corners[i] == 0) return false;
+		}
+		return true;
+	}
+
+	public FourNumberProblem solve(FourNumberProblem problem, int cornerSelected, String operand) {
+		FourNumberProblemRecursive solver = new FourNumberProblemRecursive(problem);
+		return (FourNumberProblem) (new FourNumberProblemRecursive(
+				(ISolvable)solver
+				.reduce(cornerSelected, operand))).get();
+	}
+	
+	private FourNumberProblem reduce(int corner, String operand) {
 		
 		int a = problem.getGoal();
 		int[] corners = problem.getCorners();
@@ -154,11 +123,15 @@ public class FourNumberProblemRecursive implements IProblemSolvable {
 		FourNumberProblem reduced = new FourNumberProblem();
 		reduced.setGoal(a);
 		reduced.setCorners(unshift(corner, corners));
-		
+		reduced.setPrestep(generatePrestep(b, operand, null));
+		if (noFurtherReduce(reduced)) {
+			reduced.setPrestep(generatePrestep(a, 
+					FourNumberProblem.REMAINDER, reduced.getPrestep()));
+		}
 		return reduced;
 	}
 	
-	private static int[] unshift(int corner, int[] corners) {
+	private int[] unshift(int corner, int[] corners) {
 		if (corners != null && corners.length>1 &&
 				corners.length>corner) {
 			int[] shifted = new int[corners.length-1];
@@ -174,36 +147,40 @@ public class FourNumberProblemRecursive implements IProblemSolvable {
 		}
 		return null;
 	}
-
-	// Tests
-	private static void RunTest01() {
+	
+	private String generatePrestep(int value, String operand, String prestep) {
+		String str = new String();
+		if (prestep != null) {
+			str += prestep + " ";
+		}
+		str += operand + " " + value;
+		return str;
+	}
+	
+	private boolean noFurtherReduce(FourNumberProblem problem) {
+		nofurther = (validate(problem) && problem.getCorners().length==1);
+		return nofurther;
+	}
+	
+	//Testing
+	public static void main(String[] args) {
 		int goal = 41;
 		int[] corners = {4, 9, 3, 5};
 		
-		FourNumberProblemRecursive solver = new FourNumberProblemRecursive(goal, corners);
-		System.out.println(solver.describe());
+		FourNumberProblem problem = new FourNumberProblem();
+		problem.setGoal(goal);
+		problem.setCorners(corners);
+		problem.setPrestep(ISolvable.START);
 		
-		String operand = FourNumberProblem.NOOP;
-		String prestep = FourNumberProblem.NOOP;
+		FourNumberProblemRecursive solver = new FourNumberProblemRecursive(problem);
+		solver.solve();
+		System.out.println();
+		for(int i=0; i<solution.size(); i++) {
+			System.out.println(solution.get(i));
+		}
 		
-		operand = FourNumberProblem.OPERAND_SUBTRACT;
-		FourNumberProblem step1 = solver.reduce(solver.getProblem(), 1, operand);
-		prestep = solver.prestep(solver.getProblem(), 1, operand);
-		System.out.println(solver.describe(step1, prestep));
 		
-		operand = FourNumberProblem.OPERAND_DIVIDE;
-		FourNumberProblem step2 = solver.reduce(step1, 0, operand);
-		prestep = solver.prestep(step1, 0, operand);
-		System.out.println(solver.describe(step2, prestep));
-		
-		operand = FourNumberProblem.OPERAND_SUBTRACT;
-		FourNumberProblem step3 = solver.reduce(step2, 0, operand);
-		prestep = solver.prestep(step2, 0, operand);
-		System.out.println(solver.describe(step3, prestep));
-		
-		System.out.println("\r\n" + solver.evaluate(step3));
-		operand = FourNumberProblem.REMAINDER;
-		prestep = solver.prestep(step3,  0, operand);
-		System.out.println(prestep);
 	}
+
+
 }

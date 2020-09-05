@@ -7,11 +7,16 @@ public interface IProblemSolvable {
 	
 	public static String RESOLVED = "Resolved";
 
+	ISolvable get();
+	
 	String describe();
+	
 	boolean validate();
 	
 	String evaluate();
 	
-	String[] solve();
+	String solve();
+	
+	boolean isResolved();
 
 }

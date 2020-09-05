@@ -2,6 +2,8 @@ package com.example.fournumber.controllers;
 
 import com.example.fournumber.interfaces.IProblemSolvable;
 import com.example.fournumber.interfaces.IProblemSolverController;
+import com.example.fournumber.interfaces.ISolvable;
+import com.example.fournumber.objects.FourNumberProblem;
 import com.example.fournumber.solvable.FourNumberProblemRecursive;
 
 public class ProblemSolverController implements IProblemSolverController {
@@ -25,20 +27,16 @@ public class ProblemSolverController implements IProblemSolverController {
 	public String[] run() {
 		System.out.println("Working...");
 		if (solver.validate()) {
-			String[] solution = solver.solve();
-			if (solution != null && solution.length>0) {
+			String solution = solver.solve();
+			if (solution != null && !solution.isEmpty()) {
 				System.out.println("\r\n" + problemSolved);
-				for(int i=0;i<solution.length;i++) {
-					System.out.println(solution[0]);
-				}
+				System.out.println(solution);
 			}
 			else {
 				System.out.println("\r\n" + problemNotSolved);
-				System.out.println(solver.describe());
 			}
 		} else {
 			System.out.println("\r\n" + problemInvalid);
-			System.out.println(solver.describe());
 		}
 		return null;
 	}
@@ -69,11 +67,14 @@ public class ProblemSolverController implements IProblemSolverController {
 	public static void main(String[] args) {
 		int goal = 41;
 		int[] corners = {4, 9, 3, 5};
-
+		FourNumberProblem problem = new FourNumberProblem();
+		problem.setGoal(goal);
+		problem.setCorners(corners);
+		problem.setPrestep(ISolvable.START);
 		
 		ProblemSolverController controller = new ProblemSolverController(
-											new FourNumberProblemRecursive(goal, corners));		
-		System.out.println(controller.run());
+													new FourNumberProblemRecursive(problem));
+		controller.run();
 	}
 
 }

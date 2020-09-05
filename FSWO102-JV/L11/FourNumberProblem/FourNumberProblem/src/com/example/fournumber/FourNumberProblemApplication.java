@@ -1,6 +1,8 @@
 package com.example.fournumber;
 
 import com.example.fournumber.controllers.ProblemSolverController;
+import com.example.fournumber.interfaces.ISolvable;
+import com.example.fournumber.objects.FourNumberProblem;
 import com.example.fournumber.solvable.FourNumberProblemRecursive;
 
 public class FourNumberProblemApplication {
@@ -18,8 +20,13 @@ public class FourNumberProblemApplication {
 		
 		stateProblem(goal, corners);
 		
+		FourNumberProblem original = new FourNumberProblem();
+		original.setGoal(goal);
+		original.setCorners(corners);
+		original.setPrestep(ISolvable.START);
+		
 		ProblemSolverController controller = new ProblemSolverController(
-													new FourNumberProblemRecursive(goal, corners));
+													new FourNumberProblemRecursive(original));
 		controller.success("Solution Found!");
 		controller.failure("Solution Not Found.");
 		controller.invalid("Unable to Solve.");
