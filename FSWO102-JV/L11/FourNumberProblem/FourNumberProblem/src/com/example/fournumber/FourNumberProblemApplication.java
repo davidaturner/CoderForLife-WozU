@@ -7,10 +7,6 @@ import com.example.fournumber.solvable.FourNumberProblemRecursive;
 
 public class FourNumberProblemApplication {
 
-	public static String problemSolved = "Solution Found!";
-	public static String problemNotSolved = "Solution Not Found.";
-	public static String problemInvalid = "Unable to Solve.";
-	
 	public static void main(String[] args) {
 		
 		startApplication();
@@ -27,11 +23,8 @@ public class FourNumberProblemApplication {
 		
 		ProblemSolverController controller = new ProblemSolverController(
 													new FourNumberProblemRecursive(original));
-		controller.success("Solution Found!");
-		controller.failure("Solution Not Found.");
-		controller.invalid("Unable to Solve.");
-		
-		controller.run();
+		String result = controller.run();
+		System.out.println("\r\n" + result);
 		
 		endApplication();
 		
@@ -50,7 +43,7 @@ public class FourNumberProblemApplication {
 	private static void stateProblem(int goal, int[]corners) {
 		System.out.println("\r\nGoal: " + goal);
 		if (corners != null && corners.length>0) {
-			String str = "\r\nCorners:";
+			String str = "Corners:";
 			for(int i=0;i<corners.length;i++) {
 				str += " " + corners[i];
 			}

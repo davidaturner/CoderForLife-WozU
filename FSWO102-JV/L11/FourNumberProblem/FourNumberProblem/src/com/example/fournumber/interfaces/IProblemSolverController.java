@@ -2,11 +2,14 @@ package com.example.fournumber.interfaces;
 
 public interface IProblemSolverController {
 
-	String[] run();
+	public static final String READY = "Controller Ready";
+	public static final String NOT_READY = "Controller Not Ready";
 	
-	String[] solve(String problemJSON);
+	String run();
 	
-	void success(String message);
-	void failure(String message);
-	void invalid(String message);
+	void solve();
+	String ready();
+	
+	String evaluation();
+	String[] listing();
 }

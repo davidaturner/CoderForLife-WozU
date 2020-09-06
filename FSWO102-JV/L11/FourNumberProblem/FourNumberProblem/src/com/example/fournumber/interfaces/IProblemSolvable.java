@@ -13,10 +13,10 @@ public interface IProblemSolvable {
 	
 	boolean validate();
 	
+	void solve();
+	
 	String evaluate();
 	
-	String solve();
+	String[] listing();
 	
-	boolean isResolved();
-
 }

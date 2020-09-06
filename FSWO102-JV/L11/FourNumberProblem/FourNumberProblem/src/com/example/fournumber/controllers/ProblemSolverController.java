@@ -9,64 +9,53 @@ import com.example.fournumber.solvable.FourNumberProblemRecursive;
 public class ProblemSolverController implements IProblemSolverController {
 
 	private final IProblemSolvable solver;
-	private String problemSolved, problemNotSolved, problemInvalid;
-	
-	public final String success = "Success";
-	public final String failure = "Failure";
-	public final String invalid = "Invalid";
+	private String ready;
 	
 	public ProblemSolverController(IProblemSolvable solver) {
 		this.solver = solver;
-		
-		this.problemSolved = success;
-		this.problemNotSolved = failure;
-		this.problemInvalid = invalid;
+		ready = IProblemSolverController.NOT_READY;		
 	}
 	
 	@Override
-	public String[] run() {
-		System.out.println("Working...");
-		if (solver.validate()) {
-			String solution = solver.solve();
-			if (solution != null && !solution.isEmpty()) {
-				System.out.println("\r\n" + problemSolved);
-				System.out.println(solution);
-			}
-			else {
-				System.out.println("\r\n" + problemNotSolved);
-			}
-		} else {
-			System.out.println("\r\n" + problemInvalid);
+	public String run() {
+		System.out.println("Goal: " + ((FourNumberProblemRecursive)solver).getGoal());
+		System.out.println("Corners: " + ((FourNumberProblemRecursive)solver).getCorners());
+		solve();
+		String[] listing = listing();
+		System.out.println("\r\nSolution:");
+		for(int i=0;i<listing.length;i++) {
+			System.out.println("   " + listing[i]);
 		}
-		return null;
+		return evaluation();
+	}
+
+	@Override
+	public void solve() {
+		if (solver.validate()) {
+			solver.solve();
+			ready = IProblemSolverController.READY;
+		}		
 	}
 	
 	@Override
-	public String[] solve(String problemJSON) {
-		System.out.println("Solve() not implemented.");
-		return null;
+	public String ready() {
+		return ready;
 	}
 	
 	@Override
-	public void success(String message) {
-		problemSolved = message;	
+	public String evaluation() {
+		return solver.evaluate();
 	}
 
 	@Override
-	public void failure(String message) {
-		problemNotSolved = message;
-		
+	public String[] listing() {
+		return solver.listing();
 	}
-
-	@Override
-	public void invalid(String message) {
-		problemInvalid = message;
-		
-	}
-
+	
 	public static void main(String[] args) {
 		int goal = 41;
 		int[] corners = {4, 9, 3, 5};
+		
 		FourNumberProblem problem = new FourNumberProblem();
 		problem.setGoal(goal);
 		problem.setCorners(corners);
@@ -74,7 +63,8 @@ public class ProblemSolverController implements IProblemSolverController {
 		
 		ProblemSolverController controller = new ProblemSolverController(
 													new FourNumberProblemRecursive(problem));
-		controller.run();
+		String result = controller.run();
+		System.out.println("\r\n" + result);
 	}
 
 }
