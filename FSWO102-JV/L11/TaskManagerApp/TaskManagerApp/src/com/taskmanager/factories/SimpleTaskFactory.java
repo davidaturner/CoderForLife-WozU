@@ -5,6 +5,7 @@ import com.taskmanager.interfaces.TaskFactory;
 
 public class SimpleTaskFactory extends TaskFactory {
 
+
 	@Override
 	public ITaskable create() {
 		return create(SIMPLE);
@@ -12,11 +13,12 @@ public class SimpleTaskFactory extends TaskFactory {
 
 	@Override
 	public ITaskable[] createAll(int toCreate) {
+		// TODO Auto-generated method stub
 		return createAll(SIMPLE, toCreate);
 	}
 	
 	// Additional methods
-	public ITaskable[]create(String[] descriptions) {
+	public ITaskable[]createAll(String[] descriptions) {
 		ITaskable[] tasks = createAll(descriptions.length);
 		for(int i=0;i<descriptions.length;i++) {
 			tasks[i].setId(i+1);
@@ -60,13 +62,10 @@ public class SimpleTaskFactory extends TaskFactory {
 				MARK_TASK,
 				LIST_TASKS
 		};
-		ITaskable[] mainpage = factory.create(DESCRIPTIONS);
+		ITaskable[] mainpage = factory.createAll(DESCRIPTIONS);
 		for(int i=0; i<mainpage.length;i++) {
 			System.out.println(mainpage[i]);
 		}
 		
 	}
-
-
-
 }

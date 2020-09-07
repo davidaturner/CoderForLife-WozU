@@ -1,13 +1,10 @@
 package com.taskmanager.interfaces;
 
 public interface ITaskFactoryViews {
-
-	void mainpage();
 	
-	void listpage(ITaskable[]tasks);
-
-	boolean listTop();
-	boolean listNext();
-	boolean listPrevious();
-
+	void setMainPage(ITaskable[]tasks, String prompt);
+	void setListPage(ITaskable[]tasks, String prompt);
+	
+	void setNumberToList(int toList);
+	
 }

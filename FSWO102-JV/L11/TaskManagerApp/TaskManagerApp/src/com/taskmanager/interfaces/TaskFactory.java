@@ -3,12 +3,11 @@ package com.taskmanager.interfaces;
 import com.taskmanager.classes.CompleteableTask;
 import com.taskmanager.classes.SimpleTask;
 
-public abstract class TaskFactory implements ITaskFactory {
+public abstract class TaskFactory {
 
 	public static final String SIMPLE = "Simple";
 	public static final String COMPLETEABLE = "Completeable";
 	
-	@Override
 	public ITaskable create(String type) {
 		switch(type) {
 		case SIMPLE:
@@ -21,7 +20,6 @@ public abstract class TaskFactory implements ITaskFactory {
 		}
 	}
 	
-	@Override
 	public ITaskable[] createAll(String type, int toCreate) {
 		ITaskable[] tasks = new ITaskable[toCreate];
 		for(int i=0;i<toCreate;i++) {

@@ -1,4 +1,4 @@
-package com.tictactoe.classes;
+package com.tictactoe.models;
 
 import com.tictactoe.interfaces.ISolvable;
 
