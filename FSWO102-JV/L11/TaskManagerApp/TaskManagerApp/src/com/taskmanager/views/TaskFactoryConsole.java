@@ -32,8 +32,8 @@ public class TaskFactoryConsole implements ITaskFactoryViews {
 	}
 
 	@Override
-	public void setNumberToList(int numberToList) {
-		this.numberToList = numberToList;
+	public void setPerPage(int toList) {
+		numberToList = toList;
 	}
 	
 	// Additional operations.
@@ -126,7 +126,7 @@ public class TaskFactoryConsole implements ITaskFactoryViews {
 		int numberToList = 2;
 		
 		System.out.println("Top() " + numberToList);	
-		views.setNumberToList(numberToList);
+		views.setPerPage(numberToList);
 		page = views.top();
 		displayPage(page);
 		System.out.println();
