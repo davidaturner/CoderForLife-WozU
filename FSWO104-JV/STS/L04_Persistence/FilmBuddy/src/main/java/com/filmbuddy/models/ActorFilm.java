@@ -1,12 +1,14 @@
 package com.filmbuddy.models;
 
-import java.sql.Timestamp;
+import java.time.Year;
 
-public class Actor {
+public class ActorFilm {
 	private int actor_id;
 	private String first_name;
 	private String last_name;
-	private Timestamp last_update;
+	private int film_id;
+	private String title;
+//	private Year release_year;
 	
 	public int getActor_id() {
 		return actor_id;
@@ -26,10 +28,22 @@ public class Actor {
 	public void setLast_name(String last_name) {
 		this.last_name = last_name;
 	}
-	public Timestamp getLast_update() {
-		return last_update;
+	public int getFilm_id() {
+		return film_id;
 	}
-	public void setLast_update(Timestamp last_update) {
-		this.last_update = last_update;
+	public void setFilm_id(int film_id) {
+		this.film_id = film_id;
 	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+//	public Year getRelease_year() {
+//		return release_year;
+//	}
+//	public void setRelease_year(Year release_year) {
+//		this.release_year = release_year;
+//	}
 }

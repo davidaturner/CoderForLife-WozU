@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>MySQL Persistence</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Actors and their Films</h1>
+	<div th:if="${!actorfilms.empty}">
+		<table>
+			<tr>
+				<th>Actor Id</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Film Id</th>
+				<th>Title</th>				 
+			</tr>
+			<tr th:each="actorfilm : ${actorfilms}">
+				<td th:text="${actorfilm.actor_id}">Actor Id</td>
+				<td th:text="${actorfilm.first_name}">First Name</td>
+				<td th:text="${actorfilm.last_name}">Last Name</td>
+				<td th:text="${actorfilm.film_id}">Film Id</td>
+				<td th:text="${actorfilm.title}">Title</td>
+			</tr>
+		</table>
+	</div>
+	<div th:if="${actorfilms.empty}">
+		<h3>No Actor Found!</h3>
+	</div>
+</body>
+</html>
