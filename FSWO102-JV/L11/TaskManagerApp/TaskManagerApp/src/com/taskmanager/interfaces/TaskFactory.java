@@ -1,7 +1,7 @@
 package com.taskmanager.interfaces;
 
-import com.taskmanager.classes.CompleteableTask;
-import com.taskmanager.classes.SimpleTask;
+import com.taskmanager.models.CompleteableTask;
+import com.taskmanager.models.SimpleTask;
 
 public abstract class TaskFactory {
 

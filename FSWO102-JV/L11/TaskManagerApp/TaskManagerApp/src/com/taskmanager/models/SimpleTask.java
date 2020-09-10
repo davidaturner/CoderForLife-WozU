@@ -1,4 +1,4 @@
-package com.taskmanager.classes;
+package com.taskmanager.models;
 
 import com.taskmanager.interfaces.ITaskable;
 

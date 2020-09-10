@@ -1,8 +1,8 @@
 package com.taskmanager.factories;
 
-import com.taskmanager.classes.CompleteableTask;
 import com.taskmanager.interfaces.ITaskable;
 import com.taskmanager.interfaces.TaskFactory;
+import com.taskmanager.models.CompleteableTask;
 
 public class CompleteableTaskFactory extends TaskFactory {
 
