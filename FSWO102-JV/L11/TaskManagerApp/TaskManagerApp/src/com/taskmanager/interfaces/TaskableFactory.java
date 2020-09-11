@@ -3,7 +3,7 @@ package com.taskmanager.interfaces;
 import com.taskmanager.models.CompleteableTask;
 import com.taskmanager.models.SimpleTask;
 
-public abstract class TaskFactory {
+public abstract class TaskableFactory {
 
 	public static final String SIMPLE = "Simple";
 	public static final String COMPLETEABLE = "Completeable";

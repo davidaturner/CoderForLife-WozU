@@ -1,9 +1,9 @@
 package com.taskmanager.factories;
 
 import com.taskmanager.interfaces.ITaskable;
-import com.taskmanager.interfaces.TaskFactory;
+import com.taskmanager.interfaces.TaskableFactory;
 
-public class SimpleTaskFactory extends TaskFactory {
+public class SimpleTaskFactory extends TaskableFactory {
 
 
 	@Override
@@ -35,7 +35,7 @@ public class SimpleTaskFactory extends TaskFactory {
 		final String MARK_TASK = "Mark a task";
 		final String LIST_TASKS = "List the tasks";
 		
-		ITaskable task1 = factory.create(TaskFactory.SIMPLE);
+		ITaskable task1 = factory.create(TaskableFactory.SIMPLE);
 		task1.setId(1);
 		task1.setDescription(ADD_TASK);
 		System.out.println(task1.toString());

@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 import com.taskmanager.controllers.TaskManagerController;
-import com.taskmanager.views.TaskManagerConsole;
 
 public class TaskManagerApplication {
 
@@ -15,24 +14,26 @@ public class TaskManagerApplication {
 	public static final int MARK_TASK = 3;
 	public static final int LIST_TASKS = 4;
 	
+	public static final String MAIN_PROMPT = "What would you like to do (1,2,3,4,5)?";
+	
 	BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 	
-	public void initialize() {
+	public TaskManagerApplication() {
 		controller = new TaskManagerController();
 		controller.setManager( new CompleteableTaskManager());
-		controller.setView(new TaskManagerConsole());		
+		controller.setMainPage();		
 	}
 	
 	public void run() {
 		
-		System.out.println("Welcome to Things-To-Do Task Manager.");		
+		System.out.println("Welcome to Things-To-Do Task Manager.");
 		
-//		boolean isDone = false;
-		boolean isDone = true;
-		
+		boolean isDone = false;		
 		int choice = 0;
 		while(!isDone) {
 			
+			mainpage();
+
 			choice = getChoice();
 			switch(choice) {
 			case ADD_TASK:
@@ -51,14 +52,10 @@ public class TaskManagerApplication {
 				isDone = true;
 				break;
 			}
-			
-			if (!isDone) {
-				mainpage();
-			}
 		}
 		
-		displayrn("Quitting application...");
-		displayrn("...Done!");
+		System.out.println("\r\nQuitting application...");
+		System.out.println("\r\n...Done!");
 		
 	}
 
@@ -69,30 +66,24 @@ public class TaskManagerApplication {
 	
 	
 	// Support
-	public static void display(String message) {
-		System.out.println(message);
-	}
-	public static void displayrn(String message) {
-		System.out.println("\r\n" + message);
-	}
 	private void mainpage() {
-		displayrn("Showing main page...");
+		displayPage(controller.getMainPage());
 	}
 	
 	private void gotoAddTaskPage() {
-		displayrn("Adding a task...");		
+		System.out.println("Adding a task...");		
 	}
 	
 	private void gotoRemoveTaskPage() {
-		displayrn("Removing a task...");
+		System.out.println("Removing a task...");
 	}
 	
 	private void gotoMarkTaskPage() {
-		displayrn("Mark a task complete...");
+		System.out.println("Mark a task complete...");
 	}
 	
 	private void gotoListTasksPage() {
-		displayrn("List all tasks...");
+		System.out.println("List all tasks...");
 	}
 	
 	private int getChoice() {
@@ -111,13 +102,11 @@ public class TaskManagerApplication {
 		} 
 		return null;
 	}
-	
-	private static void displayPage(String[] page) {
-		for(int i=1; i<page.length;i++) {
-			System.out.println(page[i]);
+	private static void displayPage(String[]tasks) {
+		System.out.println();
+		for(int i=1;i<tasks.length;i++) {
+			System.out.println(tasks[i]);
 		}
-		displayrn(page[0]);
+		System.out.println("\r\n" + tasks[0]);
 	}
-
-
 }

@@ -1,10 +1,10 @@
 package com.taskmanager.factories;
 
 import com.taskmanager.interfaces.ITaskable;
-import com.taskmanager.interfaces.TaskFactory;
+import com.taskmanager.interfaces.TaskableFactory;
 import com.taskmanager.models.CompleteableTask;
 
-public class CompleteableTaskFactory extends TaskFactory {
+public class CompleteableTaskFactory extends TaskableFactory {
 
 	@Override
 	public ITaskable create() {
