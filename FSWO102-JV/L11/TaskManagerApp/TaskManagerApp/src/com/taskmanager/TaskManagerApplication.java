@@ -9,6 +9,11 @@ public class TaskManagerApplication {
 
 	private static TaskManagerController controller;
 	
+	private static final int ADD_TASK = controller.ADD_TASK;
+	private static final int REMOVE_TASK = controller.REMOVE_TASK;
+	private static final int MARK_TASK = controller.MARK_TASK;
+	private static final int LIST_TASKS = controller.LIST_TASKS;
+	
 	BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 	
 	public TaskManagerApplication() {
@@ -28,13 +33,13 @@ public class TaskManagerApplication {
 			mainpage();
 
 			choice = getChoice();
-			if (choice == ADD_TASK()) {
+			if (choice == ADD_TASK) {
 				doAdd();
-			} else if (choice == REMOVE_TASK()) {
+			} else if (choice == REMOVE_TASK) {
 				doRemove();
-			} else if (choice == MARK_TASK()) {
+			} else if (choice == MARK_TASK) {
 				doMark();
-			} else if (choice == LIST_TASKS()) {
+			} else if (choice == LIST_TASKS) {
 				doList();
 			} else {
 				isDone = true;
@@ -57,36 +62,23 @@ public class TaskManagerApplication {
 		displayPage(controller.getMainPage());
 	}
 	
-	private static final int ADD_TASK() {
-		return controller.ADD_TASK;
-	}
-	private static final int REMOVE_TASK() {
-		return controller.REMOVE_TASK;
-	}
-	private static final int MARK_TASK() {
-		return controller.MARK_TASK;
-	}
-	private static final int LIST_TASKS() {
-		return controller.LIST_TASKS;
-	}
-
 	private void doAdd() {
-		displayPage(controller.getTaskPage(ADD_TASK()));
+		displayPage(controller.getTaskPage(ADD_TASK));
 		displayPage(controller.addTask(getInput()));
 	}
 	
 	private void doRemove() {
-		displayPage(controller.getTaskPage(REMOVE_TASK()));
+		displayPage(controller.getTaskPage(REMOVE_TASK));
 		displayPage(controller.removeTask(getChoice()));
 	}
 	
 	private void doMark() {
-		displayPage(controller.getTaskPage(MARK_TASK()));
+		displayPage(controller.getTaskPage(MARK_TASK));
 		displayPage(controller.markTask(getChoice()));
 	}
 	
 	private void doList() {
-		displayPage(controller.getTaskPage(LIST_TASKS()));
+		displayPage(controller.getTaskPage(LIST_TASKS));
 		getInput();
 	}
 	
