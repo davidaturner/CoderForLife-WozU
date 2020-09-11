@@ -30,9 +30,10 @@ public class TaskManagerController {
 	public static final String ADD_PROMPT = "Enter new task: ";
 	public static final String REMOVE_PROMPT = "Which task do you want to remove?";
 	public static final String MARK_PROMPT = "Which task do you want to mark complete?";
-	public static final String ANY_KEY_PROMPT = "Press ANY key to continue.";
+	public static final String ENTER_PROMPT = "Press ENTER key to continue.";
 	
-
+	public static final String MISSING = "Task not found.";
+	
 	// Controller run()
 	public void run() {
 		System.out.println("Welcome to Task Manager!");
@@ -46,16 +47,20 @@ public class TaskManagerController {
 			choice = getChoice();
 			switch(choice) {
 			case ADD_TASK:
-				System.out.println("\r\nAdding a task...");
+				displayPage(getTaskPage(ADD_TASK));
+				displayPage(addTask(getInput()));
 				break;
 			case REMOVE_TASK:
-				System.out.println("\r\nRemoving a task...");
+				displayPage(getTaskPage(REMOVE_TASK));
+				displayPage(removeTask(getChoice()));
 				break;
 			case MARK_TASK:
-				System.out.println("\r\nMark a task complete...");
+				displayPage(getTaskPage(MARK_TASK));
+				displayPage(markTask(getChoice()));
 				break;
 			case LIST_TASKS:
-				System.out.println("\r\nList all tasks...");
+				displayPage(getTaskPage(LIST_TASKS));
+				getInput();
 				break;
 			default:
 				isDone = true;
@@ -68,44 +73,54 @@ public class TaskManagerController {
 	}
 	
 	// Controller functions/API
-	public void setMainPage() {
-		setMainPage(page((new SimpleTaskFactory()).createAll(MAIN_PAGE), MAIN_PROMPT));
-	}
-	
-	public String[] getAddPage() {
-		return null;
-	}
-	public String[] getRemovePage() {
-		return null;
-	}
-	public String[] getListPage() {
-		return null;
-	}
-	
-	public void addTask(String description) {
-	}
-	
-	public void removeTask(int taskId) {
-	}
-	
-	public void markTask(int taskId) {
-	}
-	
-	public String[] page(ITaskable[]tasks, String prompt) {
-		int pagesize = 1;
-		if (tasks != null && tasks.length>0) {
-			pagesize += tasks.length;
-		}
+	private String[] page(ITaskable[]tasks, String prompt) {
+		int pagesize = (tasks != null && tasks.length>0)
+						? tasks.length + 1: 1;
 		String[] page = new String[pagesize];
-		if (tasks.length>0) {
+		if (pagesize > 1) {
 			int i=1;
 			for(ITaskable task : tasks) {
 				page[i] = task.toString();
 				i++;
-			}			
+			}					
 		}
 		page[0] = prompt;
 		return page;	
+	}
+	
+	public void setMainPage() {
+		setMainPage(page((new SimpleTaskFactory()).createAll(MAIN_PAGE), MAIN_PROMPT));
+	}
+	
+	public String[] getTaskPage(int pageRequested) {
+		switch (pageRequested) {
+		case ADD_TASK:
+			return page(null, ADD_PROMPT);
+		case REMOVE_TASK:
+			return page(manager.list(), REMOVE_PROMPT);
+		case LIST_TASKS:
+			return page(manager.list(), ENTER_PROMPT);
+		case MARK_TASK:
+			return page(manager.list(), MARK_PROMPT);
+		default:
+			return getMainPage();	
+		}
+	}
+		
+	public String addTask(String description) {
+		ITaskable taskToBeAdded = ((CompleteableTaskManager)manager).add(description);
+		return taskToBeAdded.toString();
+	}
+	
+	public String removeTask(int taskId) {
+		ITaskable taskToBeRemoved = ((CompleteableTaskManager)manager).remove(taskId);
+		taskToBeRemoved.setId(-1);
+		return (taskToBeRemoved != null)?taskToBeRemoved.toString() : MISSING;
+	}
+	
+	public String markTask(int taskId) {
+		ITaskable taskToBeMarked = ((CompleteableTaskManager)manager).markComplete(taskId);
+		return (taskToBeMarked != null)?taskToBeMarked.toString() : MISSING;
 	}
 	
 	// Getters and Setters
@@ -125,6 +140,21 @@ public class TaskManagerController {
 		this.mainPage = mainPage;
 	}
 	
+	// Additional / Support
+	public void displayPage(String toBeDisplayed) {
+		String[] tasks = new String[1];
+		tasks[0] = toBeDisplayed;
+		displayPage(tasks);
+	}
+	
+	public void displayPage(String[]tasks) {
+		System.out.println();
+		for(int i=1;i<tasks.length;i++) {
+			System.out.println(tasks[i]);
+		}
+		System.out.println("\r\n" + tasks[0]);
+	}
+
 	//Testing 
 	public static void main(String[] args) {
 	
@@ -136,15 +166,6 @@ public class TaskManagerController {
 
 	}
 	
-	//Support
-	private static void displayPage(String[]tasks) {
-		System.out.println();
-		for(int i=1;i<tasks.length;i++) {
-			System.out.println(tasks[i]);
-		}
-		System.out.println("\r\n" + tasks[0]);
-	}
-
 	private int getChoice() {
 		try {		
 			return Integer.parseInt(in.readLine());			

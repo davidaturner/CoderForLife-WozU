@@ -9,17 +9,18 @@ public class CompleteableTaskManager extends TaskableManager {
 
 	private CompleteableTaskFactory factory = new CompleteableTaskFactory();
 
-	public void add(String description) {
+	public ITaskable add(String description) {
 		CompleteableTask taskToBeAdded = (CompleteableTask)factory
 											.create(0, description, false);
-		add(taskToBeAdded);
+		return add(taskToBeAdded);
 	}	
-	public void markComplete(int toBeMarked) {
+	public ITaskable markComplete(int toBeMarked) {
 		ITaskable taskToBeUpdated = find(toBeMarked);
 		if (taskToBeUpdated != null) {
 			((CompleteableTask)taskToBeUpdated).setComplete(true);
-			update(taskToBeUpdated);
+			return update(taskToBeUpdated);
 		}	
+		return null;
 	}
 	
 	public static void main(String[] args) {

@@ -1,6 +1,5 @@
 package com.taskmanager.interfaces;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,9 +11,12 @@ public abstract class TaskableManager {
 	private int perPage;
 	private int original, current;
 	
-	public void add(ITaskable toBeAdded) {
-		toBeAdded.setId(getNextId());
+	public ITaskable add(ITaskable toBeAdded) {
+		if (toBeAdded.getId() == 0) {
+			toBeAdded.setId(getNextId());			
+		}
 		tasks.add(toBeAdded);
+		return toBeAdded;
 	}
 	
 	public ITaskable find(int toBeFound) {
@@ -30,17 +32,20 @@ public abstract class TaskableManager {
 		ITaskable taskToBeRemoved = find(toBeRemoved);
 		if (taskToBeRemoved != null) {
 			tasks.remove(taskToBeRemoved);
+			return taskToBeRemoved;
 		}
 		return null;
 	}
 	
-	public void update(ITaskable toBeUpdated) {
+	public ITaskable update(ITaskable toBeUpdated) {
 		ITaskable toBeRemoved = find(toBeUpdated.getId());
 		if (toBeRemoved != null) {
-			tasks.remove(toBeRemoved);
-			tasks.add(toBeUpdated);
+			remove(toBeRemoved.getId());
+			ITaskable updated = add(toBeUpdated);
 			sort();
+			return updated;
 		}
+		return null;
 	}
 	
 	public ITaskable[] list() {

@@ -7,14 +7,7 @@ import com.taskmanager.controllers.TaskManagerController;
 
 public class TaskManagerApplication {
 
-	private TaskManagerController controller;
-	
-	public static final int ADD_TASK = 1;
-	public static final int REMOVE_TASK = 2;
-	public static final int MARK_TASK = 3;
-	public static final int LIST_TASKS = 4;
-	
-	public static final String MAIN_PROMPT = "What would you like to do (1,2,3,4,5)?";
+	private static TaskManagerController controller;
 	
 	BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 	
@@ -27,7 +20,7 @@ public class TaskManagerApplication {
 	public void run() {
 		
 		System.out.println("Welcome to Things-To-Do Task Manager.");
-		
+
 		boolean isDone = false;		
 		int choice = 0;
 		while(!isDone) {
@@ -35,22 +28,16 @@ public class TaskManagerApplication {
 			mainpage();
 
 			choice = getChoice();
-			switch(choice) {
-			case ADD_TASK:
-				gotoAddTaskPage();
-				break;
-			case REMOVE_TASK:
-				gotoRemoveTaskPage();
-				break;
-			case MARK_TASK:
-				gotoMarkTaskPage();
-				break;
-			case LIST_TASKS:
-				gotoListTasksPage();
-				break;
-			default:
+			if (choice == ADD_TASK()) {
+				doAdd();
+			} else if (choice == REMOVE_TASK()) {
+				doRemove();
+			} else if (choice == MARK_TASK()) {
+				doMark();
+			} else if (choice == LIST_TASKS()) {
+				doList();
+			} else {
 				isDone = true;
-				break;
 			}
 		}
 		
@@ -70,20 +57,37 @@ public class TaskManagerApplication {
 		displayPage(controller.getMainPage());
 	}
 	
-	private void gotoAddTaskPage() {
-		System.out.println("Adding a task...");		
+	private static final int ADD_TASK() {
+		return controller.ADD_TASK;
+	}
+	private static final int REMOVE_TASK() {
+		return controller.REMOVE_TASK;
+	}
+	private static final int MARK_TASK() {
+		return controller.MARK_TASK;
+	}
+	private static final int LIST_TASKS() {
+		return controller.LIST_TASKS;
+	}
+
+	private void doAdd() {
+		displayPage(controller.getTaskPage(ADD_TASK()));
+		displayPage(controller.addTask(getInput()));
 	}
 	
-	private void gotoRemoveTaskPage() {
-		System.out.println("Removing a task...");
+	private void doRemove() {
+		displayPage(controller.getTaskPage(REMOVE_TASK()));
+		displayPage(controller.removeTask(getChoice()));
 	}
 	
-	private void gotoMarkTaskPage() {
-		System.out.println("Mark a task complete...");
+	private void doMark() {
+		displayPage(controller.getTaskPage(MARK_TASK()));
+		displayPage(controller.markTask(getChoice()));
 	}
 	
-	private void gotoListTasksPage() {
-		System.out.println("List all tasks...");
+	private void doList() {
+		displayPage(controller.getTaskPage(LIST_TASKS()));
+		getInput();
 	}
 	
 	private int getChoice() {
@@ -102,11 +106,17 @@ public class TaskManagerApplication {
 		} 
 		return null;
 	}
-	private static void displayPage(String[]tasks) {
-		System.out.println();
-		for(int i=1;i<tasks.length;i++) {
-			System.out.println(tasks[i]);
-		}
-		System.out.println("\r\n" + tasks[0]);
+	private void displayPage(String task) {
+		controller.displayPage(task);
 	}
+	private void displayPage(String[] tasks) {
+		controller.displayPage(tasks);
+	}
+//	private static void displayPage(String[]tasks) {
+//		System.out.println();
+//		for(int i=1;i<tasks.length;i++) {
+//			System.out.println(tasks[i]);
+//		}
+//		System.out.println("\r\n" + tasks[0]);
+//	}
 }
