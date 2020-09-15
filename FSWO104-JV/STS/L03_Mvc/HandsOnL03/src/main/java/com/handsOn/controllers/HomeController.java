@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.handsOn.models.Person;
+import com.handsOn.models.Storyboard;
 
 @Controller
 @RequestMapping({"/","/home"})
@@ -15,12 +15,22 @@ public class HomeController {
 
 	@GetMapping()
 	public String index(Model model) {
-		model.addAttribute("person", new Person());
-		return "index";
+		model.addAttribute("storyboard", new Storyboard());
+		return "beginning";
 	}
 	
-	@PostMapping("/person")
-	public String personSubmit(@ModelAttribute Person person) {
-		return "results";
+	@PostMapping("/middle")
+	public String beginningSubmit(@ModelAttribute Storyboard storyboard) {
+		return "middle";
+	}
+	
+	@PostMapping("/ending")
+	public String mediumSubmit(@ModelAttribute Storyboard storyboard) {
+		return "ending";
+	}
+	
+	@PostMapping("/fullstory")
+	public String endingSubmit(@ModelAttribute Storyboard storyboard) {
+		return "fullstory";
 	}
 }
