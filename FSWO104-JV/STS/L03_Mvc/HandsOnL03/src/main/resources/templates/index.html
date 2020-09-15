@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Hands On L03</title>
+	</head>
+	<body>
+		<form action="#" th:action="@{/person}" th:object="${person}" method="post">
+			<input th:field="*{firstName}" placeholder="First Name" />
+			<input th:field="*{lastName}" placeholder="Last Name" />
+			<input th:field="*{age}" placeholder="Age" />
+			<button>Submit</button>
+		</form>
+	</body>
+</html>

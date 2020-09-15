@@ -1,10 +1,10 @@
-package com.example.demo;
+package com.dogo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HandsOnL02ApplicationTests {
+class DogoApplicationTests {
 
 	@Test
 	void contextLoads() {
