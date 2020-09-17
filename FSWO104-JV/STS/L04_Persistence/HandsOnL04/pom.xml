@@ -8,10 +8,10 @@
 		<version>2.3.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.dogo</groupId>
-	<artifactId>Dogo</artifactId>
+	<groupId>com.filmbuddy</groupId>
+	<artifactId>FilmBuddy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Dogo</name>
+	<name>FilmBuddy</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -21,7 +21,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

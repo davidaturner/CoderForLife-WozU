@@ -42,22 +42,6 @@ public class MessageController {
 		return ResponseEntity.ok(createdMessage);
 	}
 	
-	@PutMapping("/chat/{id}")
-	public ResponseEntity<Message> putMessage(@PathVariable(value="id") Integer id,
-										@RequestBody Message message) {
-		Message foundMessage = dao.findById(id).orElse(null);
-		
-		if (foundMessage == null) {
-			return ResponseEntity.notFound().header("Message", 
-					"Nothing found with that id").build();
-		} 
-		
-		foundMessage.setName(message.getName());
-		foundMessage.setContent(message.getContent());
-		
-		return ResponseEntity.ok(foundMessage);
-	}
-
 	@DeleteMapping("/chat/{id}")
 	public ResponseEntity<Message> deleteMessage(@PathVariable(value="id") Integer id) {
 		Message foundMessage = dao.findById(id).orElse(null);
