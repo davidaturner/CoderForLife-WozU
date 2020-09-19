@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://thymeleaf.org"
+	xmlns:sec="http://thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<nav>
+		<div>
+			<a th:href="@{/}">Home</a>
+		</div>
+		<div>
+			<a th:href="@{/secure}">Secure</a>
+		</div>
+		<div>
+			<a th:href="@{/login}">Login</a>
+		</div>
+		<div>
+			<a th:href="@{/register}"><b>Register</b></a>
+		</div>
+	</nav>
+	<div>
+		<h1>Register: </h1>
+		<form th:action="@{/register}" method="post">
+			<div>
+				<label>User Name: <input type="text" name="username" /></label>
+			</div>
+			<div>
+				<label>Password: <input type="password" name="password" /></label>
+			</div>
+			<div>
+				<input type="submit" value="Register" />
+			</div>
+		</form>
+	</div>
+</body>
+</html>
