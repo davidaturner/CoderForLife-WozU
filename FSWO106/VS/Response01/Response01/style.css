@@ -1,0 +1,43 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+article {
+    display: flex;
+    padding-top: 25px;
+}
+
+header {
+}
+
+h3 {
+    padding-bottom: 10px;
+}
+
+p {
+    padding-bottom: 20px;
+}
+
+header, article, footer, div {
+    border: 1px solid #99ccff;
+}
+.container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.col {
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+.column1 {
+    width: 44%;
+}
+.column2 {
+    width: 28%;
+}
+.column3 {
+    width: 28%;
+}
