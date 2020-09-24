@@ -30,6 +30,47 @@ public class CompleteableTaskManager extends TaskableManager {
 		manager.add("Brush my teeth");
 		manager.add("Put on a suit");
 		manager.add("Eat breakfast");
+//		manager.add("Drive my car");
+
+		manager.setPerPage(1);
+		
+		display(manager.list("t"));
+		System.out.println();
+
+		manager.setPerPage(0);
+		
+		display(manager.list("f"));
+		System.out.println();
+
+		display(manager.list(null));
+		System.out.println();
+		
+		display(manager.list("b"));
+		
+	}
+	
+	private static void display(ITaskable[]listing) {
+		if (listing != null && listing.length>0) {
+			for(int i=0; i<listing.length; i++) {
+				if (listing[i] != null) {
+					System.out.println(listing[i]);					
+				}
+				else {
+					System.out.println("Error: Empty list!");
+				}
+			}			
+		} else {
+			System.out.println("No listing to display");
+		}
+	}
+	
+	private static void runTest01() {
+		
+		CompleteableTaskManager manager = new CompleteableTaskManager();
+		manager.add("Wash my face");
+		manager.add("Brush my teeth");
+		manager.add("Put on a suit");
+		manager.add("Eat breakfast");
 		
 		display(manager.list());
 		
@@ -44,10 +85,64 @@ public class CompleteableTaskManager extends TaskableManager {
 		display(manager.list());
 	}
 	
-	private static void display(ITaskable[]listing) {
-		for(int i=0; i<listing.length; i++) {
-			System.out.println(listing[i]);
-		}
+	private static void runTest02() {
+		CompleteableTaskManager manager = new CompleteableTaskManager();
+		manager.add("Wash my face");
+		manager.add("Brush my teeth");
+		manager.add("Put on a suit");
+		manager.add("Eat breakfast");
+		manager.add("Drive my car");
+		
+		display(manager.list());
 		System.out.println();
+		
+		manager.setPerPage(2);
+		
+		display(manager.list("t"));
+		System.out.println();
+		
+		display(manager.list("f"));
+		System.out.println();
+
+		display(manager.list("f"));
+		System.out.println();
+		
+		display(manager.list("f"));
+		System.out.println();
+		
+		display(manager.list("b"));
+		System.out.println();
+		
+		display(manager.list("f"));
+		System.out.println();
+		
+		display(manager.list("b"));
+		System.out.println();
+		
+	}
+	
+	private static void RunTest03() {
+		
+		CompleteableTaskManager manager = new CompleteableTaskManager();
+		manager.add("Wash my face");
+		manager.add("Brush my teeth");
+		manager.add("Put on a suit");
+		manager.add("Eat breakfast");
+//		manager.add("Drive my car");
+
+		manager.setPerPage(1);
+		
+		display(manager.list("t"));
+		System.out.println();
+
+		manager.setPerPage(0);
+		
+		display(manager.list("f"));
+		System.out.println();
+
+		display(manager.list(null));
+		System.out.println();
+		
+		display(manager.list("b"));
 	}
 }

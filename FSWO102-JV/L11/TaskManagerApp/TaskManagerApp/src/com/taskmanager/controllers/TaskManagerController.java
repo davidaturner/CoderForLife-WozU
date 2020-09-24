@@ -32,6 +32,8 @@ public class TaskManagerController {
 	public static final String MARK_PROMPT = "Which task do you want to mark complete?";
 	public static final String ENTER_PROMPT = "Press ENTER key to continue.";
 	
+	public static final String LIST_PROMPT = "Enter b to go back, f to go forward";
+	
 	public static final String MISSING = "Task not found.";
 	
 	// Controller run()
@@ -142,8 +144,7 @@ public class TaskManagerController {
 	
 	// Additional / Support
 	public void displayPage(String toBeDisplayed) {
-		String[] tasks = new String[1];
-		tasks[0] = toBeDisplayed;
+		String[] tasks = { toBeDisplayed };
 		displayPage(tasks);
 	}
 	
@@ -163,7 +164,6 @@ public class TaskManagerController {
 		controller.setMainPage();
 		
 		controller.run();
-
 	}
 	
 	private int getChoice() {

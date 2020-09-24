@@ -4,12 +4,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.taskmanager.factories.SimpleTaskFactory;
+
 public abstract class TaskableManager {
 	
 	protected List<ITaskable> tasks = new ArrayList<ITaskable>();
 	
 	private int perPage;
-	private int original, current;
+	private int current;
+	
+	final static String FORWARD_PAGE = "f";
+	final static String BACKWARD_PAGE = "b";
+	final static String TOP_PAGE = "t";
+	
+	private int remainder;	
 	
 	public ITaskable add(ITaskable toBeAdded) {
 		if (toBeAdded.getId() == 0) {
@@ -61,23 +69,23 @@ public abstract class TaskableManager {
 		return null;
 	}
 	
-	public boolean isPaged() {
-		return (perPage > 0);
-	}
-	
-	public ITaskable[] top() {
-		current = 0;
-		original = 0;
-		return null;
-	}
-	
-	public ITaskable[] next() {
-		ITaskable[] page = new ITaskable[pagelength()];
-		return null;
-	}
-
-	public ITaskable[] previous() {
-		current = original;
+	public ITaskable[] list(String direction) {		
+		if (direction == null || !isPaged()) {
+			return list();
+		}	
+		if (tasks != null && !tasks.isEmpty()) {			
+			int numberOfTasks = determinePagelength(direction);
+			switch(direction) {
+			case FORWARD_PAGE:
+				return next(numberOfTasks);
+			case BACKWARD_PAGE:
+				return previous(numberOfTasks);
+			case TOP_PAGE:
+				return top(numberOfTasks);
+			default:
+				break;				
+			}		
+		}		
 		return null;
 	}
 	
@@ -94,20 +102,96 @@ public abstract class TaskableManager {
 	public void setPerPage(int perPage) {
 		this.perPage = perPage;
 	}
+	public boolean isPaged() {
+		boolean result = perPage > 0;
+		if ( !result) {
+			current = 0;
+			remainder = 0;
+		}
+		return result;
+	}
 	public int getCurrent() {
 		return current;
 	}
 	public void setCurrent(int current) {
 		this.current = current;
 	}
+	public int getRemainder() {
+		return remainder;
+	}
+	public void setRemainder(int remainder) {
+		this.remainder = remainder;
+	}
 
 	// Support
-	private int pagelength() {
-		if (tasks == null || tasks.isEmpty()) {
-			return 0;
+	private ITaskable[] top(int pagelength) {
+		current = 0;
+		return next(pagelength);
+	}
+	
+	private ITaskable[] next(int pagelength) {
+		
+		if (pagelength == 0) {
+			current -= remainder;
+			pagelength = remainder;
 		}
-		return ((tasks.size()-current) < perPage)
-				? tasks.size()-current : perPage;
+		
+		if (pagelength > 0) {
+			ITaskable[] listing = new ITaskable[pagelength];
+			int i = 0;
+			for(int index=current; index<current+pagelength; index++) {
+				listing[i] = tasks.get(index);
+				i++;
+			}
+			current +=pagelength;
+			determineRemainder();
+
+			return listing;			
+		}
+				
+		return null;
+
+	}
+	
+	private ITaskable[] previous(int pagelength) {
+		if (current <= perPage) {
+			current -= remainder;
+		}
+		else {
+			current -= remainder + pagelength;
+		}
+		return next(pagelength);
+	}
+	
+	private void determineRemainder() {
+		remainder = 0;		
+		if (perPage > 0) {
+			if (perPage == 1) {
+				remainder = 1;
+			}
+			else {
+				remainder = current % perPage;
+				if (remainder == 0 && current >= perPage) {
+					remainder = perPage;
+				}				
+			}
+		}
+	}
+
+	private int determinePagelength(String direction) {
+		if (tasks != null && !tasks.isEmpty() && isPaged()) {			
+			switch(direction) {
+			case TOP_PAGE:
+				return (tasks.size() > perPage)?perPage:tasks.size();
+			case FORWARD_PAGE:
+				return (tasks.size() > current + perPage)?perPage:tasks.size() - current;
+			case BACKWARD_PAGE:
+				return (current - perPage > 0)?perPage: current;
+			default:
+				break;
+			}
+		}
+		return 0;
 	}
 	private int getNextId() {
 		int nextId = 1;
@@ -119,8 +203,7 @@ public abstract class TaskableManager {
 			}
 		}
 		return nextId;
-	}
-	
+	}	
 	//TODO: Improve sort() performance.
 	private void sort() {
 		int[] taskIds = new int[tasks.size()];
