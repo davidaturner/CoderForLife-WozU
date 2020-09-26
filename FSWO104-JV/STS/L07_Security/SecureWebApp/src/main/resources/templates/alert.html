@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="ISO-8859-1">
+<title>Spring Security Example - Alert page</title> 
+</head>
+<body>
+	<nav>
+		<div>
+			<a th:href="@{/}">Home</a>
+		</div>
+		<div>
+			<a th:href="@{/secure}">Secure</a>
+		</div>
+		<div>
+			<a th:href="@{/login}">Login</a>
+		</div>
+		<div>
+			<a th:href="@{/register}">Register</a>
+		</div>		
+	</nav>
+	<div>
+		<h1>Alert page!</h1>
+	</div>
+	
+	<!-- Scripts -->
+	<script type="text/javascript" src="/js/script.js"></script>
+</body>
+</html>
