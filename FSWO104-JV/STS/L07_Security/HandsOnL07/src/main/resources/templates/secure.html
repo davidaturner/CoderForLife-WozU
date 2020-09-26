@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="ISO-8859-1">
+<title>Spring Security Example - Cretin!</title>
+</head>
+<body>
+	<nav>
+		<div>
+			<a th:href="@{/}">Home</a>
+		</div>
+		<div>
+			<a th:href="@{/secure}"><b>Secure</b></a>
+		</div>
+		<div>
+			<a th:href="@{/login}">Login</a>
+		</div>
+		<div>
+			<a th:href="@{/register}">Register</a>
+		</div>
+	</nav>
+	<div>
+		<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+		<hr />
+		<p>You are in a restricted area of this application where it is restricted 
+		to users who have successfully logged on only. Now YOU. MUST! PAAAAYY!</p>
+		<hr />
+		<img width="300px" alt="secure" src="https://pics.me.me/cat-tax-must-be-paid-19328340.png"/>
+  
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" />
+		</form>
+
+	</div>
+</body>
+</html>
