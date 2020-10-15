@@ -14,32 +14,31 @@ import org.springframework.stereotype.Service;
 @Service
 public class MySQLUserDetailsService implements UserDetailsService {
 
-	@Autowired
-	private UserRepository userRepository;
-	
-	@Autowired
-	private PasswordEncoder passwordEncoder;
-	
-	@Override
-	public UserDetails loadUserByUsername(String username) {
-		User user = userRepository.findByUserName(username);
-		if (user == null) {
-			throw new UsernameNotFoundException(username);
-		}
-	    return new org.springframework.security.core.userdetails.
-	    		User(user.getUsername(), user.getPassword(), getAuthorities());
-	}
-	
-	public UserDetails Save(User newUser) {
-		newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
-		User savedUser = userRepository.save(newUser);
-	    return new org.springframework.security.core.userdetails.
-	    		User(savedUser.getUsername(), savedUser.getPassword(), getAuthorities());
-	}
-	
-	private List<SimpleGrantedAuthority> getAuthorities() {
-		List<SimpleGrantedAuthority> authList = new ArrayList<>();
-		authList.add(new SimpleGrantedAuthority("ROLE_USER"));
-		return authList;
-	}
+  @Autowired
+  private UserRepository userRepository;
+
+  @Autowired
+  private PasswordEncoder passwordEncoder;
+
+  @Override
+  public UserDetails loadUserByUsername(String username) {
+	  System.out.println("In LoadUser()");
+    User user = userRepository.findByUsername(username);
+    if (user == null) {
+      throw new UsernameNotFoundException(username);
+    }
+    return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), getAuthorities());
+  }
+
+  public UserDetails Save(User newUser) {
+    newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
+    User savedUser = userRepository.save(newUser);
+    return new org.springframework.security.core.userdetails.User(savedUser.getUsername(), savedUser.getPassword(), getAuthorities());
+  }
+
+  private List<SimpleGrantedAuthority> getAuthorities() {
+    List<SimpleGrantedAuthority> authList = new ArrayList<>();
+    authList.add(new SimpleGrantedAuthority("ROLE_USER"));
+    return authList;
+  }
 }

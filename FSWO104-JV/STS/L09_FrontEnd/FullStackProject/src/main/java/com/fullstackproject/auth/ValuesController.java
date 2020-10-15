@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/values")
 public class ValuesController {
 
-	@GetMapping()
-	public ResponseEntity<List<String>> getNames() {
-		List<String>names = new ArrayList<>();
-		names.add("First");
-		names.add("Second");
-		names.add("Third");
-		return ResponseEntity.ok(names);
-		
-	}
+  @GetMapping()
+  public ResponseEntity<List<String>> getNames() {
+    List<String> names = new ArrayList<String>();
+    names.add("First");
+    names.add("Second");
+    names.add("Third");
+    return ResponseEntity.ok(names);
+  }
 }

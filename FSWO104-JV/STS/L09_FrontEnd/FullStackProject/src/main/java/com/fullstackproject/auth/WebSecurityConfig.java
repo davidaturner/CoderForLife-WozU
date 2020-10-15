@@ -18,41 +18,39 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	@Autowired
-	private MySQLUserDetailsService mySQLUserDetailsService;
-	
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
-	
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(mySQLUserDetailsService).passwordEncoder(passwordEncoder());
-	}
-	
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.cors()
-			.and()
-			.csrf().disable()
-			.authorizeRequests().antMatchers(HttpMethod.POST, AuthConstants.SIGN_UP_URL)
-			.permitAll()
-			.anyRequest().authenticated()
-			.and()
-			.addFilter(new JWTAuthenticationFilter(authenticationManager()))
-			.addFilter(new JWTAuthenticationFilter(authenticationManager()))
-			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-	}
-	
-	@Bean
-	CorsConfigurationSource corsConfigurationSource() {
-		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		CorsConfiguration corsConfig = new CorsConfiguration();
-		corsConfig.applyPermitDefaultValues()
-					.setExposedHeaders(Arrays.asList("Authorization"));
-		source.registerCorsConfiguration("/**", corsConfig);
-		return source;
-	}
-	
+  @Autowired
+  private MySQLUserDetailsService mySQLUserDetailsService;
+
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+  }
+
+  @Autowired
+  public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    auth.userDetailsService(mySQLUserDetailsService).passwordEncoder(passwordEncoder());
+  }
+
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http.cors()
+      .and()
+      .csrf().disable()
+      .authorizeRequests().antMatchers(HttpMethod.POST, AuthConstants.SIGN_UP_URL).permitAll()
+      .anyRequest().authenticated()
+      .and()
+      .addFilter(new JWTAuthenticationFilter(authenticationManager()))
+      .addFilter(new JWTAuthorizationFilter(authenticationManager()))
+      .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+  }
+
+  @Bean
+  CorsConfigurationSource corsConfigurationSource() {
+    final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    CorsConfiguration corsConfig = new CorsConfiguration();
+    corsConfig.applyPermitDefaultValues();
+    corsConfig.setExposedHeaders(Arrays.asList("Authorization"));
+    source.registerCorsConfiguration("/**", corsConfig);
+    return source;
+  }
 }

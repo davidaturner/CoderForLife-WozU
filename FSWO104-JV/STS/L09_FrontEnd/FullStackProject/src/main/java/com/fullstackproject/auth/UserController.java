@@ -7,15 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api/user")
 public class UserController {
 
-	@Autowired
-	private MySQLUserDetailsService userService;
-	
-	@PostMapping("/register")
-	public void register(@RequestBody User newUser) {
-		userService.Save(newUser);
-	}
-	
+  @Autowired
+  private MySQLUserDetailsService userService;
+
+  @PostMapping("/register")
+  public void register(@RequestBody User newUser) {
+    userService.Save(newUser);
+  }
 }
