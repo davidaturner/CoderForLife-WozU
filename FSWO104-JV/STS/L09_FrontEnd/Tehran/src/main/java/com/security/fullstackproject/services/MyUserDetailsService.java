@@ -1,4 +1,4 @@
-package com.security.fullstackproject.auth;
+package com.security.fullstackproject.services;
 
 import java.util.ArrayList;
 

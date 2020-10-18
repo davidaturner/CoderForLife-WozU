@@ -1,4 +1,4 @@
-package com.security.fullstackproject.auth;
+package com.security.fullstackproject.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.security.fullstackproject.auth.AuthenticationRequest;
+import com.security.fullstackproject.auth.AuthenticationResponse;
+import com.security.fullstackproject.auth.JwtUtil;
+import com.security.fullstackproject.services.MyUserDetailsService;
 
 @RestController
 public class ValuesController {
