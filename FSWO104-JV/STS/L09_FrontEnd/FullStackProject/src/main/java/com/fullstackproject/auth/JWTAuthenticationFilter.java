@@ -30,14 +30,14 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	  @Override
 	  public Authentication attemptAuthentication(HttpServletRequest req, HttpServletResponse res) throws AuthenticationException {
 	    try {
-	      com.fullstackproject.auth.User creds = new ObjectMapper()
-	        .readValue(req.getInputStream(), com.fullstackproject.auth.User.class);
+	      UserData userToBeAuthenticated = new ObjectMapper()
+	    		  								.readValue(req.getInputStream(), UserData.class);
 
 	      return authenticationManager.authenticate(
 	        new UsernamePasswordAuthenticationToken(
-	          creds.getUsername(),
-	          creds.getPassword(),
-	          new ArrayList<>())
+	        		userToBeAuthenticated.getUsername(),
+	        		userToBeAuthenticated.getPassword(),
+	        		new ArrayList<>())
 	      );
 	    } catch (IOException e) {
 	      throw new RuntimeException(e);
@@ -45,16 +45,19 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	  }
 
 	  @Override
-	  protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain, Authentication auth) throws IOException, ServletException {
+	  protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain, Authentication auth) 
+			  throws IOException, ServletException {
 	    String token = JWT.create()
-	      .withSubject(((User) auth.getPrincipal()).getUsername())
+	      .withSubject(((UserData) auth.getPrincipal()).getUsername())
 	      .withExpiresAt(new Date(System.currentTimeMillis() + AuthConstants.EXPIRATION_TIME))
-	      .sign(HMAC512(AuthConstants.SECRET.getBytes()));
+	      .sign(HMAC512(AuthConstants.SECRET_KEY));
+	    
 	    res.addHeader(AuthConstants.HEADER_STRING, AuthConstants.TOKEN_PREFIX + token);
 	  }
 
-	  @Override
-	  protected void unsuccessfulAuthentication(HttpServletRequest req, HttpServletResponse res, AuthenticationException failed) throws IOException, ServletException {
-	    super.unsuccessfulAuthentication(req, res, failed);
-	  }
+//	  @Override
+//	  protected void unsuccessfulAuthentication(HttpServletRequest req, HttpServletResponse res, AuthenticationException failed) 
+//			  throws IOException, ServletException {
+//	    super.unsuccessfulAuthentication(req, res, failed);
+//	  }
 	}

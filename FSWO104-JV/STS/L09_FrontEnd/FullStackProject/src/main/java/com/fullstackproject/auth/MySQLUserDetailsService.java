@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -21,24 +22,33 @@ public class MySQLUserDetailsService implements UserDetailsService {
   private PasswordEncoder passwordEncoder;
 
   @Override
+//  public UserDetails loadUserByUsername(String username) {
+//	  System.out.println("In LoadUser()");
+//    UserData userToBeLoaded = userRepository.findByUsername(username);
+//    if (userToBeLoaded == null) {
+//      throw new UsernameNotFoundException(username);
+//    }
+//    return new User(userToBeLoaded.getUsername(), userToBeLoaded.getPassword(), getAuthorities());
+//  }
   public UserDetails loadUserByUsername(String username) {
 	  System.out.println("In LoadUser()");
-    User user = userRepository.findByUsername(username);
-    if (user == null) {
-      throw new UsernameNotFoundException(username);
-    }
-    return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), getAuthorities());
+//    UserData userToBeLoaded = userRepository.findByUsername(username);
+//    if (userToBeLoaded == null) {
+//      throw new UsernameNotFoundException(username);
+//    }
+//    return new User(userToBeLoaded.getUsername(), userToBeLoaded.getPassword(), getAuthorities());
+	  return new User("toy", "toy", new ArrayList<>());
   }
 
-  public UserDetails Save(User newUser) {
-    newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
-    User savedUser = userRepository.save(newUser);
-    return new org.springframework.security.core.userdetails.User(savedUser.getUsername(), savedUser.getPassword(), getAuthorities());
-  }
+//  public UserDetails Save(UserData userToBeSaved) {
+//	userToBeSaved.setPassword(passwordEncoder.encode(userToBeSaved.getPassword()));
+//    UserData savedUser = userRepository.save(userToBeSaved);
+//    return new User(savedUser.getUsername(), savedUser.getPassword(), getAuthorities());
+//  }
 
-  private List<SimpleGrantedAuthority> getAuthorities() {
-    List<SimpleGrantedAuthority> authList = new ArrayList<>();
-    authList.add(new SimpleGrantedAuthority("ROLE_USER"));
-    return authList;
-  }
+//  private List<SimpleGrantedAuthority> getAuthorities() {
+//    List<SimpleGrantedAuthority> authList = new ArrayList<>();
+//    authList.add(new SimpleGrantedAuthority("ROLE_USER"));
+//    return authList;
+//  }
 }
