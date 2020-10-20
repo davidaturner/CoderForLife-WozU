@@ -1,6 +1,6 @@
 using System;
 
-namespace ActivityL01.Models
+namespace L01_PartyRSVP.Models
 {
     public class ErrorViewModel
     {

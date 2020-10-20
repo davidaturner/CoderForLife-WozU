@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ActivityL01.Models;
+using L01_PartyRSVP.Models;
 
-namespace ActivityL01.Controllers
+namespace L01_PartyRSVP.Controllers
 {
     public class HomeController : Controller
     {
