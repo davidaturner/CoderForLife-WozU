@@ -1,0 +1,60 @@
+@{
+    ViewData["Title"] = "Customer Data";
+    string[] TableHeaders = new string[] {
+        "Customer Id",
+        "First Name",
+        "Last Name",
+        "Company",
+        "Address",
+        "City",
+        "State",
+        "Country",
+        "Postal Code",
+        "Phone",
+        "Fax",
+        "Email",
+        "Support Rep Id"
+    };
+}
+
+<div class="table">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                @{
+                    foreach (var Header in TableHeaders)
+                    {
+                        <th>
+                            @Header
+                        </th>
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                if (Model != null)
+                {
+                    foreach (var Data in Model)
+                    {
+                        <tr>
+                            <td>@Data.Id</td>
+                            <td>@Data.FirstName</td>
+                            <td>@Data.LastName</td>
+                            <td>@Data.Company</td>
+                            <td>@Data.Address</td>
+                            <td>@Data.City</td>
+                            <td>@Data.State</td>
+                            <td>@Data.Country</td>
+                            <td>@Data.PostalCode</td>
+                            <td>@Data.Phone</td>
+                            <td>@Data.Fax</td>
+                            <td>@Data.Email</td>
+                            <td>@Data.SupportRepId</td>
+                        </tr>
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>
