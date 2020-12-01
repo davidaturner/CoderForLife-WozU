@@ -34,26 +34,17 @@ namespace TicTacToeAPIv1.Controllers {
             EvaluatePosition (json);
         }
 
-        [HttpPost ("evaluate")]
-        public ActionResult<string> Evaluate ([FromBody] TicTacToePositionJSON json) {
-            return EvaluatePosition (json);
+        [HttpPost ("solver")]
+        public ActionResult<TicTacToePositionStateJSON> Evaluate ([FromBody] TicTacToePositionJSON json) {
+            return new TicTacToePositionStateJSON (EvaluatePosition (json));
         }
-        private string EvaluatePosition (TicTacToePositionJSON json) {
-            _eval.Embark (json);
+        private string EvaluatePosition (TicTacToePositionJSON position) {
+            _eval.Embark (position);
             _eval.Evaluate ();
             TicTacToePositionJSON positionEvaluated = _eval.Disembark ();
             _context.Positions.Add (positionEvaluated);
             _context.SaveChanges ();
             return positionEvaluated.State;
-        }
-
-        [HttpPost ("solver")]
-        public ActionResult<string> Solve ([FromBody] TicTacToePositionJSON json) {
-            _eval.Embark (json);
-            TicTacToePositionJSON positionSolved = _eval.Solve ();
-            _context.Positions.Add (positionSolved);
-            _context.SaveChanges ();
-            return positionSolved.State;
         }
     }
 }
