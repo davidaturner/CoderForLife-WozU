@@ -6,16 +6,16 @@
 
 <h1>Login for treats</h1>
 
-<form asp-controller="Home" asp-action="Login" method="POST">
+<form asp-controller="Home" asp-action="Verify" method="POST">
     <div>
         <label asp-for="UserName"></label>
-        <input asp-for="UserName">
+        <input asp-for="UserName" />
     </div>
     <div>
         <label asp-for="Password"></label>
-        <input asp-for="Password">
+        <input asp-for="Password" />
     </div>
     <div>
-        <input type="Submit" value="Login" />
+        <input type="submit" value="Login" />
     </div>
 </form>
