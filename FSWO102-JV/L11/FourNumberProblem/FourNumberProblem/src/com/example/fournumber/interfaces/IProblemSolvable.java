@@ -2,21 +2,16 @@ package com.example.fournumber.interfaces;
 
 public interface IProblemSolvable {
 
-	public static String SOLVED = "Solved";
-	public static String NOT_SOLVED = "Not Solved";
+	public static String NOTREADY = "NOT READY";
 	
-	public static String RESOLVED = "Resolved";
+	public static String VALIDATED = "VALIDATED";
+	
+	public static String SOLVED = "SOLVED";
+	public static String RESOLVED = "RESOLVED";
 
-	ISolvable get();
 	
 	String describe();
-	
-	boolean validate();
-	
-	void solve();
-	
 	String evaluate();
 	
-	String[] listing();
-	
+	void display();
 }
