@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _02_Multiple
+namespace _03_Abstract
 {
     namespace animal
     {
@@ -32,7 +32,7 @@ namespace _02_Multiple
             string Swim();
         }
 
-        public class AnimalBase : AnimalInterface
+        public abstract class AnimalBase : AnimalInterface
         {
             protected string Name { get; set; }
             protected bool Female { get; set; }
@@ -52,10 +52,13 @@ namespace _02_Multiple
                 return Female;
             }
 
-            public virtual string Eat()
+            public string DeclareGender()
             {
-                return animal.behavior.AnimalBehavior.UNKNOWN;
+                return IsFemale() ? animal.behavior.AnimalBehavior.FEMALE :
+                                    animal.behavior.AnimalBehavior.MALE;
             }
+
+            public abstract string Eat();
 
             public virtual string GiveBirth()
             {
@@ -63,21 +66,11 @@ namespace _02_Multiple
                     animal.behavior.AnimalBehavior.CANNOTBIRTH;
             }
 
-            public virtual string Move()
-            {
-                return animal.behavior.AnimalBehavior.UNKNOWN;
-            }
+            public abstract string Move();
 
-            public virtual string Speak()
-            {
-                return animal.behavior.AnimalBehavior.UNKNOWN;
-            }
+            public abstract string Speak();
 
-            public string DeclareGender()
-            {
-                return IsFemale() ? animal.behavior.AnimalBehavior.FEMALE :
-                                    animal.behavior.AnimalBehavior.MALE;
-            }
+
         }
     }
 

@@ -3,29 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Animal = _02_Multiple.animal;
-using Bird = _02_Multiple.animal.behavior.bird;
+using Animal = _03_Abstract.animal;
+using Bird = _03_Abstract.animal.behavior.bird;
 
 
-namespace _02_Multiple
+namespace _03_Abstract
 {
     namespace bird
     {
-        public class BirdBase : Animal.AnimalBase, Animal.AnimalRunning
-        {
-            public BirdBase(string name, bool isFemale)
-                : base(name, isFemale) { }
-
-            public override string GiveBirth()
-            {
-                return Bird.AnimalBehavior.LAYEGGS;
-            }
-            public string Run()
-            {
-                return animal.behavior.AnimalBehavior.CANNOTRUN;
-            }
-        }
-        public class Duck : BirdBase, Animal.AnimalSwimming, Animal.AnimalFlying
+        public class Duck : Animal.AnimalBase, Animal.AnimalSwimming, Animal.AnimalFlying
         {
             public Duck(string name, bool isFemale)
                 : base(name, isFemale) { }
@@ -33,6 +19,12 @@ namespace _02_Multiple
             public override string Eat()
             {
                 return Bird.AnimalBehavior.DUCKFOOD; 
+            }
+
+            public override string GiveBirth()
+            {
+                return IsFemale() ? Bird.AnimalBehavior.LAYEGGS :
+                    animal.behavior.AnimalBehavior.CANNOTBIRTH;
             }
 
             public override string Move()
@@ -56,7 +48,7 @@ namespace _02_Multiple
             }
         }
 
-        public class Penguin : BirdBase, Animal.AnimalSwimming
+        public class Penguin : Animal.AnimalBase, Animal.AnimalSwimming
         {
             public Penguin(string name, bool isFemale)
                 : base(name, isFemale) { }
@@ -64,6 +56,12 @@ namespace _02_Multiple
             public override string Eat()
             {
                 return Bird.AnimalBehavior.PENGUINFOOD;
+            }
+
+            public override string GiveBirth()
+            {
+                return IsFemale() ? Bird.AnimalBehavior.LAYEGGS :
+                    animal.behavior.AnimalBehavior.CANNOTBIRTH;
             }
 
             public override string Move()

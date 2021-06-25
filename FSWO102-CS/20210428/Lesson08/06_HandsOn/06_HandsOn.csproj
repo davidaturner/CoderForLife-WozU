@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7D5AA7C6-2B30-439E-B575-1A5BCBD6219A}</ProjectGuid>
+    <ProjectGuid>{6A954864-E114-4BDD-8590-9316D1C303C5}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_02_Multiple</RootNamespace>
-    <AssemblyName>02_Multiple</AssemblyName>
+    <RootNamespace>_06_HandsOn</RootNamespace>
+    <AssemblyName>06_HandsOn</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,9 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animal.cs" />
-    <Compile Include="Bird.cs" />
-    <Compile Include="Mammal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

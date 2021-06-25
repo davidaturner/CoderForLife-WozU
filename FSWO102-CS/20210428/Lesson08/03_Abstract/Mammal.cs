@@ -4,30 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 //
-using Animal = _02_Multiple.animal;
-using Mammal = _02_Multiple.animal.behavior.mammal;
+using Animal = _03_Abstract.animal;
+using Mammal = _03_Abstract.animal.behavior.mammal;
 
-namespace _02_Multiple
+namespace _03_Abstract
 {
     namespace mammal
     {
-        public class MammalBase : Animal.AnimalBase, Animal.AnimalRunning
-        {
-            public MammalBase(string name, bool isFemale)
-                : base(name, isFemale) { }
-
-            public override string GiveBirth()
-            {
-                return Mammal.AnimalBehavior.LIVEBIRTH;
-            }
-
-            public virtual string Run()
-            {
-                return animal.behavior.AnimalBehavior.CANNOTRUN;
-            }
-        }
-
-        public class Bat : MammalBase, Animal.AnimalFlying
+        public class Bat : Animal.AnimalBase, Animal.AnimalRunning, Animal.AnimalFlying
         {
             public Bat(string name, bool isFemale)
                 : base(name, isFemale) { }
@@ -49,9 +33,20 @@ namespace _02_Multiple
             {
                 return Mammal.AnimalBehavior.BAF100;
             }
+
+            public override string GiveBirth()
+            {
+                return IsFemale() ? Mammal.AnimalBehavior.LIVEBIRTH :
+                    animal.behavior.AnimalBehavior.CANNOTBIRTH;
+            }
+
+            public string Run()
+            {
+                return animal.behavior.AnimalBehavior.CANNOTRUN;
+            }
         }
 
-        public class Cat : MammalBase {
+        public class Cat : Animal.AnimalBase, Animal.AnimalRunning {
 
             public Cat(string name, bool isFemale)
                 : base(name, isFemale) { }
@@ -71,7 +66,13 @@ namespace _02_Multiple
                 return Mammal.AnimalBehavior.MEOW;
             }
 
-            public override string Run()
+            public override string GiveBirth()
+            {
+                return IsFemale() ? Mammal.AnimalBehavior.LIVEBIRTH :
+                    animal.behavior.AnimalBehavior.CANNOTBIRTH;
+            }
+
+            public string Run()
             {
                 return Mammal.AnimalBehavior.BMV10;
             }

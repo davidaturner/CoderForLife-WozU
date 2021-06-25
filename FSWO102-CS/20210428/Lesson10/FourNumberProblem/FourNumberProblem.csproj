@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7D5AA7C6-2B30-439E-B575-1A5BCBD6219A}</ProjectGuid>
+    <ProjectGuid>{753BC208-89F5-4C0C-AABB-9BC5E8ABE469}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_02_Multiple</RootNamespace>
-    <AssemblyName>02_Multiple</AssemblyName>
+    <RootNamespace>FourNumberProblem</RootNamespace>
+    <AssemblyName>FourNumberProblem</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,9 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animal.cs" />
-    <Compile Include="Bird.cs" />
-    <Compile Include="Mammal.cs" />
+    <Compile Include="FourNumberProblem.cs" />
+    <Compile Include="Problemspace.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

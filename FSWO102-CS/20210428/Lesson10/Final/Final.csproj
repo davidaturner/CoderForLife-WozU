@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7D5AA7C6-2B30-439E-B575-1A5BCBD6219A}</ProjectGuid>
+    <ProjectGuid>{0FF21A48-0F3F-4CB5-8D61-7A3623FBC6D3}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_02_Multiple</RootNamespace>
-    <AssemblyName>02_Multiple</AssemblyName>
+    <RootNamespace>Final</RootNamespace>
+    <AssemblyName>Final</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,11 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animal.cs" />
-    <Compile Include="Bird.cs" />
-    <Compile Include="Mammal.cs" />
+    <Compile Include="BlingBlong.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sequence.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

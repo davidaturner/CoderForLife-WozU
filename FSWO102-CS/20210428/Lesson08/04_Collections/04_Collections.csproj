@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7D5AA7C6-2B30-439E-B575-1A5BCBD6219A}</ProjectGuid>
+    <ProjectGuid>{8A0DB6F5-2813-4D9D-B602-A24A8D6E1747}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_02_Multiple</RootNamespace>
-    <AssemblyName>02_Multiple</AssemblyName>
+    <RootNamespace>_04_Collections</RootNamespace>
+    <AssemblyName>04_Collections</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,9 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animal.cs" />
-    <Compile Include="Bird.cs" />
-    <Compile Include="Mammal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

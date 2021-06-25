@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Animal = _02_Multiple.animal.AnimalBase;
-using Duck = _02_Multiple.bird.Duck;
+using Animal = _03_Abstract.animal.AnimalBase;
 
-namespace _02_Multiple
+using Cat = _03_Abstract.mammal.Cat;
+using Duck = _03_Abstract.bird.Duck;
+using Bat = _03_Abstract.mammal.Bat;
+
+namespace _03_Abstract
 {
     class Program
     {
@@ -23,11 +26,15 @@ namespace _02_Multiple
         }
         static void Main(string[] args)
         {
-            Animal goofy = new Animal("Goofy", false);
-            ReportOn(goofy);
+            Cat thomas = new Cat("Thomas", false);
+            ReportOn(thomas);
 
             Duck daisy = new Duck("Daisy", true);
             ReportOn(daisy);
+
+            Bat vampirella = new Bat("Vamp", true);
+            ReportOn(vampirella);
+
             //
             Console.ReadLine();
 
