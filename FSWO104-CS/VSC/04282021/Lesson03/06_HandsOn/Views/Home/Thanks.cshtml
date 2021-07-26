@@ -1,0 +1,46 @@
+@model _06_HandsOn.Models.GuestResponse
+@{
+
+
+
+
+
+
+
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Thank You </title>
+</head>
+
+<body>
+    <div>
+        @if (@Model.WillAttend == true)
+
+        {
+            <h1>Thanks, @Model.FullName()!</h1>
+            <p> If we need you to bring anything we will email you at @Model.Email</p>
+
+
+
+        }
+
+        else
+
+        {
+            <h1>Ok, @Model.FullName().</h1>
+            <p> Sorry, we will miss you there.</p>
+
+
+
+        }
+
+    </div>
+</body>
+
+</html>

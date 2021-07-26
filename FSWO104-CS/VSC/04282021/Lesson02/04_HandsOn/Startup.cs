@@ -23,30 +23,44 @@ namespace _04_HandsOn
         {
             app.Run(async (context) =>
             {
-
                 string response = "<h1>Query String Parameters</h1>" +
                     "<p>Enter a URL like:</p>" +
                     "<a href=\"http://localhost:5000/?firstname=Jane&lastname=Smith&age=30\">" +
                     "http://localhost:5000/?firstname=Jane&lastname=Smith&age=30</a>";
-                response += "<p>";
-                string fullname = "";
-                foreach (var queryParameter in context.Request.Query) {
+                string fullName = "";
+                Boolean firstNameFound = false;
+                Boolean lastNameFound = false;
+                Boolean ageFound = false;
+                foreach (var queryParameter in context.Request.Query)
+                {
+                    if (firstNameFound && lastNameFound && ageFound) break;
 
-                    if (queryParameter.Key == "firstname") {
-                        // response += queryParameter.Value + " ";
-                        fullname += queryParameter.Value + " ";
+                    if (queryParameter.Key == "firstname")
+                    {
+                        fullName += queryParameter.Value + " ";
+                        firstNameFound = true;
                     }
-                    if (queryParameter.Key == "lastname") {
-                        // response += queryParameter.Value;
-                        fullname += queryParameter.Value;
+                    if (queryParameter.Key == "lastname")
+                    {
+                        fullName += queryParameter.Value;
+                        lastNameFound = true;
                     }
-
-                    // response += "<p>" + queryParameter.Value + "</p>";
-                    // response += fullname;
+                    if (queryParameter.Key == "age")
+                    {
+                        fullName += ", " + queryParameter.Value;
+                        ageFound = true;
+                    }
+                    // response += "<p>" + queryParameter.Key + "</p>";
                 }
-                response += fullname + "</p>";
-                await context.Response.WriteAsync (response);
-                /*
+                if (fullName == "")
+                {
+                    fullName = "Joe Santos, 33";
+                }
+                // await context.Response.WriteAsync(response);
+                // });
+
+                // app.Run(async (context) =>
+                // {
                 var cookie = context.Request.Cookies["MyCoolLittleCookie"];
 
                 if (string.IsNullOrWhiteSpace(cookie))
@@ -56,24 +70,23 @@ namespace _04_HandsOn
                     context.Response.Cookies.Append
                     (
                         "MyCoolLittleCookie",
-                        "Cookie created at: " + now.ToString("h:mm:ss tt"),
-                        new CookieOptions
-                        {
-                            Path = "/",
-                            HttpOnly = false,
-                            Secure = false,
-                            Expires = expires
-                        }
+                        "Cookie created at: " + now.ToString("h:mm:ss tt") + " for " + fullName + "!",
+                         new CookieOptions
+                         {
+                             Path = "/",
+                             HttpOnly = false,
+                             Secure = false,
+                             Expires = expires
+                         }
                     );
                 }
 
-                string response =
-                    "<h1>HTTP Cookies</h1>" +
-                    $"<p>This is the cookie value received from browser: \"<strong>{cookie}</strong>\".</p>" +
-                     "<p>Refresh page to see current cookie value...</p>" +
-                    "<p>Cookie expires after 15 seconds.</p>";
+                response +=
+                "<br />" +
+                "<p>Refresh page to see current cookie value...</p>" +
+                $"<p>This is the cookie value received from browser: \"<strong>{cookie}</strong>\".</p>" +
+                "<p>Cookie expires after 15 seconds.</p>";
                 await context.Response.WriteAsync(response);
-                */
             });
         }
     }
