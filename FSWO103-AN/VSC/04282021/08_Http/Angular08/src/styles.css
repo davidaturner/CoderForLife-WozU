@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: rgb(253, 221, 133);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    padding: 10px 0;
+    margin: 15px 0;
+}
+
+h1, h4, h5, h6 {
+    color: rgb(192, 151, 37);
+}
+
+div {
+    padding: 3px 0;
+}
+

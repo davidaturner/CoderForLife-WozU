@@ -1,0 +1,23 @@
+#header {
+    border: 1px solid #e0e0f1;
+
+    width: 40%;
+    margin: auto;
+    text-align: center;
+}
+
+#header h3 {
+    background-color: grey;
+    color: white;
+    padding: 2px 0;
+}
+
+#header p {
+    padding-right: 5em;
+    padding-left: 5em;
+}
+
+/* Add the following: */
+app-skills {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
+}

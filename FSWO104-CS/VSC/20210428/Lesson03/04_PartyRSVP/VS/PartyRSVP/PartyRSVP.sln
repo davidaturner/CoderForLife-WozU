@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PartyRSVP", "PartyRSVP\PartyRSVP.csproj", "{E7C181EF-3AC5-4687-AEDF-EFE03A62FAEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7C181EF-3AC5-4687-AEDF-EFE03A62FAEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7C181EF-3AC5-4687-AEDF-EFE03A62FAEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7C181EF-3AC5-4687-AEDF-EFE03A62FAEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7C181EF-3AC5-4687-AEDF-EFE03A62FAEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {178F55A8-5D71-4410-9040-1B00EC75868F}
+	EndGlobalSection
+EndGlobal

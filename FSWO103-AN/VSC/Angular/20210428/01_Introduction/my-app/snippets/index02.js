@@ -1,0 +1,15 @@
+"use strict";
+var int123 = 123;
+var strname = "StepIn";
+var booleanman = true;
+var truefalse = [0, 1];
+var truefalse2 = ["Zero", "One"];
+var nullster = null;
+var undefiner = undefined;
+console.log("booleanman: " + booleanman + " t: " + (typeof booleanman));
+console.log("int123: " + int123 + " t: " + (typeof int123));
+console.log("strname: " + strname + " t: " + (typeof strname));
+console.log("truefalse: " + truefalse[0] + " " + truefalse[1] + " " + (typeof truefalse[0]));
+console.log("truefalse2: " + truefalse2[0] + " " + truefalse2[1] + " " + (typeof truefalse2[0]));
+console.log("null: " + nullster + " " + (typeof nullster));
+console.log("undefined: " + undefiner + " " + (typeof undefiner));

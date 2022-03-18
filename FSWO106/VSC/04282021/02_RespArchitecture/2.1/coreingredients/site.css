@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+
+div {
+    border: 1px solid #e0e0f1;
+}
+
+img,
+video {
+    height: 100%;
+    width: auto;
+    /*
+    height: auto;
+    max-width: 100%;
+    */
+}
+
+h1, h2 {
+    text-align: center;
+    color: goldenrod;
+}
+
+h2 {
+    font-size: 2.1rem;
+    margin: 10px;
+}
+
+p {
+    font-size: 1.0rem;
+    text-align: justify;
+    margin: 10px;
+}
+ul {
+    padding: 12px 10px;
+    list-style-type: none;
+}
+
+li {
+    color: goldenrod;
+    font-size: 1.4rem;
+    margin-left: 30px;
+    padding: 5px
+}
+
+.container {
+    width: 98%;
+}
+
+.img {
+    height: 150px;
+
+    background-image: url("petshopboys5.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.menu {
+    float: left;
+    width: 25%;
+    height: 400px;
+    text-align: left;
+}
+
+.main {
+    float: left;
+    width: 75%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.summary {
+    display: block;
+}
+
+@media only screen and (max-width: 575px) {
+    /*
+    body {
+        background-color: lightsalmon;
+    }
+*/
+    .menu,
+    .main {
+        width: 100%;
+        text-align: center;
+    }
+
+    .summary {
+        display: none;
+    }
+}
