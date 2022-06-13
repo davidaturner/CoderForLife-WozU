@@ -1,0 +1,65 @@
+<!doctype html>
+<!-- NOTE: The script tag and it's code has been moved to the end of the body so 
+    that the document.getElementById() function can find the alertButton element. If 
+    the script tag were to remain in the head of the document, the 
+    document.getElementById() function would not be able to locate the button since 
+    it had not yet been rendered.-->
+
+<html>
+
+<head>
+    <!-- Callbacks are used for more than just button clicks. setTimeout is a function 
+        that will wait some period of time and then run the function that you specify as 
+        a parameter. This allows you to schedule your process to continue at a later 
+        point in time (perhaps after an animation has completed), or if you wanted to 
+        check on something periodically.-->
+    <script>
+        const thingToDoWhenTimeoutIsOver = () => alert('Timeout: no click');
+        setTimeout(thingToDoWhenTimeoutIsOver, 8000) // eight seconds.
+    </script>
+</head>
+
+<body>
+    <!-- When you attach an onclick handler via code instead of as an attribute, 
+        you also receive an object that describes the event. The example uses the 
+        source element's id in the alert message.-->
+    <div>
+        <button id="alertButton">Show Alert</button>
+    </div>
+    <script>
+        const thingToDoWhenClicked = (evt) => alert('I was clicked by: ' + evt.srcElement.id);
+        document.getElementById('alertButton').onclick = thingToDoWhenClicked;
+    </script>
+</body>
+
+</html>
+
+
+<!-- <!doctype html>
+<html>
+
+<head>
+    <script>
+        const thingToDoWhenClicked = () => alert('I was clicked');
+    </script>
+</head>
+
+<body>
+    <div>
+        <button onclick="thingToDoWhenClicked()">Show Alert</button>
+    </div>
+</body>
+
+</html> -->
+<!--
+<!doctype html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script src="bundle.js"></script>
+    </body>
+</html>
+-->
